@@ -1,3 +1,7 @@
+	div#whychoose{
+		background-color: #000;
+	}
+	
 	.whychoose section .tab-content #military section:nth-of-type(3) {
 		background:url(../img/logo-sprint.png) bottom right no-repeat;
 		padding:20px 40% 20px 20px;
@@ -85,43 +89,124 @@
     margin: 0;
 }
 
-#social_strip li {
-    float: left;
-    margin: 0 0 0 3px;
+	#social_strip li {
+		float: left;
+		margin: 0 0 0 3px;
+	}
+	
+		#social_strip li#label {
+			color: #7c7d80;
+			padding-top: 4px;
+			text-transform: uppercase;
+			padding-right: 4px;
+			font-size: 10px;
+		}
+		
+		#social_strip li a {
+			height: 19px;
+			width: 19px;
+			background-position: top left;
+			background-repeat: no-repeat;
+			display: block;
+			text-indent: -9999px;
+		}
+
+		#social_strip li#social_strip-fb a {
+			background-image: url("../img/sprite-social-icons.png");
+		}
+
+		#social_strip li#social_strip-tw a {
+			background-image: url("../img/sprite-social-icons.png");
+			background-position: -19px 0;
+		}
+
+		#social_strip li#social_strip-gp a {
+			background-image: url("../img/sprite-social-icons.png");
+			background-position: -38px 0;
+		}
+
+		#social_strip li#social_strip-pt a {
+			background-image: url("../img/sprite-social-icons.png");
+			background-position: -57px 0;
+		}	
+
+		#social_strip li#share_label{
+			color: #7c7d80;
+			margin-top: 2px;
+		}
+
+.main-contents{
+	position: relative;
+	background: #fff;
 }
 
-#social_strip li#label {
-    color: #7c7d80;
-    padding-top: 4px;
+.container div#left-panel{
+	background: #fff;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.container div#right-panel{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.footer-social{
+	font-size: 12px;
     text-transform: uppercase;
-    padding-right: 4px;
-    font-size: 10px;
+    color: #FFFFFF;
+    font-weight: bold;
 }
 
-#social_strip li a {
-    height: 19px;
-    width: 19px;
-    background-position: top left;
-    background-repeat: no-repeat;
-    display: block;
-    text-indent: -9999px;
+	.footer-social ul{
+		margin: 0;
+		padding: 0;
+	}
+
+		.footer-social ul li {
+			font: 11px arial;
+			color: #999;
+			width: 40px !important;
+			padding: 0!important;
+			float: left;
+			list-style: none;
+		}
+
+			.footer-social li a, #footer-social li a:hover {
+				color: #999;
+				text-decoration: none;
+				display: block;
+				overflow: hidden;
+				text-indent: -999px;
+				width: 32px;
+				height: 35px;
+				margin-right: 8px;
+				background-image: url(../img/masterpage-sprite.png);
+			}
+
+.footer-social #footer-social-facebook a {
+    background-position: -284px -93px;
 }
 
-#social_strip li#social_strip-fb a {
-    background-image: url("../img/sprite-social-icons.png");
+.footer-social #footer-social-twitter a {
+    background-position: -284px -178px;
 }
 
-#social_strip li#social_strip-tw a {
-    background-image: url("../img/sprite-social-icons.png");
-    background-position: -19px 0;
+.footer-social #footer-social-youtube a {
+    background-position: -284px -262px;
 }
 
-#social_strip li#social_strip-gp a {
-    background-image: url("../img/sprite-social-icons.png");
-    background-position: -38px 0;
+.footer-social #footer-social-gplus a {
+    background-position: -247px -304px;
 }
 
-#social_strip li#social_strip-pt a {
-    background-image: url("../img/sprite-social-icons.png");
-    background-position: -57px 0;
-}	
+.footer-social #footer-social-instagram a {
+    background-position: -247px -136px;
+}
+
+.footer-social #footer-social-tumblr a {
+    background-position: -247px -220px;
+}
