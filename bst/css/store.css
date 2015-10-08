@@ -1,0 +1,83 @@
+.gradient-grey-dk, .gradient-grey-dk-hover {
+  position: relative;
+  background: #262626;
+  background: -webkit-gradient(linear,0 0,0 bottom,from(#626161),to(#262626));
+  background: -webkit-linear-gradient(#626161,#262626);
+  background: -moz-linear-gradient(#626161,#262626);
+  background: -ms-linear-gradient(#626161,#262626);
+  background: -o-linear-gradient(#626161,#262626);
+  background: linear-gradient(#626161,#262626);
+  -pie-background: linear-gradient(#626161,#262626);
+  behavior: url(/_themes/libs/PIE.htc);
+  color:#FFF;
+}
+
+.transparent{
+  background-color:transparent;
+}
+
+.banner{
+  padding:20px;
+}
+
+#storeOptions>li{
+  float:left;
+  padding-right:10px;
+}
+.banner label{
+  font-weight:initial;
+  font-size:11px;
+}
+
+#store .icons {
+  margin-left: 2px;
+  height: 20px;
+  width: 20px;
+  overflow: hidden;
+  text-indent: -9999px;
+  background-image: url(../img/store/icons.png);
+  background-repeat: no-repeat;
+  background-position: 2px 0px!important;
+  display: inline-block;
+  position: relative;
+  top: 4px;
+}
+
+#store .icons.icon-phone {
+  width: 12px !important;
+}
+#store .icons.icon-reboost {
+  width: 12px !important;
+  background-position: 0px -37px!important;
+}
+#store .icons.icon-wallet {
+  background-position: 0px -76px!important;
+  margin-right: 5px;
+}
+#store .icons.icon-boost {
+  background-position: 0px -155px!important;
+  margin-right: 4px;
+}
+
+.banner-img{
+  max-width:100%;
+}
+
+@media (min-width: 992px){
+  .lg-pull-right{
+    float:right;
+  }
+}
+
+@media (max-width: 991px){
+  .lg-pull-right{
+    float:left;
+  }
+}
+
+@media (max-width:768px){
+  .row{
+    margin-left:0;
+    margin-right:0;
+  }
+}

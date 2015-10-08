@@ -1,0 +1,127 @@
+	.whychoose section .tab-content #military section:nth-of-type(3) {
+		background:url(../img/logo-sprint.png) bottom right no-repeat;
+		padding:20px 40% 20px 20px;
+		height:250px;
+	}
+	.whychoose section .tab-content #military section:nth-of-type(4) {
+		background:url(../img/military-map.png) bottom right no-repeat;
+		padding:20px 40% 20px 20px;
+		height:250px;
+	}
+
+	.whychoose section .tab-content #referral section:first-of-type {
+		background:url(../img/referral-bg.jpg) top right no-repeat;
+		background-size:cover;
+		height:280px;
+	}	
+
+		.whychoose section .tab-content #referral img {
+			float:left;
+		}	
+
+		.whychoose section .tab-content #referral div {
+			margin:-10px 0 0 100px;
+		}
+
+	.whychoose section .tab-content #referral section {
+		border-bottom:1px solid #DDDDDD; padding:20px; background:none;
+	}
+		.whychoose section .tab-content #referral section h3 {
+			color:#F99100;
+		}
+
+	.whychoose section .tab-content #referral section:first-of-type h1,
+	.whychoose section .tab-content #referral section:first-of-type h4 {
+		padding:0;
+	}
+		.whychoose section .tab-content #referral section:first-of-type h1{color:#F99100;}
+		.whychoose section .tab-content #referral section:first-of-type p {color:#FFFFFF;}
+	.whychoose section .tab-content #referral section:nth-of-type(2) p b {
+		color:#000000;
+	}
+
+	.whychoose section .tab-content #referral section:first-of-type {
+		padding:20px 60% 20px 20px;
+		height:245px;
+	}
+
+	.whychoose section .tab-content #referral section:first-of-type p {color:#000000;}
+	.whychoose section .tab-content #referral section:nth-of-type(2) {
+		background:url(../img/img-military01.jpg) bottom right no-repeat;
+		padding:20px 40% 20px 20px;
+		height:300px;
+	}
+	.whychoose section .tab-content #referral section:nth-of-type(3) {
+		background:url(../img/img-coverageVector.png) bottom right no-repeat;
+		padding:20px 40% 20px 20px;
+		height:250px;
+	}								
+
+.whychoose section .tab-content #referral section:first-of-type h1 {
+    font-size: 30px;
+    padding: 10px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    margin-top: 50px;
+     min-width:80%;
+    
+		}
+.whychoose section .tab-content #referral section:first-of-type p {
+			max-width:300px;
+			min-width:20%;
+			font-size:15px;
+			line-height:16px;
+			padding:10px 0 0;
+			color:#000000;
+		}	
+
+
+
+#social_strip {
+    float: right;
+    list-style: none;
+    display: block;
+    margin: 0;
+}
+
+#social_strip li {
+    float: left;
+    margin: 0 0 0 3px;
+}
+
+#social_strip li#label {
+    color: #7c7d80;
+    padding-top: 4px;
+    text-transform: uppercase;
+    padding-right: 4px;
+    font-size: 10px;
+}
+
+#social_strip li a {
+    height: 19px;
+    width: 19px;
+    background-position: top left;
+    background-repeat: no-repeat;
+    display: block;
+    text-indent: -9999px;
+}
+
+#social_strip li#social_strip-fb a {
+    background-image: url("../img/sprite-social-icons.png");
+}
+
+#social_strip li#social_strip-tw a {
+    background-image: url("../img/sprite-social-icons.png");
+    background-position: -19px 0;
+}
+
+#social_strip li#social_strip-gp a {
+    background-image: url("../img/sprite-social-icons.png");
+    background-position: -38px 0;
+}
+
+#social_strip li#social_strip-pt a {
+    background-image: url("../img/sprite-social-icons.png");
+    background-position: -57px 0;
+}	
