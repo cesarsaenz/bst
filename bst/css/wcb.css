@@ -29,7 +29,7 @@
 
 	.whychoose section .tab-content #referral section {
 		border-bottom:1px solid #DDDDDD; padding:20px; background:none;
-		padding: 20px 40% 20px 20px !important;
+		/*padding: 20px 40% 20px 20px !important;*/
 	}
 		.whychoose section .tab-content #referral section h3 {
 			color:#F99100;
@@ -53,7 +53,7 @@
 	}
 
 	.whychoose section .tab-content #referral section:first-of-type {
-		padding:20px 60% 20px 20px;
+		padding:20px 40% 20px 20px;
 		height:245px;
 	}
 
