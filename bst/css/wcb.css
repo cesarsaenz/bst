@@ -51,10 +51,16 @@
 
 	.whychoose section .tab-content #referral section:first-of-type p {color:#000000;}
 	.whychoose section .tab-content #referral section:nth-of-type(2) {
-		background:url(../img/img-military01.jpg) bottom right no-repeat;
-		padding:20px 40% 20px 20px;
+		/*background:url(../img/img-military01.jpg) bottom right no-repeat;*/
+		/*padding:20px 40% 20px 20px;*/
 		height:300px;
 	}
+	
+	.whychoose section .tab-content #referral ul{
+		list-style: square;
+		margin: 0px 0px 0px 40px;
+	}
+	
 	.whychoose section .tab-content #referral section:nth-of-type(3) {
 		background:url(../img/img-coverageVector.png) bottom right no-repeat;
 		padding:20px 40% 20px 20px;
