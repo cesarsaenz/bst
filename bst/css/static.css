@@ -1,0 +1,295 @@
+div.tab-content div#datapacks.tab-pane section:first-of-type {    
+    background: url(../img/data-packs-header2.jpg) top left no-repeat;
+    height:260px;
+    width: 100%;
+    padding: 140px 400px 0 0;
+}
+
+div.tab-content div#mexicoplus.tab-pane section:first-of-type {    
+    background: url(../img/mexico-plus-banner.jpg) top left no-repeat;
+    height:260px;
+    width: 100%;
+    padding: 140px 400px 0 0;
+    background-size:cover;
+}
+
+div.tab-content div#intminutepack.tab-pane section:first-of-type{
+    background: url(../img/int-minute-packs.jpg) top left no-repeat;
+    background-size:cover;
+    padding: 95px 52% 0 30px;
+    color: #000000;
+    height: 272px;
+}
+
+div.tab-content div#insurance.tab-pane section:first-of-type{
+    background: url(../img/phone-insurance-bg.jpg) top left no-repeat;
+    background-size:cover;
+    padding: 110px 42% 0 30px;
+    color: #000000;
+    height: 272px;
+}
+
+
+div.tab-content div#intminutepack.tab-pane section:first-of-type h3,
+div.tab-content div#insurance.tab-pane section:first-of-type h1{
+    background: #000;
+    text-align: center;
+}
+
+div.tab-content div#intminutepack.tab-pane section:nth-child(2){
+    background: #e7e8eb url(../img/int-minute-packs-2.jpg) top left no-repeat;
+    background-size:cover;
+}
+
+div.tab-content div#intminutepack.tab-pane section{
+    padding: 0 25px;
+    background:#e7e8eb;
+}
+
+div.tab-content div#intminutepack.tab-pane section:first-of-type h3,
+div.tab-content div#insurance.tab-pane section:first-of-type h1{
+    color: #ffffff;
+    padding-bottom: 10px;
+}
+
+
+div#databoost.tab-pane.active section h1.terms_and_conditions{
+    font-family: BoostNeoRegular,Arial,Helvetica,sans-serif;
+    color: #FFFFFF;
+}
+
+
+div.tab-content div#datapacks.tab-pane section,
+div.tab-content div#mexicoplus.tab-pane section{
+    padding:0 25px;
+}
+
+div.tab-content div#datapacks.tab-pane section h1.banner-datapacks,
+div.tab-content div#mexicoplus.tab-pane section h1.banner-mexicoplus{
+    background-color: #000;
+    color: #fff;
+    font-size: 30px;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: center;
+}
+
+
+p.banner-datapacks,
+p.banner-mexicoplus{
+    padding: 0 0 0 20px!important;
+}
+
+ul.datapacks{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul.datapacks li{
+    float: left;
+    list-style: none;
+    padding: 10px 20px;
+}
+
+.clear{clear: both;}
+.white{color:#FFFFFF!important;margin: 10px 0;}
+
+ul.navlegalsub{padding:0 0 20px !important;}
+ul.navlegalsub::before{
+    color: #f99100;
+    display: block;
+    font-family: "Boost_med",Helvetica,Arial,sans-serif;
+    font-size: 15px;
+    padding: 10px;
+}
+
+ul.navlegalsub li{
+    list-style:disc; margin:0 0 0 30px !important;
+}
+
+ul.navlegalsub li a {background:none !important; border-bottom:none !important; color:#333333 !important; padding:2px 10px 2px 0 !important; font-size:11px;}
+
+ul.navlegalsub li a:hover {color:#F99100 !important;}
+
+.btn-primary{
+    color:#FFF!important;
+} 
+
+#dasTable{
+    width: 100%;
+    margin: 20px 0 0 0;
+}
+
+#dasTable thead tr th{
+    background:#454545;
+    color:#FFF;
+    font-size:20px;
+    text-align: center;
+}
+
+#dasTable tbody tr td{
+    color:#000;
+    font-size:16px;
+    text-align: center;
+}
+
+/********** BEGIN OF ABOUT US STYLES *******/
+
+div#databoost.tab-pane.active section:first-of-type{
+     background: url(../img/about-bg.jpg) top center no-repeat;
+    height: 219px;
+    padding: 50px 370px 10px 10px;
+    background-size:cover;
+}
+
+div#databoost.tab-pane.active section h1.terms_and_conditions{
+    font-family: BoostNeoRegular,Arial,Helvetica,sans-serif;
+    color: #FFFFFF;
+}
+
+
+div#databoost.tab-pane.active section h3.color_orange{
+    font-family: BoostNeoRegular,Arial,Helvetica,sans-serif;
+    color: #F99100;
+	font-size: 18px;
+	margin-bottom : 5px;
+	margin-top : 30px;
+	font-weight: lighter;
+	line-height: 1.231;
+}
+
+div#databoost.tab-pane.active section p.align_content{
+font-size: 13px;
+font-family: verdana;
+color: #222;
+line-height: 1.231;	
+text-align:justify;
+direction:initial;
+margin: 2px 15px 15px;
+
+}
+
+div#databoost.tab-pane.active section ul li.bullets{
+
+ list-style-type: square;
+ text-align:justify;
+ position: relative; 
+ left: 20px;
+ font-size: 13px;
+ font-family: verdana;
+ color: #222;
+ line-height: 1.231;
+ direction:initial;
+ margin: 2px 15px 15px;
+ margin-right: 50px;
+}
+
+div#databoost.tab-pane.active section ul li.bullets_min{
+
+ list-style-type: disc;
+ text-align:justify;
+ position: relative; 
+ left: 50px;
+ font-size: 13px;
+ font-family: verdana;
+ color: #222;
+ line-height: 1.0;
+ direction:initial;
+ margin: 2px 5px 5px;
+ margin-right: 50px;
+}
+
+div#databoost.tab-pane.active section strong.sangria{
+ margin-left: 12px;
+  font-size: 13px;
+ font-family: verdana;
+
+}
+
+div#databoost.tab-pane.active section em.letterStyle{
+  font-size: 13px;
+ font-family: verdana;
+}
+
+#application label {
+    display: inline-block;
+    margin: 0px;
+    padding: 10px 0px 5px;
+    color: #6C6B6B;
+    font-size: 13px;
+}
+
+/********** END OF ABOUT US STYLES *******/
+
+/***********  BEGIN OF STYLES OF EMAIL FORM ****************/
+.button {
+    border: 0px none;
+}
+
+.button, .button:link, .button:visited {
+    display: inline-block;
+    font-size: 16px;
+    line-height: 32px;
+    text-align: center;
+    color: #FFF;
+    text-decoration: none;
+    width: 115px;
+    border: 0px none;
+    font-family: BoostNeoBold,Arial,Helvetica,sans-serif;
+}
+
+.rounded-3 {
+    border-radius: 3px;
+    position: relative;
+}
+
+.gradient-orange, .gradient-orange-hover, .gradient-orange-nohover {
+    position: relative;
+    background: transparent linear-gradient(#F7901E, #D1581C) repeat scroll 0% 0%;
+}
+
+div#databoost.tab-pane.active section input[type="text"] {
+
+width: 250px;
+height: 35px;
+margin: 0px;
+padding: 2px 10px;
+color: #6C6B6B;
+font-size: 13px;
+border: 2px solid #FFF;
+background: transparent url("../img/about-us/input_bg.png") no-repeat scroll 0% 0%;
+
+}
+
+div#databoost.tab-pane.active section label {
+    display: inline-block;
+    margin: 0px;
+    padding: 10px 0px 5px;
+    color: #6C6B6B;
+    font-size: 13px;
+}
+
+div#databoost.tab-pane.active section select:hover {
+    background: transparent url("../img/about-us/select.png") no-repeat scroll right bottom;
+}
+div#databoost.tab-pane.active section select {
+    color: #000000;
+    background: transparent url("../img/about-us/select.png") no-repeat scroll right top;
+    padding: 5px 35px 5px 3px;
+    line-height: 1;
+    border: 0px none;
+    border-radius: 0px;
+    height: 28px;
+    margin: 0px !important;
+    position: relative;
+    right: -3px;
+    -moz-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: "";
+    cursor: pointer;
+	font-size: 13px;
+	font-family: verdana;
+}
+
+/***********  END OF STYLES OF EMAIL FORM ****************/
