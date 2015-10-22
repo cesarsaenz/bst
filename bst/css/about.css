@@ -143,3 +143,15 @@ p.one {
 	list-style: square;
 	margin-left: 30px;
 }
+
+table.devices-table{
+	border: 2px solid #000;
+}
+
+table.devices-table tbody tr{
+	border: 1px solid #000;
+}
+
+table.devices-table tbody tr > td{
+	border: 1px solid #000;
+}
