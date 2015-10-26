@@ -1,7 +1,14 @@
 @media (min-width: 768px){
 	.about-top{background-size: 100% !important;}
 }
-
+@media (max-width: 767px){
+	.about-top .banner-label {
+    margin-left: 20px !important;
+    font-weight: bold;
+    width: 90% !important;
+    size: 14px;
+}
+}
 .panel li > a{
 	padding: 4px 10px !important;
 	background-color: #eaeaea !important;
