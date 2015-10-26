@@ -1,3 +1,62 @@
+@media (min-width: 768px){
+	.about-top{background-size: 100% !important;}
+}
+
+.panel li > a{
+	padding: 4px 10px !important;
+	background-color: #eaeaea !important;
+	border: none !important;
+	color: #000 !important;
+}
+.panel li > a.sub-menu{
+	padding-left: 18px !important;
+	font-size: 11px;
+}
+.panel li > a:hover{
+	background-color: #eaeaea !important;
+	color: #67CFCD !important;
+}
+.mobile-about-menu{
+	background-color: #2e2e2e;
+	clear: both;
+}
+.mobile-about-menu > div{
+	background-color: #2e2e2e;
+	display: table;
+	position: relative;
+}
+.mobile-about-menu > div > a, .mobile-about-menu select{
+	display: table-cell;
+	width: 100%;
+	background-color: #454545;
+	color: #ccc;
+	border: 1px solid #2e2e2e;
+	font-weight: bold;
+	text-align: center;
+	padding: 10px 0px;
+	min-height: 56px;
+}
+.mobile-about-menu select{
+	moz-appearance: none;
+	text-indent: 0.01px;
+	text-overflow: '';
+}
+.mobile-about-menu a.active{
+	background: linear-gradient(#f7901e,#d1581c);
+	color: #fff;
+}
+.mobile-about-menu a:hover{
+	background: linear-gradient(#f7901e,#d1581c);
+	color: #fff;
+	text-decoration: none;
+}
+#services-box{
+	background-color: #454545;
+}
+#services-box a{
+	color: #ccc;
+}
+			
 .h1{float:left;clear:left;margin-top:7px;font-size:25px !important;line-height:1.5em}
 
 #about-content{width:958px;display:block;background:#fff;margin:20px 0 40px;border-left:2px solid #e3e3e3;padding-bottom:0}
@@ -7,7 +66,7 @@
 .about-bottom .about-bottom-link{color: #f7901e}
 .about-top, .about-bottom{margin: 0px 20px;}
 .about-top h1{margin-left: 8px;}
-.about-top{padding-top:50px;background: url('../img/about/about-us/about-bg.jpg') no-repeat 0 0; background-size: 100%;min-height:190px; position: relative; display: table; width: 100%; margin-left: 1px;}
+.about-top{padding-top:50px;background: url('../img/about/about-us/about-bg.jpg') no-repeat 0 0; min-height:190px; position: relative; display: table; width: 99.9%; margin-left: 1px;}
 .about-top .banner-label{margin-left:20px !important; font-weight: bold;width: 330px; size: 14px;}
 h1{font-size:40px;}
 h2{color:#000;font-size:21px;}
