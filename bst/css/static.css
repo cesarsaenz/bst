@@ -246,7 +246,12 @@ div#databoost.tab-pane.active section em.letterStyle{
 
 .gradient-orange, .gradient-orange-hover, .gradient-orange-nohover {
     position: relative;
+	padding: 25px 0 30px 0;
+	color: #fff;
     background: transparent linear-gradient(#F7901E, #D1581C) repeat scroll 0% 0%;
+}
+.gradient-orange span{
+	color: #000;
 }
 
 div#databoost.tab-pane.active section input[type="text"] {
