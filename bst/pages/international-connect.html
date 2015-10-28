@@ -773,10 +773,10 @@
 								<div class="col-sm-4">
 									<h4>New!</h4>
 									<h3><span>Todo Mexico Plus</span>$5/Month</h3>
-									<a class="btn btn-block btn-default">Add to My Account</a>
+									<a class="btn btn-block">Add to My Account</a>
 								</div>
 								<div class="col-sm-8">
-									<h3>Available w/ the $35, $45 &amp; $55 Data Boost and $30 Data Boost Up Plans.</h3>
+									<h4 class="rate-header">Available w/ the $35, $45 &amp; $55 Data Boost and $30 Data Boost Up Plans.</h4>
 									<h4>UNLIMITED calls to ALL of Mexico - including mobiles!</h4>
 									<h4>UNLIMITED calls to Canada†</h4>
 									<h4>UNLIMITED international text messaging</h4>
@@ -786,11 +786,12 @@
 						<section class="ratetable">
 							<div class="bg">
 								<div class="col-sm-4">
+									<br /><br /><br /><br /><br /><br /><br /><br /><br />
 									<h3><span>International Connect</span>Plus $10/Month</h3>
-									<a class="btn btn-block btn-default">Add to My Account</a>
+									<a class="btn btn-block">Add to My Account</a>
 								</div>
 								<div class="col-sm-8">
-									<h3>Available w/ any monthly plan.</h3>
+									<h4 class="rate-header">Available w/ any monthly plan.</h4>
 									<h4>1000 minutes to mobiles in Mexico or landlines in the Dominican Republic (or combination thereof.)</h4>
 									<h4>UNLIMITED calls to landlines in over 70 countries including Mexico and Canada:*</h4>
 									<table>
@@ -831,27 +832,29 @@
 								</div>
 								<div class="rate_calc_form pull-left">
 								
-									<form id="rate_calculator_form">
-										
-										<p class="phone_number_fields">
-											<label >
-												<b>Enter the phone number you'll be calling:</b>
-											</label>
+									<form id="rate_calculator_form"> 
+										<div class="phone_number_fields clearfix"> 
+											<br>
+											<p>
+												<label for="phone_number" class="phone_number">
+													<strong>Enter the phone number you'll be calling:</strong>
+												</label> 
+											</p>
+											<div class="indented"> 
+												<div id="phone_prefix"><!-- Wrapped in a div so that it appears styled. --> 
+													<select name="phone_prefix"> 
+														<option value="001">001</option> 
+														<option value="011" selected="selected">011</option> 
+													</select> 
+												</div> 
+												<input type="text" name="phone_number" id="phone_number" value="XXXXXXXXXX"> 
+												<div class="error_message">number not valid</div> 
+											</div> 
+										</div> 
+										<p> 
+											<br> 
+											<a href="#" class="btn_search">Search</a> 
 										</p>
-										
-										<div class="indented">
-											<select name="phone_prefix" id="phone_prefix">
-												<option value="001">001</option>
-												<option value="011" selected="selected">011</option>
-											</select>
-											
-											<!-- <input type="text" name="phone_number" id="phone_number" placeholder="XXXXXXXXXX"/> -->
-											
-											<input type="text" name="phone_number" id="phone_number" value="XXXXXXXXXX">
-											
-											<p class="error_message">number not valid</p>
-											<a href="#" class="btn_search" >Search</a>
-										</div>
 									</form>
 								
 								</div>

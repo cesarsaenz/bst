@@ -1,3 +1,18 @@
+@media (max-width: 310px){
+	.mobile-about-menu > div > a, .mobile-about-menu select {
+		display: table-cell;
+		width: 100%;
+		background-color: #454545;
+		color: #ccc;
+		border: 1px solid #2e2e2e;
+		font-weight: bold;
+		text-align: center;
+		padding: 10px 0px;
+		min-height: 56px;
+		font-size: 8px;
+	}
+}
+
 @media (min-width: 768px){
 	.about-top{background-size: 100% !important;}
 }
