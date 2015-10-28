@@ -1,3 +1,34 @@
+@media (max-width: 767px){
+	.tab-pane > img + section {
+		background: none !important;
+		padding: 0px 30px !important;
+		height: auto !important;
+		min-height: 50px !important;
+	}
+	.tab-pane > img + section > h2{
+		color: #f7901e !important;
+	}	
+	section .tab-content #military section:first-of-type p {
+		color: #000 !important;
+	}
+	.whychoose section .tab-content #referral section:nth-of-type(2) {
+		height: auto !important;
+}
+	.whychoose section .tab-content #military section:nth-of-type(3) {
+		background: url(../img/logo-sprint.png) center right no-repeat !important;
+		background-size: 50% !important;
+	}
+	.whychoose section .tab-content #military section:nth-of-type(4) {
+		padding: 40px 0 20px 20px !important;
+	}
+	.whychoose section .tab-content #referral section h2 {
+		background-color: #fff !important;
+		margin-top: 0px !important;
+	}
+	.btn-boost {
+		font-size: 13px !important;
+	}
+}
 	div#whychoose, div#social{
 		background-color: #000;
 	}

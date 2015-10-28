@@ -13,6 +13,9 @@
 	<meta name="page-title" content="Why Boost">
 	<title>foo</title>
 	<link rel="shortcut icon" href="img/favicon.ico"/>
+	<link href="css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="css/jasny-bootstrap.min.css" rel="stylesheet"/>
+	<link href="css/app-framework.css" rel="stylesheet"/>
 	<link href="css/wcb.css" rel="stylesheet"/>
 </head>
 
@@ -58,15 +61,16 @@
 				<ul class="tabs-left">	
 					<li><h3 class="gradient-black">Why Choose Boost</h3></li>
 					<li><span>Why Choose Boost</span></li>				
-					<li><a href="#value" >Value Without Compromise</a></li>
-					<li><a href="#prepaid" >Why Choose Prepaid</a></li>
-					<li><a href="#military" >Supports Military Families</a></li>
-					<li><a href="#referral"  >Referral Program</a></li>
+					<li><a href="#value" data-toggle="tab" >Value Without Compromise</a></li>
+					<li><a href="#prepaid"  data-toggle="tab" >Why Choose Prepaid</a></li>
+					<li><a href="#military"  data-toggle="tab">Supports Military Families</a></li>
+					<li><a href="#referral"  data-toggle="tab" >Referral Program</a></li>
 				</ul>
 			</div>
 			<div class="col-xs-9 col-md-10">
 				<div class="tab-content">
 					<div class="tab-pane" id="value">
+						<img class="img-responsive" src="img/mobile-img-bg-whychoose.jpg" />
 						<section>
 							<h2>Value Without Compromise</h2>
 							<p>We heard that you wanted better phones, less commitment and great service at an affordable price. Ask and you shall receive.</p>
@@ -95,6 +99,7 @@
 						</section>
 					</div>
 					<div class="tab-pane" id="prepaid">
+						<img class="img-responsive" src="img/mobile-img-bg-whychooseprepaid.jpg" />
 						<section>
 							<h2>It's an easy choice.</h2>
 							<p>You'll get big savings, simple payment options and no long-term commitments.</p>
@@ -136,6 +141,7 @@
 						</section>
 					</div>
 					<div class="tab-pane" id="military">
+						<img class="img-responsive" src="img/img-bg-military.jpg" />
 						<section>
 							<h4>Why Choose Boost</h4>
 							<h1>Boost Mobile Supports Our Armed Forces</h1>
@@ -166,6 +172,7 @@
 					</div>
 
 					<div class="tab-pane" id="referral">
+						<img class="img-responsive" src="img/referral-bg.jpg" />
 						<section>
 							<h2>We've got some good news for you!</h2>
 							<p>It's about time you get rewarded for <br />spreading the word about Boost Mobile.</p>
@@ -193,107 +200,25 @@
 	<br />
 
 	
-<script>
-
-
-var curPageWords={
-  value:"Value Without Compromise - No Contract Prepaid | Boost Mobile",
-  prepaid:"Why Choose Prepaid: Benefits of Prepaid Phones | Boost Mobile",
-  military:"Supporting Our Military and Families - No Contract Prepaid | Boost Mobile",
-  referral:"Referral Program for Monthly Plan Customers | Boost Mobile"
-}
-var curBreadcrumb={
-  value:"Value Without Compromise",
-  prepaid:"Why Prepaid",
-  military:"Support Military Families",
-  referral:"Referral Program"
-}
-var resource={
-  value:{
-    meta:{
-      title:curPageWords.prepaid,
-      keywords:curPageWords.value,
-      description:curPageWords.value
-    },
-    page_title:curPageWords.prepaid
-  },
-  prepaid:{
-    meta:{
-      title:curPageWords.prepaid,
-      keywords:curPageWords.prepaid,
-      description:curPageWords.prepaid
-    },
-    page_title:curPageWords.prepaid
-  },
-  military:{
-    meta:{
-      title:curPageWords.military,
-      keywords:curPageWords.military,
-      description:curPageWords.military
-    },
-    page_title:curPageWords.military
-  },
-  referral:{
-    meta:{
-      title:curPageWords.referral,
-      keywords:curPageWords.referral,
-      description:curPageWords.referral
-    },
-    page_title:curPageWords.referral
-  }
-}
-var staticPageHandler={
-  hasInnerPage:true,
-  buildLink:function(v){
-    var vs=location.hash.split("#");
-    var hash=this.removeLastSlash("#"+vs[1]);
-    $.each($(v),function(idx,e){
-      var href=hash+"#"+e.href.split("#")[1];
-      if(!staticPageHandler.defaultLink){
-        staticPageHandler.defaultLink=href;
-      }
-      e.href=href;
-    });
-  },
-  buildMeta:function(key){
-    pathMap._page._metaTitle=resource[key].meta.title;
-    pathMap._page._metaKeywords=resource[key].meta.keywords;
-    pathMap._page._metaDescription=resource[key].meta.description;
-    pathMap._page._setMetas();
-  },
-  buildContent:function(){
-    this.buildLink(".tabs-left a");
-    if(this.hasInnerPage){
-      var vs=location.hash.split("#");
-      if(vs.length<3){
-        appUtil.net.setUrlHash(this.defaultLink);
-      }else{
-        vs=vs[2];
-      }
-      vs=this.removeLastSlash(vs);
-      
-      this.buildMeta(vs);
-      
-      $(appUtil.$scope.pageController.pagePath).find(".active").html(
-      	//resource[vs].meta.title
-      	curBreadcrumb[vs]
-      	);
-      
-      $("#"+vs).addClass("active");
-      $("a[href$='"+vs+"']").parent().addClass("active");
-    }
-  },
-  removeLastSlash:function(v){
-    if(v && v.substring(v.length-1)=="/"){
-      return v.substring(0,v.length-1);
-    }
-    return v;
-  }
-}
-
-staticPageHandler.buildContent();
-
-</script>
+<script src="../js/lib/jquery.min.js"></script>
+    <script src="../js/lib/sprintprepaid-bootstrap.min.js"></script>
+    <script src="../js/lib/jasny-bootstrap.min.js"></script>
+	<script>
+		$('#coverageMap').on('shown.bs.modal', function () {
+			$('#coverageModal').focus()
+		})
+		$(function(){
+		$(".dropdown").hover(
+			function() {
+				$('.dropdown-menu', this).stop( true, true ).fadeIn("fast");
+				$(this).toggleClass('open');
+			},
+			function() {
+				$('.dropdown-menu', this).stop( true, true ).fadeOut("fast");
+				$(this).toggleClass('open');
+			});
+		});
+	</script>
 
 </body>
 </html>

@@ -52,6 +52,11 @@
 	background: linear-gradient(#f7901e,#d1581c);
 	color: #fff;
 }
+
+.panel-body a.sub-active{
+	color: #f7901e !important;
+}
+
 .mobile-about-menu a:hover{
 	background: linear-gradient(#f7901e,#d1581c);
 	color: #fff;
