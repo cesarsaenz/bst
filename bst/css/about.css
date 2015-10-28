@@ -53,6 +53,14 @@
 	color: #fff;
 }
 
+.li-active > div > div > a[role=button] {
+    color: #fff !important;
+    background: -webkit-linear-gradient(#f7901e,#d1581c) !important;
+    background: -moz-linear-gradient(#f7901e,#d1581c) !important;
+    background: -ms-linear-gradient(#f7901e,#d1581c) !important;
+    background: -o-linear-gradient(#f7901e,#d1581c) !important;
+}
+
 .panel-body a.sub-active{
 	color: #f7901e !important;
 }
