@@ -1,0 +1,73 @@
+.disabled_label{color:#AAAAAA !important;}
+.enabled_label{color:#FFFFFF !important;}
+
+#phoneImageDialog img{
+  margin-left:auto;
+  margin-right:auto;
+}
+
+#features .specs a{
+  font-size:13px;
+}
+
+#features .specs .hidden-xs a{
+  white-space:nowrap;
+}
+
+.phoneRating {
+    display: inline-block;
+    color: #fff;
+    font-size: 13px;
+    line-height: 1.3em;
+    background: url('../bst/img/rates.png') no-repeat;
+    overflow: hidden
+}
+.star5point0 {
+    padding-left: 78px;
+    background-position: -150px top
+}
+.star4point5 {
+    padding-left: 74px;
+    background-position: -150px -34px
+}
+.star4point0 {
+    padding-left: 64px;
+    background-position: -150px -68px
+}
+.star3point5 {
+    padding-left: 60px;
+    background-position: -150px -102px
+}
+.star3point0 {
+    padding-left: 50px;
+    background-position: -150px -136px
+}
+.star2point5 {
+    padding-left: 44px;
+    background-position: -150px -170px
+}
+.star2point0 {
+    padding-left: 38px;
+    background-position: -150px -204px
+}
+.star1point5 {
+    padding-left: 32px;
+    background-position: -150px -238px
+}
+.star1point0 {
+    padding-left: 24px;
+    background-position: -150px -272px
+}
+.star0point5 {
+    padding-left: 18px;
+    background-position: -150px -306px
+}
+.star0point0 {
+    padding-left: 6px;
+    background-position: -150px -340px
+}
+
+.tab-pane .col-md-8 img.mapImg{
+  max-width:100%;
+  width:100%;
+}
