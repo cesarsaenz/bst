@@ -88,10 +88,12 @@
 
 			.rate_calc_form .error_message {
 				color: #DE0000;
-			    display: none;
+			    /*display: none;*/
 			    font: bold 10px/10px Arial;
 			    margin: 12px 0 0 195px;
 			    position: absolute;
+				right: 0;
+				height: 50px !important;
 			    text-align: center;
 			    width: 130px;
 			}
