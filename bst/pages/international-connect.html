@@ -19,9 +19,9 @@
 	<!-- ozamudio quitar los anteriores  2 cuandos se lleve a DEV1 -->
 	<link href="../css/static.css" rel="stylesheet" />
 	<link href="../css/softtek.css" rel="stylesheet" />
-	
 	<link href="../css/international_connect/rate_calculator.css" rel="stylesheet" />
-	
+	<script src="../../js/lib/jquery.min.js"></script>
+	<script src="../../js/lib/bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -768,7 +768,7 @@
 							<p>Enjoy unlimited international calling to countries across the globe for one flat rate. Simply add on one of these intenational calling options to your monthly plan (select plans apply).</p>
 						</section>
 						<section class="ratetable">
-							<h4 class="rateslink"><a>View Per Minute International Rates</a></h4>
+							<h4 class="rateslink"><a href="#" data-toggle="modal" data-target="#rates-modal">View Per Minute International Rates</a></h4>
 							<div class="bg">
 								<div class="col-sm-4">
 									<h4>New!</h4>
@@ -978,6 +978,23 @@
 -->
 	</div>	
 	
+	<div class="modal fade" id="rates-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+				</div>
+				<div class="modal-body">
+					<iframe src="irates.html" style="width: 100%; min-height: 400px; border: 0px"></iframe>
+				</div>
+				<!--div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div-->
+			</div>
+		</div>
+	</div>
 <script>
 
 
