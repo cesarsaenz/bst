@@ -1,15 +1,25 @@
+
+	
+@font-face {
+    font-family: BoostNeoBlack;;
+    src: url(../fonts/Boost-Neo-Black.otf);
+} 
+	
+
+
 div.tab-content div#datapacks.tab-pane section:first-of-type {    
     background: url(../img/data-packs-header2.jpg) top left no-repeat;
     height:260px;
     width: 100%;
-    padding: 140px 400px 0 0;
+    padding: 140px 42% 0 30px;
+    background-size:cover;
 }
 
 div.tab-content div#mexicoplus.tab-pane section:first-of-type {    
     background: url(../img/mexico-plus-banner.jpg) top left no-repeat;
     height:260px;
     width: 100%;
-    padding: 140px 400px 0 0;
+    padding: 140px 42% 0 30;
     background-size:cover;
 }
 
@@ -29,6 +39,24 @@ div.tab-content div#insurance.tab-pane section:first-of-type{
     height: 272px;
 }
 
+
+div.tab-content div#faqs.tab-pane section:first-of-type{
+    background: url(../img/faqs-header.jpg) top left no-repeat;
+    background-size:cover;
+    padding: 130px 52% 0 30px;
+    color: #000000;
+    height: 272px;
+}
+
+
+div.tab-pane.active section h3{
+    color:#f99100;
+}
+
+div.tab-content div#faqs.tab-pane section:first-of-type h3,
+div.tab-content div#faqs.tab-pane section:first-of-type h1{
+    color:#FFF;
+}
 
 div.tab-content div#intminutepack.tab-pane section:first-of-type h3,
 div.tab-content div#insurance.tab-pane section:first-of-type h1{
@@ -60,7 +88,8 @@ div#databoost.tab-pane.active section h1.terms_and_conditions{
 
 
 div.tab-content div#datapacks.tab-pane section,
-div.tab-content div#mexicoplus.tab-pane section{
+div.tab-content div#mexicoplus.tab-pane section,
+div.tab-content div#faqs.tab-pane section{
     padding:0 25px;
 }
 
@@ -74,6 +103,22 @@ div.tab-content div#mexicoplus.tab-pane section h1.banner-mexicoplus{
     text-align: center;
 }
 
+div#accordion-pp.panel-group div.panel.panel-default div.panel-heading{
+    background:#FFF!important;
+}
+
+div#accordion-pp.panel-group div.panel.panel-default div.panel-collapse.collapse.in div.panel-body{
+    background:#FFF!important;
+    border:1px ##414141 solid;
+}
+
+div#databoost.tab-pane.active section h1{
+    color:#FFF;
+}
+
+#insurance img{
+    float:none!important;
+}
 
 p.banner-datapacks,
 p.banner-mexicoplus{
@@ -263,7 +308,8 @@ padding: 2px 10px;
 color: #6C6B6B;
 font-size: 13px;
 border: 2px solid #FFF;
-background: transparent url("../img/about-us/input_bg.png") no-repeat scroll 0% 0%;
+// ozamudio
+background: transparent url(../img/about-us/input_bg.png) no-repeat scroll 0% 0%;
 
 }
 
@@ -276,11 +322,13 @@ div#databoost.tab-pane.active section label {
 }
 
 div#databoost.tab-pane.active section select:hover {
-    background: transparent url("../img/about-us/select.png") no-repeat scroll right bottom;
+//ozamudio
+    background: transparent url(../img/about-us/select.png) no-repeat scroll right bottom;
 }
 div#databoost.tab-pane.active section select {
     color: #000000;
-    background: transparent url("../img/about-us/select.png") no-repeat scroll right top;
+	//ozamudio
+    background: transparent url(../img/about-us/select.png) no-repeat scroll right top;
     padding: 5px 35px 5px 3px;
     line-height: 1;
     border: 0px none;
@@ -298,3 +346,439 @@ div#databoost.tab-pane.active section select {
 }
 
 /***********  END OF STYLES OF EMAIL FORM ****************/
+.boxed {
+    background-color: #000;
+    height: 130px;
+    padding: 0 10px!important;
+}
+
+.boxed h2.content-rates{
+	color: #f7901e;
+}
+
+.content-rates {
+    font-size: 25px;
+    letter-spacing: -0.5px;
+    padding-left: 10px;
+    padding-top: 15px;
+    text-align: left;
+}
+
+
+.arrows-orange:link, .arrows-orange:visited {
+    background-image: url("../img/links-arrows-orange.png");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    color: #fff;
+    padding-left: 25px;
+    text-decoration: none;
+}
+
+
+.arrows-orange:hover {
+    background-position: 0 -84px;
+}
+
+.sboxed{ padding: 10px!important;}
+
+
+#view-rateslist li {
+    display: inline;
+    list-style-type: none;!important
+    padding-right: 100px;
+}
+
+
+ul.tabs-left li.faq-title a:link, ul.tabs-left li.faq-title a:visited{
+    background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #292929 0%, #000000 100%) repeat scroll 0 0!important;
+    color: #f7901e!important;
+    display: block!important;
+    font-family: "Boost_bold",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    padding: 7px 10px;
+}
+
+div.faq-column h2 a:link, div.faq-column h2 a:visited {
+    font-size: 22px!important;
+}
+
+div.faq-column h2{
+    padding:17px 0 0 0!important;
+}
+
+div.faq-column ul li{
+    margin: 0 0 5px;
+}
+
+div.faq-column li a:link, .faq-column li a:visited {
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+div.faq-column{
+    padding:0 10px!important;
+}
+
+
+div.col-xs-3 ul.tabs-left li.active ul.plans-services li a{
+    background: #FFF;
+    color:#f7901e;
+    border:none;
+    font-size: 12px;
+    padding:5px 10px;
+}
+
+div.col-xs-3 ul.tabs-left li.active ul.plans-services li a:hover{
+    color:#CCC;
+    text-decoration: underline;
+}
+
+div#faqs.tab-pane.active section div.faqs-header h1{
+    color: #f7901e;
+    font-size: 36px;
+    font-weight: normal;
+    letter-spacing: -0.5px;
+    margin: 0;
+    padding: 30px 0 0;
+}
+
+div#faqs.tab-pane.active section ul.faqs-links{
+    list-style: disc;
+    list-style-position: outside;
+    padding: 0 0 0 25px;
+}
+
+div#faqs.tab-pane.active section ul.faqs-links li a:link,
+div#faqs.tab-pane.active section ul.faqs-links li a:visited{
+    text-decoration: underline;
+}
+
+ul.tabs-left li.active ul.plans-services li.active a,
+ul.tabs-left li.active ul.plans-services li ul.faqs-dropdown li.active a{
+    color:#000!important;
+    font-weight: bolder!important;
+}
+
+ul.tabs-left li.active ul.plans-services li.active ul.faqs-dropdown li a,
+ul.tabs-left li.active ul.plans-services li ul.faqs-dropdown li a{
+    color: #f7901e!important;
+    font-size: 12px!importnat;
+    padding:3px 0 3px 20px!important;
+    font-weight: normal!important;
+}
+
+div#faq-answers div.faq-answer h2{
+    padding: 0;
+}
+
+div#faq-answers div.faq-answer h2 a{
+    color:#f7901e;
+    font-size: 18px;
+}
+
+div#faqs.tab-pane.active section div#faq-questions div.faq-question p{
+    font-size: 13px;
+    padding:0;
+    margin: 0;
+}
+
+div#faqs.tab-pane.active section div#faq-questions div.faq-question p a{
+    text-decoration: underline;
+}
+
+#faqs a.top {
+    color: #f7901e !important;
+    float: right;
+    font-size: 11px;
+    position: relative;
+    top: 5px;
+}
+
+/* ilara - styles for Support/FAQs pages */
+section div div ul li.vignettes{
+
+ list-style-type: disc;
+ text-align:left;
+ position: relative; 
+ left: 50px;
+ font-size: 13px;
+ font-family: verdana;
+ color: #222;
+ line-height: 1.0;
+ direction:initial;
+ margin: 2px 5px 5px;
+ margin-right: 80px;
+}
+
+div.generalSupportSkype{
+ margin: 2px 2px 2px;
+ margin-left: 10px;
+ margin-right: 5px;
+}
+
+div#faqs-sub.tab-pane.active section div.faqs-header-sub h1{
+    color: #f7901e;
+    /*font-family: BoostNeoBold,Arial,Helvetica,sans-serif;*/
+    font-size: 36px;
+    font-weight: normal;
+    letter-spacing: -0.5px;
+    margin-left: 25px;
+	margin-right: 25px;
+    padding: 0;
+}
+
+div#faqs-sub.tab-pane.active section ul.faqs-links{
+    list-style: disc;
+    list-style-position: outside;
+    padding: 0 0 0 25px;
+}
+
+div#faqs-sub.tab-pane.active section ul.faqs-links li a:link,
+div#faqs-sub.tab-pane.active section ul.faqs-links li a:visited{
+    text-decoration: underline;
+}
+
+div#faqs-sub.tab-pane.active section div#faq-questions div.faq-question p{
+    font-size: 12px;
+    padding: 0 0 0 0;
+	margin: 0 0 0;
+    margin-left: 25px;
+	margin-right: 25px;
+}
+
+div#faqs-sub.tab-pane.active section div#faq-answers div.faq-answer-sub a.top,
+div#faqs-sub.tab-pane.active section div#faq-answers div.faq-answer-sub p a,
+div#faqs-sub.tab-pane.active section div#faq-questions div.faq-question p a{
+    text-decoration: underline;
+}
+
+div#faq-answers div.faq-answer-sub h2{
+    padding: 0 0 0 25px;
+}
+
+div#faq-answers div.faq-answer-sub h2 a{
+    color:#f7901e;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+#faqs-sub div#faq-answers div.faq-answer-sub a.top {
+    color: #f7901e !important;
+    float: right;
+    font-size: 13px;
+    position: relative;
+    top: 5px;
+	margin-right: 25px;
+}
+
+div#faqs-sub.tab-pane.active section div#faq-answers div.faq-answer-sub p{
+    font-size: 14px;
+    padding: 0 0 0 0;
+	margin: 0 0 0;
+    margin-left: 25px;
+	margin-right: 25px;
+}
+
+.separator{
+    margin-left: 25px;
+	margin-right: 25px;
+}
+
+div#faq-answers div.faq-answer-sub p a:hover{
+	color: #67CFCD;
+}
+
+
+li.noactive a:link{
+    color:#000!important;
+}
+
+
+ul.tabs-left.hidden-xs li.active ul.plans-services li.active ul.faqs-dropdown li.active a{
+    color:#000;
+}
+
+div#faqs-sub.tab-pane.active section a.faq-nav,
+div#faqs.tab-pane.active section a.faq-nav{
+    color:#f7901e;
+    background: #f1f1f1;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    padding:2px 20px;
+    width: 100%;
+    margin:5px 0;
+    display:block;
+}
+
+div.faq-answer-sub ol{
+	margin-left: 15px;
+	margin-right: 50px;
+	font-size: 13px;
+	font-family: verdana;
+	color: #222;
+	line-height: 1.0;
+}
+/* ilara - END styles for Support/FAQs pages */
+
+/********* iPhone pages  ***********/
+
+
+section div#iphoneNav {
+    background: #fafafa url(../img/iphone-nav.png) no-repeat scroll center bottom;
+    text-align: center;
+}
+.clear{clear:both;}
+section div#iphoneNav ul {display: inline-block;}
+
+div#iphoneNav div ul li{
+    float:left;
+    padding:10px 0;
+}
+
+#iphoneNav .current{
+    background: url(../img/carrot-down.png) bottom center no-repeat;
+}
+
+#iphoneNav .current a {
+    color: #f7901e !important;
+}
+/*div#iphoneNav div ul li.current*/
+
+.font-boostneo{
+    /*font-family: BoostNeoRegular,Arial,Helvetica,sans-serif;*/
+    font-family:"Sprint Sans Web","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+#iphoneNav li:last-child a {
+    border: 0 none;
+}
+
+#iphoneNav a:link, #iphoneNav a:visited {
+    border-right: 1px solid #8b8b8b;
+    color: #8b8b8b;
+    /*float: left;*/
+    font-size: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+}
+
+
+
+/********* end iPhone pages  ***********/
+
+
+
+/********* end Monthly Pages of Plans  ***********/
+
+div.tab-content div#monthlyplans.tab-pane section:first-of-type{
+    background: url(../img/monthly-unlimited.jpg) top left no-repeat;
+    background-size:cover;
+    padding: 130px 52% 0 30px;
+    color: #000000;
+    height: 272px;
+}
+
+div#monthlyplans.tab-pane.active section h1
+{
+
+  font-size: 30px;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  background-color: #000000;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 20px;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+div#monthlyplans.tab-pane.active section h3
+{
+	font-size: 18px;
+	margin-top: 0px;
+	color: #000000;
+ } 
+ 
+ div#monthlyplans.tab-pane.active section p.align_content{
+font-size: 13px;
+font-family: verdana;
+color: #222;
+line-height: 1.231;	
+text-align:justify;
+direction:initial;
+margin: 2px 15px 15px;
+
+}
+
+div#monthlyplans.tab-pane.active section div.plans-middle-monthly
+{
+	padding: 30px;
+  color: #000000;
+  margin-bottom: 20px;
+}
+  
+div#monthlyplans.tab-pane.active section div h2.black-bar
+{
+
+  background-color: #000000;
+  color: #ffffff;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+
+ } 
+ 
+div#monthlyplans.tab-pane.active section div h2.black-bar span.orange {
+    color: #F7901E;
+}
+
+div#monthlyplans.tab-pane.active section div.plans-middle-monthly li {
+    font-size: 13px;
+    list-style: outside none none;
+    padding: 0px 0px 0px 47px;
+    min-height: 30px;
+    background: transparent url(../img/indice.png) no-repeat scroll 10px 3px;
+}
+
+div#monthlyplans.tab-pane.active  section.tab-addservices div.plans-bottom-box {
+    padding: 30px;
+    background-image: url(../img/shadow.png);
+    background-repeat: no-repeat;
+}
+
+div#monthlyplans.tab-pane.active  section.tab-addservices div.plans-bottom-box  td {
+    padding: 15px 10px 15px 15px;
+    background-color: #D5D7DB;
+    border-right: 1px solid #FFF;
+    border-bottom: 1px solid #FFF;
+    vertical-align: middle;
+	padding: 5px 20px 
+}
+
+div#monthlyplans.tab-pane.active  section.tab-addservices div.plans-bottom-box table {
+    border-collapse: collapse;
+    border-spacing: 0px;
+}
+
+div#monthlyplans.tab-pane.active  section.tab-addservices div.plans-bottom-box table tbody td h3.bn-bk{
+	font-family: BoostNeoBlack,Arial,Helvetica,sans-serif !important;
+}
+
+div#monthlyplans.tab-pane.active  section.tab-addservices div.plans-bottom-box table tbody   td.gradient-orange, td.gradient-orange-hover, td.gradient-orange-nohover {
+    background: transparent linear-gradient(#F7901E, #D1581C) repeat scroll 0% 0%;
+    position: relative;
+}
+
+div#monthlyplans.tab-pane.active  section.tab-addservices div.plans-bottom-box  table tbody  td.learnmore a:link, a:visited
+{
+	color:#fff;
+	font-size:16px;
+	text-decoration:none;
+}
+
+
+/********* end Monthly Pages of Plans  ***********/
