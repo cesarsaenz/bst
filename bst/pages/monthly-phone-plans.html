@@ -13,7 +13,17 @@
     <meta name="page-title" content="Shop Plans">
 	<title>Prepaid Cell Phones &amp; No Contract Cell Phones | Boost Mobile</title>
 	<link rel="shortcut icon" href="bst/img/favicon.ico"/>
-    <link href="bst/css/static.css" rel="stylesheet" />
+	<!--Remove comments when you're going to update it-->
+    <!--link href="bst/css/static.css" rel="stylesheet" /-->
+	<!-------------------------------------------------->
+	<!--Remove section when you're going to update it-->
+    <link href="../css/app-framework.css" rel="stylesheet" />
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/jasny-bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/static.css" rel="stylesheet" />
+    <link href="../css/softtek.css" rel="stylesheet" />
+    <link href="../css/phoneDeatail.css" rel="stylesheet" />
+	<!-------------------------------------------------->
 </head>
     
 <ol id="page-path" class='breadcrumb hidden-xs'>
@@ -52,7 +62,7 @@
 			<a href=""><img src="bst/img/banner-02.jpg"></a>
 		</section>
 		<section class="container">
-			<div class="col-xs-3 col-md-2">
+			<div class="col-xs-12 col-sm-2 col-md-2">
 				<ul class="tabs-left hidden-xs">
                     
 					<li><span>Phone Plans</span></li>
@@ -69,14 +79,46 @@
 					<li><a href="#!/phone-insurance">Phone Insurance</a></li>
 					<li><a href="framework_market.html">Apps &amp; More</a></li>
 				</ul>
-				
+				<!--Responsive Menu-->
+				<div class="mobile-about-menu visible-xs">
+					<div class="col-xs-4">
+						<a id="services-dd" href="#" class="active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Phone <br>Plans&nbsp;<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a>
+						<ul class="options-box dropdown-menu text-center" aria-labelledby="services-dd">
+							<li><a href="#!/framework_service_policies/">Service Policies</a></li>
+							<li><a href="#!/framework_visitors_policy/">Visitor's Agreement</a></li>
+							<li><a href="#!/framework_acceptable_use_policy/">Acceptable Use Policy</a></li>
+						</ul>
+					</div>
+					<div class="col-xs-4">
+						<a id="services-dd" href="#" class="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Wi-Fi Hotspot <br>Plan&nbsp;<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a>
+						<ul class="options-box dropdown-menu text-center" aria-labelledby="services-dd">
+							<li><a href="#!/framework_service_policies/">Service Policies</a></li>
+							<li><a href="#!/framework_visitors_policy/">Visitor's Agreement</a></li>
+							<li><a href="#!/framework_acceptable_use_policy/">Acceptable Use Policy</a></li>
+						</ul>
+					</div>
+					<div class="col-xs-4">
+						<a id="services-dd" href="#" class="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Additional <br>Services&nbsp;<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a>
+						<ul class="dropdown-menu-right options-box dropdown-menu text-center" aria-labelledby="services-dd">
+							<li><a href="#!/framework_service_policies/">Service Policies</a></li>
+							<li><a href="#!/framework_visitors_policy/">Visitor's Agreement</a></li>
+							<li><a href="#!/framework_acceptable_use_policy/">Acceptable Use Policy</a></li>
+						</ul>
+					</div>
+				</div>
+				<!--Responsive Menu-->
 			</div>
-			<div class="col-xs-9 col-md-10">
+			<div class="col-xs-12 col-sm-10 col-md-10">
 				<div class="tab-content">
 					<div class="tab-pane active" id="monthlyplans">
-						<section>
+						<section class="hidden-xs hidden-sm">
                             <h1 class="banner-datapacks">The only plans w/ growing data.</h1>
                             <h3>Unlimited talk & text included.</h3>
+                        </section>
+						<section class="visible-xs visible-sm">
+							<img class="img-responsive" src="../img/monthly-unlimited.jpg" />
+                            <h2 class="text-center">The only plans w/ growing data.</h2>
+                            <h3 class="text-center orange">Unlimited talk & text included.</h3>
                         </section>
 						
 						<section>
@@ -94,7 +136,7 @@
 						<section>
 							<div class="gradient-white" style="padding:30px;"> 
 								<p style="margin-top:30px;">
-									<img src="bst/img/monthly-unlimited-rates.png" alt="">
+									<img class="img-responsive" src="bst/img/monthly-unlimited-rates.png" alt="">
 								</p> 				
 								<p class="legal2">
 									For more information about our plans and other offers, 
@@ -134,7 +176,8 @@
 
 						<section class="tab-addservices">
 						<div class="plans-bottom-box">
-							<h2>Additional plan services </h2> 
+							<h2 class="hidden-xs hidden-sm">Additional plan services </h2> 
+							<h2 class="orange visible-xs visible-sm text-center">Additional plan services </h2> 
 							<p class="align_content">Customize your plan with these add-on services. Services available may vary by phone type. </p> 
 							
 							<table> 
@@ -148,7 +191,7 @@
 											</p> 
 										</td> 
 										<td class="learnmore gradient-orange bn-b">
-											<a href="/shop/plans/data-packs/">Learn More &gt;</a>
+											<a href="/shop/plans/data-packs/">Learn More <span style="color: #fff;" class="hidden-xs hidden-sm glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
 										</td> 
 									</tr> 
 									<tr> 
@@ -160,7 +203,7 @@
 										</p> 
 									</td> 
 									<td class="learnmore gradient-orange bn-b">
-										<a href="/shop/plans/international-services/">Learn More &gt;</a>
+										<a href="/shop/plans/international-services/">Learn More <span style="color: #fff;" class="hidden-xs hidden-sm glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
 									</td> 
 								</tr> 
 								<tr> 
@@ -172,7 +215,7 @@
 										</p> 
 									</td> 
 									<td class="learnmore gradient-orange bn-b">
-										<a href="/shop/plans/phone-insurance/">Learn More &gt;</a>
+										<a href="/shop/plans/phone-insurance/">Learn More <span style="color: #fff;" class="hidden-xs hidden-sm glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
 									</td> 
 								</tr> 
 								<tr class="mobile-hotspot"> 
@@ -184,15 +227,16 @@
 										</p> 
 									</td> 
 									<td class="learnmore gradient-orange bn-b">
-										<a href="/shop/plans/mobile-hotspot/">Learn More &gt;</a>
+										<a href="/shop/plans/mobile-hotspot/">Learn More <span style="color: #fff;" class="hidden-xs hidden-sm glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
 									</td> 
 								</tr> 
 							</tbody>
 						</table> 
 						
-						<h2 style="margin-bottom: 20px;">Programs that put money in your pocket</h2> 
+						<h2 style="margin-bottom: 20px;" class="hidden-xs hidden-sm">Programs that put money in your pocket</h2> 
+						<h2 class="orange visible-xs visible-sm text-center">Programs that put money in your pocket</h2>						
 						
-						<table> 
+						<table style="width: 100%"> 
 							<tbody>
 								<tr> 
 									<td style="width:79%;"> 
@@ -202,7 +246,7 @@
 										</p> 
 									</td> 
 									<td class="learnmore gradient-orange bn-b">
-										<a href="https://buyback.boostmobile.com/bst/">Learn More &gt;</a>
+										<a href="https://buyback.boostmobile.com/bst/">Learn More <span style="color: #fff;" class="hidden-xs hidden-sm glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
 									</td> 
 								</tr> 
 								<tr> 
@@ -214,7 +258,7 @@
 										</p> 
 									</td> 
 									<td class="learnmore gradient-orange bn-b">
-										<a href="/shop/plans/referral-program/">Learn More &gt;</a>
+										<a href="/shop/plans/referral-program/">Learn More <span style="color: #fff;" class="hidden-xs hidden-sm glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
 									</td> 
 								</tr> 
 							</tbody>
@@ -270,7 +314,8 @@
 		</section>
 		
 	</div>	
-	
+	<script src="../../js/lib/jquery.min.js"></script>
+	<script src="../../js/lib/bootstrap.min.js"></script>
    
 </body>
 </html>
