@@ -782,3 +782,174 @@ div#monthlyplans.tab-pane.active  section.tab-addservices div.plans-bottom-box  
 
 
 /********* end Monthly Pages of Plans  ***********/
+
+
+/********* end DAILY Pages of Plans  ***********/
+
+div.tab-content div#dailyplans.tab-pane section:first-of-type{
+    background: url(../img/daily-unlimited.jpg) top left no-repeat;
+    background-size:cover;
+    padding: 130px 52% 0 30px;
+    color: #000000;
+    height: 295px;
+}
+
+div#dailyplans.tab-pane.active section h1
+{
+
+  font-size: 30px;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  background-color: #000000;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 20px;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+div#dailyplans.tab-pane.active section h3
+{
+	font-size: 18px;
+	margin-top: 0px;
+	color: #000000;
+ } 
+ 
+ div#dailyplans.tab-pane.active section p.align_banner_text{
+font-size: 13px;
+font-family: verdana;
+color: #222;
+line-height: 1.231;	
+direction:initial;
+margin: 0px 35px 0px 0px;
+padding: 1px;
+
+} div#dailyplans.tab-pane.active section p.align_content{
+font-size: 13px;
+font-family: verdana;
+color: #222;
+line-height: 1.231;	
+text-align:justify;
+direction:initial;
+margin: 2px 15px 15px;
+}
+
+div#dailyplans.tab-pane.active section div.plans-middle-monthly
+{
+	padding: 30px;
+  color: #000000;
+  margin-bottom: 20px;
+}
+  
+div#dailyplans.tab-pane.active section div h2.black-bar
+{
+
+  background-color: #000000;
+  color: #ffffff;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+
+ } 
+ 
+div#dailyplans.tab-pane.active section div h2.black-bar span.orange {
+    color: #F7901E;
+}
+
+div#dailyplans.tab-pane.active section div.plans-middle-monthly li {
+    font-size: 13px;
+    list-style: outside none none;
+    padding: 0px 0px 0px 47px;
+    min-height: 30px;
+    background: transparent url(../img/indice.png) no-repeat scroll 10px 3px;
+}
+
+div#dailyplans.tab-pane.active  section.tab-addservices div.plans-bottom-box {
+    padding: 30px;
+    background-image: url(../img/shadow.png);
+    background-repeat: no-repeat;
+}
+
+div#dailyplans.tab-pane.active  section.tab-addservices div.plans-bottom-box  td {
+    padding: 15px 10px 15px 15px;
+    background-color: #D5D7DB;
+    border-right: 1px solid #FFF;
+    border-bottom: 1px solid #FFF;
+    vertical-align: middle;
+	padding: 5px 20px 
+}
+
+div#dailyplans.tab-pane.active  section.tab-addservices div.plans-bottom-box table {
+    border-collapse: collapse;
+    border-spacing: 0px;
+}
+
+div#dailyplans.tab-pane.active  section.tab-addservices div.plans-bottom-box table tbody td h3.bn-bk{
+	font-family: BoostNeoBlack,Arial,Helvetica,sans-serif !important;
+}
+
+div#dailyplans.tab-pane.active  section.tab-addservices div.plans-bottom-box table tbody   td.gradient-orange, td.gradient-orange-hover, td.gradient-orange-nohover {
+    background: transparent linear-gradient(#F7901E, #D1581C) repeat scroll 0% 0%;
+    position: relative;
+}
+
+div#dailyplans.tab-pane.active  section.tab-addservices div.plans-bottom-box  table tbody  td.learnmore a:link, a:visited
+{
+	color:#fff;
+	font-size:16px;
+	text-decoration:none;
+}
+
+div#dailyplans.tab-pane.active  section div.plans-middle  
+{
+display: block;
+padding: 0px;
+border-bottom: 2px solid #E3E3E3;
+}
+
+div#dailyplans.tab-pane.active  section div.plans-middle div#middle div.col {
+    float: left;
+    width: 390px;
+    height: 275px;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    border-bottom: 1px solid #E3E3E3;
+    border-right: 1px solid #E3E3E3;
+}
+
+div#dailyplans.tab-pane.active  section div.plans-middle div#middle div.col div.box h2 {
+    padding-top: 130px;
+    padding-left: 25px;
+	color: #F5941E !important;
+	
+}
+
+div#dailyplans.tab-pane.active  section div.plans-middle div#middle div.col div.box a.btn:hover, a.btn:link:hover, a.btn:visited:hover {
+    background-color: #6FDBDB;
+}
+
+div#dailyplans.tab-pane.active  section div.plans-middle div#middle div.col div.box a.btn, a.btn:link, a.btn:visited {
+    display: inline-block;
+    color: #FFF;
+    background-color: #000;
+    padding: 7px 17px;
+    min-width: 90px;
+    text-decoration: none;
+    font-size: 17px;
+    letter-spacing: 0.5px;
+    font-family: BoostNeoBold,Arial,Helvetica,sans-serif !important;
+    text-align: center;
+}
+
+div#dailyplans.tab-pane.active section.tab-addservices div.plans-bottom-box p.align_content a:hover{
+	color: #6FDBDB;
+}
+
+div#dailyplans.tab-pane.active section.tab-addservices div.plans-bottom-box p.align_content a:link, a:visited{
+	color: #F7901E;
+}
+
+/********* end DAILY Pages of Plans  ***********/
