@@ -335,7 +335,7 @@ div.tab-content div#insurance.tab-pane.active section.imageBottom div.plans-bott
 
 div#databoost.tab-pane.active section:first-of-type{
      background: url(../img/about-bg.jpg) top center no-repeat;
-    height: 219px;
+    height: 255px;
     padding: 50px 370px 10px 10px;
     background-size:cover;
 }
@@ -662,6 +662,21 @@ section div div ul li.vignettes{
  margin-right: 80px;
 }
 
+div.faq-answer ul li.subvignettes{
+
+ list-style-type: circle;
+ text-align:left;
+ position: relative; 
+ left: 70px;
+ font-size: 13px;
+ font-family: verdana;
+ color: #222;
+ line-height: 1.0;
+ direction:initial;
+ margin: 2px 5px 5px;
+ margin-right: 80px;
+}
+
 div.generalSupportSkype{
  margin: 2px 2px 2px;
  margin-left: 10px;
@@ -821,7 +836,8 @@ div#iphoneNav div ul li{
 
 
 
-/********* BEGIN Monthly Pages of Plans  ***********/
+
+/********* BEGIN MONTHLY PLANS pages  ***********/
 
 div.tab-content div#monthlyplans.tab-pane section:first-of-type{
     background: url(../img/monthly-unlimited.jpg) top left no-repeat;
@@ -929,18 +945,20 @@ div#monthlyplans.tab-pane.active  section.tab-addservices div.plans-bottom-box t
     position: relative;
 }
 
-div#monthlyplans.tab-pane.active  section.tab-addservices div.plans-bottom-box  table tbody  td.learnmore a:link, a:visited
+/*
+div#monthlyplans.tab-pane.active  section.tab-addservices div.plans-bottom-box  table tbody  td.learnmore 
 {
 	color:#fff;
 	font-size:16px;
 	text-decoration:none;
 }
+*/
 
 
-/********* end Monthly Pages of Plans  ***********/
+/********* end MONTHLY PLANS Pages  ***********/
 
 
-/********* BEGIN DAILY Pages of Plans  ***********/
+/********* BEGIN DAILY PLANS Pages ***********/
 
 div.tab-content div#dailyplans.tab-pane section:first-of-type{
     background: url(../img/daily-unlimited.jpg) top left no-repeat;
@@ -1052,12 +1070,14 @@ div#dailyplans.tab-pane.active  section.tab-addservices div.plans-bottom-box tab
     position: relative;
 }
 
-div#dailyplans.tab-pane.active  section.tab-addservices div.plans-bottom-box  table tbody  td.learnmore a:link, a:visited
+/*
+div#dailyplans.tab-pane.active  section.tab-addservices div.plans-bottom-box  table tbody  td.learnmore 
 {
 	color:#fff !important;
 	font-size:16px;
 	text-decoration:none;
 }
+*/
 
 div#dailyplans.tab-pane.active  section div.plans-middle  
 {
@@ -1112,4 +1132,67 @@ div#dailyplans.tab-pane.active section.tab-addservices div.plans-bottom-box p.al
 div.plans-middle #middle{
 	width: 100%;
 }
-/********* end DAILY Pages of Plans  ***********/
+/********* end DAILY PLANS pages ***********/
+
+
+/********* BEGIN PLANS WIFI-HOTSPOTS Pages of Plans  ***********/
+
+div.tab-content div#wifihotspot.tab-pane section:first-of-type{
+    background: url(../img/wi-fi-bg.jpg) top left no-repeat;
+    background-size:cover;
+	background-repeat: no-repeat;
+	height: 412px;
+	padding-top: 140px;
+	padding-right: 372px;
+	
+
+}
+
+div.tab-content div#wifihotspot.tab-pane section div.plans-bottom-box{
+   
+    background-image: url("../img/shadow.png");
+    background-repeat: no-repeat;
+	padding: 30px;
+    border-bottom: 2px solid #E3E3E3;
+}
+
+
+
+div.tab-content div#wifihotspot.tab-pane section div.plans-bottom-box  ul.wifibullets {
+    float: left;
+    padding-left: 40px;
+    margin-right: 60px;
+    margin-top: 0px;
+	list-style-type: disc;
+	color: #000;
+	font-family: BoostNeoBold,Arial,Helvetica,sans-serif;
+
+}
+
+div.tab-content div#wifihotspot.tab-pane section div.plans-bottom-box  h3.sizeWifi {
+    font-size: 17px;
+    margin-top: 0px;
+	color: #000;	
+}
+
+div.tab-content div#wifihotspot.tab-pane.active section.tab-addservices  div.wifi-bottom  {
+    background-image: url(../img/wi-fi-device.jpg);
+    background-repeat: no-repeat;
+	background-size:cover;
+    min-height: 210px;
+    clear: both;
+	padding: 20px 0px 0px 40px;
+	height: 270px;
+}
+
+div.tab-content div#wifihotspot.tab-pane.active section.tab-addservices  div.wifi-bottom  h2.wifiPading {
+margin-top: 0px;
+}
+
+div.tab-content div#wifihotspot.tab-pane.active section.tab-addservices  div.plans-box   {
+
+	padding-left: 40px;
+
+}
+
+/********* END PLANS WIFI-HOTSPOTS Pages of Plans  ***********/
