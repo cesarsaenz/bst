@@ -14,6 +14,7 @@
 	<title>Prepaid Cell Phones &amp; No Contract Cell Phones | Boost Mobile</title>
 	<link rel="shortcut icon" href="bst/img/favicon.ico"/>
     <link href="bst/css/static.css" rel="stylesheet" />
+
 </head>
     
 <ol id="page-path" class='breadcrumb hidden-xs'>
@@ -52,7 +53,7 @@
 			<a href=""><img src="bst/img/banner-02.jpg"></a>
 		</section>
 		<section class="container">
-			<div class="col-xs-3 col-md-2">
+			<div class="col-xs-12 col-sm-2 col-md-2">
 
 				<ul class="tabs-left hidden-xs">
                     
@@ -70,9 +71,36 @@
 					<li class="active"><a href="#!/phone-insurance">Phone Insurance</a></li>
 					<li><a href="framework_market.html">Apps &amp; More</a></li>
 				</ul>
-			
+				<!--Responsive Menu-->
+				<div class="mobile-about-menu visible-xs">
+					<div class="col-xs-4">
+						<a id="services-dd" href="#" class="active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Phone <br>Plans&nbsp;<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a>
+						<ul class="options-box dropdown-menu text-center" aria-labelledby="services-dd">
+							<li><a href="#!/framework_service_policies/">Service Policies</a></li>
+							<li><a href="#!/framework_visitors_policy/">Visitor's Agreement</a></li>
+							<li><a href="#!/framework_acceptable_use_policy/">Acceptable Use Policy</a></li>
+						</ul>
+					</div>
+					<div class="col-xs-4">
+						<a id="services-dd" href="#" class="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Wi-Fi Hotspot <br>Plan&nbsp;<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a>
+						<ul class="options-box dropdown-menu text-center" aria-labelledby="services-dd">
+							<li><a href="#!/framework_service_policies/">Service Policies</a></li>
+							<li><a href="#!/framework_visitors_policy/">Visitor's Agreement</a></li>
+							<li><a href="#!/framework_acceptable_use_policy/">Acceptable Use Policy</a></li>
+						</ul>
+					</div>
+					<div class="col-xs-4">
+						<a id="services-dd" href="#" class="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Additional <br>Services&nbsp;<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a>
+						<ul class="dropdown-menu-right options-box dropdown-menu text-center" aria-labelledby="services-dd">
+							<li><a href="#!/framework_service_policies/">Service Policies</a></li>
+							<li><a href="#!/framework_visitors_policy/">Visitor's Agreement</a></li>
+							<li><a href="#!/framework_acceptable_use_policy/">Acceptable Use Policy</a></li>
+						</ul>
+					</div>
+				</div>
+				<!--Responsive Menu-->
 			</div>
-			<div class="col-xs-9 col-md-10">
+			<div class="col-xs-12 col-sm-10 col-md-10">
 				<div class="tab-content">
 					<div class="tab-pane" id="databoost">
 						<section></section>
@@ -837,17 +865,22 @@
 						</section>
 					</div>
 					<div class="tab-pane active" id="insurance">
-                        <section>
+                        <section class="hidden-sm hidden-xs">
                             <h1>Can't live without your phone?</h1>
                             <p class="align_banner_text"><br><br>Get Phone Insurance so you don't have to.</p>
                         </section>
-						
+						<section class="visible-xs visible-sm">
+							<img class="img-responsive" src="../img/phone-insurance-bg.jpg" />
+                            <h2 class="text-center">Can't live without your phone?</h2>
+                            <h3 style="color: #000;" class="text-center">Get Phone Insurance so you don't have to.</h3>
+                        </section>
 						
 						<section class="imageBottom">
 						<div class="plans-bottom-box">
 
 							<div class="mh-middle"> 
-								<h2 class="colorBlack">Here are some reasons to choose Phone Insurance:</h2> 
+								<h2 class="hidden-sm hidden-xs colorBlack">Here are some reasons to choose Phone Insurance:</h2> 
+								<h3 class="visible-xs visible-sm text-center">Here are some reasons to choose Phone Insurance:</h3> 
 								
 								<ul> 
 									<li>
@@ -872,9 +905,10 @@
 								<p>
 									<img src="bst/img/phone-insurance-middle.png" alt="Phone Insurance Price Charge">
 								</p> 
-								<h2 class="colorBlack">
+								<h2 class="hidden-xs hidden-sm colorBlack">
 									How does it work?
 								</h2> 
+								<h3 class="text-center visible-xs visible-sm orange">How does it work?</h3>
 								<p class="align_text_insurance">
 									Simply enroll in Phone Insurance when activating your new phone or in 
 									<a href="https://activate.boostmobile.com/boostApp/account/ECareLanding.jsp">My Account</a> 
@@ -900,7 +934,7 @@
 									a new phone of like kind and quality.
 								</p> 
 								<p class="align_text_insurance">
-									<a class="btn orange" href="https://activate.boostmobile.com/boostApp/accountLogin.do">Enroll Now</a> 
+									<a class="btn" style="background-color: #f7901e;" href="https://activate.boostmobile.com/boostApp/accountLogin.do">Enroll Now</a> 
 									<a class="btn" href="/pdf/english/phoneinsurancebrochure2.pdf">Brochure</a> 
 									<a class="btn" href="https://www.myphoneguardian.com/boostmobile/en-us/Claim-Center/Claims-Wizard">Make a Claim</a>
 								</p> 

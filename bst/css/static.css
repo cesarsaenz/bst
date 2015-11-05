@@ -54,6 +54,32 @@
 	div#dailyplans.tab-pane.active section.tab-addservices div.plans-bottom-box {
 		padding: 20px 10px !important;
 	}
+	/*****************+ Phone Insurance ****************/
+	#insurance section {
+		padding: 0px !important;
+	}
+	div.tab-content div#insurance.tab-pane.active section div.plans-bottom-box {
+		padding: 0px 15px !important;
+	}
+	div.tab-content div#insurance.tab-pane.active section p.align_text_insurance {
+		margin: 0px !important; 
+	}
+	div.tab-content div#wifihotspot.tab-pane.active section.tab-addservices div.wifi-bottom {
+		background-position: top right;
+	}
+	.wifi-bottom{
+		padding-left: 0px !important;
+		position: relative;
+	}
+	.wifi-bottom > a.learnmore{
+		position: absolute;
+		bottom: 0;
+		left: 0;
+	}
+	.wifi-bottom > h2{
+		background-color: rgba(255, 255, 255, 0.7);
+		text-align: center;
+	}
 }
 
 .plans section div.col-xs-12.col-md-2 ul {
@@ -284,6 +310,11 @@ ul.navlegalsub li a:hover {color:#F99100 !important;}
 }
 
 /************** BEGIN PHONE INSURANCE PAGE**************/
+
+p.align_text_insurance > a.btn, p.align_text_insurance > a.btn:visited{
+	color: #fff !important;
+	text-decoration: none !important;
+}
 
 div.tab-content div#insurance.tab-pane.active section div.plans-bottom-box{
     padding: 30px;
