@@ -526,6 +526,15 @@ a.info:hover {
 		width: 100% !important;
 		float: left;
 	}
+	#module-whats_included #whats_included-chart{
+		width: 100% !important;
+		float: left !important;
+	}
+	#module-whats_included #whats_included-chart dt{
+		width: 70% !important;
+		height: auto !important;
+		min-height: 44px;
+	}
 	.section-daily-unlimited dt, .page-pay-as-you-go dt{
 		width: 70% !important;
 		height: auto !important;
@@ -533,6 +542,9 @@ a.info:hover {
 	}
 	.section-daily-unlimited dt h3.bn-bk, .page-pay-as-you-go dt h3.bn-bk{
 		font-size: 14px !important;
+	}
+	#module-whats_included #whats_included-chart dd{
+		width: 29.5% !important;
 	}
 	.section-daily-unlimited dd, .page-pay-as-you-go dd{
 		width: 29.5% !important;
