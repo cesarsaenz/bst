@@ -1,0 +1,142 @@
+
+
+div.col-xs-9 section.promo-dataPlans div#plans-hub-top h1.bn-bk{
+    color: #000;
+    font-size: 55px;
+    line-height: 60px;
+    margin-bottom: 15px;
+    float: none;
+	font-weight: bold !important;
+}
+
+div.col-xs-9 section.promo-dataPlans div#plans-hub-top h2{
+    color: #FFF;
+    font-size: 30px;
+    line-height: 60px;
+    margin-bottom: 15px;
+    float: none;
+}
+
+div.col-xs-9 section.promo-dataPlans div#plans-hub-top p {
+    margin: 0px 10px;
+    padding: 10px 0px 10px 0px;
+}
+
+
+section.promo-wifi-intl  div.promo12 div.boldTitle{
+	
+    font-family: "Boost_bold",Helvetica,Arial,sans-serif !important;
+	 font-size: 40px !important;
+    color: #000;
+    float: none;
+    line-height: 50px;
+	
+}
+
+section.promo-wifi-intl  div.promo13 div.boldTitle{
+	
+    font-family: "Boost_bold",Helvetica,Arial,sans-serif !important;
+	 font-size: 40px !important;
+    color: #000;
+    float: none;
+    line-height: 50px;
+	
+}
+
+section.promo-wifi-intl  div.promo13 ul li h3.listaBold {
+    font-size: 18px;
+    margin-top: 10px;
+    font-family: BoostNeoBlack,Arial,Helvetica,sans-serif;
+}
+
+section.promo-wifi-intl div.promo12 a.btn-boost {
+    position: absolute;
+    bottom: 25px;
+    right: 35px;
+}
+
+section.promo-wifi-intl div.promo13 a.btn-boost {
+    position: absolute;
+    bottom: 25px;
+    left: 0px;
+}
+
+
+		
+		
+	/*  Begin of Code for certifiedpreowned   */	
+	
+div#certifiedpreowned div#cpo-top-box{
+padding-left: 500px;
+padding-top: 60px;
+padding-right: 30px;
+}	
+
+div#certifiedpreowned div#cpo-top-box h1 {
+color: #000;
+margin-bottom: 10px;
+float: none;
+font-size: 25px;
+line-height: 1.5em;
+letter-spacing: -0.5px;
+clear: left;
+margin-top: 7px;
+margin: 0px;
+padding: 0px;
+font-weight: 400;
+}	
+	
+div#certifiedpreowned div#cpo-top-box h1 span.bn-bk {
+
+font-family: BoostNeoBlack,Arial,Helvetica,sans-serif !important;
+}	
+
+div#certifiedpreowned div#cpo-top-box p {
+color: #000;
+font-size: 13px;
+}	
+
+div#certifiedpreowned div#cpo-top-box p a.btn:hover, a.btn:link:hover, a.btn:visited:hover{
+background-color: #6FDBDB;
+}		
+
+div#certifiedpreowned div#cpo-top-box p a.btn, a.btn:link, a.btn:visited{
+display: inline-block;
+color: #FFF;
+background-color: #000;
+padding: 7px 17px;
+min-width: 90px;
+text-decoration: none;
+font-size: 17px;
+font-weight:lighter;
+letter-spacing: 0px;
+font-family: BoostNeoBold,Arial,Helvetica,sans-serif !important;
+text-align: center;
+}	
+
+div#android-phones-genie div#phone_slider-view_all h2.genieBlackFont {
+    padding-bottom: 10px!important;
+	padding-left: 40px!important;
+	color: #000;
+	float: none;
+	font-size: 25px;
+	line-height: 1.5em;
+	letter-spacing: -0.5px;
+	clear: left;
+	margin-top: 7px;
+	margin: 0px;
+	padding: 0px 1px, 2px, 3px;
+	font-weight: 400;
+}
+
+div#android-phones-genie div#cpo-bottom p.align_banner_text{
+font-size: 13px;
+font-family: verdana;
+color: #222;
+line-height: 1.231;	
+direction:initial;
+margin: 0px 35px 0px 0px;
+padding: 0px 10px 0px 10px;
+} 
+
+	/*  End of Code for certifiedpreowned   */
