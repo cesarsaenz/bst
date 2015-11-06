@@ -33,6 +33,8 @@ cufon{text-indent:0!important;}@media screen,projection{cufon{display:inline!imp
 .plans section div.col-xs-12.col-md-2 ul li a {border-radius: 0;display: block;padding: 10px 10px;background: #454545;color: #CCCCCC;border-bottom: 1px solid #2E2E2E;}
 .plans section div.col-xs-12.col-md-2 ul li:first-of-type span {border-top: none;}
 .plans section div.col-xs-12.col-md-2 ul li span {padding: 7px 10px;border-top: 2px solid #FFFFFF;color: #f7901e;font-family: 'Boost_bold', Helvetica, Arial, sans-serif;display: block;font-size: 16px;background: #292929;background: -moz-linear-gradient(top, #292929 0%, #000000 100%);background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#292929), color-stop(100%,#000000));background: -webkit-linear-gradient(top, #292929 0%,#000000 100%);background: -o-linear-gradient(top, #292929 0%,#000000 100%);background: -ms-linear-gradient(top, #292929 0%,#000000 100%);background: linear-gradient(to bottom, #292929 0%,#000000 100%);}
+ul.tabs-left a{font-size: 13px !important;}
+ul.tabs-left a:hover{text-decoration: none; background-color: #6fdbdb !important; color: #fff !important;}
 /******************End Desktop Menu*********************/
 /*******************************************************/
 
@@ -85,7 +87,8 @@ a.info:hover {
 	#module-how_it_works div.left {
 		height: 204px;
 		padding-top: 25px;
-		width: 197px;
+		/*width: 197px;*/
+		width: 20%;
 		background: url("../img/carousel/divider-module-how_it_works.png") top right no-repeat;
 		float: left;
 	}
@@ -126,11 +129,12 @@ a.info:hover {
 			font-size: 28px;
 			line-height: 24px;
 			color: #f7901e;
-			padding-left: 43px;
+			padding-left: 20px;
 		}
 
 	#module-how_it_works div.right {
-		width: 523px;
+		/*width: 523px;*/
+		width: 80%;
 		height: 204px;
 		padding: 12px 0 0 22px;
 		float: left;
@@ -446,7 +450,7 @@ a.info:hover {
 					display: inline-block;
 				}
 				
-@media (max-width: 767px){
+@media (max-width: 992px){
 	#dailyplan2 > section:first-of-type {
 		height: auto !important;
 	}
