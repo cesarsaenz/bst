@@ -58,10 +58,10 @@ a.info {
     display: inline-block;
     width: 14px;
     height: 14px;
-    background: url("../img/sprite_action_icons.png") left -150px no-repeat;
+    background: url("../img/carousel/sprite_action_icons.png") left -150px no-repeat;
 }
 a.info:hover {
-    background: url("../img/sprite_action_icons.png") left -210px no-repeat;
+    background: url("../img/carousel/sprite_action_icons.png") left -210px no-repeat;
 }
 #dailyplan2 .h1, #dailyplan2 h1 {
     font-size: 25px;
@@ -79,14 +79,14 @@ a.info:hover {
     height: 327px;
     padding: 25px 0 20px 20px;
     border-bottom: 2px solid #e3e3e3;
-    background: url("../img/bg-module-how_it_works.png");
+    background: url("../img/carousel/bg-module-how_it_works.png");
     background-position: center bottom;
 }
 	#module-how_it_works div.left {
 		height: 204px;
 		padding-top: 25px;
 		width: 197px;
-		background: url("../img/divider-module-how_it_works.png") top right no-repeat;
+		background: url("../img/carousel/divider-module-how_it_works.png") top right no-repeat;
 		float: left;
 	}
 		#module-how_it_works div.left p {
@@ -162,7 +162,7 @@ a.info:hover {
 			}
 			#module-how_it_works div.right ul li#how_it_works-first_step {
 				width: 155px;
-				background: url("../img/bg-monthly_unlimited-step_1.png") 94px top no-repeat;
+				background: url("../img/carousel/bg-monthly_unlimited-step_1.png") 94px top no-repeat;
 			}
 				#module-how_it_works div.right ul li#how_it_works-first_step p.left {
 					font-size: 17px;
@@ -180,11 +180,11 @@ a.info:hover {
 				}
 			#module-how_it_works div.right ul li#how_it_works-second_step {
 				width: 167px;
-				background: url("../img/bg-monthly_unlimited-arrow.png") 14px 14px no-repeat;
+				background: url("../img/carousel/bg-monthly_unlimited-arrow.png") 14px 14px no-repeat;
 				padding-left: 21px;
 			}
 				#module-how_it_works div.right ul li#how_it_works-second_step p {
-					background: url("../img/bg-monthly_unlimited-step_2.png") 50% top no-repeat;
+					background: url("../img/carousel/bg-monthly_unlimited-step_2.png") 50% top no-repeat;
 					font-size: 12px;
 					line-height: 11px;
 					text-align: center;
@@ -193,11 +193,11 @@ a.info:hover {
 				}
 			#module-how_it_works div.right ul li#how_it_works-third_step {
 				width: 120px;
-				background: url("../img/bg-monthly_unlimited-arrow.png") left 14px no-repeat;
+				background: url("../img/carousel/bg-monthly_unlimited-arrow.png") left 14px no-repeat;
 				padding-left: 18px;
 			}
 				#module-how_it_works div.right ul li#how_it_works-third_step p {
-					background: url("../img/bg-monthly_unlimited-step_3.png") 50% top no-repeat;
+					background: url("../img/carousel/bg-monthly_unlimited-step_3.png") 50% top no-repeat;
 					font-size: 12px;
 					line-height: 11px;
 					text-align: center;
@@ -228,7 +228,7 @@ a.info:hover {
     color: #fff;
     font-size: 13px;
     line-height: 1.3em;
-    background: url("../img/sprite_shop_icons.png") no-repeat;
+    background: url("../img/carousel/sprite_shop_icons.png") no-repeat;
     overflow: hidden;
 	color: #000;
 }
@@ -270,7 +270,8 @@ a.info:hover {
 		color: #f7901e;
 	}
 	#module-whats_included #whats_included-chart {
-		width: 371px;
+		/*width: 371px;*/
+		width: 666px;
 		display: block;
 		float: left;
 		padding: 0;
@@ -281,7 +282,7 @@ a.info:hover {
 			height: 29px;
 		}
 		#module-whats_included #whats_included-chart dd {
-			width: 99px;
+			width: 221px;
 			height: 44px;
 			padding-top: 11px;
 			background-repeat: repeat-x;
@@ -293,7 +294,7 @@ a.info:hover {
 			background-color: #f7901e;
 		}
 		#module-whats_included #whats_included-chart dt {
-			width: 236px;
+			width: 441px;
 			height: 44px !important;
 			background: #d5d7db;
 			padding: 0 14px;
@@ -388,7 +389,7 @@ a.info:hover {
 			padding-left: 24px;
 			color: #000;
 			font: bold 13px/17px arial;
-			background: url("../img/bg-addl_services-link.png") no-repeat;
+			background: url("../img/carousel/bg-addl_services-link.png") no-repeat;
 			background-position: left top;
 			text-decoration: none;
 		}
@@ -396,7 +397,7 @@ a.info:hover {
 			background-position: left bottom;
 			color: #67cfcd;
 		}
-	#service-intl_calling {background-image: url("../img/intlrates.jpg");}
+	#service-intl_calling {background-image: url("../img/carousel/intlrates.jpg");}
 		#service-intl_calling p {width: 140px;}
 
 #module-plan_details {
@@ -423,7 +424,7 @@ a.info:hover {
 		}
 		#module-plan_details .accordion h3 {
 			padding: 0 0 0 22px !important;
-			background: url("../img/bg-accordion-bullet.png") no-repeat;
+			background: url("../img/carousel/bg-accordion-bullet.png") no-repeat;
 			background-position: -2px 7px;
 			margin: 8px 0 0;
 			outline: 0;
@@ -453,13 +454,13 @@ a.info:hover {
 		height: auto !important;
 		padding: 0px !important;
 		border-bottom: 2px solid #e3e3e3;
-		background: url("../img/bg-module-how_it_works.png");
+		background: url("../img/carousel/bg-module-how_it_works.png");
 		background-position: center top;
 	}
 	#module-how_it_works div.left {
 		height: auto !important;
 		width: 100% !important;
-		background: url("../img/divider-module-how_it_works.png") top right no-repeat;
+		background: url("../img/carousel/divider-module-how_it_works.png") top right no-repeat;
 		float: left;
 	}
 	#module-how_it_works div.right {
@@ -493,7 +494,7 @@ a.info:hover {
 		background-position: top center !important;
 	}
 	#module-how_it_works div.right ul li#how_it_works-second_step p {
-		background: url("../img/bg-monthly_unlimited-step_2.png") 50% top no-repeat;
+		background: url("../img/carousel/bg-monthly_unlimited-step_2.png") 50% top no-repeat;
 		font-size: 16px !important;
 		width: 100% !important;
 	}
