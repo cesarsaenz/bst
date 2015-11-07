@@ -1,6 +1,43 @@
+@font-face {
+    font-family: BoostNeoBlack;
+    src: url(../fonts/Boost-Neo-Black.otf);
+} 
+	
+@font-face {
+    font-family: BoostNeoBold;
+    src: url(../fonts/Boost-Neo-Bold.otf);
+} 
 
-
-div.col-xs-9 section.promo-dataPlans div#plans-hub-top h1.bn-bk{
+@media (min-width: 300px) and (max-width: 400px){
+	section.promo-wifi-intl div.promo12{background-image: url(../img/promo-half-12.jpg) !important;background-position: center left !important;}
+	section.promo-wifi-intl div.promo13{background-image: url(../img/promo-half-13.jpg) !important;background-position: center left !important;}
+}
+@media (max-width: 992px){
+	.plans-home section.promo-dataPlans,.plans-home section.promo-wifi-intl{margin: 0px !important;width:100% !important;}
+	.plans-home section.promo-dataPlans div#plans-hub-top{width: 100% !important;height: auto !important;}
+	.plans-home section.promo-dataPlans div#plans-hub-top img{display: block;position: inherit !important;margin: 0 auto !important;}
+	.plans-home section.promo-dataPlans div#plans-hub-top h1{font-size: 30px; text-align: center;margin: 0 0 10px 0;}
+	.plans-home section.promo-dataPlans div#plans-hub-top h2{width: auto !important;font-size: 24px; text-align: center;}
+	.plans-home section.promo-dataPlans div#plans-hub-top p{text-align: center;}
+	.plans-home section.promo-wifi-intl div.promo12,.plans-home section.promo-wifi-intl div.promo13{margin: 0 !important;}
+	section.promo-wifi-intl div.boldTitle{font-size: 30px !important;text-align: center !important;}
+	section.promo-wifi-intl h2,section.promo-wifi-intl h3{width: auto !important;text-align: center !important;}
+	section.promo-wifi-intl div.promo13 > ul{padding-left: 0 !important;list-style-type: none !important;}
+	section.promo-wifi-intl div.promo13 > p{text-align: center;}
+	section.promo-wifi-intl div.promo12{background-image: url(../img/promo-half-12_mobile.jpg);background-position: center right;}
+	section.promo-wifi-intl div.promo13{background-image: url(../img/promo-half-13_mobile.jpg);background-position: center right;}
+}
+@media (min-width: 768px) and (max-width: 1024px){
+	.plans-home section.promo-dataPlans, .plans-home section.promo-wifi-intl, .plans-home section.promo-dataPack{margin-left: 0 !important;}
+	section.promo-wifi-intl div.promo12{background-image: url(../img/promo-half-12.jpg) !important;background-position: center center !important;}
+}
+@media (max-width: 1024px){
+	.plans-home section.promo-dataPlans, .plans-home section.promo-dataPack, .plans-home section.promo-wifi-intl{width: 100% !important;}
+	.plans-home section.promo-wifi-intl div.promo13 a{top: auto !important;}
+	.plans-home section.promo-wifi-intl div.promo12 h2{margin-top: 0 !important;}
+	}
+}
+div.col-xs-12 section.promo-dataPlans div#plans-hub-top h1.bn-bk{
     color: #000;
     font-size: 55px;
     line-height: 60px;
@@ -9,7 +46,7 @@ div.col-xs-9 section.promo-dataPlans div#plans-hub-top h1.bn-bk{
 	font-weight: bold !important;
 }
 
-div.col-xs-9 section.promo-dataPlans div#plans-hub-top h2{
+div.col-xs-12 section.promo-dataPlans div#plans-hub-top h2{
     color: #FFF;
     font-size: 30px;
     line-height: 60px;
@@ -17,16 +54,19 @@ div.col-xs-9 section.promo-dataPlans div#plans-hub-top h2{
     float: none;
 }
 
-div.col-xs-9 section.promo-dataPlans div#plans-hub-top p {
+div.col-xs-12 section.promo-dataPlans div#plans-hub-top p {
     margin: 0px 10px;
     padding: 10px 0px 10px 0px;
 }
 
 
-section.promo-wifi-intl  div.promo12 div.boldTitle{
+section.plans-home a.btn-boost{
+	color: #fff;
+}
+section.promo-wifi-intl div.boldTitle{
 	
     font-family: "Boost_bold",Helvetica,Arial,sans-serif !important;
-	 font-size: 40px !important;
+	 font-size: 40px;
     color: #000;
     float: none;
     line-height: 50px;
@@ -36,7 +76,7 @@ section.promo-wifi-intl  div.promo12 div.boldTitle{
 section.promo-wifi-intl  div.promo13 div.boldTitle{
 	
     font-family: "Boost_bold",Helvetica,Arial,sans-serif !important;
-	 font-size: 40px !important;
+	 font-size: 40px;
     color: #000;
     float: none;
     line-height: 50px;

@@ -487,6 +487,25 @@ ol, ul {
 		
 	/*  Begin of Code for certifiedpreowned   */	
 	
+@media (min-width: 290px) and (max-width: 355px){
+	div#certifiedpreowned{padding: 0 0 0 0 !important;}
+}
+@media (min-width: 356px) and (max-width: 767px){
+	div#certifiedpreowned{padding: 0px 15px 0 15px !important;}
+}
+@media (min-width: 768px) and (max-width: 811px){
+	div#certifiedpreowned div#cpo-top-box{padding-top:0px !important;padding-right: 0px !important;}
+}
+@media (max-width: 768px){
+	div#certifiedpreowned{display:table-cell;vertical-align: middle;height: 408px !important;}
+	div#certifiedpreowned div#cpo-top-box{padding: 5px !important; background: rgba(255,255,255,0.8);display:inline-block;vertical-align: middle;}
+	div#certifiedpreowned div#cpo-top-box > h1{text-align: center;font-size: 28px !important;}
+	div#certifiedpreowned div#cpo-top-box > p{text-align: center;font-size: 17px !important;}
+}
+div.bs-example .panel-body{background: none !important;border: 1px solid #ddd;font-size:15px;}
+div.bs-example a{color: #F7901E;font-size: 18px;text-align: center;}
+.panel-title>.small, .panel-title>.small>a, .panel-title>a, .panel-title>small, .panel-title>small>a{background: #eee !important;}
+.panel-title>.small, .panel-title>.small>a:hover, .panel-title>a:hover, .panel-title>small, .panel-title>small>a:hover{color: #F7901E;text-decoration: none;}
 div#certifiedpreowned div#cpo-top-box{
 padding-left: 500px;
 padding-top: 60px;
