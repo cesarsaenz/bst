@@ -102,6 +102,8 @@
     background: -ms-linear-gradient(top, #292929 0%,#000000 100%);
     background: linear-gradient(to bottom, #292929 0%,#000000 100%);
 }
+ul.tabs-left a{font-size: 13px !important;}
+ul.tabs-left a:hover{text-decoration: none; background-color: #6fdbdb !important; color: #fff !important;}
 .plans section div.col-xs-12.col-md-2 ul li:first-of-type span {
     border-top: none;
 }
