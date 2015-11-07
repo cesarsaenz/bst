@@ -5,14 +5,28 @@
 		background-position: bottom right !important;
 		height: 470px;
 	}
+	#android-phones {
+		padding: 20px 10px !important;
+		background: url('../img/carousel/basic-features.jpg') no-repeat;
+		background-position: top right !important;
+		background-size: auto 117% !important;
+		height: auto !important;
+	}
+	#android-phones h2{font-size: 26px !important; text-align: center;padding: 5px 20px;background-color: rgba(0,0,0,0.7); margin: 0px;}
 	#basic-phones h2{font-size: 26px !important; text-align: center;padding: 20px;background-color: rgba(0,0,0,0.6); margin: 0px;}
 	#android-phones .description, #basic-phones .description, #certifiedpreowned .description{
 		width: auto !important;
 		text-align: center;
 	}
-	#basic-phones .description, #basic-phones > ul{
+	#basic-phones > ul,#android-phones > ul{
+		font-size: 16px !important;
+		background-color: rgba(0,0,0,0.7);
+		padding: 5px !important;
+		margin: 0px;
+	}
+	#basic-phones .description, #android-phones .description{
 		font-size: 18px !important;
-		background-color: rgba(0,0,0,0.6);
+		background-color: rgba(0,0,0,0.7);
 		padding: 10px !important;
 		margin: 0px;
 	}
