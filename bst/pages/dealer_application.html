@@ -274,7 +274,7 @@
 			<!-- END LEFT MENU -->
 
 			<!-- BEGIN MAIN CONTENT -->
-			<div class="col-xs-9 col-md-10">
+			<div class="col-xs-12 col-sm-9 col-md-10">
 <style>
     table {
         width: 100%
@@ -300,8 +300,10 @@
     }
 </style>
 <div class="about-top">
-    <h1 class="font-boostneo-gradient">Dealer Application</h1> 
-    <h2 class="font-boostneo-light">Become a Boost Mobile Dealer</h2> 
+	<div style="display: table-cell; vertical-align: middle;">
+		<h1 style="color: #fff;" class="font-boostneo-gradient">Dealer Application</h1> 
+		<h2 style="margin-left: 8px" class="font-boostneo-light">Become a Boost Mobile Dealer</h2> 
+	</div>
 </div>
 <div id="application">
     <div id="authorized">
@@ -328,16 +330,26 @@
             <h3>Applicant Information</h3> 
             <table>
                 <tbody>
+					<tr class="visible-xs">
+                        <td colspan="2">
+                            <label for="_fid_16">First Name</label>
+                        </td>
+                    </tr>
                     <tr>
-                        <td width="120px">
+                        <td class="hidden-xs" width="120px">
                             <label for="_fid_6">First Name</label>
                         </td>
                         <td>
                             <input required="required" name="_fid_6" id="_fid_6" title="First name is required" type="text">
                         </td>
                     </tr>
+					<tr class="visible-xs">
+                        <td colspan="2">
+                            <label for="_fid_16">Last Name</label>
+                        </td>
+                    </tr>
                     <tr>
-                        <td>
+                        <td class="hidden-xs">
                             <label for="_fid_7">Last Name</label>
                         </td>
                         <td>
@@ -346,8 +358,13 @@
                             <input name="_fid_8" id="_fid_8" class="short" data-required="false" type="text">
                         </td>
                     </tr>
+					<tr class="visible-xs">
+                        <td colspan="2">
+                            <label for="_fid_16">Address</label>
+                        </td>
+                    </tr>
                     <tr>
-                        <td>
+                        <td class="hidden-xs">
                             <label for="_fid_9">Address</label>
                         </td>
                         <td>
@@ -356,16 +373,26 @@
                             <input name="_fid_10" id="_fid_10" class="short" data-required="false" type="text">
                         </td>
                     </tr>
+					<tr class="visible-xs">
+                        <td colspan="2">
+                            <label for="_fid_16">City</label>
+                        </td>
+                    </tr>
                     <tr>
-                        <td>
+                        <td class="hidden-xs">
                             <label for="_fid_11">City</label>
                         </td>
                         <td>
                             <input required="required" name="_fid_11" id="_fid_11" title="City is required" type="text">
                         </td>
                     </tr>
+					<tr class="visible-xs">
+                        <td colspan="2">
+                            <label for="_fid_16">State</label>
+                        </td>
+                    </tr>
                     <tr>
-                        <td>
+                        <td class="hidden-xs">
                             <label for="_fid_12">State</label>
                         </td>
                         <td>
@@ -429,24 +456,39 @@
                             </div>
                         </td>
                     </tr>
+					<tr class="visible-xs">
+                        <td colspan="2">
+                            <label for="_fid_16">Zip/Postal Code</label>
+                        </td>
+                    </tr>
                     <tr>
-                        <td>
+                        <td class="hidden-xs">
                             <label for="_fid_13">Zip/Postal Code</label>
                         </td>
                         <td>
                             <input required="required" name="_fid_13" id="_fid_13" title="Zip/Postal code is required" number="true" type="text">
                         </td>
                     </tr>
+					<tr class="visible-xs">
+                        <td colspan="2">
+                            <label for="_fid_16">Phone Number</label>
+                        </td>
+                    </tr>
                     <tr>
-                        <td>
+                        <td class="hidden-xs">
                             <label for="_fid_14">Phone Number</label>
                         </td>
                         <td>
                             <input required="required" name="_fid_14" id="_fid_14" title="Phone number is required" phoneus="true" type="text">
                         </td>
                     </tr>
+					<tr class="visible-xs">
+                        <td colspan="2">
+                            <label for="_fid_16">Email</label>
+                        </td>
+                    </tr>
                     <tr>
-                        <td>
+                        <td class="hidden-xs">
                             <label for="_fid_15">Email</label>
                         </td>
                         <td>
@@ -464,72 +506,117 @@
             <h3>Experience</h3> 
             <table>
                 <tbody>
+					<tr class="visible-xs">
+                        <td colspan="2">
+                            <label for="_fid_16">Name of Business</label>
+                        </td>
+                    </tr>
                     <tr>
-                        <td width="280px">
+                        <td class="hidden-xs" width="280px">
                             <label for="_fid_16">Name of Business</label>
                         </td>
                         <td>
                             <input required="required" name="_fid_16" id="_fid_16" type="text">
                         </td>
                     </tr>
+					<tr class="visible-xs">
+                        <td colspan="2">
+                            <label for="_fid_16">Business Street Address</label>
+                        </td>
+                    </tr>
                     <tr>
-                        <td>
+                        <td class="hidden-xs">
                             <label for="_fid_17">Business Street Address</label>
                         </td>
                         <td>
                             <input required="required" name="_fid_17" id="_fid_17" type="text">
                         </td>
                     </tr>
+					<tr class="visible-xs">
+                        <td colspan="2">
+                            <label for="_fid_16">Business City</label>
+                        </td>
+                    </tr>
                     <tr>
-                        <td>
+                        <td class="hidden-xs">
                             <label for="_fid_18">Business City</label>
                         </td>
                         <td>
                             <input required="required" name="_fid_18" id="_fid_18" type="text">
                         </td>
                     </tr>
+					<tr class="visible-xs">
+                        <td colspan="2">
+                            <label for="_fid_16">Business State</label>
+                        </td>
+                    </tr>
                     <tr>
-                        <td>
+                        <td class="hidden-xs">
                             <label for="_fid_19">Business State</label>
                         </td>
                         <td>
                             <input required="required" name="_fid_19" id="_fid_19" type="text">
                         </td>
                     </tr>
+					<tr class="visible-xs">
+                        <td colspan="2">
+                            <label for="_fid_16">Business Zip</label>
+                        </td>
+                    </tr>
                     <tr>
-                        <td>
+                        <td class="hidden-xs">
                             <label for="_fid_20">Business Zip</label>
                         </td>
                         <td>
                             <input required="required" name="_fid_20" id="_fid_20" type="text">
                         </td>
                     </tr>
+					<tr class="visible-xs">
+                        <td colspan="2">
+                            <label for="_fid_16">Describe the type of business</label>
+                        </td>
+                    </tr>
                     <tr>
-                        <td>
+                        <td class="hidden-xs">
                             <label for="_fid_21">Describe the type of business</label>
                         </td>
                         <td>
                             <input required="required" name="_fid_21" id="_fid_21" type="text">
                         </td>
                     </tr>
+					<tr class="visible-xs">
+                        <td colspan="2">
+                            <label for="_fid_16"># of employees</label>
+                        </td>
+                    </tr>
                     <tr>
-                        <td>
+                        <td class="hidden-xs">
                             <label for="_fid_22"># of employees</label>
                         </td>
                         <td>
                             <input required="required" name="_fid_22" id="_fid_22" type="text">
                         </td>
                     </tr>
+					<tr class="visible-xs">
+                        <td colspan="2">
+                            <label for="_fid_16">How long have you owned the business?</label>
+                        </td>
+                    </tr>
                     <tr>
-                        <td>
+                        <td class="hidden-xs">
                             <label for="_fid_23">How long have you owned the business?</label>
                         </td>
                         <td>
                             <input required="required" name="_fid_23" id="_fid_23" type="text">
                         </td>
                     </tr>
+					<tr class="visible-xs">
+                        <td colspan="2">
+                            <label for="_fid_16">Are you currently a Wireless Dealer?</label>
+                        </td>
+                    </tr>
                     <tr>
-                        <td>
+                        <td class="hidden-xs">
                             <label for="_fid_24">Are you currently a Wireless Dealer?</label>
                         </td>
                         <td>
@@ -541,16 +628,26 @@
                             </fieldset>
                         </td>
                     </tr>
+					<tr class="visible-xs">
+                        <td colspan="2">
+                            <label for="_fid_16">If so, which carriers?</label>
+                        </td>
+                    </tr>
                     <tr class="indent currentdealer">
-                        <td>
+                        <td class="hidden-xs">
                             <label for="_fid_51">If so, which carriers?</label>
                         </td>
                         <td>
                             <input required="required" name="_fid_51" id="_fid_51" type="text">
                         </td>
                     </tr>
+					<tr class="visible-xs">
+                        <td colspan="2">
+                            <label for="_fid_16"># of monthly new activations</label>
+                        </td>
+                    </tr>
                     <tr class="indent currentdealer">
-                        <td>
+                        <td class="hidden-xs">
                             <label for="_fid_52"># of monthly new activations</label>
                         </td>
                         <td>
@@ -558,8 +655,13 @@
                         </td>
                     </tr>
                     <!-- <tr class="indent currentdealer"> <td><label for="_fid_53">How many stores</label></td> <td><input type="text" name="_fid_53" id="_fid_53"/></td> </tr> -->
-                    <tr class="indent currentdealer multiple">
-                        <td>
+                    <tr class="visible-xs">
+                        <td colspan="2">
+                            <label for="_fid_16">Address, City, State, Zip...If multiple addresses, list one per line</label>
+                        </td>
+                    </tr>
+					<tr class="indent currentdealer multiple">
+                        <td class="hidden-xs">
                             <label for="_fid_54">Address, City, State, Zip</label>
                             <br><span>If multiple addresses, list one per line</span>
                         </td>
@@ -567,16 +669,26 @@
                             <textarea required="required" type="text" name="_fid_54" id="_fid_54" style="width:96%;" rows="4"></textarea>
                         </td>
                     </tr>
+					<tr class="visible-xs">
+                        <td colspan="2">
+                            <label for="_fid_16">Do you own other businesses?</label>
+                        </td>
+                    </tr>
                     <tr>
-                        <td>
+                        <td class="hidden-xs">
                             <label for="_fid_25">Do you own other businesses?</label>
                         </td>
                         <td>
                             <input required="required" name="_fid_25" id="_fid_25" type="text">
                         </td>
                     </tr>
+					<tr class="visible-xs">
+                        <td colspan="2">
+                            <label for="_fid_16">If so, what type of business?</label>
+                        </td>
+                    </tr>
                     <tr>
-                        <td>
+                        <td class="hidden-xs">
                             <label for="_fid_26">If so, what type of business?</label>
                         </td>
                         <td>

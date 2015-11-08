@@ -1,3 +1,4 @@
+#application{background: #000;}
 @media (max-width: 310px){
 	.mobile-about-menu > div > a, .mobile-about-menu select {
 		display: table-cell;
@@ -12,17 +13,23 @@
 		font-size: 8px;
 	}
 }
-
+@media (max-width: 992px){
+	.save-box{position: static !important;}
+}
 @media (min-width: 768px){
 	.about-top{background-size: 100% !important;}
 }
 @media (max-width: 767px){
 	.about-top .banner-label {
-    margin-left: 20px !important;
-    font-weight: bold;
-    width: 90% !important;
-    size: 14px;
-}
+		margin-left: 20px !important;
+		font-weight: bold;
+		width: 90% !important;
+		size: 14px;
+	}
+	#application input[type='text']{
+		width: 100% !important;
+	}
+	
 }
 .panel li > a{
 	padding: 4px 10px !important;
@@ -57,6 +64,7 @@
 	text-align: center;
 	padding: 10px 0px;
 	min-height: 56px;
+	font-size: 12px;
 }
 .mobile-about-menu select{
 	moz-appearance: none;
