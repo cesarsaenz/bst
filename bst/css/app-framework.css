@@ -1,5 +1,18 @@
 @import url("phoneDetail.css");
 /****** BEGIN GENERAL *******/
+.checkout .visible-xs h3{
+  margin: 0;
+  padding: 17px 0 10px;
+  color: #F7901E;
+}
+
+.glyphicon-remove-circle:before{
+  font-size:11px;
+  position:absolute;
+  top:-1px;
+  left:-1px;
+}
+
 h3 a{
   font-size:15pt;
 }
@@ -14,7 +27,16 @@ table.compare{
   font-size:12px;
 }
 
-.table-bordered.compare .phoneZoom {
+.phoneStyle{
+  background:url('../img/sprite_shop_icons.png') no-repeat;
+  width:100%;
+  height:40px;
+}
+#phoneController .filter .bar{background-position: 11px 0px;}
+#phoneController .filter  .slider{background-position:-39px 0px}
+#phoneController .filter  .flip{background-position:-91px 0px}
+
+#phoneController .phoneZoom {
   float: left;
   clear: both;
   position: relative;
@@ -29,7 +51,7 @@ table.compare{
   -ms-transition: width 0.3s ease-in-out 0s;
   transition: width 0.3s ease-in-out 0s;
 }
-.table-bordered.compare .phoneZoom span {
+#phoneController .phoneZoom span {
   float: left;
   padding-left: 25px;
   font-size: 12px;
@@ -63,9 +85,36 @@ table.compare{
 .BVMEStaticTip a{
   font-size: 11px;
 }
+
 .tooltip-inner{
-  min-width:150px;
+  min-width:50px;
+  overflow: hidden;
+  text-align: left;
+  padding: 5px 9px;
+  background-color: #FFFFFF;
+  color: #000001;
+  border: solid 1px #808080;
+  box-shadow: 3px 3px 5px #808080;
 }
+.tooltip.in{opacity:1;filter:alpha(opacity=100)}
+.phoneDetailsTop .tooltip-inner{
+  box-shadow: none;
+}
+
+.popover-content{
+  background-color: #FFFFFF;
+  color: #000000;
+  width:100% !important;
+  box-shadow:3px 3px 5px #808080;
+}
+.arrow {
+    opacity: 0;
+}
+
+.reduceFont{
+  font-size: 80% !important;
+}
+
 a:link, a:visited {
   color: #f7901e;
 }
@@ -114,6 +163,7 @@ a, a:hover, a:active {box-shadow:none !important;}
 	background-color:#F7F7F7;
 	border-color:#CCCCCC;
 	color:#333333;
+  background: transparent linear-gradient(#1A1717, #262626) repeat scroll 0% 0%;
 }
 .btn-boost{
     display: inline-block;
@@ -126,7 +176,7 @@ a, a:hover, a:active {box-shadow:none !important;}
     letter-spacing: 0.5px;
     font-family: BoostNeoBold,Arial,Helvetica,sans-serif;
     text-align: center;
-    color: #FFF;
+    color: #FFF!important;
     text-decoration: none;
 }
 .btn-boost:hover, .btn-boost:focus {
@@ -156,15 +206,11 @@ a, a:hover, a:active {box-shadow:none !important;}
 }
 .btn-primary {
 	color:#FFFFFF!important;
-	border-radius:4px;
-	background:-webkit-gradient(linear,0 0,0 bottom,from(#f7901e),to(#d1581c));
-	background:-webkit-linear-gradient(#f7901e,#d1581c);
-	background:-moz-linear-gradient(#f7901e,#d1581c);
-	background:-ms-linear-gradient(#f7901e,#d1581c);
-	background:-o-linear-gradient(#f7901e,#d1581c);
-	background:linear-gradient(#f7901e,#d1581c);
-	-pie-background:linear-gradient(#f7901e,#d1581c);
+  background:#F7901E;
 	border:none;
+  letter-spacing: 0.5px;
+  font-family: BoostNeoBold,Arial,Helvetica,sans-serif;
+  text-align: center;
 }
 
 	.btn-default:hover, .btn-primary:hover {
@@ -184,8 +230,12 @@ select, option, .dropdown {text-align:left; outline:none !important;}
 .title {background:#000000; color:#F7901E; padding:0 10px 10px; margin:0;}
 .titleAlt {background:#000000; padding:0 10px 10px; margin:0;}
 	a {color:#FFFFFF; font-size:14px;}
-	i {color:#CCCCCC; width:20px; height:20px; border-radius:50%; margin:-5px 5px 0 5px; background-color:#333333; padding:3px; font-size:11px;}
-
+	i {color:#CCCCCC; width:10px; height:10px; border-radius:50%; margin:-5px 5px 0 5px; background-color:#333333; padding:3px; font-size:11px;}
+i.glyphicon-ok{
+  width:0;
+  height:0;
+  background-color:transparent;
+}
 span.cart {background:#2E2E2E; float:right; color:#CCCCCC; font-family:'Sprint Sans Web','Helvetica Neue',Helvetica,Arial,sans-serif; display:inline-block; margin-top:-10px;}
 	span.cart p {float:left; font-size:14px; padding:14px 10px 0 20px; margin:0;}
 	span.cart .btn-group {float:left; margin:5px 5px 5px 8px;}
@@ -246,7 +296,7 @@ ol.breadcrumb {
 	background:#000000;
 	margin:0;
 	padding:10px 0;
-	font-size:11px;
+	font-size:14px;
 	border-radius:0px;
 }
 	ol.breadcrumb li.active {
@@ -568,7 +618,7 @@ ul.howitworks.hotspot {
 	.tabs .col-md-4 h3 {color:#F7901E; font-weight:bold;}
 	ul.howitworks li {padding:10px 0 25px 60px;}
 		ul.features li div {
-			width:80%;
+			width:85%;
 			float:left;
 			display:inline-block;
       padding-left: 5px;
@@ -596,6 +646,7 @@ ul.phonesinclude {padding:0 0 10px;}
 			position:relative;
 			top:3px;
 		}
+   ul.phonesinclude li span {display: inline-block; vertical-align: top;}
 section.recapps{
 	background:url('../img/img-recapps.jpg') no-repeat;
 	background-position:right center;
@@ -662,7 +713,7 @@ section.specs{min-height:400px;}
         font-size: 14px;
 			}
 			section.specs .lists ul p, section.specs .lists ul li {
-				width:60%;
+				width:65%;
 				float:left;
 				margin:0 !important;
 				padding:0 10px 0 0;
@@ -821,6 +872,7 @@ div.col-md-2.filter {
 	padding-left:0;
 	padding-right:0;
 	background:#585858;
+  border-right: 1px solid #000000 !important;
 }
 .panel-body.filter.compare {
 	background:#656565;
@@ -843,7 +895,8 @@ div.col-md-2.filter {
 			}
 				.panel-body.filter.compare ul li a img {
 					height:54px;
-					margin:2px auto;
+          width:33px;
+					margin:3px 1px;
 				}
 				.panel-body.filter.compare ul li a.removeComparePhone {
 					  font-size:12px;
@@ -879,6 +932,7 @@ div.col-md-2.filter {
 		font-size:12px !important;
 		color:#FFFFFF !important;
 	}
+	.filter .panel-default>.panel-heading h4.panel-title a {color:#FFFFFF !important;}
 	.filter .panel-default>.panel-heading h4.panel-title a.collapsed:after {
 		position:absolute;
 		font-family:'Glyphicons Halflings';
@@ -901,8 +955,7 @@ div.col-md-2.filter {
     float: right;
     list-style: outside none none;
     display: block;
-    margin: 0px;
-    margin-top:55px;
+    margin-top: -35px;
 }
   #social_strip li#social_strip-fb a {
     background-image: url("../img/sprite-social-icons.png");
@@ -1047,6 +1100,13 @@ div.col-md-2.filter {
 	line-height:1.7em;
 	color:#A1A1A1;
 }
+.panel-body label .popover-content{
+  width:325px !important;
+  box-shadow:none;
+  border: solid 1px #808080;
+}
+
+
 	.panel-body label:hover {color:#FFFFFF;}
 	.panel-body label input[type='checkbox'] {
 		float:left;
@@ -1291,7 +1351,7 @@ div#no-accessories p {
     padding-top:15px;
 	}
   .phone .col-xs-4 img {width:140px;height:231px;}
-.onSale:after {
+/*.onSale:after {
 	width:80px;
 	height:80px;
 	border-style:solid;
@@ -1302,20 +1362,122 @@ div#no-accessories p {
 	right:0;
 	display:block;
 	content:" ";
-}
+}*/
 .onSale:before {
-	content:"$140 OFF!";
+	content: "" !important;
 	position:absolute;
-	top:8px;
-	width:42px;
+	top:0;
 	right:0;
-	text-align:center;
-	line-height:15px;
-	color:#FFFFFF;
-	font-weight:bold;
-	font-size:14px;
-	z-index:2;
+	width: 100px;
+    height: 100px;
+    background-image: url('../img/tags-phone-pages2.png');
 }
+/*.onSale.discount_30:before {
+    content: "" !important;
+    background-position: left -1000px;
+}*/
+
+.onSale.webonly:before {
+    background-position: left -2400px
+}
+
+.onSale.discount_5:before {
+    background-position: left -100px
+}
+
+.onSale.discount_10:before {
+    background-position: left -200px
+}
+
+.onSale.discount_15:before {
+    background-position: left -300px
+}
+
+.onSale.discount_20:before {
+    background-position: left -400px
+}
+
+.onSale.discount_25:before {
+    background-position: left -500px
+}
+
+.onSale.discount_30:before {
+    background-position: left -600px
+}
+
+.onSale.discount_35:before {
+    background-position: left -700px
+}
+
+.onSale.discount_40:before {
+    background-position: left -800px
+}
+
+.onSale.discount_45:before {
+    background-position: left -900px
+}
+
+.onSale.discount_50:before {
+    background-position: left -1000px
+}
+
+.onSale.discount_55:before {
+    background-position: left -1100px
+}
+
+.onSale.discount_60:before {
+    background-position: left -1200px
+}
+
+.onSale.discount_65:before {
+    background-position: left -1300px
+}
+
+.onSale.discount_70:before {
+    background-position: left -1400px
+}
+
+.onSale.discount_75:before {
+    background-position: left -1500px
+}
+
+.onSale.discount_80:before {
+    background-position: left -1600px
+}
+
+.onSale.discount_85:before {
+    background-position: left -1700px
+}
+
+.onSale.discount_90:before {
+    background-position: left -1800px
+}
+
+.onSale.discount_95:before {
+    background-position: left -1900px
+}
+
+.onSale.discount_100:before {
+    background-position: left -2000px
+}
+
+.onSale.discount_125:before {
+    background-position: left -2100px
+}
+
+.onSale.discount_150:before {
+    background-position: left -2200px
+}
+
+.onSale.discount_200:before {
+    background-position: left -2300px
+}
+
+.onSale.discount_29_99:before,.onSale.discount_21:before  {
+   background-position: left -2400px!important;
+}
+
+
 .onPromo:after {
 	background-image:url(../img/img-promoOptions.png);
 	background-repeat:no-repeat;
@@ -1361,6 +1523,7 @@ div#no-accessories p {
 	}
 	.phone .rating {
 		top:-5px;
+		height: 16px;
 	}
 		.rating  a.reviews {color:#333333;}
 			.rating  a.reviews:before {
@@ -1397,6 +1560,7 @@ div#no-accessories p {
 			}
 				.phone .col-xs-8 .prices p:before {
 					content:"$";
+          color:transparent;
 				}
 			.phone .col-xs-8 .prices p.phonePromoDiscount {
 				color:#F7901E;
@@ -1529,7 +1693,6 @@ section.phoneDetailsTop {background:#000000; color:#cbcbcb;}
 
 	section.phoneDetailsTop div.col-sm-6 {
 		border-right:none !important;
-		height:500px;
 		padding:0;
 	}
 		section.phoneDetailsTop div.col-sm-6:first-of-type {
@@ -1539,16 +1702,14 @@ section.phoneDetailsTop {background:#000000; color:#cbcbcb;}
 			background-size:cover;
 			height:430px;
 		}
-		section.phoneDetailsTop div.col-sm-6.details .col-xs-12 {
-			height:100%;
-		}
 	section.phoneDetailsTop div.col-sm-6 .carousel-inner>.item>a>img,
 	section.phoneDetailsTop div.col-sm-6 .carousel-inner>.item>img {
 		height:380px;
 		display:block;
 		margin:20px auto;
 	}
-	.carousel {height:100%;}
+	.carousel {/*height:100%;*/}
+	#myCarousel {width: 100%; margin-bottom: 10px;}
 	.carousel-control.left,
 	.carousel-control.right {
 		background-image:none;
@@ -1632,6 +1793,9 @@ span.additionalLinks {
   text-align:right;
 }
 
+div.detailsLegal {font-size:10px !important; text-align:right !important; padding-right:0; padding-left:0;}
+div.detailsLegal:last-of-type{margin-bottom: 15px;}
+
 	h1.phoneFinalPrice {
 		font-weight:bold;
 		text-align:right;
@@ -1666,7 +1830,7 @@ span.additionalLinks {
 	}
   .freeInfo { top: 0px;left: 2px;position: relative;z-index: 100;display: inline-block;width: 14px;height: 14px;background:      transparent url("../img/icons/sprite_action_icons.png") no-repeat scroll left -150px;}
 
-  .reviewAsk { top: 0px;left: 95px;position: relative;z-index: 100;display: inline-block;width: 14px;height: 14px;background:      transparent url("../img/icons/sprite_action_icons.png") no-repeat scroll left -150px;}
+  .reviewAsk { top: 0px;left: 100px;position: relative;z-index: 100;display: inline-block;width: 14px !important;height: 14px;background:      transparent url("../img/icons/sprite_action_icons.png") no-repeat scroll left -150px;}
 
   .memInfo {top: 185px;left:-67px;position: relative;z-index: 100;display: inline-block;width: 14px;height: 14px;background: transparent url("../img/icons/sprite_action_icons.png") no-repeat scroll left -240px;overflow: hidden;text-indent: -9999px;cursor: pointer;}
 
@@ -2170,9 +2334,6 @@ section.accessories .acc {float:left;}
   border-radius:3px 3px 0px 0px;
 
 }
-	.nav-tabs>li:last-of-type {
-		float:right;
-	}
 .nav-tabs>li>a {color:#FFFFFF; margin-right:0; height:40px; border-radius:4px 4px 0 0; border:none !important; padding:10px 0;
 	background:rgb(97,96,96);
 	background:-moz-linear-gradient(top, rgba(97,96,96,1) 0%, rgba(39,39,39,1) 100%);
@@ -2273,22 +2434,22 @@ span.features-icons {
 	background-position:-7px -2118px;
   position:relative;
 }
+
 .features-icons.android,.features-icons.volt-4point1, .features-icons.s5-android, .features-icons.os-boostmax, .features-icons.os-gs3, .features-icons.os-motog,.features-icons.android-4point1,.features-icons.lg-mach-android-4point0, .features-icons.icon-android, .features-icons.edge-android-4point1,.features-icons.warp4g-android,.features-icons.prevail2-android-4point1,.features-icons.f7-android-4point1,.features-icons.venice-android-4point1,.features-icons.android-2point3,.features-icons.dual-1point2ghz,.features-icons.sequent-1point4-ghz,.features-icons.rush-android-4point0,.features-icons.rush-1ghz,.features-icons.force-android-4point0,.features-icons.htc-one-android-4point0,.features-icons.android-4point0,.features-icons.android-4point3,.features-icons.android-4point0-or-higher,.features-icons.os{background-position:-7px -17px}
 .features-icons.camera,.features-icons.verve-camera,.features-icons.icon-camera, .features-icons.volt-8mp-camera, .features-icons.s5-camera, .features-icons.boost-max-camera, .features-icons.camera-motog,.features-icons.mach-video,.features-icons.mach-camera,.features-icons.warp-camera,.features-icons.s3-8mpcamera-1080video,.features-icons.f7-8mp-camera,.features-icons.edge-camera,.features-icons.edge-video-camera,.features-icons.prevail2-front-camera,.features-icons.prevail2-5mpcamera,.features-icons.s3-camera-2point-front,.features-icons.camera-2-mp,.features-icons.camera-5-mp-video,.features-icons.camera-5-mp-zoom-video,.features-icons.camera-5-mp-zoom-video2,.features-icons.camera-3point0,.features-icons.camera-3point2-flash,.features-icons.camera-3point2-still,.features-icons.camera-3point2-front,.features-icons.camera-1point3-zoom,.features-icons.digital-camera,.features-icons.camera-2-mp-zoom,.features-icons.camera-2-mp-zoom-novideo,.features-icons.camera-3point0Rear,.features-icons.camera-8point-1080,.features-icons.camera-2point-front,.features-icons.sequent-5mp-cam-video,.features-icons.sequent-1point3-camera,.features-icons.rush-3mp-camera,.features-icons.rush-1point3-front-camera,.features-icons.venice-720p-video,.features-icons.venice-5mp-front,.features-icons.htc-one-5mp,.features-icons.force-5mp-camera,.features-icons.camera-2-mp-zoom-bb{background-position:-7px -297px}
-.features-icons.touchscreen, .features-icons.volt-touchscreen, .features-icons.icon-display, .features-icons.boostmax-touchscreen, .features-icons.f3-touchscreen, .features-icons.display-motog,.features-icons.screen-size-3point2{background-position:-7px -577px}
+.features-icons.touchscreen, .features-icons.volt-touchscreen,.features-icons.icon-touchscreen ,.features-icons.boostmax-touchscreen, .features-icons.f3-touchscreen, .features-icons.display-motog,.features-icons.screen-size-3point2{background-position:-7px -577px;}
 .features-icons.hotspot{background-position:-7px -857px}
 .features-icons.windows{background-position:-7px -2562px}
 .features-icons.cortana{background-position:-8px -2605px}
 .features-icons.battery{background-position:-7px -2649px}
 .features-icons.memory{background-position:-7px -1417px}
-
+.features-icons.icon-4g{background-position:-7px -1767px}
 .features-icons.mobilehotspot,.features-icons.mobile-hotspot-capable {background-position:-7px -2500px;}
 .features-icons.video{background-position:-7px -297px;}
 .features-icons.ule{background-position: -7px -2200px;}
-.features-icons.display {background-position: -7px -2732px;}
+.features-icons.display,.features-icons.icon-display {background-position: -7px -2732px;}
 .features-icons.messaging{background-position: -6px -997px;}
-.features-icons.4g {background-position: -7px -1767px;}
-.features-icons.voice,.features-icons.hdvoice{background-position: -7px -2428px;}
+.features-icons.voice,.features-icons.icon-hd,.features-icons.hdvoice,.features-icons.hd-voice{background-position: -7px -2428px;}
 .features-icons.wifi {background-position: -6px -857px;}
 .features-icons.voice-commands,.features-icons.dura-speaker,.features-icons.speakerphone-voice-activated-dialing{background-position:-7px -1137px}
 .features-icons.16gb-internal-memory,.features-icons.expandable-memory{background-position:-7px -1417px}
@@ -2296,7 +2457,7 @@ span.features-icons {
 .features-icons.galaxys2-google-play,.features-icons.force-google-play,.features-icons.htc-one-google-play,.features-icons.google-play{background-position:-6px -87px}
 .features-icons.google-integration{background-position:-6px -367px}
 .features-icons.verve-bluetooth,.features-icons.bluetooth-motog,.features-icons.dura-blue, .features-icons.bluetooth,.features-icons.f7-bluetooth,.features-icons.warp-bluetooth,.features-icons.venice-bluetooth,.features-icons.sequent-bluetooth-4point0,.features-icons.rush-bluetooth-4point0,.features-icons.bluetooth-mono{background-position:-6px -647px}
-.features-icons.music,.features-icons.music-player,.features-icons.htc-one-beats-audio,.features-icons.enhanced-mp3{background-position:-7px -927px}
+.features-icons.music,.features-icons.icon-audio,.features-icons.music-player,.features-icons.htc-one-beats-audio,.features-icons.enhanced-mp3{background-position:-7px -927px}
 .features-icons.s5-display, .features-icons.s3-4oint8-screen,.features-icons.screen-size-4point0,.features-icons.warp-display,.features-icons.screen-size-4point3,.features-icons.screen-size-4point0-hd,.features-icons.screen-size-3point5,.features-icons.screen-size-3point1,.features-icons.screen-size-3point5-hvga,.features-icons.screen-size-3point0,.features-icons.screen-size-2point54-amoled,.features-icons.f7-touchscreen,.features-icons.edge-touchscreen,.features-icons.prevail2-display,.features-icons.sequent-4point3-touchscreen,.features-icons.rush-3point5-touch,.features-icons.venice-4point3-touchscreen,.features-icons.htc-one-wga-touchscreen,.features-icons.mach-touchscreen,.features-icons.force-wga-widescreen,.features-icons.screen-size-2point8{background-position:-6px -577px}
 .features-icons.cameras-2, .features-icons.dura-dual, .features-icons.f3-5mp-camera,.features-icons.cameras-2_3mp{background-position:-6px -1208px}
 .features-icons.multimedia-im-text-messaging,.features-icons.multimedia-im-text-messaging-capable,.features-icons.mms-text,.features-icons.im{background-position:-7px -1487px}
@@ -2304,7 +2465,7 @@ span.features-icons {
 .features-icons.s5-lte{background-position:-6px -1768px}
 .features-icons.venice-thin-light,.features-icons.vibrate-mode{background-position:-6px -155px}
 .features-icons.verve-speakerphone,.features-icons.hands-free-speakerphone,.features-icons.speakerphone{background-position:-6px -437px}
-.features-icons.verve-keyboard,.features-icons.full-and-virtual-qwerty-keyboard,.features-icons.full-qwerty-keyboard,.features-icons.mach-keyboard,.features-icons.full-qwerty-keyboard-bb,.features-icons.full-qwerty-optical,.features-icons.full-keyboard{background-position:-6px -717px}
+.features-icons.verve-keyboard,.features-icons.qwerty-keyboard,.features-icons.full-and-virtual-qwerty-keyboard,.features-icons.full-qwerty-keyboard,.features-icons.mach-keyboard,.features-icons.full-qwerty-keyboard-bb,.features-icons.full-qwerty-optical,.features-icons.full-keyboard{background-position:-6px -717px}
 .features-icons.texting{background-position:-6px -997px}
 .features-icons.world,.features-icons.wireless-web,.features-icons.dura-web,.features-icons.f7-dualmode-3g-4g,.features-icons.icon-lte,.features-icons.f3-dualmode-3g-4g,.features-icons.s3-dualmode,.features-icons.dualmode-3g-4g,.features-icons.force-dualmode-3g-4g,.features-icons.bb-wireless-web{background-position:-7px -1767px}
 .features-icons.verve-web-gps,.features-icons.wifi-motog,.features-icons.mobile-hotspot,.features-icons.f7-wifi-gps,.features-icons.edge-wifi,.features-icons.warp-wifi,.features-icons.prevail2-wifi,.features-icons.s3-wifi-gps,.features-icons.wifi-hotspot,.features-icons.sequent-wifi-gps,.features-icons.rush-wifi-gps,.features-icons.venice-wifi-gps,.features-icons.htc-one-wifi-gps,.features-icons.force-wifi-gps, .features-icons.mobile-hotspot-enabled{background-position:-6px -857px}
@@ -2431,6 +2592,34 @@ section.tab-addservices div>div>h3 {
 	line-height:20px;
 	color:#000000 !important;
 }
+
+#phoneContent #phonePlans #module-how_it_works div.left {
+	background: url("bst/img/dotted_line.png") top right repeat-y;
+}
+
+#phoneContent #whats_included-chart .single {
+    padding: 15px 14px 16px !important;
+    height: 29px !important;
+}
+
+#phoneContent #whats_included-chart dt.single:after {
+    content: "";
+}
+
+#phoneContent #phonePlans #whats_included-chart dd {
+    width: 188px;
+    line-height: 0.5em;
+}
+
+#phoneContent #phonePlans #whats_included-chart dt h4 {
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    line-height: 0px;
+    color: #171717;
+    vertical-align: middle;
+}
+
 /* Reviews Tab */
 #BVRRContainer .BVRRReviewDisplayStyle5BodyUser {
 	width: 27%;
@@ -2587,31 +2776,37 @@ section.tab-addservices div>div>h3 {
     left: 1px;
 }
 .promo01 {
-	background-image:url(../img/promo-full-01.jpg);
+	background-image:url(../img/home-growingdata.jpg);
 	background-repeat:no-repeat;
 	background-position:top left;
 	background-size:cover;
 }
 .promo02 {
-	background-image:url(../img/promo-half-01.jpg);
+	background-image:url(../img/switchsavepic.jpg);
 	background-repeat:no-repeat;
 	background-position:top center;
 }
-	.promo02 h2 {color:#F7901E;}
-	.promo02 h4>p {padding:0 0 10px; font-size:11px; margin:5px 0 25px !important; display:block;}
-  .promo02 a.btn-primary {padding: 8px 12px;font-size: 16px;font-family: 'Boost_bold';font-weight: bold;width: 115px;height: 45px;min-height: auto;margin-left: 155px;margin-top:30px;}
-  .promo02 span {color: #000;font-weight:bold;background:none;padding:0px;}
-  .promo02 p.bn-b {color:#000;margin: 0px 0px;font-size: 18px;}
-  .promo-half div.promo02 {height: 438px;padding: 0px 5px;border-right:2px solid black;}
+ .promo-half div.promo02,.promo-half div.promo03 {height: 438px;padding: 0px 5px;border-right:2px solid black;border-top:2px solid black;}
+ .promo-half div.promo02 p:first-child  {color:#000; padding-top:35px;font-size: 18px;margin-top: 100px;}
+ .promo-half div.promo02 p:last-of-type  {color:#000;font-size:8.5px; padding-right: 30px;padding-left: 30px;margin-top:-5px;}
 .promo03 {
-	background-image:url(../img/promo-half-03.jpg);
+	background-image:url(../img/HPB_Eng.jpg);
 	background-repeat:no-repeat;
 	background-position:top center;
 }
 	.promo03 span {position:relative; top:46%;}
-  .promo04-2 a.btn-boost,.promo04 a.btn-boost {padding: 8px 12px;font-size: 16px;font-family: 'Boost_bold';font-weight: bold;width: 115px;height: 43px;min-height: auto;margin-left: 110px;}
+  .promo04-2 a.btn-boost,.promo04 a.btn-boost,.promo02 a.btn-boost,.promo03 a.btn-primary{padding: 8px 12px;font-size: 16px;font-family: 'Boost_bold';font-weight: bold;width: 115px;height: 43px;min-height: auto;margin-left: 110px;}
+   .promo-half div.promo03 h3 {position:relative;top:120px;left:24px;text-align:left;font-size:19px;} 
+     .promo02 a.btn-boost {
+    margin-left:160px;
+}
+.promo03 a.btn-primary {
+    margin-left:90px;
+    margin-top: 140px;
+}
   .promo-half div.promo04 {height: 438px;padding: 65px;border-right:2px solid black;border-top:2px solid black;border-bottom:2px solid black!important;}
-  .promo04 h2.promoMexico {font-weight: normal;width: 400px;font-size:31px;margin-left:10%;}
+  .promo04 h2.promoMexico {font-weight: normal;width: 400px;font-size:25px;margin-left:10%;}
+   .promo04 h2.promoMexico strong {font-size:31px;}
   .promo04 h2.promoMexico span {background:none;font-size: 28px;
    color: #000;}
   .promo-half div.promo04-2 {height: 438px;padding: 67px;border-top:2px solid black;border-bottom:2px solid black;}
@@ -3307,6 +3502,7 @@ section.deals>h1 {
 section.deals .deal {height:200px; border-right:1px solid #DDDDDD !important; border-bottom:1px solid #DDDDDD !important;}
 	section.deals .deal div {float:left; width:70%;}
   section.deals span {float:right; width:95px; padding:20px 0px 0 0;}
+  section.deals span.glyphicon{float:none;padding:0px;opacity:0.5;width:12px;}
   section.deals span img{max-height:100%;max-width:100%;}
 	section.deals .deal p b {color:#F7901E;font-size:11px;}
 	section.deals .deal h3 {padding:0; margin:0;}
@@ -3545,6 +3741,8 @@ section.progressArrows {
 .checkout .col-md-8 {
 	border-right:none;
 }
+.checkout a.print{padding-top: 15px;padding-right: 5px; float:right; font-size:15px;}
+.checkout p {padding-left: 10px !important;}
 .checkout h2.orange {color:#FFFFFF; background:#F7901E; margin:0; padding:10px;}
 .checkout h2 span {float:right; font-size:12px; padding:7px 5px 0 0;}
 	.checkout h2 span a {color:#FFFFFF;}
@@ -3576,9 +3774,11 @@ section.progressArrows {
 		display:inline-block;
 		float:left;
 	}
+  .col-sm-1.control-label {width:80px;margin-left: -10px!important;}
   .cart-item .promoTitle {font-size:9px;}
-	.cart-item .quantity {/*width:auto; float:left;*/ margin:10px 0;}
+	.cart-item .quantity {/*width:auto; float:left;*/ margin:10px 0; padding-right:0px;}
 	.cart-item .quantity input {width:40px; display: inline-block;}
+	.cart-item .quantity  a {padding-left: 5px;}
 	.cart-item .quantity p {float:left; margin:5px 0 !important;}
 		.cart-item .quantity:before {
 			content:"Quantity:";
@@ -3674,8 +3874,8 @@ section.checkout div.col-md-4 {padding-left:0; padding-right:0;}
 .modal-body a {color:#67CFCD;}
 	.modal-body .panel-title a {color:#FFFFFF;}
 	.modal-body a:hover {text-decoration:underline !important;}
-.tcs h3 {float:left;}
-.tcs a, a.billingInfo  {font-size:12px; float:left; margin:26px 0 15px; color:#009cff; line-height:12px;}
+.tcs h3 {float:left; width:200px;}
+.tcs a, a.billingInfo  {font-size:12px; float:left; margin:26px 0 15px 10px; color:#009cff; line-height:12px;}
 .col-md-12.tcs label {line-height:initial !important;}
 	.col-md-12.tcs label input {margin:0 15px 0 0;}
 .checkout .promocodes {font-size:11px;}
@@ -3689,15 +3889,15 @@ section.checkout div.col-md-4 {padding-left:0; padding-right:0;}
 		.checkout .finalamount ul li:last-of-type {font-weight:bold; border-top:1px solid #CCCCCC; padding-top:10px; margin-top:10px;}
 			.checkout .finalamount ul li span{float:left;}
 				.checkout .finalamount ul li:last-of-type span{padding:0 0 10px;}
-			.checkout .finalamount ul li p{float:right;}
+			.checkout .finalamount ul li p{margin: 0px !important; padding:0px !important; float:right;}
 				.checkout .finalamount ul li p:before{content:"$";}
 	.checkout .finalamount.complete ul {font-size:14px;}
 		.checkout .finalamount.complete ul li:nth-of-type(4) p, .checkout .finalamount.complete ul li:nth-of-type(4) span {font-family:'Boost_bold' !important;}
 .col-md-12 .col-md-4.checkout-side img {display:block; margin:15px auto;}
 .alert h2 {padding:10px 0; margin:0 !important;}
-.billingInfo a, .shippingInfo a.cancel {clear:both; display:block; padding:10px 0;}
+.billingInfo a, .shippingInfo a, .shippingInfo a.cancel {clear:both; padding:10px;}
 .billingInfo a.btn {clear:none; display:block; padding:6px 12px; margin-bottom: 15px;}
-.shippingInfo a.btn-primary {margin-bottom: 20px;position: relative;top: -1px;left: 0px;width: 190px;font-size: 15px;line-height: 21px;                           height: 39px;padding: 10px;}
+section.checkout .shippingInfo a.btn-primary {margin-bottom: 20px;position: relative;top: -1px;left: 0px;width: 190px;font-size: 15px;line-height: 21px;                           height: 39px;padding: 10px;}
 section.checkout div section {border-bottom:1px solid #DDDDDD;}
 section.checkout input, section.checkout select {background:#E2E1E1;}
 	section.checkout div.col-xs-12.col-md-8 section:last-of-type {
@@ -3713,13 +3913,18 @@ section.checkout input, section.checkout select {background:#E2E1E1;}
 	section.checkout div.col-md-4 section ul.features.howitworks {
 		padding:0 10px;
 	}
-		section.checkout div.col-xs-12.col-md-8 section div {border:none !important;}
-		section.checkout div.col-xs-12.col-md-8 section .cc div.form-group {margin-top:60px;float:left;width:100%;}
-			section.checkout div.col-xs-12.col-md-8 section div.col-sm-4, section.checkout div.col-xs-12.col-md-8 section div.col-sm-6, section.checkout div.col-xs-12.col-md-8 section div.col-sm-8 {padding-left:0;}
-		section.checkout div.col-xs-12.col-md-8 section .col-sm-2, section.checkout div.col-xs-12.col-md-8 section .col-sm-3 {padding-left:0 !important; border:none;}
-		section.checkout div.col-xs-12.col-md-8 section .col-sm-3 select, section.checkout div.col-xs-12.col-md-8 section .col-sm-3 input {float:left; padding-left:4px;}
-		section.checkout div.col-xs-12.col-md-8 section .col-xs-6 {padding-bottom:10px;}
-		section.checkout div.col-xs-12.col-md-8 div .price {font-weight:bold; padding-right:10px; text-align:right;}
+section.checkout div.col-xs-12.col-md-8 section div {border:none !important;}
+section.checkout div.col-xs-12.col-md-8 section .cc div.form-group {margin-top:60px;float:left;width:100%;}
+section.checkout div.col-xs-12.col-md-8 section div.col-sm-4, section.checkout div.col-xs-12.col-md-8 section div.col-sm-6, section.checkout div.col-xs-12.col-md-8 section div.col-sm-8 {padding-left:0;}
+section.checkout div.col-xs-12.col-md-8 section .col-sm-2, section.checkout div.col-xs-12.col-md-8 section .col-sm-3 {padding-left:0 !important; border:none;}
+section.checkout div.col-xs-12.col-md-8 section .col-sm-3 select, section.checkout div.col-xs-12.col-md-8 section .col-sm-3 input {float:left; padding-left:4px;}
+section.checkout div.col-xs-12.col-md-8 section .col-xs-6 {padding-bottom:10px;}
+section.checkout div.col-xs-12.col-md-8 div .price {font-weight:bold; padding-right:10px; text-align:right;}
+section.checkout div.col-xs-12.col-md-8 section.billingInfo h2 {padding-left: 10px !important;}
+section.checkout div.col-xs-12.col-md-8 section.finalInfo h2 {padding-left: 10px !important;}
+section.checkout div.col-xs-12.col-md-8 section.finalInfo div {padding: 20px; font-size: 17px;}
+section.checkout div.col-xs-12.col-md-8 div.finalItem {width: 100%;}
+
 .form-group-sm .form-control {padding:5px 6px;}
 .required:after {
 	content:"*";
@@ -3735,7 +3940,6 @@ section.shippingInfo a.sameAsBillingInfo {
 dl {
 	font-size:14px;
 	background:#FCFCFC;
-	border:1px solid #EEEEEE;
 	padding:15px;
 }
 	dl dt:after {
@@ -3798,6 +4002,13 @@ label.copyBillingInfo {
 			content:"$";
 		}
 .terms.modal-body {padding:0;}
+  .terms.modal-body h2,
+  .terms.modal-body a {
+    color: #f7901e;
+  }
+  .terms.modal-body h2 {
+    margin-top: 0;
+  }
 	.terms.modal-body p {padding:0 !important;}
 .orderstatus>section>div.col-xs-12.col-md-8 .form-group {float:left; width:100%;}
 .orderstatus>section>div.col-xs-12.col-md-8 h4 {padding:10px 0 20px;}
@@ -3815,16 +4026,18 @@ label.copyBillingInfo {
 	margin:10px 0;
 	background:none;
 	padding:0;
+  width: 100%;
+  font-size: 12px;
 }
   .orderstatus table tr:nth-of-type(even){
     background:#EEEEEE;
   }
   .orderstatus table tr td {
     padding:5px;
-    width:100%;
   }
-	.orderstatus table tr td:first-of-type {min-width:200px; float:left; font-weight:bold;}
+	.orderstatus table tr td:first-of-type {width:20%; float:left; font-weight:bold;}
   .orderstatus table tr td span {display:block;}
+
 a#ccOverlayOpenner{
     height: 35px;
     margin-left: -90px;
@@ -3884,7 +4097,7 @@ section.compareFooter {border-top:none; margin-top:10px;}
 				font-weight:normal;
         font-size:19px;
 				margin:0;
-				padding:5px;
+				padding:9px;
 				color:#F7901E;
 				height:90px;
         width:85%;
@@ -4062,7 +4275,7 @@ div.compatiblephones h1 {padding:0 !important;}
   .plans-home section.promo-dataPlans div a.btn-default {margin-left:0px;}
   .promo-dataPlans img { max-width:650px;}
 	.promo-full a {padding:30px 48% 10px 45px; height:438px;}
-  .promo02 a.btn-primary {margin-left:120px;}
+  .promo02 a.btn-boost {margin-left:30%;margin-top: -5px;height: 30px;padding: 5px;font-size: 12px;}
   .promo04-2 a.btn-boost,.promo04 a.btn-boost {margin-left:85px;}
   .promo04 a.btn-boost {margin-left:110px;}
   .promo-half div.promo04 {padding:40px 4px 40px 0px;}
@@ -4072,9 +4285,9 @@ div.compatiblephones h1 {padding:0 !important;}
   .promo01 h2 span:hover {background:none;}
   .promo01 h2 span {color:#fff;letter-spacing:-1px;background: none;font-size: 100px;position: relative;top:1px;left: 1px;}
   .promo01 h2 {color:#000;font-size:108px;position:absolute;top:145px;left:30px;letter-spacing:-4px;}
-  .promo02 h2 {color:#000;font-size:27px;margin: 0px;margin-top: 80px;}
   div.box2 {border-right: 1px solid #E3E3E3;width:390px;}
   .featuredPhones .carousel .item .phoneEntry .phoneEntryInfo {line-height: 0.9em;margin-left:5px;}
+  span.dealImage img {margin-top:-150px;}
 }
 @media (min-width:768px) {
 	header .nav.nav-pills {
@@ -4216,7 +4429,7 @@ div.compatiblephones h1 {padding:0 !important;}
 		}
 	ul.features.features-half li {
 		width:50%;
-    height: 145px;
+    /*height: 145px;*/
     margin-bottom: 3px;
 	}
   ul.features.features-half-hotspot li {
@@ -4237,12 +4450,13 @@ div.compatiblephones h1 {padding:0 !important;}
 	dl dt {
 		float:left;
 		padding:0 5px 0 0;
+    width:20%;
 	}
 	#promo06 {height:280px; background-position:top left;}
-
-
-  .promo02 sup { vertical-align: super;font-size: 60%;}
 	section.checkout div.col-xs-12.col-md-8 section .cc div.form-group {margin:0 !important;}
+  .modal-dialog {width:700px; max-height:400px;}
+  .modal-dialog .modalInner{padding:0 35px 0 35px;}
+
 	.addservices h3 {border-top:1px solid #CCCCCC; margin-top:0; padding-top:15px;}
 	#coverageMap .modal-dialog {width:80%; max-height:400px;}
 	#coverageMap .modal-body {max-height:520px;}
@@ -4279,7 +4493,8 @@ div.compatiblephones h1 {padding:0 !important;}
 				background-image:url(../img/img-shop03.jpg);
 			}
 	span.return {margin:0; display:inline-block; position:absolute; z-index:1;}
-	ul.details.half li {width:33.333333%;}
+	ul.details.half li {display: inline-block;width: 177px;padding: 0px 20px 15px 0px;color: #525252;font-size: 12px;line-height: 1.2em;                  vertical-align: top;}
+  ul.details.half li a {text-decoration:underline!important;font-size:12px;}
   #phoneContent {
     background-color: #FFF;
     clear: both;
@@ -4401,6 +4616,20 @@ div.compatiblephones h1 {padding:0 !important;}
     color: #F7901E;
     margin-left: 50px;
 }
+
+
+#phonePlans .phoneLeftCol #plan-2 .planInfo > h3 {
+    color: #F7901E;
+}
+
+#phonePlans .phoneLeftCol #plan-2 .planInfo > h3.h3_default_msdp {
+    margin-left: 50px;
+}
+
+#phonePlans #service-intl_calling {
+    background-image: url("../img/bg-addl_services-intl_calling.png");
+}
+
 #phoneDetail .phoneLeftCol h3 {
     margin: 10px 40px 8px;
     padding: 0px;
@@ -4422,7 +4651,7 @@ div.compatiblephones h1 {padding:0 !important;}
     padding: 0;
     margin-left: 15px;
     padding-left: 15px;
-    border-left: 1px solid #e5e5e5;
+    /*border-left: 1px solid #e5e5e5;*/
     background: none;
     width: auto;
 }
@@ -4532,7 +4761,7 @@ div.compatiblephones h1 {padding:0 !important;}
 		background-size:cover;
 		min-height:210px;
 	}
-		.market .tabs #apps div.apps div a {display:block; text-align:center; color:#F7901E; text-decoration:underline; padding:160px 20px 10px; height:100%;}
+		.market .tabs #apps div.apps div a {display:block; text-align:center; color:#F7901E; text-decoration:none; padding:160px 2px 10px; height:100%;}
 	#rates section:first-of-type {
 		background:url(../img/img-bg-intl.jpg) bottom left no-repeat;
 		padding:100px 40% 0 30px;
@@ -4542,7 +4771,11 @@ div.compatiblephones h1 {padding:0 !important;}
 	}
 	#rates section:first-of-type h3 {color:#FFFFFF; padding-bottom:10px;}
   section.deals span {float:right; width:79px; padding:20px 0px 0 0;}
-  ol.breadcrumb {padding: 30px 0px;}
+  ol.breadcrumb {}
+  .modal-dialog.boost_terms_conditions{
+    width: 1020px;
+    max-width: 90%;
+  }
 }
 @media (min-width:992px) {
 	header .container {background-size:220px;}
@@ -4564,6 +4797,7 @@ div.compatiblephones h1 {padding:0 !important;}
 	.main.container .tab-content .col-md-8 {border-right: 2px solid #e5e5e5; min-height:573px; width: 70%;}
 	.main.container .tab-content .col-md-4 {width: 30%;}
 	.phoneDetailsTop .phoneBottom {}
+
 	.featuredPhones .carousel .item .phoneEntry a p {
 		clear:left;
 		padding:0;
@@ -4571,7 +4805,7 @@ div.compatiblephones h1 {padding:0 !important;}
 		font-size:14px;
 		line-height:16px;
 	}
-	section.checkout div.col-xs-12.col-md-8 {border-right:1px solid #CCCCCC;}
+	section.checkout div.col-xs-12.col-md-8 {border-right:1px solid #CCCCCC !important;}
 	#promo06 {height:440px;}
 	section.tab-addservices div>div {height:80px;}
 		section.tab-addservices div>div>a {
@@ -4599,7 +4833,7 @@ div.compatiblephones h1 {padding:0 !important;}
 			}
 	.promo-full, .promo-half {height:438px;}
 	.promo-half.white {height:478px;}
-  .promo02 a.btn-primary {margin-left:150px;}
+  .promo02 a.btn-boost {margin-left:150px;}
   .promo04-2 a.btn-boost,.promo04 a.btn-boost {margin-left:125px;}
   .promo04 a.btn-boost {margin-left:160px;}
   .promo-half div.promo04 {padding:40px 4px 40px 0px;}
@@ -4723,6 +4957,7 @@ div.compatiblephones h1 {padding:0 !important;}
     border-image: none;
 
 	}
+
 	.market .tabs #apps section div.nba {
 		background:url(../img/img-market-apps3.jpg) bottom right no-repeat;
 		padding:30px 60% 30px 30px;
@@ -4731,6 +4966,10 @@ div.compatiblephones h1 {padding:0 !important;}
 		padding:95px 60% 0 30px;
 	}
 	#rates .ratetable table tbody tr td {float:none; height:auto;}
+
+  .modal-dialog {width:800px; max-height:400px;}
+  .modal-dialog .modalInner{padding:0 35px 0 35px;}
+
 }
 @media (min-width:1200px) {
 	section.compare .col-xs-2 div,
@@ -4747,7 +4986,28 @@ div.compatiblephones h1 {padding:0 !important;}
 @media (min-width:1px) {
 	.navbar-toggle {display:block !important;}
 }
+@media (min-width:481px) {
+  #checkout_help_reminder .modal-dialog{
+    width:460px;
+  }
+  #d_help_reminder{
+    display:block;
+  }
+  #m_help_reminder{
+    display:none;
+  }
+}
 @media (max-width:480px) {
+  #d_help_reminder{
+    display:none;
+  }
+  #m_help_reminder{
+    display:block;
+  }
+  #checkout_help_reminder .modal-dialog{
+    width:300px;
+  }
+  
 	ul.mobilenav li a {padding:16px 12px;}
 	ul.details.half li {width:100%;}
 	.promo-half {height:300px;}
@@ -4778,7 +5038,8 @@ div.compatiblephones h1 {padding:0 !important;}
   .promo-half div.promo02,.promo-half div.promo03 {border-bottom:2px solid #000;}
    .promo04 {margin-top:440px;}
    .fourblocks {margin-top:1000px;}
-  .promo02 a.btn-primary {margin-left:30%;margin-top:10px;}
+  .promo02 a.btn-boost {margin-left:30%;margin-top: -5px;height: 30px;padding: 5px;font-size: 12px;}
+  .promo-half div.promo03 h3 {left:0px;}
   .promo04 h2.promoMexico{font-size:26px;padding-top: 40px;width:290px;margin-left:0px;}
   .promo04-2 h2 {margin-left:-65px;font-size:26px;padding-top:0px;width:290px;margin-top:-10px;}
   .promo04 a.btn-boost {margin-left:85px;}
@@ -4790,7 +5051,7 @@ div.compatiblephones h1 {padding:0 !important;}
 	}
   .promo12 {width: 280px;margin-right:400px}
   .promo13 {width: 281px;margin-right:200px;}
-
+  span.dealImage img {margin-top:-100px;}
   section.white  {margin-bottom:160px;}
   section.threeblocks {margin-top:470px;}
   section.threeblocks .col-sm-4 a span {margin-left:160px;}
@@ -4829,6 +5090,18 @@ div.compatiblephones h1 {padding:0 !important;}
 			background-position:center 0;
 			height:auto;
 		}
+   .plans-top img {width:250px!important;}
+   .plans-bottom {width:340px;}
+   .plans-middle {
+    display: block;
+    width:270px;
+}
+   #phonePlans #module-how_it_works div.right { margin-left:100px;left:-140px;}
+    #phonePlans .phoneLeftCol h3{font-size: 14px;margin-left: 0px;}
+    #phonePlans .phoneLeftCol ul#plan-tabs {margin-right:450px;}
+    .phoneLeftCol ul#plan-tabs > li {margin-right:20px;}
+   .plans-bottom .learnmore {background-color:orange;}
+   section.in_store_offers>img {width:400px;}
 	.plans ul.whychooseboost {display:none;}
 	.plans.whychoose ul.tabs-left {display:none;}
 	.plans.whychoose ul.whychooseboost {display:block;}
@@ -4868,19 +5141,24 @@ div.compatiblephones h1 {padding:0 !important;}
      .market .tabs #apps section div {margin-left:13px;}
 }
 @media only screen and (max-height:320px)and(orientation : landscape) {
-  .promo02 h2,.promo02 p.bn-b {font-size:25px;}
-  .promo02 a.btn-primary {margin-left:50px;!important}
+  .promo02 a.btn-boost {margin-left:50px;!important}
   .promo04 h2.promoMexico span {font-size:25px;}
   .promo04 h2.promoMexico{margin-left:0px;font-size:25px;padding-top: 40px;width:210px}
   .promo04-2 h2 {margin-left:10%!important;font-size:25px;padding-top:0px;width:190px;margin-top:10%!important;}
   .promo04 a.btn-boost {margin-left:39%!important;}
   .promo04-2 a.btn-boost {margin-left:35%!important;}
   .promo-half div.promo04 {padding:0px;}
+  .plans-top img {width:250px!important;}
+  .plans-middle {
+    display: block;
+    width:270px;
+}
+  .plans-bottom {width:340px;}
   a#ccOverlayOpenner { height: 35px;margin-left: 10px;font-size: 10px;line-height: 35px;}
 }
 @media only screen and (min-width:360px) and (max-width:640px) {
-   .promo02 h2,.promo02 p.bn-b {font-size:26px;}
-  .promo02 a.btn-primary {margin-left:30%;margin-top:10px;}
+  .promo02 a.btn-boost {margin-left:30%;margin-top: -5px;height: 30px;padding: 5px;font-size: 12px;}
+  .promo-half div.promo03 h3 {left:10px;}
   .promo04 h2.promoMexico span {font-size:26px;}
   .promo04 h2.promoMexico{margin-left:35px;font-size:20px;padding-top: 40px;width:290px}
   .promo04-2 h2 {margin-left:15%;font-size:26px;padding-top:0px;width:270px;margin-top:15%;}
@@ -4895,6 +5173,7 @@ div.compatiblephones h1 {padding:0 !important;}
   .plans-home section.promo-dataPlans div {width:320px;}
   .promo-dataPlans h2,.promo-dataPlans h3 {width:250px;}
    .promo12 {width: 320px;margin-right:400px}
+   span.dealImage img {margin-top:0px;}
   .promo13 {width: 321px;margin-right:200px;}
   .plans-home section.promo-wifi-intl div.promo12 div {font-size:30px;}
   .plans-home section.promo-wifi-intl div.promo12 h2,.plans-home section.promo-wifi-intl div.promo12 h3 {font-size:20px;width:290px;}
@@ -4902,6 +5181,17 @@ div.compatiblephones h1 {padding:0 !important;}
   .plans-home section.promo-wifi-intl div.promo13 {margin-left: 0px;margin-right: 60px;margin-top: 20px;}
   .plans-home section.promo-wifi-intl div.promo13 div {font-size:30px;}
   .plans-home section.promo-wifi-intl div.promo13 h2,.plans-home section.promo-wifi-intl div.promo13 h3 {font-size:18px;width:290px;}
+  .plans-top img {width:270px!important;}
+   .plans-bottom {width:370px;}
+   #phonePlans #module-how_it_works div.right { margin-left:0px;left:0px;}
+   .plans-middle {
+    display: block;
+    width:290px;
+}
+  #phonePlans .phoneLeftCol ul#plan-tabs {margin-right:450px;}
+  #phonePlans .phoneLeftCol h3{font-size: 18px;}
+  .phoneLeftCol ul#plan-tabs > li {margin-right:20px;}
+   .plans-bottom .learnmore {background-color:orange;}
   .carousel-inner > .item > a > img {
     width: 100% !important;
     margin: auto !important;
@@ -4919,8 +5209,10 @@ div.compatiblephones h1 {padding:0 !important;}
     .market .tabs #apps div.apps div a {padding:10px;}
 }
 @media only screen and (max-width:640px)and (max-height:360px){
-   .promo02 h2,.promo02 p.bn-b {font-size:25px;}
-  .promo02 a.btn-primary {margin-left:39%;margin-top:0px;}
+  .promo02 a.btn-boost {margin-left:39%;margin-top:0px;}
+  .promo-half div.promo02 p:last-of-type {margin-right:50px;margin-left:50px;}
+  .promo-half div.promo03 h3 {left:70px;}
+  .promo03 a.btn-primary {margin-left:150px;}
   .promo04 h2.promoMexico span {font-size:25px;}
   .promo04-2 {background-color:#fff;background-position: center top;}
   .promo04 h2.promoMexico{margin-left:17%;font-size:26px;padding-top: 40px;width:390px}
@@ -4945,6 +5237,14 @@ div.compatiblephones h1 {padding:0 !important;}
   .plans-home section.promo-wifi-intl div.promo13 {margin-left: 0px;margin-right: 60px;margin-top: 0px;}
   .plans-home section.promo-wifi-intl div.promo13 div {font-size:30px;}
   .plans-home section.promo-wifi-intl div.promo13 h2,.plans-home section.promo-wifi-intl div.promo13 h3 {font-size:21px;width:290px;}
+  .plans-top img {width:430px!important;}
+  .plans-middle {
+    display: block;
+    width:450px;
+}
+#phonePlans .phoneLeftCol ul#plan-tabs {margin-right:50px!important;margin-left: 250px}
+  .phoneLeftCol ul#plan-tabs > li {margin-right:20px;}
+  .plans-bottom {width:500px;}
 }
 .nav-tabs.hotspot>li {
 	width:33.333333%;
@@ -4977,6 +5277,8 @@ div.compatiblephones h1 {padding:0 !important;}
 }
 @media (min-width:641px)and (max-width: 768px){
 	a#ccOverlayOpenner { margin-left: 10px;}
+  span.dealImage img {margin-top:-150px;}
+  .plans-top img {width:450px!important;}
 }
 
 @media (max-width: 991px) {
@@ -5314,7 +5616,11 @@ and (max-device-width : 736px) {
 	}
 
 	#BVRRContainer .BVRRContainer .BVDI_QTBodyAttributes.BVDIBody {
-	    display: none;
+	    /*display: none;*/
+	}
+
+	#BVRRContainer .BVDI_QTAttributes .BVDI_QTGroupCollapsed .BVDITitle .BVDILinkToggle {
+	   /* background-position: 0 -478px;*/
 	}
 
 	#BVRRContainer .BVDI_COHeader .BVDI_COLinkPost {
@@ -5461,6 +5767,50 @@ and (max-device-width : 736px) {
 	    text-indent: 0;
 	    color: #fff;
 	    font-size: 12px;
+	}
+
+	#phoneDetail #BVSubmissionContainer form {
+	    width: 100%;
+	}
+
+	#phoneDetail #BVSubmissionContainer form .BVRRReviewDisplayStyle5BodyContentSecondary {
+		display: none;
+	}
+
+	#phoneDetail #BVSubmissionContainer form .BVRRReviewDisplayStyle5BodyContent {
+	    width: 100%;
+	    margin: 0 0 20px 0;
+	}
+
+	#phoneDetail #BVSubmissionContainer form .BVRRReviewDisplayStyle5BodyUser{
+		width: 100%;
+		margin-right: 0;
+	}
+
+	#BVSubmissionContainer .BVFieldSubmit .BVButton {
+	    background: url('../img/buttonSubmit.gif') no-repeat 0 0;
+	    border: 0;
+	    zoom: 1;
+	    text-decoration: none;
+	    width: 134px;
+	    height: 28px;
+	    text-indent: 120%;
+	    white-space: nowrap;
+	    overflow: hidden;
+	    outline: 0;
+	}
+
+	#BVSubmissionContainer .BVFieldEdit .BVButton {
+	    background: url('../img/buttonEdit.gif') no-repeat 0 0;
+	    border: 0;
+	    zoom: 1;
+	    text-decoration: none;
+	    width: 134px;
+	    height: 28px;
+	    text-indent: 120%;
+	    white-space: nowrap;
+	    overflow: hidden;
+	    outline: 0;
 	}
 
 	#BVSubmissionContainer .BVModuleFooterLinks {
