@@ -1,12 +1,26 @@
-@font-face {
-    font-family: BoostNeoBlack;
-    src: url(../fonts/Boost-Neo-Black.otf);
-} 
-	
-@font-face {
-    font-family: BoostNeoBold;
-    src: url(../fonts/Boost-Neo-Bold.otf);
-} 
+@font-face{
+    font-family:BoostNeoBlack;
+    src:url(../fonts/v2/BoostNeo-Black.eot);
+    src:url(../fonts/v2/BoostNeo-Black.eot?#iefix) format("embedded-opentype"),
+        url(../fonts/v2/BoostNeo-Black.woff) format("woff"),
+        url(../fonts/v2/BoostNeo-Black.woff) format("woff"),
+        url(../fonts/v2/BoostNeo-Black.ttf) format("truetype"),
+        url(../fonts/v2/BoostNeo-Black.svg#boost_neoblack) format("svg");
+    font-weight:400;
+    font-style:normal
+}
+
+@font-face{
+    font-family:BoostNeoBold;
+    src:url(../fonts/v2/BoostNeo-Bold.eot);
+    src:url(../fonts/v2/BoostNeo-Bold.eot?#iefix) format("embedded-opentype"),
+        url(../fonts/v2/BoostNeo-Bold.woff) format("woff"),
+        url(../fonts/v2/BoostNeo-Bold.woff) format("woff"),
+        url(../fonts/v2/BoostNeo-Bold.ttf) format("truetype"),
+        url(../fonts/v2/BoostNeo-Bold.svg#boost_neobold) format("svg");
+    font-weight:400;
+    font-style:normal
+}
 
 @media (min-width: 300px) and (max-width: 400px){
 	section.promo-wifi-intl div.promo12{background-image: url(../img/promo-half-12.jpg) !important;background-position: center left !important;}
@@ -37,21 +51,32 @@
 	.plans-home section.promo-wifi-intl div.promo12 h2{margin-top: 0 !important;}
 	}
 }
+
+span.bn-bk{
+    font-family: BoostNeoBold,Arial,Helvetica,sans-serif;
+}
+
 div.col-xs-12 section.promo-dataPlans div#plans-hub-top h1.bn-bk{
     color: #000;
     font-size: 55px;
     line-height: 60px;
     margin-bottom: 15px;
     float: none;
-	font-weight: bold !important;
+	font-weight: 400 !important;
 }
+
 
 div.col-xs-12 section.promo-dataPlans div#plans-hub-top h2{
     color: #FFF;
-    font-size: 30px;
-    line-height: 60px;
-    margin-bottom: 15px;
+    font-size: 32px;
+    /*line-height: 60px;*/
+    margin:0 0 15px 0!important;
     float: none;
+    font-weight: 400;
+}
+
+div.col-xs-12 section.promo-dataPlans div#plans-hub-top h3.lnkDaily{
+    margin:30px 0 0 0;
 }
 
 div.col-xs-12 section.promo-dataPlans div#plans-hub-top p {
@@ -170,13 +195,62 @@ div#android-phones-genie div#phone_slider-view_all h2.genieBlackFont {
 }
 
 div#android-phones-genie div#cpo-bottom p.align_banner_text{
-font-size: 13px;
-font-family: verdana;
-color: #222;
-line-height: 1.231;	
-direction:initial;
-margin: 0px 35px 0px 0px;
-padding: 0px 10px 0px 10px;
+	font-size: 13px;
+	font-family: verdana;
+	color: #222;
+	line-height: 1.231;	
+	direction:initial;
+	margin: 0px 35px 0px 0px;
+	padding: 0px 10px 0px 10px;
+}
+
+a.bn-bk:link, a.bn-bk:visited, a.bn-bk:hover{
+	color:#FFF;
 } 
 
+h3.bn-bk{
+	color:#222;
+}
+
 	/*  End of Code for certifiedpreowned   */
+
+
+div#plans-hub-top.gradient-orange h1.bn-bk{
+    color:#000;
+    font-family: BoostNeoBlack,Arial,Helvetica,sans-serif!important;
+    font-size: 55px;
+    margin:7px 0 15px 0;
+}
+
+div#plans-hub-top p.getup3gb{
+    font-family: verdana;
+    font-size: 11px;
+    margin:0 10px!important;
+    padding:0!important;
+    color:#222;
+}
+
+
+section.promo-dataPack.hidden-xs h3{
+    font-size: 18px;
+    font-weight: 400;
+    color: #222;
+}
+
+ 
+
+div#plans-hub-top.gradient-orange h3.bn-bk span.bn-bk{
+    font-family: BoostNeoBlack,Arial,Helvetica,sans-serif!important;
+    font-size: 18px;  
+}
+
+.plans-home section.promo-dataPack div.title-promo-dataPack{
+    color: #000;
+    font-size: 40px;
+    margin: 0px;
+    padding: 0px;
+    font-family: BoostNeoBlack,Arial,Helvetica,sans-serif;
+    font-weight: normal;
+    letter-spacing: -0.5px;
+    height: 50px;
+}

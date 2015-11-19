@@ -10,18 +10,7 @@
 		<meta name="keywords" content="Android Phones Plans">
 		<meta name="description" content="Android Phones Plans">
 		<link rel="shortcut icon" href="bst/img/favicon.ico"/>
-
-		<link href="bst/fonts/BoostNeoEmbedding.css" rel="stylesheet" />    
 		<link href="bst/css/carousel.css" rel="stylesheet" />
-		<!--Remove section when you're going to update it-->
-		<!--link href="../../../css/app-framework.css" rel="stylesheet" />
-		<link href="../../../css/bootstrap.min.css" rel="stylesheet" />
-		<link href="../../../css/jasny-bootstrap.min.css" rel="stylesheet" />
-		<link href="../../../css/carousel.css" rel="stylesheet" />
-		<link href="../../../css/carousel_menu.css" rel="stylesheet" />
-		<link href="bst/css/carousel.css" rel="stylesheet" />
-		<link href="bst/css/carousel_menu.css" rel="stylesheet" /-->
-		<!-------------------------------------------------->
 	   
 	</head>
 	<body>
@@ -72,7 +61,7 @@
 										<li class="type-android" style="float: left; list-style: none;display:none">
 										  <a href="#!/shop/phones/{{id}}/features/">
 											<span class="phone_slider_image">
-											  <img src="{{img}}" style="height:125px" alt="{{title}}">
+											  <img src="{{img}}" alt="{{title}}">
 											</span>
 											<span class="phone_slider-name">
 											  <span class="phone_brand">{{brand}}</span>
@@ -109,13 +98,14 @@
 			  for(var i=0;i<list.length;i++){
 				var html=this.template;
 				var d=list[i];
-				if(d.type.toLowerCase().indexOf("basic")>=0){
+				if(d.type.toLowerCase().indexOf("android")>=0){
 				  html=html.replace("{{id}}",d.id);
 				  html=html.replace("{{img}}",d.selectedVariant.gridImage);
-				  html=html.replace("{{brand}}",d.displayBrand);
+				  //html=html.replace("{{brand}}",d.displayBrand);
+                  html=html.replace("{{brand}}",d.name.substr(0,d.name.indexOf(' ')));
 				  html=html.replace("{{title}}",appUtil.$scope.phoneController.details.getDisplayTitle(d));
 				  html=html.replace("{{price}}",d.selectedVariant.price);
-				  html=html.replace("{{name}}",d.name);
+				  html=html.replace("{{name}}",d.name.substr(d.name.indexOf(' ')));
 				  var c = appUtil.$scope.phoneController.getDiscountClass(d);
 				  
 				  if(!c){
@@ -154,9 +144,9 @@
 
 		var analyticsData = {
 		  page:{
-			channel : 'Basic-Phones',
-			subSection : 'Basic-Phones', 
-			name : 'Basic-Phones Page'
+			channel : 'Android-Phones',
+			subSection : 'Android-Phones', 
+			name : 'Android-Phones Page'
 		  }
 		}
 		pathMap._page._sendAnalysisData(analyticsData);

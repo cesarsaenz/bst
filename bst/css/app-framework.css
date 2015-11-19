@@ -130,6 +130,8 @@ a:link, a:visited {
 	color:#FFFFFF;
 	text-shadow:none;
 }
+
+/*
 @font-face {
     font-family:'Boost_black';
     src:url("../fonts/Boost-Neo-Black.otf") format('opentype');
@@ -142,6 +144,45 @@ a:link, a:visited {
     font-family:'Boost_med';
     src:url("../fonts/Boost-Neo-Regular.otf") format('opentype');
 }
+*/
+
+/*adding font-face definition for internet explorer*/
+@font-face {
+    font-family:'Boost_black';
+    src:url(../fonts/v2/BoostNeo-Black.eot);
+    src:url(../fonts/v2/BoostNeo-Black.eot?#iefix) format("embedded-opentype"),
+        url(../fonts/v2/BoostNeo-Black.woff) format("woff"),
+        url(../fonts/v2/BoostNeo-Black.woff) format("woff"),
+        url(../fonts/v2/BoostNeo-Black.ttf) format("truetype"),
+        url(../fonts/v2/BoostNeo-Black.svg#boost_neoblack) format("svg");
+    font-weight:400;
+    font-style:normal
+}
+@font-face {
+    font-family:'Boost_bold';
+    src:url(../fonts/v2/BoostNeo-Bold.eot);
+    src:url(../fonts/v2/BoostNeo-Bold.eot?#iefix) format("embedded-opentype"),
+        url(../fonts/v2/BoostNeo-Bold.woff) format("woff"),
+        url(../fonts/v2/BoostNeo-Bold.woff) format("woff"),
+        url(../fonts/v2/BoostNeo-Bold.ttf) format("truetype"),
+        url(../fonts/v2/BoostNeo-Bold.svg#boost_neobold) format("svg");
+    font-weight:400;
+    font-style:normal
+}
+
+@font-face {
+    font-family:'Boost_med';
+    src:url(../fonts/v2/BoostNeo-Regular.eot);
+    src:url(../fonts/v2/BoostNeo-Regular.eot?#iefix) format("embedded-opentype"),
+        url(../fonts/v2/BoostNeo-Regular.woff) format("woff"),
+        url(../fonts/v2/BoostNeo-Regular.woff) format("woff"),
+        url(../fonts/v2/BoostNeo-Regular.ttf) format("truetype"),
+        url(../fonts/v2/BoostNeo-Regular.svg#boost_neoregular) format("svg");
+    font-weight:400;
+    font-style:normal
+}
+/***************************************************************************************/
+
 @font-face {
     font-family:'Boost_light';
     src:url("../fonts/Boost-Neo-Light.otf") format('opentype');

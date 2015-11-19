@@ -1,3 +1,8 @@
-<h2 class="title">{{pathMap._getCurPath()[pathMap._getCurPath().length-1]._title}}
-  <cart-room></cart-room>
-</h2>
+<section ng-hide="appName=='bst' && app.isCurrentContext(pathMap._checkout._formatedHash)">
+  <h2 class="title" ng-show="!app.isCurrentContext(pathMap._home._formatedHash)">
+    <span ng-show="!pathMap._getCurPath()[pathMap._getCurPath().length-1]._titleAlt">{{pathMap._getCurPath()[pathMap._getCurPath().length-1]._title}}</span>
+    <span ng-show="pathMap._getCurPath()[pathMap._getCurPath().length-1]._titleAlt" ng-bind-html="pathMap._getCurPath()[pathMap._getCurPath().length-1]._titleAlt"></span>
+    
+    <cart-room></cart-room>
+  </h2>
+</section>

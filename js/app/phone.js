@@ -2,36 +2,46 @@
   var phoneModule = angular.module('phone-directives', []);
   var directiveSetting={
     moduleName:"phone",
-    items:"container,deals,accessories,list,list_banner,list_legal,list_reason,list_filter,list_sort,list_item,details,details_accessories,details_images,details_base,details_other,details_features,details_legal,compare,genie,list_compare_mini"
+    items:"container,hotspots,hotspots_list,hotspots_device,hotspots_plans,deals,acc_phones,acc_list,list,list_banner,list_legal,list_reason,list_filter,list_sort,list_sort_mini,list_item,details,details_accessories,details_images,details_base,details_other,details_features,details_plans,details_legal,compare,$genie,list_compare_mini,review,write_review"
   };
+  if(appName=='bst'){
+    directiveSetting.items+=",$accessories_type";
+  }
   appUtil.ui.buildModuleDirective(phoneModule,directiveSetting);
 })();
+
 appModule.controller('phoneController', ['$http','$scope','$sce', function($http,$scope,$sce){
   var phoneController=this;
+  this.selectedTab="";
   var filterOptions={
     onSale:{label:"On Sale",matchExp:"item.hasDiscount"},
+    bestSellers:{label:"Best Sellers",matchExp:"item.bestSellerCounter>0"},
     New:{},
     PreOwned:{label:"Pre-Owned"},
+    iPhone:{label:"iPhone®"},
+    Android:{label:"Android™",toolTip:"More \"pocket-sized computer\" then \"phone,\" an Android™ smartphone has the brains to text, email, instant message, surf the web, watch videos, play games and more."},
+    Windows:{},
+    Basic:{toolTip:"Want to call and text friends from just about anywhere? Yep, you can do that and a whole lot more on our basic phones."},
     Bar:{},
     Slider:{},
     Flip:{},
-    rate1:{label:"&#9733; & Up",value:1,matchExp:"item.rate>1"},
-    rate2:{label:"&#9733; &#9733; & Up",value:2,matchExp:"item.rate>2"},
-    rate3:{label:"&#9733; &#9733; &#9733; & Up",value:3,matchExp:"item.rate>3"},
-    rate4:{label:"&#9733; &#9733; &#9733; &#9733; & Up",value:4,matchExp:"item.rate>4"},
+    rate1:{label:"&#9733; &amp; Up",value:1,matchExp:"item.rate>1"},
+    rate2:{label:"&#9733; &#9733; &amp; Up",value:2,matchExp:"item.rate>2"},
+    rate3:{label:"&#9733; &#9733; &#9733; &amp; Up",value:3,matchExp:"item.rate>3"},
+    rate4:{label:"&#9733; &#9733; &#9733; &#9733; &amp; Up",value:4,matchExp:"item.rate>4"},
     TouchScreen:{label:"Touchscreen"},
-    QWERTRYKeyboard:{label:"QWERTRY Keyboard"},
+    Qwerty:{label:"QWERTY Keyboard"},
     Camera:{hiddenOnUnexist:true},
     FrontFacingCamera:{label:"Front-facing Camera"},
     GPS:{label:"GPS/Navigation"},
     Music:{hiddenOnUnexist:true},
-    Wifi:{label:"Wi-Fi"},
-    Bluetooth:{hiddenOnUnexist:true},
-    SpeakerPhone:{label:"Speakerphone"},
-    "4GLTE":{label:"4G LTE"},
-    Text:{label:"Text Messaging"},
+    Wifi:{label:"Wi-Fi <sup>®</sup>"},
+    Bluetooth:{hiddenOnUnexist:true,label:"Bluetooth <sup>®</sup>"},
+    //SpeakerPhone:{label:"Speakerphone"},
+    "4GLTE":{label:"4G LTE Compatible"},
+    //Text:{label:"Text Messaging"},
     Video:{hiddenOnUnexist:true},
-    HotSpot:{hiddenOnUnexist:true},
+    HotSpot:{label:"Hotspot",hiddenOnUnexist:true},
     HtmlBrowser:{label:"HTML Browser"},
     UleCertified:{label:"ULE Certified"}
   }
@@ -44,7 +54,6 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
     }
     o.id=k;
   }
-  
   this.sortList=function(sort,listData){
     if(sort){
       var sortFn=null;
@@ -59,7 +68,7 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
       }else if(sort=="rateZA"){
         sortFn="a.rate>b.rate?-1:1";
       }else if(sort=="nameAZ"){
-        sortFn="(a.brand + ' ' + a.name).toLowerCase()>(b.brand + ' ' + b.name).toLowerCase()?1:-1";
+        sortFn="(a.brand + ' ' + a.name + ' ' + a.phoneCondition).toLowerCase()>(b.brand + ' ' + b.name + ' ' + b.phoneCondition).toLowerCase()?1:-1";
       }else{
         return listData;
       }
@@ -70,10 +79,11 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
 //      analysisManager.sendWidgetData("Order by phone <"+sort+">");
     }
     return listData;
-  }
-    
+  } 
   this.list={
     data:[],
+    message:{},
+    legals:[],
     filter:{
       urlHash:{
         value:null,
@@ -108,28 +118,29 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
       data:{
         noFilter:true,
         map:{
-          special:{options:[filterOptions.onSale]},
+          special:{options:[filterOptions.onSale,filterOptions.bestSellers]},
           condition:{title:"Condition",extend:true,options:[filterOptions.New,filterOptions.PreOwned]},
-          phoneTypes:{title:"Phone Type",buildByData:true,options:[],matchField:"item.type"},
+//          phoneTypes:{title:"Phone Types",buildByData:true,options:[],matchField:"item.type"},
+          phoneTypes:{title:"Phone Types",options:[filterOptions.Android,filterOptions.iPhone,filterOptions.Windows,filterOptions.Basic],matchField:"item.type"},
           customerRating:{title:"Customer Rating",styleClass:"rating",selectSingle:true,options:[
             filterOptions.rate4,
             filterOptions.rate3,
             filterOptions.rate2,
             filterOptions.rate1
           ]},
-          brands:{title:"Brands",buildByData:true,relation:"or",options:[],matchField:"item.brand"},
+          brands:{title:"Brands",buildByData:true,relation:"or",options:[],matchField:"item.brand",doOptionSort:true},
           features:{title:"Features",relation:"and",options:[
             filterOptions.TouchScreen,
-            filterOptions.QWERTRYKeyboard,
+            filterOptions.Qwerty,
             filterOptions.Camera,
             filterOptions.FrontFacingCamera,
             filterOptions.GPS,
             filterOptions.Music,
             filterOptions.Wifi,
             filterOptions.Bluetooth,
-            filterOptions.SpeakerPhone,
+            //filterOptions.SpeakerPhone,
             filterOptions["4GLTE"],
-            filterOptions.Text,
+            //filterOptions.Text,
             filterOptions.Video,
             filterOptions.HotSpot,
             filterOptions.HtmlBrowser,
@@ -138,8 +149,8 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
           phoneStyles:{title:"Phone Styles",relation:"or",options:[filterOptions.Bar,filterOptions.Slider,filterOptions.Flip]}
         },
         init:function(){
-//          this.uiSort=[this.map.condition,this.map.phoneTypes,this.map.customerRating,this.map.brands,this.map.features,this.map.phoneStyles]
-          this.uiSort=[this.map.condition,this.map.phoneTypes,this.map.brands,this.map.features,this.map.phoneStyles]
+          this.uiSort=[this.map.condition,this.map.phoneTypes,this.map.customerRating,this.map.brands,this.map.features,this.map.phoneStyles]
+//          this.uiSort=[this.map.condition,this.map.phoneTypes,this.map.brands,this.map.features,this.map.phoneStyles]
           this.filterAnd=[this.map.special,this.map.customerRating,this.map.features];
           this.filterOr=[this.map.condition,this.map.phoneTypes,this.map.brands,this.map.phoneStyles];
         }
@@ -171,18 +182,22 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
           }
           for(var k in this.data.map){
             if(this.data.map[k].matchField){
-              var v=eval(this.data.map[k].matchField);
-              var option=null;
-              for(var i= 0;i<this.data.map[k].options.length;i++){
-                if(this.data.map[k].options[i].label==v){
-                  option=this.data.map[k].options[i];
+              var vs=eval(this.data.map[k].matchField);
+              vs=vs.split("|");
+              for(var vi=0;vi<vs.length;vi++){
+                var v=vs[vi];
+                var option=null;
+                for(var i= 0;i<this.data.map[k].options.length;i++){
+                  if(this.data.map[k].options[i].label==v){
+                    option=this.data.map[k].options[i];
+                  }
                 }
+                if(option==null){
+                  option={label:v,matchMap:{},id:v.replace(/ /g,'_')};
+                  this.data.map[k].options.push(option);
+                }
+                this.addMatchData(option,item);
               }
-              if(option==null){
-                option={label:v,matchMap:{},id:v.replace(/ /g,'_')};
-                this.data.map[k].options.push(option);
-              }
-              this.addMatchData(option,item);
             }
           }
 
@@ -346,6 +361,26 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
             option.disabled=JSON.stringify(option.matchMap)=="{}";
           }
         }
+      },
+      compareFilter:function(a,b){
+        if(a.label < b.label){
+          return -1;
+        }
+        if(a.label > b.label){
+          return 1;
+        }
+        return 0;
+      },
+      getFilterOptions:function(f){
+        for(var i=0;i<phoneController.list.filter.data.uiSort.length;i++){
+          if(f.title==phoneController.list.filter.data.uiSort[i].title){
+            if(phoneController.list.filter.data.uiSort[i].doOptionSort){
+              return phoneController.list.filter.data.uiSort[i].options.sort(phoneController.list.filter.compareFilter);
+            }
+            return phoneController.list.filter.data.uiSort[i].options;
+          }
+        }
+        return [];
       }
     },
     sort:"featured",
@@ -358,39 +393,187 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
     getSortedList:function(listData){
       phoneController.sortList(this.sort,listData);
       return listData;
-    }
-  }
-
-  this.onlineDeals={
-    data:[],
-    addToList:function(item){
-      for(var i=0;i<item.variants.length;i++){
-        // this needs to be changed to actually look for variants.discount ... our test data doesn't have any does this will do for now
-        if(item.variants[i].cartLabel=="Back Order"){
-          //item.instantSavings=item.variants[i].price-item.variants[i].discount;
-          item.instantSavings="40";
-          this.data.push(item);
+    },
+    getAccPhoneList:function(){
+      var tempList={};
+      var phoneList=[];
+      for(var i=0;i<this.data.length;i++){
+        if(tempList[this.data[i].name]){
+          if(this.data[i].phoneCondition=="new"){
+            tempList[this.data[i].name]=this.data[i];
+          }
+        } else {
+          tempList[this.data[i].name]=this.data[i];
         }
       }
-    },
-    getList:function(){
-      return this.data;
+      var keys=Object.keys(tempList);
+      for(var i=0;i<keys.length;i++){
+        phoneList.push(tempList[keys[i]]);
+      }
+      phoneList=phoneController.sortList("nameAZ",phoneList);
+      return phoneList;
     }
   }
+  this.deals={
+    defaultPromoIndex:-1,
+    discounts:[],
+    promotions:[],
+    scrubData:function(data){
+      data=appUtil.data.simplifyObject(data);
+      data.discountedDevices=appUtil.data.toArray(data.discountedDevices);
+      data.promotions=appUtil.data.toArray(data.promotions);
+      var arrayPhoneDeviceType=[];
+      var arrayAccessoryDeviceType=[];
+      for(var i=0;i<data.discountedDevices.length;i++){
+        appUtil.data.rename(data.discountedDevices[i],"externalUrl","id");
+        appUtil.data.rename(data.discountedDevices[i],"manufacturerName","brand");
+        appUtil.data.rename(data.discountedDevices[i],"shopGridPicture","gridImage");
+        appUtil.data.rename(data.discountedDevices[i],"checkOutImage","checkoutImage");
 
+        data.discountedDevices[i].gridImage=appUtil.data.formatImagePath(data.discountedDevices[i].gridImage.uRI);
+        if(data.discountedDevices[i].deviceType=="accessory"){
+          appUtil.data.rename(data.discountedDevices[i],"name","label");
+          data.discountedDevices[i].checkoutImage.uRI=appUtil.data.formatImagePath(data.discountedDevices[i].checkoutImage.uRI);
+          if(data.discountedDevices[i].inventory=="out-of-stock" || data.discountedDevices[i].inventory=="end-of-life"){
+            data.discountedDevices[i].noMore=true;
+            data.discountedDevices[i].cartLabel="Out of Stock";
+          } else if( data.discountedDevices[i].inventory=="pre-order") {
+            data.discountedDevices[i].cartLabel="Pre Order";
+          } else if( data.discountedDevices[i].inventory=="back-order") {
+            data.discountedDevices[i].cartLabel="Back Order";
+          } else {
+            data.discountedDevices[i].cartLabel="Add to Cart";
+          }
+          arrayAccessoryDeviceType.push(data.discountedDevices[i]);
+        } else {
+          arrayPhoneDeviceType.push(data.discountedDevices[i]);
+        }
+      }
+      data.discountedDevices=arrayPhoneDeviceType.concat(arrayAccessoryDeviceType);
+      for(var i=0;i<data.promotions.length;i++){
+        if(data.promotions[i].isDefault) {
+          phoneController.deals.defaultPromoIndex=i;
+        }
+        if(data.promotions[i].banners){
+          data.promotions[i].banners=appUtil.data.toArray(data.promotions[i].banners);
+          for(var j=0;j<data.promotions[i].banners.length;j++){
+            data.promotions[i].banners[j].imageUrl=appUtil.data.formatImagePath(data.promotions[i].banners[j].imageUrl);
+          }
+        }
+        if(data.promotions[i].devices){
+          data.promotions[i].devices=appUtil.data.toArray(data.promotions[i].devices);
+          arrayPhoneDeviceType=[];
+          arrayAccessoryDeviceType=[];
+          for(var j=0;j<data.promotions[i].devices.length;j++){
+            appUtil.data.rename(data.promotions[i].devices[j],"externalUrl","id");
+            appUtil.data.rename(data.promotions[i].devices[j],"manufacturerName","brand");
+            appUtil.data.rename(data.promotions[i].devices[j],"shopGridPicture","gridImage");
+            appUtil.data.rename(data.promotions[i].devices[j],"checkOutImage","checkoutImage");
+            if(data.promotions[i].devices[j].gridImage){
+              data.promotions[i].devices[j].gridImage=appUtil.data.formatImagePath(data.promotions[i].devices[j].gridImage.uRI);
+            }
+            if(data.promotions[i].devices[j].deviceType=="accessory"){
+              appUtil.data.rename(data.promotions[i].devices[j],"name","label");
+              data.promotions[i].devices[j].checkoutImage.uRI=appUtil.data.formatImagePath(data.promotions[i].devices[j].checkoutImage.uRI);
+              if(data.promotions[i].devices[j].inventory=="out-of-stock" || data.promotions[i].devices[j].inventory=="end-of-life"){
+                data.promotions[i].devices[j].noMore=true;
+                data.promotions[i].devices[j].cartLabel="Out of Stock";
+              } else if( data.promotions[i].devices[j].inventory=="pre-order") {
+                data.promotions[i].devices[j].cartLabel="Pre Order";
+              } else if( data.promotions[i].devices[j].inventory=="back-order") {
+                data.promotions[i].devices[j].cartLabel="Back Order";
+              } else {
+                data.promotions[i].devices[j].cartLabel="Add to Cart";
+              }
+              arrayAccessoryDeviceType.push(data.promotions[i].devices[j]);
+            } else {
+              arrayPhoneDeviceType.push(data.promotions[i].devices[j]);
+            }
+          }
+          data.promotions[i].devices=arrayPhoneDeviceType.concat(arrayAccessoryDeviceType);
+        }
+      }
+      phoneController.deals.discounts=data.discountedDevices;
+      phoneController.deals.promotions=data.promotions;
+    },
+    init:function(){
+      appUtil.net.getData($http,"shop_get_deals").success(function(data){
+        if(data.responses.response[0].getDealsResponse.discountedDevices){
+          phoneController.deals.scrubData(data.responses.response[0].getDealsResponse);
+        }
+      }); 
+    }
+  }
   this.inStoreOffers={
     data:[],
     getList:function(){
       return this.data;
     }
   }
+  this.accList={
+    id:"",
+    phone:{},
+    accessories:[],
+    setPhone:function(){
+      for(var i=0;i<phoneController.list.data.length;i++){
+        if(phoneController.accList.id==phoneController.list.data[i].id){
+          phoneController.accList.phone=phoneController.list.data[i];
+          //pathMap._accessoriesList._extendTitle=phoneController.accList.phone.brand+" "+phoneController.accList.phone.name;
+        }
+      }
+    },
+    init:function(id){
+      this.id=id;
+      this.phone={};
+      this.accessories=[];
 
+      if(phoneController.list.data.length==0){
+        phoneController.loadList(this.id,this.setPhone);
+      }else{
+        this.setPhone();
+      }
+      pathMap._accessoriesList._adobeData.page.name = 'Accessories - '+id;
+      appUtil.net.getData($http,"shop_get_accessory_list","?phoneId="+this.id).success(function(data){
+        if(data.responses.response[0].accessoryResponse){
+          phoneController.scrubAccessoriesData(data.responses.response[0].accessoryResponse.accessories);
+          phoneController.accList.accessories=data.responses.response[0].accessoryResponse.accessories.accessory;
+        } else { 
+          phoneController.accList.accessory=[]; 
+        };
+      })
+    },
+    accDiscountClass:function(data){
+      var discount=0;
+      var name="";
+      try{
+        discount=parseInt(data.discount*100)/100;
+        if(discount){
+          discount_name=(""+discount).replace("\.","_");
+          discount_name=Math.round(parseInt(discount_name))+1;
+          name=" onSale "+"discount_"+discount_name;
+        }
+        if(data.promotions){
+          for(var i=0;i<data.promotions.length;i++){
+            if(data.promotions[i].webOnly){
+              name="onSale webOnly";
+            }
+          }
+        }
+      }catch(e){
+      }
+      return name;
+    }
+  }
   this.scrubPhoneData= function(item) {
+
     item=appUtil.data.simplifyObject(item);
     appUtil.data.rename(item,"externalUrl","id");
     appUtil.data.rename(item,"phoneName","name");
     appUtil.data.rename(item,"phoneType","type");
     appUtil.data.rename(item,"manufacturerName","brand");
+
+    item.displayBrand=["motorola","zte","microsoft|nokia"].indexOf(item.brand.toLowerCase())>=0?'':item.brand;
+//    item.displayBrand=item.brand;
     appUtil.data.rename(item,"associatedAccessoryId","accessoryIds");
     item.rate=null;
     item.review=null;
@@ -404,6 +587,16 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
       item.images=appUtil.data.toArray(item.images.phoneViewImage);
       for(var i=0;i<item.images.length;i++){
         item.images[i]=appUtil.data.formatImagePath(item.images[i].uRI);
+      }
+    }
+    if(item.phoneCondition && item.phoneCondition=="preowned"){
+      item.description+=" This phone is <a href='#!/certified-pre-owned-phones/'>certified pre-owned</a>."
+    }
+    if(item.phoneVideos){
+      appUtil.data.rename(item,"phoneVideos","videos");
+      item.videos=appUtil.data.toArray(item.videos.phoneVideo);
+      for(var i=0;i<item.videos.length;i++){
+        item.videos[i]=appUtil.data.formatImagePath(item.videos[i].uRI);
       }
     }
     if(item.filters){
@@ -432,9 +625,17 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
       if(variant.gridImage){
         variant.gridImage=appUtil.data.formatImagePath(variant.gridImage.uRI);
       }
+      
+      if(variant.heroImage){
+        variant.heroImage.uRI=appUtil.data.formatImagePath(variant.heroImage.uRI);
+      }
+      
       if( variant.colorVariant && variant.gradientColor ){
         appUtil.data.rename(variant,"colorVariant","color");
         variant.color = appUtil.data.capitalize(variant.color);
+        if(variant.color.toLowerCase()=="rosegold"){
+          variant.color="Rose Gold";
+        }
         item.colorValues [ variant.color ] = variant.gradientColor;
       }
       if( variant.memoryVariant ){
@@ -451,6 +652,9 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
       }
       if(variant.isDefault){
         tmpWeight+=2;
+      }
+      if(variant.parent){
+        item.defaultSku=variant.sku;
       }
       if(variant.inventory=="in-stock"){
         tmpWeight+=4;
@@ -469,7 +673,7 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
       } else if( variant.inventory=="back-order") {
         variant.cartLabel="Back Order";
       } else {
-        if(variant.hiddenPrice){
+        if(variant.hiddenPrice && appName=='spp'){
           variant.cartLabel="Add to Cart to see price";
         }else{
           variant.cartLabel="Add to Cart";
@@ -477,22 +681,70 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
       }
 
     }
+    
     if(item.selectedVariant){
+      if(!item.selectedVariant.color){
+        item.selectedVariant.color="";
+      } 
+      if(!item.selectedVariant.memory){
+        item.selectedVariant.memory="";
+      }
       item.selectedColor=item.selectedVariant.color;
       item.selectedMemory=item.selectedVariant.memory;
     }
     
     item.colorOptions = Object.keys(item.colorValues).sort();
-    item.memoryOptions = Object.keys(tmpMemoryOptions).sort();
+    item.memoryOptions = Object.keys(tmpMemoryOptions).sort(function(a,b){
+      return parseInt(a)>parseInt(b);
+    });
     
+    item.getHash=function(c,m,t){
+      if(!c){
+        c=this.selectedColor;
+      }
+      if(!m){
+        m=this.selectedMemory;
+      }
+      if(c){
+        c+=m?","+m+"/":"/";
+      }else if(m){
+        c=m+"/";
+      }
+      if(c){
+        c="/"+c;
+      }else{
+        c="/";
+      }
+      return pathMap._phoneDetails._hash+this.id+"/"+t+c;
+    }
+    item.setHash=function(c,m){
+      var h=this.getHash(c,m,phoneController.selectedTab)
+      appUtil.net.setUrlHash(h);
+    }
     item.updateSelectedVariant = function() {
       for( var i=0; i<this.variants.length; i++ ) {
+        if(!this.variants[i].memory){
+          this.variants[i].memory="";
+        }
+        if(!this.variants[i].color){
+          this.variants[i].color="";
+        }
         if( this.selectedColor == this.variants[i].color && (this.selectedMemory == this.variants[i].memory)) {
           this.selectedVariant = this.variants[i];
           pathMap._phoneDetails._sendAnalysisData(this);
+          break;
         }
       }
     }
+    item.getVariantByOptions = function(c,m) {
+      for( var i=0; i<this.variants.length; i++ ) {
+        if( c == this.variants[i].color && (m == this.variants[i].memory)) {
+          return this.variants[i];
+        }
+      }
+    }
+    
+    
     if(item.compareImages){
       var cImages=appUtil.data.toArray(item.compareImages.compareImage);
       for(var i=0;i<cImages.length;i++){
@@ -500,12 +752,56 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
       }
       delete item.compareImages;
     }
+    item.promoIndex=-1;
+    if(item.promotions){
+      item.promotions=appUtil.data.toArray(item.promotions.promotion);
+      for(var i=0;i<item.promotions.length;i++){
+        if(item.promoIndex==-1){
+          item.promoIndex=i;
+        }else if(!item.promotions[i].isDefault){
+          item.promoIndex=i;
+        }
+        if(item.promotions[i].message){
+          item.message=item.promotions[i].message;
+          if(item.promotions[i].isDefault){
+            this.list.message=item.promotions[i].message;
+          }
+        }
+        if(item.promotions[i].legal){
+          var found=false;
+          for(var j=0;j<this.list.legals.length;j++){
+            if( item.promotions[i].legal == this.list.legals[j]){
+              found=true;
+              continue;
+            }
+          }
+          if(!found){
+            this.list.legals.push(item.promotions[i].legal);
+          }
+        }
+        if(item.promotions[i].banners){
+          item.promotions[i].banners=appUtil.data.toArray(item.promotions[i].banners);
+          for(var j=0;j<item.promotions[i].banners.length;j++){
+            item.promotions[i].banners[j].imageUrl=appUtil.data.formatImagePath(item.promotions[i].banners[j].imageUrl);
+          }
+        }
+        if(item.promotions[i].tagImage && item.promotions[i].tagImage.uRI){
+          if(item.genieBanner){
+            if(!item.promotions[i].isDefault){
+              item.genieBanner=appUtil.data.formatImagePath(item.promotions[i].tagImage.uRI);
+            }
+          }else{
+            item.genieBanner=appUtil.data.formatImagePath(item.promotions[i].tagImage.uRI);
+          }
+        }
+      }
+    }
   }
-
-  this.scrubFeaturesData=function(data){
+  this.scrubFeaturesData=function(item){
+    var data=item.features;
     appUtil.data.rename(data,"generalFeatures","general");
     appUtil.data.simplifyObject(data.general);
-    for(var i=0;i<data.general.length;i++){
+    for(var i=0;data.general && i<data.general.length;i++){
       var d = data.general[i];
       if(d.ule){
         d.ule.average*=10;
@@ -519,13 +815,26 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
         delete d.ule.items;
         break;
       }
+/*
+      if(d.type=="cpo"){
+        item.preOwned=true;
+      }
+*/
+    }
+    if(!data.general){
+//      appUtil.net.getData($http,"/primary/shop_get_secondary_features","?phone-name="+item.id).success(function(d){
+      $http.get(appUtil.net.formatDataUrl("/primary/shop_get_secondary_features","?phone-name="+item.id)).success(function(d){
+        var o = $(d).find(".container_default_msdp");
+        data.secondary_features=o[0].innerHTML;
+        setTimeout("windowResizeObjMap.mapImgFun();",1000);
+      }); 
     }
     appUtil.data.rename(data,"specialFeatures","special");
     appUtil.data.simplifyObject(data.special);
     
     appUtil.data.rename(data,"technicalFeatures","technical");
     var group=appUtil.data.toArray(data.technical.group);
-    var os=data.technical.os?appUtil.ui.htmlToText(data.technical.os.$):null;
+    var os=data.technical.os.$;
     var processor=data.technical.processor?appUtil.ui.htmlToText(data.technical.processor.$):null;
     var memory=data.technical.memory?appUtil.ui.htmlToText(data.technical.memory.$):null;
     
@@ -543,11 +852,13 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
     }
     
     data.technical=tmpTechnical;
-    if(data.specifationImage){
-      data.specifationImage=appUtil.data.formatImagePath(data.specifationImage.uRI.$);
+    if(data.specificationImage){
+      data.specificationImage=appUtil.data.formatImagePath(data.specificationImage.uRI.$);
+    }
+    if(data.iiboxImage){
+      data.iiboxImage=appUtil.data.formatImagePath(data.iiboxImage.uRI.$);
     }
   }
-
   this.scrubAccessoriesData=function(data){
     data.accessory=appUtil.data.toArray(data.accessory);
     appUtil.data.simplifyObject(data);
@@ -561,22 +872,24 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
       } else if( data.accessory[i].inventory=="back-order") {
         data.accessory[i].cartLabel="Back Order";
       } else {
-        if(data.accessory[i].hiddenPrice){
+        if(data.accessory[i].hiddenPrice && appName=='spp'){
           data.accessory[i].cartLabel="Add to Cart to see price";
         }else{
           data.accessory[i].cartLabel="Add to Cart";
         }
       }
-      if(data.accessory[i].shopImage.uRI){
+      if(data.accessory[i].shopImage && data.accessory[i].shopImage.uRI){
         data.accessory[i].shopImage.uRI=appUtil.data.formatImagePath(data.accessory[i].shopImage.uRI);
       }
-      if(data.accessory[i].checkoutIMage.uRI){
+      if(data.accessory[i].checkoutIMage && data.accessory[i].checkoutIMage.uRI){
         data.accessory[i].checkoutIMage.uRI=appUtil.data.formatImagePath(data.accessory[i].checkoutIMage.uRI);
       }
       appUtil.data.rename(data.accessory[i],"checkoutIMage","checkoutImage");
+      if(data.accessory[i].promotions){
+        data.accessory[i].promotions=appUtil.data.toArray(data.accessory[i].promotions.promotion);
+      }
     }
   }
-  
   this.attachAccessories=function(item){
     if(jQuery.isEmptyObject(item.accessories)){
       appUtil.net.getData($http,"shop_get_accessory_list","?phoneId="+item.id).success(function(data){
@@ -586,30 +899,29 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
           }
           phoneController.scrubAccessoriesData(item.accessories);
         } else { 
-          item.accessories = {"accessory":[]}; 
+          item.accessories = {"accessory":[], "type":""}; 
         };
       }); 
     }
   }
-  
   this.attachFeatures=function(item){
     if(jQuery.isEmptyObject(item.features)){
       appUtil.net.getData($http,"shop_get_features_by_external_url","?phoneId="+item.id).success(function(data){
         if(data.responses.response[0].getFeaturesResponse){
           if(jQuery.isEmptyObject(item.features)){
             angular.extend(item.features,data.responses.response[0].getFeaturesResponse.phoneFeatures);
-            phoneController.scrubFeaturesData(item.features);
+            phoneController.scrubFeaturesData(item);
           }
         }
       }); 
     }
   }
-  
-  this.attachPhoneData=function(obj,id,bAttachFeatures){
+  this.attachPhoneData=function(obj,id,bAttachFeatures,fun){
     if(jQuery.isEmptyObject(obj)){
       appUtil.net.getData($http,"shop_get_phone_by_external_url","?phoneId="+id).success(function(data){
         if(jQuery.isEmptyObject(obj)){
           try{
+//            a=a;
             var tmpObj=appUtil.data.simplifyObject(data.responses.response[0].getPhoneDetailsResponse.phoneDetails.phoneDetail);
             if(angular.isArray(tmpObj)){
               for(var i=0;i<tmpObj.length;i++){
@@ -626,14 +938,23 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
             phoneController.scrubPhoneData(obj);
             appUtil.ui.refreshContent();
             obj.id=id;
-            pathMap._phoneDetails._sendAnalysisData(obj);
             if(bAttachFeatures){
               phoneController.attachFeatures(obj);
               phoneController.attachAccessories(obj);
             }
+            appUtil.exeFun(fun);
+            var tabs=["features","plans","reviews","write_reviews","accessories"];
+            if(tabs.indexOf(phoneController.selectedTab)<0){
+              appUtil.net.setUrlHash(pathMap._phoneDetails._hash+id+"/"+tabs[0]+"/");
+              return;
+            }
           }catch(e){
-            pathMap._pageNotFound=true;
-            appUtil.refreshContent();
+            if(tmpObj){
+              pathMap._pageNotFound=true;
+              appUtil.ui.refreshContent();
+            }else{
+              appUtil.$scope.pageController.buildContext(location.hash.substring(3));
+            }
             return;
           }
         }
@@ -641,7 +962,6 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
       }); 
     }
   }
-
   this.scrubCompareFeaturesData=function(data){
     var group=appUtil.data.toArray(data.technicalFeatures.group);    
     var tmpTechnical=[];
@@ -669,7 +989,6 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
       else if( data.generalFeatures[i].type == "touchscreen") data.generalFeatures[i].type="display";
     }
   }
-  
   this.attachCompareFeatures=function(item){
     appUtil.net.getData($http,"shop_phone_compare","?phones="+item.id).success(function(data){
       data = data.responses.response[0].comparePhoneResponse.comparePhoneList.comparePhone;
@@ -680,31 +999,172 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
   this.details={
     data:{},
     planPage:null,
+    plans:{},
     updateMeta:function(){
-      appUtil.ui.setMetaInfo("title",this.data.meta.title);
-      appUtil.ui.setMetaInfo("description",this.data.meta.description);
-      appUtil.ui.setMetaInfo("keywords",this.data.meta.keywords);
-      pathMap._phoneDetails._extendTitle=this.data.brand+" "+this.data.name;
+      if(this.data && this.data.meta){
+        appUtil.ui.setMetaInfo("title",this.data.meta.title);
+        appUtil.ui.setMetaInfo("description",this.data.meta.description);
+        appUtil.ui.setMetaInfo("keywords",this.data.meta.keywords);
+      }
+      pathMap._phoneDetails._extendTitle=this.data.name;
+      if(this.data.phoneCondition && this.data.phoneCondition=="preowned"){
+        pathMap._phoneDetails._extendTitle+=" Pre-owned";
+      }
+
     },
-    init:function(id,tab){
-      this.selectedTab=tab;
-      if(id==this.data.id){
+    updateVariantByOptions:function(c,m){
+      var tmp = this.data.getVariantByOptions(c,m);
+      if(tmp){
+        this.data.selectedColor=c;
+        this.data.selectedMemory=m;
+        this.data.selectedVariant=tmp;
         appUtil.ui.refreshContent(true);
         phoneController.details.updateMeta();
-        return;
+        return true;
+      }else{
+        this.data.setHash();
+        return false;
       }
-      $http.get("/primary/shop_plans?version="+appUtil.data.generateId()).success(function(data){
+    },
+    init:function(id,tab,exopt,exId){
+      pathMap._phoneDetails._titleAlt=$sce.trustAsHtml('<span class="titleAlt phonedetail"><i class="glyphicon glyphicon glyphicon-chevron-left"></i><a href="'+pathMap._phones._hash+'|Nav:Shop:AllPhones">Return to shop phones</a></span>');
+      phoneController.selectedTab=tab;
+      phoneController.exId=exId;
+      var c="";
+      var m="";
+      if(exopt){
+        exopt=exopt.replace(/%20/g," ");
+        c=exopt.split(",")[0];
+        m=exopt.split(",")[1];
+      }else{
+        exId=exopt;
+      }
+      if(id==this.data.id){
+        if(this.updateVariantByOptions(c,m)){
+          pathMap._phoneDetails._sendAnalysisData(this.data,tab);
+          pathMap._phoneDetails._setMetas();
+        }
+      }else{
+        this.data={};
+        tab=tab=="reviews"?tab:"features";
+        phoneController.attachPhoneData(this.data,id,true,"appUtil.$scope.phoneController.details.afterAttachExec('"+c+"','"+m+"','"+tab+"')");
+      }
+    },
+  //Get plans
+    getAllPlans:function(){
+      var monthlyPlanName = phoneController.details.data.promotions[0].monthlyPlan;
+      var dailyPlanName = phoneController.details.data.promotions[0].dailyPlan;
+      phoneController.details.getPlans(monthlyPlanName, 'monthlyplan');
+      phoneController.details.getPlans(dailyPlanName, 'dailyplan');
+      return;
+    },
+    getPlans:function(planName, planKey){
+      $http.get(appUtil.net.formatDataUrl("/primary/shop_get_promotion_plan_page_content","?plan-name="+planName)).success(function(data){
         try{
-          phoneController.details.planPage=$sce.trustAsHtml($("<div "+data.split("<body ")[1].split("</body>")[0]+"</div>").find(".tab-pane").html());
+         var planHtml = $sce.trustAsHtml($("<div "+data.split("<body ")[1].split("</body>")[0]+"</div>").find("#page_shop_get_promotion_plan_page_content").html());
+         var planTitle = "";
+         if(planKey=='monthlyplan'){
+            planTitle = "Monthly Plans";            
+         }
+         else if(planKey=='dailyplan'){
+            planTitle = "Daily Plans";
+         } 
+         phoneController.details.plans[planKey] = {name:planTitle, html:planHtml};           
+         return;
         }catch(e){}
       }).error(function(){
-        appUtil.ui.alert("There is a temporary issue while accessing the Portal. Please contact Sprint Customer Support for further assistance.");
+        appUtil.ui.alert(appMsg[appName].sysError);
         appUtil.ui.autoHideWaiting();
       });
-      this.data={};
-      phoneController.attachPhoneData(this.data,id,true);
-    }
+      return;
+    },
+
+    afterAttachExec:function(c, m, tab){
+      phoneController.details.getAllPlans();
+      pathMap._phoneDetails._setMetas();
+      phoneController.details.updateVariantByOptions(c,m)?pathMap._phoneDetails._sendAnalysisData(phoneController.details.data,tab):'';
+    },
+
+    showImages:function(id){
+      if(this.data.id==id){
+        $(function() {
+          $("#phoneImageDialog").modal();
+        });
+        appUtil.ui.refreshContent(true);
+      }else{
+        this.data={};
+        phoneController.attachPhoneData(this.data,id,false,"appUtil.$scope.phoneController.details.showImages('"+id+"')");
+      }
+    },
+    getDisplayTitle:function(item){
+      return item.name+" "+item.selectedColor +" "+item.selectedMemory;
+    }    
   };
+  this.showReview=function(sku){
+    appUtil.$scope.stopAutoRefreshContent=true;
+    var hash=location.hash.replace("/reviews/","/write_reviews/");
+
+    $BV.configure("global",{submissionContainerUrl:hash});
+    $BV.ui("rr","show_reviews",{productId:sku});
+    setTimeout("appUtil.$scope.phoneController.setWriteReviewBtnEvent('"+sku+"')",100);
+  }
+  this.setWriteReviewBtnEvent=function(sku){
+    var o=$("[name='BV_TrackingTag_QuickTakeSummary_WriteReview_"+sku+"']");
+    if(o.length==0){
+      o=$("[name='BV_TrackingTag_Review_Display_WriteReview']");
+      if(o.length==0){
+        setTimeout("appUtil.$scope.phoneController.setWriteReviewBtnEvent('"+sku+"')",100);
+        return;
+      }
+    }
+    var hash=location.hash.replace("/reviews/","/write_reviews/");
+    o[0].href=hash;
+    o.mousedown(
+      function(){
+        location.hash=hash;
+        return false;
+      }
+    );
+    o.click(function(e){
+      e.preventDefault();
+    });
+    if(!this.bindReviewEvent){
+      this.bindReviewEvent=true;
+      $("#phoneController").on("mousedown",".BVDIFooter.BVDI_COFooterBody a,.BVDIHeader.BVDI_COHeader a",function(){
+        var d=$(this).attr("data-bvjsref");
+        if(d){
+          d=d.split("/review/");
+          if(d.length>1){
+            d=d[1].split("/")[0];
+            var hash=location.hash.replace("/reviews/","/write_reviews/")+d+"/";
+            location.hash=hash;
+          }
+        }
+      });
+      $("#phoneController").on("click",".BVDIFooter.BVDI_COFooterBody a,.BVDIHeader.BVDI_COHeader a",function(e){
+        var d=$(this).attr("data-bvjsref");
+        if(d){
+          d=d.split("/review/");
+          if(d.length>1){
+            e.preventDefault();
+          }
+        }
+      });
+    }
+  }
+  this.showReviewWriter=function(sku){
+    var rId=this.exId;
+    appUtil.$scope.stopAutoRefreshContent=true;
+    $BV.configure("global",{
+      facebookXdChannelUrl:"//www.alencorp.com/facebook_xd_receiver.asp"
+    });
+    if(rId){
+      $BV.ui("submission_container",{userToken:"",submissionContainerBvParameters:"?bvdisplaycode=8149-en_us&bvappcode=rr&bvproductid="+sku+"&bvpage=http%3A%2F%2Fboost.ugc.bazaarvoice.com%2F8149-en_us%2F"+sku+"%2Freview%2F"+rId+"%2Fsubmitcomment.htm%3Fformat%3Dembedded%26sessionparams%3D__BVSESSIONPARAMS__%26return%3D&bvcontenttype=REVIEW_COMMENT_SUBMISSION&bvauthenticateuser=false"})
+    }else{
+      $BV.ui("submission_container",{userToken:"",submissionContainerBvParameters:"?bvappcode=rr&bvproductid="+sku+"&bvpage=http%3A%2F%2Fboost.ugc.bazaarvoice.com%2F8149-en_us%2F"+sku+"%2Fsubmitreview.htm%3Fformat%3Dembedded%26campaignid%3DBV_RATING_SUMMARY%26sessionparams%3D__BVSESSIONPARAMS__%26return%3D&bvcontenttype=REVIEW_SUBMISSION&bvauthenticateuser=false&bvdisplaycode=8149-en_us"})
+    }
+    
+  }
   
   this.compareItems={
     COMPARE_SIZE:4,
@@ -715,57 +1175,55 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
         description:"Your phone's operating system is what makes it work. A more advanced OS lets your phone do more - so you can make it work for you."
       },
       {
-        key:"display.value",
+        key:"display",
         title:"Display",
         description:"Backlit display phones use keys and buttons, while touchscreens let you swipe and tap your way around."
       },
       {
-        key:"camera.value",
+        key:"camera",
         title:"Camera",
         description:"Take pictures with your phone. Look for higher megapixels (MP) for better image quality."
       },
       {
         key:"wifi",
-        booleanType:true,
         title:"Wi-Fi",
         description:"A Wi-Fi®-enabled phone lets you link to the same high-speed wireless networks used by laptops and tablets."
       },
       {
-        key:"fourG.value",
-        title:"Sprint 4G Network",
+        key:"fourG",
+        title:"Sprint® 4G Network",
         description:"Connect superfast on the Sprint 4G Network available in select cities."
       },
       {
         key:"hotspot",
-        booleanType:true,
-        title:"Hotspot",
-        description:"Turn your phone into a Wi-Fi® hotspot. Add-ons start at $3/day."
+/*        description:"Turn your phone into a Wi-Fi® hotspot. Add-ons start at $3/day."*/
+        title:"Hotspot Capable"
       },
       {
-        key:"qwertyKeyboard.value",
+        key:"qwertyKeyboard",
         title:"QWERTY Keyboard",
         description:"A QWERTY keyboard looks just like your computer keyboard, but in miniature. With a 'physical' keyboard, you're actually pushing real buttons. With the 'virtual' version, it's a touchscreen."
       },
       {
-        key:"webBrowser.value",
+        key:"webBrowser",
         title:"Web Browser",
         description:"HTML browsers display websites the same way they'd appear on a computer screen. WAP browsers show those same web pages but in a more phone-friendly version."
       },
+      /*
       {
         key:"flashPlayer",
         booleanType:true,
         title:"Flash Player",
         description:"Some of the coolest videos and online content only work on phones with a Flash Player."
       },
+      */
       {
         key:"email",
-        booleanType:true,
         title:"Email",
         description:"Most phones let you send and receive emails - but some make it super easy by linking directly to your email for one-click access."
       },
       {
         key:"video",
-        booleanType:true,
         title:"Video",
         description:"Turn your phone into a mini video camera with the touch of a button."
       },
@@ -776,13 +1234,11 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
       },
       {
         key:"gps",
-        booleanType:true,
         title:"Navigation Services",
         description:"GPS navigation gives you interactive maps and turn-by-turn instructions to keep you on the right path."
       },
       {
         key:"speakerphone",
-        booleanType:true,
         title:"Speakerphone",
         description:"Put your phone on speaker and free up your hands for other things. Some phones even have voice recognition, so you can make calls just by telling it who to dial."
       },
@@ -792,71 +1248,40 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
         description:"Portion of memory occupied by existing content."
       },
       {
-        key:"processor.value",
+        key:"processor",
         title:"Processor",
         description:"A good processor makes your phone work fast. A great one lets it work even faster and play cool games and videos."
       },
       {
         key:"calendar",
-        booleanType:true,
         title:"Calendar",
         description:"A calendar right on your phone helps you track appointments, tasks and important dates."
       },
       {
         key:"voicemail",
-        booleanType:true,
         title:"Visual Voicemail",
         description:"Get a text version of your voice messages sent right to your phone's screen. This saves you from listening to calls you'd rather skip or replaying messages to hear key details."
       },
       {
         key:"threeG",
-        booleanType:true,
-        title:"Sprint 3G Network",
+        title:"Nationwide Sprint® <br/>3G Network",
         description:"3G makes your phone work lightning-fast with high-speed wireless service. Because who has time to wait around?"
+      },
+      {
+        key:"bluetooth",
+        title:"Bluetooth",
+        description:"Bluetooth® lets you take calls and listen to music without wires, share files over the air and more."
       }
     ],
-    data:{version:$scope.app.config.DATA_VERSION, updateTime:new Date().getTime(),items:[]},
     ItemData:{
-      id:null,
-      sku:null,
-      brand:null,
-      name:null,
-      compare_th_img:null,
-      compare_img:null,
-      price:null,
-      rate:0,
-      review:"N/A",
-      os:"N/A",
-      android:"N/A",
       display:{value:"N/A"},
       touchscreen:{value:"N/A"},
       camera:{value:"N/A"},
-      wifi:"No",
       webBrowser:{value:"N/A"},
-      email:"No",
-      video:"No",
-      musicPlayerBAD:"No",
-      speakerphone:"No",
-      memory:"N/A",
       processor:{value:"N/A"},
-      calendar:"No",
-      voicemail:"No",
-      bluetooth:{value:"N/A"},
-      width:"N/A",
-      height:"N/A",
-      weight:"N/A",
-      depth:"N/A",
-      screen_size:"N/A",
-      battery_type:"N/A",
-      talking_time:"N/A",
-      fourG:{value:"N/A"},
-      hotspot:"No",
-      mobilehotspot:"No",
-      qwertyKeyboard:{value:"N/A"},
-      flashPlayer:"No",
-      gps:"No",
-      threeG:"No"
+      fourG:{value:"N/A"}
     },
+    data:{version:$scope.app.config.DATA_VERSION, items:[]},
     setItemAttr:function(item,data){
       if(data.type ){
         var t=data.type;
@@ -865,23 +1290,7 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
       }else{
         return;
       }
-      var v = item[t];
-      if(angular.isObject(v)){
-        if(data.title){
-          v.value=data.title;
-        }
-        if(data.description){
-          v.description=data.description;
-        }
-      }else if(v=="No"){
-        item[t]="Yes";
-      }else{
-        if(data.title){
-          item[t]=data.title;
-        }else if(data){
-          item[t]=data;
-        }
-      }  
+      item[t]=data.title;
     },
     fillData:function(item,data){
       if(data.generalFeatures){
@@ -913,7 +1322,7 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
           this.data.items.splice(0,1);
         }
       }else{
-        this.data = {items:[],version:$scope.app.config.DATA_VERSION,updateTime:new Date().getTime()};        
+        this.data = {items:[],version:$scope.app.config.DATA_VERSION};        
       }
       if( data && data.version==$scope.app.config.DATA_VERSION) {
         for(var i=0;i<data.items.length;i++){
@@ -941,8 +1350,11 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
       }
       return title;
     },
-    getValueById:function(idx,attrs,true_false){
+    getValueById:function(idx,attrs){
       var item=this.data.items[idx];
+      if(!item){
+        return null;
+      }
       var value=null;
       attrs=appUtil.data.toArray(attrs);
       if(item){
@@ -953,20 +1365,23 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
             }else{
               value=eval("item."+attrs[i]);
             }
-            if(value!="No" && value!="N/A"){
-              break;
-            }
           }catch(e){
             value=undefined;
           }
         }
-        if(value==undefined){
-          value="N/A";
-        }else if(true_false){
-          value="yes";
+        if(value==undefined || value==false || (value+"").toLowerCase()=="no" || (value+"").toLowerCase()=="n/a"){
+          if(["displayBrand","review"].indexOf(attrs[0])<0){
+            value="Not Available";
+          }else if(["review"].indexOf(attrs[0])>=0){
+            value=0;
+          }else{
+            value="";
+          }
+        }else if((value+"").toLowerCase()=="yes"){
+          value=true;
         }
       }
-      if(value){
+      if(value!=true){
         value=$("<div>"+value+"</div>").text();
       }
       return value;
@@ -977,14 +1392,15 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
       }
       if(this.hasSpace()){
         if(!item.compareFeatures){
-          item.compareFeatures=angular.copy(this.ItemData);
+          item.compareFeatures={};
           var d=item.compareFeatures;
           d.id=item.id;
           d.sku=item.selectedVariant.sku;
           d.brand=item.brand;
+          d.displayBrand=item.displayBrand;
           d.name=item.name;
           d.price=item.selectedVariant.price;
-          d.compare_th_img=item.compare_th_img;
+          d.compare_thumb_img=item.compare_thumb_img;
           d.compare_img=item.compare_img;
           
           d.rate=item.rate;
@@ -1006,12 +1422,8 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
         }
       }
     },
-    removeItem:function(item){
-      for(var i=0;i<this.data.items.length;i++){
-        if(this.data.items[i].id==item.id){
-          this.data.items.splice(i,1);
-        }
-      }
+    removeItem:function(idx){
+      this.data.items.splice(idx,1);
       this.save();
     },
     clean:function(){
@@ -1028,7 +1440,6 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
       }
     },
     save:function(){
-      this.data.updateTime=new Date().getTime();
       appUtil.data.storeToLocal("phones_compare",this.data);
       pathMap._phoneCompare._generateAnalysisData(this.data.items);
     },
@@ -1046,8 +1457,7 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
   };
   this.compareItems.init();
   $scope.pushAutoRefresh("$scope.phoneController.compareItems.init()");
-  
-  this.loadList=function(parameter){
+  this.loadList=function(parameter,fun){
     if(!phoneController.list.filter.urlHash.needLoadData()){
       appUtil.ui.refreshContent(true);
       return;
@@ -1057,18 +1467,22 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
     }
     phoneController.status="init";
     appUtil.net.getData($http,"shop_get_phones_by_brand_id").success(function(data){
-      phoneController.status="ready";
-      phoneController.list.data=data.responses.response[0].getListPhonesResponse.phones.phone;
-      phoneController.list.data=appUtil.data.toArray(phoneController.list.data);
-      for(var i=0; i<phoneController.list.data.length; i++) {
-        phoneController.scrubPhoneData(phoneController.list.data[i]);
+      if(data.responses.response[0].getListPhonesResponse && data.responses.response[0].getListPhonesResponse.phones) {
+        phoneController.status="ready";
+        phoneController.list.data=data.responses.response[0].getListPhonesResponse.phones.phone;
+        phoneController.list.data=appUtil.data.toArray(phoneController.list.data);
+        for(var i=0; i<phoneController.list.data.length; i++) {
+          phoneController.scrubPhoneData(phoneController.list.data[i]);
+        }
+        if(parameter!=null){
+          phoneController.list.filter.init(phoneController.list.data, parameter.replace("@",""));
+        }
+        
+        appUtil.exeFun(fun);
+        appUtil.ui.refreshContent();
       }
-      phoneController.list.filter.init(phoneController.list.data, parameter.replace("@",""));
-      appUtil.ui.refreshContent();
     }); 
   }
-  
-  //Filter Menu
   this.hasAndroid=false;
   this.hasIphone=false;
   this.filterMenu=function(){
@@ -1079,24 +1493,147 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
         phoneController.scrubPhoneData(data[i]);        
         phoneController.hasAndroid=phoneController.hasAndroid || data[i].type=="Android";
         phoneController.hasIphone=phoneController.hasIphone || data[i].type=="iPhone";
-        phoneController.onlineDeals.addToList(data[i]);
       }
     }); 
   };
-  this.filterMenu();
-  
+  if(appName=="spp"){
+    this.filterMenu();
+  }
+  this.hotspots={
+    page:0,
+    list:[],
+    device:{},
+    features:{},
+    scrubFeaturesData:function(data){
+      var group=appUtil.data.toArray(data.technicalFeatures.group);
+      var tmpTech={};
+      for(var i=0;i<group.length;i++){
+        var specs=appUtil.data.toArray(group[i].specs.spec);
+        for(var n=0;n<specs.length;n++){
+          tmpTech[specs[n]["@type"]]=appUtil.ui.htmlToText(specs[n].$);
+        }
+      }
+      phoneController.hotspots.device.technicalFeatures=tmpTech;
+      appUtil.data.simplifyObject(data);
+      phoneController.hotspots.device.generalFeatures=appUtil.data.toArray(data.generalFeatures);
+      phoneController.hotspots.device.os=data.technicalFeatures.os;
+      phoneController.hotspots.device.processor=data.technicalFeatures.processor;
+      phoneController.hotspots.device.memory=data.technicalFeatures.memory;
+      if(data.specificationImage){
+        phoneController.hotspots.device.specificationImage=appUtil.data.formatImagePath(data.specificationImage.uRI);
+      }
+    },
+    getFeatures:function(){
+      var pData="?deviceType=mbb&deviceId="+phoneController.hotspots.device.sku;
+      appUtil.net.getData($http,"shop_get_device_features",pData).success(function(data){
+        if(data.responses.response[0].deviceFeatureResponse && data.responses.response[0].deviceFeatureResponse.deviceFeature){
+          phoneController.hotspots.scrubFeaturesData(data.responses.response[0].deviceFeatureResponse.deviceFeature);
+        }
+      });
+    },
+    scrubDetailsData:function(data){
+      appUtil.data.simplifyObject(data);
+      appUtil.data.rename(phoneController.hotspots.device,"manufacturerName","brand");
+      if(data.ReviewStatistics){
+        phoneController.hotspots.device.rate=data.ReviewStatistics.AverageOverallRating;
+        phoneController.hotspots.device.review=data.ReviewStatistics.TotalReviewCount;
+        delete data.ReviewStatistics;
+      }
+      phoneController.hotspots.device.id="netgear-fuse-mobile-hotspot";
+      phoneController.hotspots.device.isRedVentures=data.isRedVentures;
+      phoneController.hotspots.device.disclaimerMini=data.disclaimerMini;
+      phoneController.hotspots.device.extendedDescription=data.extendedDescription;
+      phoneController.hotspots.device.meta=data.meta;
+      phoneController.hotspots.device.images=data.deviceViewImages.deviceViewImage;
+      phoneController.hotspots.device.checkoutImage={uRI:appUtil.data.formatImagePath(data.checkoutImage.uRI)}
+      for(var i=0;i<phoneController.hotspots.device.images.length;i++){
+        phoneController.hotspots.device.images[i].uRI=appUtil.data.formatImagePath(phoneController.hotspots.device.images[i].uRI);
+      }
+    },
+    getDetails:function(index){
+      pathMap._hotspotDetails._titleAlt=$sce.trustAsHtml('<span class="titleAlt phonedetail"><i class="glyphicon glyphicon glyphicon-chevron-left"></i><a href="'+pathMap._shop._hash+'|Nav:Shop">Return to shop</a></span>');
+      phoneController.hotspots.device=phoneController.hotspots.list[index];
+
+// if(id==this.data.id){
+//   // if(this.updateVariantByOptions(c,m)){
+//   //   pathMap._phoneDetails._sendAnalysisData(this.data,tab);
+//   // }
+// }
+// else{
+  //$http.get('http://vm4-msdp.test.boostmobile.com/primary/shop_get_promotion_plan_page_content?plan-name=monthlyplan').success(function(data){
+  $http.get(appUtil.net.formatDataUrl("/primary/shop_get_promotion_plan_page_content","?plan-name=mbbplan")).success(function(data){
+    try{
+     phoneController.hotspots.device.mbbPlan=$sce.trustAsHtml($("<div "+data.split("<body ")[1].split("</body>")[0]+"</div>").find("#page_shop_get_promotion_plan_page_content").html());
+     return;
+    }catch(e){}
+  }).error(function(){
+    appUtil.ui.alert(appMsg[appName].sysError);
+    appUtil.ui.autoHideWaiting();
+  });
+// }
+
+      var pData="?deviceType=mbb&deviceId="+phoneController.hotspots.device.sku;
+      appUtil.net.getData($http,"shop_get_device",pData).success(function(data){
+        if(data.responses.response[0].deviceDetailsResponse && data.responses.response[0].deviceDetailsResponse.deviceDetails && data.responses.response[0].deviceDetailsResponse.deviceDetails.deviceDetail){
+          phoneController.hotspots.scrubDetailsData(data.responses.response[0].deviceDetailsResponse.deviceDetails.deviceDetail);
+          phoneController.hotspots.getFeatures();
+        }
+        pathMap._hotspotDetails._title=phoneController.hotspots.device.name;
+        appUtil.ui.setMetaInfo("title",pathMap._hotspotDetails._title);
+      });
+    },
+    scrubListData:function(data){
+      appUtil.data.simplifyObject(appUtil.data.toArray(data));
+      phoneController.hotspots.list=appUtil.data.toArray(data);
+      for(var i=0;i<phoneController.hotspots.list.length;i++){
+        phoneController.hotspots.list[i].heroImage.uRI=appUtil.data.formatImagePath(phoneController.hotspots.list[i].heroImage.uRI);
+        if(phoneController.hotspots.list[i].checkoutImage){
+          phoneController.hotspots.list[i].checkoutImage.uRI=appUtil.data.formatImagePath(phoneController.hotspots.list[i].checkoutImage.uRI);
+        }
+        if(phoneController.hotspots.list[i].inventory=="out-of-stock" || phoneController.hotspots.list[i].inventory=="end-of-life"){
+          phoneController.hotspots.list[i].noMore=true;
+          phoneController.hotspots.list[i].cartLabel="Out of Stock";
+        }else if(phoneController.hotspots.list[i].inventory=="pre-order"){
+          phoneController.hotspots.list[i].cartLabel="Pre Order";
+        }else if(phoneController.hotspots.list[i].inventory=="back-order"){
+          phoneController.hotspots.list[i].cartLabel="Back Order";
+        }else{
+          if(phoneController.hotspots.list[i].hiddenPrice && appName=='spp'){
+            phoneController.hotspots.list[i].cartLabel="Add to Cart to see price";
+          }else{
+            phoneController.hotspots.list[i].cartLabel="Add to Cart";
+          }
+        }
+      }
+    },
+    init:function(id,tab,exId){
+      phoneController.selectedTab=tab;
+      phoneController.exId=exId;
+      var pData="?deviceType=mbb";
+      appUtil.net.getData($http,"shop_get_devices",pData).success(function(data){
+        if(data.responses.response[0].deviceResponse.mbbList){
+          phoneController.hotspots.scrubListData(data.responses.response[0].deviceResponse.mbbList.mbb);
+          if(phoneController.hotspots.list.length==1){
+            phoneController.hotspots.page=2;
+            phoneController.hotspots.getDetails(0);
+          }else{
+            // To be done later when there are more than a single hotpot device ...
+            phoneController.hotspots.page=1;
+          }
+        }
+      }); 
+    }
+  };
   this.setContext=function(key,parameter){
     parameter=parameter.split("/");
     if(key==pathMap._phones._formatedHash){
       this.loadList(parameter[0]);
     }else if(key==pathMap._phoneDetails._formatedHash){
-      var tabs=["features","plans","reviews","accessories"];
-      if(parameter.length<2 || tabs.indexOf(parameter[1])<0 ){
-        appUtil.net.setUrlHash(pathMap._phoneDetails._hash+parameter[0]+"/"+tabs[0]+"/");
-        return;
+      if(parameter.length>3){
+        phoneController.details.init(parameter[0],parameter[1],parameter[2],parameter[3]);
+      }else{
+        phoneController.details.init(parameter[0],parameter[1],parameter[2]);
       }
-      
-      phoneController.details.init(parameter[0],parameter[1]);
     }else if(key==pathMap._phoneCompare._formatedHash){
       phoneController.compareItems.init();
       appUtil.ui.refreshContent();
@@ -1110,54 +1647,112 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
       });
     }else if(key==pathMap._phoneAccessories._formatedHash){
       this.loadList(parameter[0]);
+    }else if(key==pathMap._accessoriesList._formatedHash){
+      phoneController.accList.init(parameter[0]);
     }else if(key==pathMap._phoneDeals._formatedHash){
+      phoneController.deals.init();
       appUtil.ui.refreshContent();
+    }else if(key==pathMap._hotspots._formatedHash){
+      appUtil.net.setUrlHash(pathMap._hotspotDetails._hash+parameter[0]+"/features/");
+      return;
+    }else if(key==pathMap._hotspotDetails._formatedHash){
+      var tabs=["features","plans","reviews","write_reviews"];
+      if(parameter.length<2 || tabs.indexOf(parameter[1])<0 ){
+        appUtil.net.setUrlHash(pathMap._hotspotDetails._hash+parameter[0]+"/"+tabs[0]+"/");
+        return;
+      }
+      phoneController.hotspots.init(parameter[0],parameter[1],parameter[2]);
     }
   };
-  this.getRateStarClass=function(r){
-    var v=""
-    for(var i=0;i<r;i++){
-      v+="★";
+  this.getRateStarClass=function(v){
+    if(!v){
+      v=0;
     }
-    return v;
+    var i=parseInt(v);
+    var d=v-i>=0.5?5:0;
+    var c= "star"+i+"point"+d;
+    return c+" phoneRating";
+    return appUtil.ui.trustAsHtml("<span class='"+c+" phoneRating'><span>"+v+"</span><span>/5</span></span>");
   };
   this.getDiscountClass=function(data){
     var discount=0;
     var name="";
     try{
-      if(!data.selectedVariant.hiddenPrice){
-        discount=parseInt(data.selectedVariant.discount*100)/100;
-        if(discount){
-          discount_name=(""+discount).replace("\.","_");
-          name=".discount_"+discount_name+":before";
-          appUtil.ui.createStyleClass(name,"{content:\"$"+discount+" OFF!\" !important}");
-          name=" onSale "+"discount_"+discount_name;
+      if(data.selectedVariant.inventory=="end-of-life"){
+        return name;
+      }
+      discount=parseInt(data.selectedVariant.discount*100)/100;
+      if(discount){
+        discount_name=(""+discount).replace("\.","_");
+        discount_name=Math.round(parseInt(discount_name))+1;
+        name=" onSale "+"discount_"+discount_name;
+      }
+      if(data.promotions){
+        for(var i=0;i<data.promotions.length;i++){
+          if(data.promotions[i].webOnly){            
+            name="onSale webOnly";
+          }
         }
       }
     }catch(e){
     }
     return name;
   }
-  
   this.genie={
     data:[],
     pages:null,
     sort:"featured",
+    filtered:"featured",
     lastSort:null,
+    filterOptions:{
+      featured:"item",
+      newArrivals:"oldDate<item.date",
+      topRate:"item.rate>=4",
+      preowned:"item.phoneCondition=='preowned'",
+      bestSell:"item.bestSellerCounter"
+    },
     loadGenieList:function(){
       if(this.pages==null){
         this.pages=[];
         appUtil.net.getData($http,"shop_phone_get_genie").success(function(data){
-          if( data.responses.response[0].phoneGenieListResponse.phone){
+          if(data.responses.response[0].phoneGenieListResponse && data.responses.response[0].phoneGenieListResponse.phone){
             phoneController.genie.data=appUtil.data.simplifyObject(appUtil.data.toArray(data.responses.response[0].phoneGenieListResponse.phone));
             for(var i=0;i<phoneController.genie.data.length;i++){
-              phoneController.scrubPhoneData(phoneController.genie.data[i])
+              phoneController.scrubPhoneData(phoneController.genie.data[i]);
             }
-            phoneController.genie.getSortPages();
+            if(appName=="spp"){
+              phoneController.genie.getSortPages();
+            }else{
+              phoneController.genie.buildFilterPages();
+              phoneController.genie.getFilterPages();
+            }
           }
         }); 
       }
     },
+    setCurItem:function(item, event){
+        this.curItem=item; 
+        var curFeatures = new Object();  
+        var curGeneralFeatures =  this.curItem.generalFeatures.generalFeature;
+        $.each(curGeneralFeatures,function(index, feature){
+          if(feature.type == 'android'){
+            curFeatures['os'] = feature.title;          
+          }        
+          else if(feature.type == 'os'){
+            curFeatures[feature.type] = feature.title;          
+          }
+          else if(feature.type == '4g'){
+            curFeatures['g4'] = feature.title;
+          } 
+          else {
+            curFeatures[feature.type] = feature.title;
+          } 
+        });  
+        curFeatures['class'] = 'genie3-modal-'+this.curItem.type.toLowerCase();        
+
+        this.curItem.curFeatures = curFeatures; 
+        appUtil.ui.openPopTip("#curGenie",event);
+    },    
     getSortPages:function(){
       if(this.lastSort==this.sort){
         return this.pages;
@@ -1174,6 +1769,47 @@ appModule.controller('phoneController', ['$http','$scope','$sce', function($http
         page.push(this.data[i]);
       }
       return this.pages;
+    },
+    buildFilterPages:function(){
+      this.filterMap={};
+      var oldDate=new Date(new Date()-180*24*3600*1000);
+      
+      for(var k in this.filterOptions){
+        var data=[];
+        var pages=[];
+        this.filterMap[k]={pages:pages,data:data};
+        for(var i=0;i<this.data.length;i++){
+          var item=this.data[i];
+          if(!item.date){
+            item.date=item.generalAvailabilityDate+"";
+            item.date=new Date(item.date.substring(0,4)+"-"+item.date.substring(4,6)+"-"+item.date.substring(6));
+          }
+          var code=eval(this.filterOptions[k]);
+          if(code){
+            data.push(item);
+          }
+        }
+        for(var i=0;i<data.length;i++){
+          if(i%3==0){
+            page=[];
+            pages.push(page);
+          }
+          page.push(data[i]);
+        }
+      }
+    },
+    getFilterPages:function(){
+      if(this.lastFilter==this.filtered){
+        return this.pages;
+      }
+      this.lastFilter=this.filtered;
+      
+      this.pages=this.filterMap[this.filtered].pages;
+      this.data=this.filterMap[this.filtered].data;
+    },
+    showItem:function(item){
+      this.curItem=item;
+      $("#genieDialog").modal();
     }
   }
 }]);

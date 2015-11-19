@@ -22,9 +22,9 @@ appModule.controller('checkoutController', ['$http','$scope', function($http,$sc
       {id:"cc1",name:"DISCOVER"},
       {id:"cc2",name:"MASTERCARD"},
       {id:"cc3",name:"VISA"},
-      {id:"cc4",name:"AMEX"},
+      {id:"cc4",name:"AMEX"}
     ]
-  }
+  };
   this.defaultShippingOption=null;
   this.data={};
   this.changeStatus={};
@@ -34,12 +34,14 @@ appModule.controller('checkoutController', ['$http','$scope', function($http,$sc
       orderConfirmationNumber:"",
       error:false,
       errorText:"",
+      accPromoCodes:{},
+      rejPromoCodes:{},
       promoCode:{
         value:null,
         status:-1, /* -1: not apply, 0: valid, others: invalid*/
         message:null
       },
-      promoCodes:[],
+      orderCodes:[],
       orderStatus:{
         date:null,
         number:null,
@@ -86,6 +88,13 @@ appModule.controller('checkoutController', ['$http','$scope', function($http,$sc
       agree:false,
       summary:{
         shipping:function(){
+          for(var i=0;i<checkoutController.data.orderCodes.length;i++){
+            if( checkoutController.data.shippingOption 
+                && (typeof checkoutController.data.orderCodes[i].promoShippingFee != "undefined")
+                && checkoutController.data.orderCodes[i].promoShippingFee<checkoutController.data.shippingOption.shippingFee){
+              return checkoutController.data.orderCodes[i].promoShippingFee;
+            }
+          }
           if(checkoutController.data.shippingOption){
             return checkoutController.data.shippingOption.shippingFee;
           }
@@ -95,8 +104,9 @@ appModule.controller('checkoutController', ['$http','$scope', function($http,$sc
           var tax=0;
           for(var i=0;i<checkoutController.data.equipments.length;i++){
             var item=checkoutController.data.equipments[i];
-            if( item.equipmentTaxAmt ) {
-              tax+=item.equipmentTaxAmt*item.quantity;
+            if( item.tax ) {
+              //tax+=item.equipmentTaxAmt*item.quantity;
+              tax+=Number(item.tax);
             }
           }
           return tax;
@@ -112,7 +122,12 @@ appModule.controller('checkoutController', ['$http','$scope', function($http,$sc
           return subtotal;
         },
         total:function(){
-          return Number(this.shipping())+Number(this.tax())+Number(this.subtotal());
+          if(checkoutController.data.totalAmt){
+            return Number(checkoutController.data.totalAmt);
+          }
+          else{
+            return Number(this.shipping())+Number(this.tax())+Number(this.subtotal()-Number(checkoutController.data.promoCode.totalDiscount));
+          }
         }
       }
     };
@@ -157,8 +172,8 @@ appModule.controller('checkoutController', ['$http','$scope', function($http,$sc
   this.initTax=function(){
     for(var i=0;i<checkoutController.data.equipments.length;i++){
       var item=checkoutController.data.equipments[i];
-      if( item.equipmentTaxAmt ){
-        item.equipmentTaxAmt=0;
+      if( item.tax ){
+        item.tax=0;
       }
     }
   }
@@ -175,7 +190,7 @@ appModule.controller('checkoutController', ['$http','$scope', function($http,$sc
   }
   this.initShipping=function(){
     appUtil.net.getData($http,"shop_get_shipping_by_brand_id").success(function(data){
-      if(data.responses.response[0].shippingListResponse.shippingList){
+      if(data.responses.response[0].shippingListResponse && data.responses.response[0].shippingListResponse.shippingList){
         data=appUtil.data.toArray(appUtil.data.simplifyObject(data.responses.response[0].shippingListResponse.shippingList.shipping));
         for(var i=0;i<data.length;i++){
           appUtil.data.rename(data[i],"shippingMethod","shippingOption");
@@ -194,23 +209,33 @@ appModule.controller('checkoutController', ['$http','$scope', function($http,$sc
   this.cleanPromoStatus=function(){
     this.data.promoCode.status=-1;
     this.data.promoCode.message="";
-    this.data.promoCode.legalese="";
-    this.data.promoCode.originalPrice=0;
-    this.data.promoCode.discountedPrice=0;
-    this.data.promoCode.discount=0;
-    this.data.promoCode.shippingFee=0;
+    this.data.promoCode.totalDiscountedPrice=0;
+    this.data.promoCode.totalDiscount=0;
+    this.data.accPromoCodes={};
+    this.data.rejPromoCodes={};
+    this.data.orderCodes=[];
     for(var i=0;i<checkoutController.data.equipments.length;i++) {
+      checkoutController.data.equipments[i].promoCodes=[];
       checkoutController.data.equipments[i].discountEligibleQuantity=0;
       checkoutController.data.equipments[i].discountAmount=0;
-      checkoutController.data.equipments[i].discountName="";
       checkoutController.data.equipments[i].discountTotal=0;
     }
   }
+  this.getAccPromoCodeKeys=function(){
+    return Object.keys(checkoutController.data.accPromoCodes);
+  }
+  this.getRejPromoCodeKeys=function(){
+    return Object.keys(checkoutController.data.rejPromoCodes);
+  }
+  this.getAllPromoCodeKeys=function(){
+    return Object.keys(checkoutController.data.accPromoCodes).concat(Object.keys(checkoutController.data.rejPromoCodes));
+  }
   this.applyPromoCode=function(){
     var data={
-      promoCode:this.data.promoCode.value,
+      promoCodes:[],
       equipments:[]
     };
+    var pc={};
     for(var i=0;i<this.data.equipments.length;i++){
       var d={
         modelId:this.data.equipments[i].sku,
@@ -219,33 +244,74 @@ appModule.controller('checkoutController', ['$http','$scope', function($http,$sc
       }
       data.equipments.push(d);
     }
+    data.promoCodes=this.getAllPromoCodeKeys();
+    data.promoCodes.push(checkoutController.data.promoCode.value);
     appUtil.net.postData($http,"shop_validate_promo_code_service",data).
       success(function(data,status,headers,config){
+        checkoutController.data.accPromoCodes={};
+        checkoutController.data.rejPromoCodes={};
         if(data.status==0) {
-          checkoutController.data.promoCode.status=data.status;
-          checkoutController.data.promoCode.message=data.successMessage;
-          checkoutController.data.promoCode.originalPrice=data.totalOriginalPrice;
-          checkoutController.data.promoCode.totalDiscountedPrice=data.totalDiscountedPrice;
-          checkoutController.data.promoCode.legalese=data.promoLegalese;
-          checkoutController.data.promoCode.shippingFee=data.shippingFee;
-          checkoutController.data.promoCode.discount=data.totalOriginalPrice-data.totalDiscountedPrice;
-          for(var i=0;i<data.discounts.length;i++) {
-            if(data.discounts[i].eligibleQuantity) {
-              for(var j=0;j<checkoutController.data.equipments.length;j++) {
-                if(data.discounts[i].itemId==checkoutController.data.equipments[j].sku) {
-                  checkoutController.data.equipments[j].discountEligibleQuantity=data.discounts[i].eligibleQuantity;
-                  checkoutController.data.equipments[j].discountAmount=data.discounts[i].discountAmount;
-                  checkoutController.data.equipments[j].discountName=data.discounts[i].promotionName;
-                  checkoutController.data.equipments[j].discountTotal=data.discounts[i].eligibleQuantity * data.discounts[i].discountAmount;
+          for(var i=0;i<data.equipments.length;i++) {
+            for(var j=0;j<checkoutController.data.equipments.length;j++){
+              if(checkoutController.data.equipments[j].sku==data.equipments[i].modelId){
+                checkoutController.data.equipments[j].modelPrice=data.equipments[i].modelPrice;
+                checkoutController.data.equipments[j].subTotal=data.equipments[i].subTotal;
+                checkoutController.data.equipments[j].discountAmount=data.equipments[i].modelPrice-data.equipments[i].subTotal;
+                checkoutController.data.equipments[j].discountTotal=(data.equipments[i].quantity*data.equipments[i].modelPrice)-data.equipments[i].subTotal;
+                checkoutController.data.equipments[j].promoCodes=[];
+                if(data.equipments[i].promoCodes){
+                  for(var k=0;k<data.equipments[i].promoCodes.length;k++){
+                    checkoutController.data.equipments[j].promoCodes.push(data.equipments[i].promoCodes[k]);
+                    checkoutController.data.accPromoCodes[data.equipments[i].promoCodes[k].promoCode]={
+                      "name":data.equipments[i].promoCodes[k].promotionName,
+                      "legal":data.equipments[i].promoCodes[k].promoLegalese,
+                      "quantity":data.equipments[i].promoCodes[k].eligibleQuantity,
+                      "amout":data.equipments[i].promoCodes[k].discountAmount
+                    }
+                  }
                 }
               }
             }
           }
+          if(data.orderCodes){
+            for(var i=0;i<data.orderCodes.length;i++){
+              checkoutController.data.orderCodes.push(data.orderCodes[i]);
+              checkoutController.data.accPromoCodes[data.orderCodes[i].promoCode]={
+                "name":data.orderCodes[i].promoName,
+                "legal":data.orderCodes[i].promoLegalese,
+                "shippingFee":data.orderCodes[i].promoShippingFee
+              }
+            }
+          } else {
+            checkoutController.data.orderCodes=[];
+          }
+          if(data.rejectedPromoCodes){
+            for(var i=0;i<data.rejectedPromoCodes.length;i++){
+              if(data.rejectedPromoCodes[i].failureCode!="E001"){ // E001 is code not found so lets not include it in our list at all
+                checkoutController.data.rejPromoCodes[data.rejectedPromoCodes[i].promoCode]={
+                  "code":data.rejectedPromoCodes[i].failureCode,
+                  "reason":data.rejectedPromoCodes[i].failureReason
+                }
+              }
+            }
+          } else {
+            checkoutController.data.rejectedPromoCodes=[];
+          }
+          checkoutController.data.promoCode.status=data.status;
+          checkoutController.data.promoCode.message=data.successMessage;
+          checkoutController.data.promoCode.totalOriginalPrice=data.totalOriginalPrice;
+          checkoutController.data.promoCode.totalDiscountedPrice=data.totalDiscountedPrice;
+          checkoutController.data.promoCode.totalDiscount=data.totalOriginalPrice-data.totalDiscountedPrice;
+          if(checkoutController.getAccPromoCodeKeys().length==0){
+            checkoutController.data.promoCode.status=1;
+            checkoutController.data.promoCode.message="The promo code you entered is invalid.  Please try again.";
+          }
         } else {
           checkoutController.cleanPromoStatus();
-          checkoutController.data.promoCode.status=-1;
           checkoutController.data.promoCode.message="The promo code you entered is invalid. Please try again.";
         }
+        $scope.cartController.save();
+
         var analysisData={
           page:{
             message:checkoutController.data.promoCode.message,
@@ -253,9 +319,9 @@ appModule.controller('checkoutController', ['$http','$scope', function($http,$sc
           shop:{
             cart:{
               productList:pathMap._checkout._generateAnalysisProductList(checkoutController.data.equipments),
-              promoCode:checkoutController.data.promoCode.value,
+              promoCodes:checkoutController.getAllPromoCodeKeys(),
               promoCodeStatus:checkoutController.data.promoCode.status,
-              promoCodeDiscountAmt:checkoutController.data.promoCode.discount
+              promoCodeDiscountAmt:checkoutController.data.promoCode.totalDiscount
             }
           }
         }
@@ -273,7 +339,7 @@ appModule.controller('checkoutController', ['$http','$scope', function($http,$sc
     data.shippingInfo.shippingType=this.data.shippingOption.shippingType;
     data.shippingInfo.shippingFee=this.data.shippingOption.shippingFee;
     
-  }; 
+  };
   this.doReviewOrder=function(){
     if(!this.data.billingInfo.address2){
       this.data.billingInfo.address2=null;
@@ -282,7 +348,8 @@ appModule.controller('checkoutController', ['$http','$scope', function($http,$sc
       billingInfo:angular.copy(this.data.billingInfo),
       shippingInfo:angular.copy(this.data.shippingInfo),
       paymentInfo:this.data.paymentInfo,
-      equipments:[]
+      equipments:[],
+      orderCodes:angular.copy(this.data.orderCodes)
     };
     this.copyShippingOptionData(data);
     delete data.billingInfo.validateEmail;
@@ -294,8 +361,8 @@ appModule.controller('checkoutController', ['$http','$scope', function($http,$sc
         modelPrice:this.data.equipments[i].modelPrice,
         orderLineId:i+1,
         accessoryInd:this.data.equipments[i].accessoryInd,
-        quantity:this.data.equipments[i].quantity
-        //discount:this.data.equipments[i].discountTotal
+        quantity:this.data.equipments[i].quantity,
+        promoCodes:angular.copy(this.data.equipments[i].promoCodes)
       }
       data.equipments.push(d);
     }
@@ -303,16 +370,16 @@ appModule.controller('checkoutController', ['$http','$scope', function($http,$sc
       success(function(data,status,headers,config){
         if(data.status==0){
           for(var i=0;i<data.equipments.length;i++){
-            checkoutController.data.equipments[i].orderLineId=data.equipments[i].orderLineId;
-            checkoutController.data.equipments[i].modelId=data.equipments[i].modelId;
-            checkoutController.data.equipments[i].modelPrice=data.equipments[i].modelPrice;
-            checkoutController.data.equipments[i].equipmentTaxAmt=data.equipments[i].equipmentTaxAmt;
-            checkoutController.data.equipments[i].accessoryInd=data.equipments[i].accessoryInd;
-            checkoutController.data.equipments[i].taxTransactionId=data.equipments[i].taxTransactionId;
-            checkoutController.data.equipments[i].invoiceDate=data.equipments[i].invoiceDate;
-            checkoutController.data.equipments[i].quantity=data.equipments[i].quantity;
-            checkoutController.data.equipments[i].subTotalAmt=data.equipments[i].subTotalAmt;
-            checkoutController.data.equipments[i].isPreOrder=data.equipments[i].isPreOrder;
+            for(var j=0;j<checkoutController.data.equipments.length;j++){
+              if(checkoutController.data.equipments[j].sku==data.equipments[i].modelId){
+                checkoutController.data.equipments[j].orderLineId=data.equipments[i].orderLineId;
+                checkoutController.data.equipments[j].tax=data.equipments[i].tax;
+                checkoutController.data.equipments[j].taxTransactionId=data.equipments[i].taxTransactionId;
+                checkoutController.data.equipments[j].invoiceDate=data.equipments[i].invoiceDate;
+                checkoutController.data.equipments[j].subTotal=data.equipments[i].subTotal;
+                checkoutController.data.equipments[j].isPreOrder=data.equipments[i].isPreOrder;
+              }
+            }
           }
           $scope.cartController.save();
           checkoutController.data.transactionId=data.transactionId;
@@ -342,15 +409,14 @@ appModule.controller('checkoutController', ['$http','$scope', function($http,$sc
           };
 
           if(checkoutController.data.promoCode.status==0){
-            analysisData.shop.cart.promoCode=checkoutController.data.promoCode.value;
-            analysisData.shop.cart.promoCodeDiscountAmt=checkoutController.data.promoCode.discount;
+            analysisData.shop.cart.promoCodes=checkoutController.getAllPromoCodeKeys();
+            analysisData.shop.cart.promoCodeDiscountAmt=checkoutController.data.promoCode.totalDiscount;
           }
 
           pathMap._checkout._generateAnalysisData(analysisData);
           analysisManager.sendData();
 
           checkoutController.verifyOrderAvailability();
-
         }else{
           if(data.paymentValid && data.paymentValid=="false") {
             checkoutController.data.errorText="Payment information is not valid";
@@ -367,13 +433,16 @@ appModule.controller('checkoutController', ['$http','$scope', function($http,$sc
         checkoutController.data.errorText="We're sorry, there was a problem processing your order.  Please try placing your order again. Or, call 1-866-866-7509 to order by phone.";
         checkoutController.data.error=true;
         $scope.showMessage(checkoutController.data.errorText,"error");
-      });    
+      });   
+
   };
   this.clearError=function() {
     checkoutController.data.errorText="";
     checkoutController.data.error=false;
   };
   this.restartCheckout=function() {
+    checkoutController.data.totalAmt=0;
+    checkoutController.initTax();
     checkoutController.step=1;
   };
   this.doComplete=function(){
@@ -382,6 +451,7 @@ appModule.controller('checkoutController', ['$http','$scope', function($http,$sc
       shippingInfo:angular.copy(this.data.shippingInfo),
       paymentInfo:this.data.paymentInfo,
       equipments:[],
+      orderCodes:angular.copy(this.data.orderCodes),
       transactionId:this.data.transactionId,
       orderId:this.data.orderId
     };
@@ -392,16 +462,20 @@ appModule.controller('checkoutController', ['$http','$scope', function($http,$sc
     for(var i=0;i<this.data.equipments.length;i++){
       var d={
         orderLineId:this.data.equipments[i].orderLineId,
-        modelId:this.data.equipments[i].modelId,
+        modelId:this.data.equipments[i].sku,
         modelPrice:this.data.equipments[i].modelPrice,
-        equipmentTaxAmt:this.data.equipments[i].equipmentTaxAmt,
+        tax:this.data.equipments[i].tax,
         taxTransactionId:this.data.equipments[i].taxTransactionId,
         invoiceDate:this.data.equipments[i].invoiceDate,
         accessoryInd:this.data.equipments[i].accessoryInd,
         quantity:this.data.equipments[i].quantity,
         subTotalAmt:this.data.equipments[i].subTotalAmt,
-        isPreOrder:this.data.equipments[i].isPreOrder
-        //discount:this.data.equipments[i].discountTotal
+        isPreOrder:this.data.equipments[i].isPreOrder,
+        promoCodes:angular.copy(this.data.equipments[i].promoCodes)
+      }
+      if(this.data.equipments[i].discountAmount) {
+        d.promoEligibleQuantity=this.data.equipments[i].eligibleQuantity;
+        d.promoAmount=this.data.equipments[i].discountAmount;
       }
       data.equipments.push(d);
     }
@@ -416,7 +490,7 @@ appModule.controller('checkoutController', ['$http','$scope', function($http,$sc
           checkoutController.finalData.shipping=checkoutController.data.summary.shipping();
           checkoutController.finalData.tax=checkoutController.data.summary.tax();
           checkoutController.finalData.total=checkoutController.data.summary.total();
-          
+
           var analysisData={
             page:{
               name:"Confirmation",
@@ -444,9 +518,9 @@ appModule.controller('checkoutController', ['$http','$scope', function($http,$sc
 
           checkoutController.emjcdString="https://www.emjcd.com/tags/c?containerTagId=10033";
           for(var i=0;i<checkoutController.finalData.equipments.length;i++){
-            checkoutController.emjcdString+="&ITEM"+i+"="+checkoutController.finalData.equipments[i].modelId;
-            checkoutController.emjcdString+="&AMT"+i+"="+checkoutController.finalData.equipments[i].modelPrice;
-            checkoutController.emjcdString+="&QTY"+i+"="+checkoutController.finalData.equipments[i].quantity;
+            checkoutController.emjcdString+="&ITEM"+(i+1)+"="+checkoutController.finalData.equipments[i].sku;
+            checkoutController.emjcdString+="&AMT"+(i+1)+"="+checkoutController.finalData.equipments[i].modelPrice;
+            checkoutController.emjcdString+="&QTY"+(i+1)+"="+checkoutController.finalData.equipments[i].quantity;
           }
           checkoutController.emjcdString+="&CID=1533898";
           checkoutController.emjcdString+="&OID="+checkoutController.finalData.confirmationNumber;
@@ -457,8 +531,8 @@ appModule.controller('checkoutController', ['$http','$scope', function($http,$sc
           }
 
           if(checkoutController.data.promoCode.status==0){
-            analysisData.shop.cart.promoCode=checkoutController.data.promoCode.value;
-            analysisData.shop.cart.promoCodeDiscountAmt=checkoutController.data.promoCode.discount
+            analysisData.shop.cart.promoCodes=checkoutController.getAllPromoCodeKeys();
+            analysisData.shop.cart.promoCodeDiscountAmt=checkoutController.data.promoCode.totalDiscount;
           }
 
           pathMap._checkout._generateAnalysisData(analysisData);
@@ -483,12 +557,13 @@ appModule.controller('checkoutController', ['$http','$scope', function($http,$sc
         }
         analysisManager.sendData();
         window.scrollTo(0, 0);
+
       }).
       error(function(data,status,headers,config){
         checkoutController.data.errorText="We're sorry, there was a problem processing your order.  Please try placing your order again. Or, call 1-866-866-7509 to order by phone.";
         checkoutController.data.error=true;
         $scope.showMessage(checkoutController.data.errorText,"error");
-        
+
         var analysisData={
           page:{
             name:"Error",
@@ -499,7 +574,7 @@ appModule.controller('checkoutController', ['$http','$scope', function($http,$sc
         };
         pathMap._checkout._generateAnalysisData(analysisData);
         analysisManager.sendData();
-      });    
+      });
   };
   this.save=function(){
     $scope.cartController.save();
@@ -602,6 +677,19 @@ appModule.controller('checkoutController', ['$http','$scope', function($http,$sc
     if(this.data.summary.total()>$scope.app.config['max-amount-alt-shipping']){
       this.data.shippingInfo=this.data.billingInfo;
     }
+    if(!this.disableReminder){
+      appUtil.net.getData($http,"get_banner_cart_modal").success(function(data){
+        checkoutController.reminderPhone=data.responses.response[0].$;
+        
+        if(checkoutController.reminderPhone){
+          appUtil.ui.startIdleReminder("#checkout_help_reminder",60,function(){
+            $("#checkout_help_reminder").modal();
+            appUtil.ui.endIdleReminder("#checkout_help_reminder");
+            checkoutController.disableReminder=true;
+          })
+        }
+      });
+    }
     checkoutController.step=1;
     checkoutController.data.equipments=$scope.cartController.data.items;
     this.initTax();
@@ -611,7 +699,9 @@ appModule.controller('checkoutController', ['$http','$scope', function($http,$sc
     checkoutController.verifyOrderAvailability();
   };
   this.refreshItemAvailability=function(){
-    checkoutController.verifyOrderAvailability();
+    if(appUtil.$scope.app.isCurrentContext(pathMap._checkout._formatedHash)){
+      checkoutController.verifyOrderAvailability();
+    }
   };
   this.getOrderStatus=function(){
     checkoutController.orderStatus.errorText=null;
@@ -621,7 +711,7 @@ appModule.controller('checkoutController', ['$http','$scope', function($http,$sc
     appUtil.net.getData($http,"shop_get_order_status","?email="+data.email+"&orderKey="+data.orderNumber).success(function(data,status,headers,config){
       if(data.responses.response[0].orderStatusResponse.orderStatus){
         checkoutController.orderStatus=appUtil.data.simplifyObject(data.responses.response[0].orderStatusResponse.orderStatus);
-        console.log(JSON.stringify(checkoutController.orderStatus));
+        checkoutController.orderStatus.itemsOrdered=appUtil.data.toArray(checkoutController.orderStatus.itemsOrdered);
         checkoutController.orderStatus.address=checkoutController.orderStatus.shippingInfo.firstName+" "+
           checkoutController.orderStatus.shippingInfo.lastName+", "+
           checkoutController.orderStatus.shippingInfo.address1+", "+
@@ -629,9 +719,22 @@ appModule.controller('checkoutController', ['$http','$scope', function($http,$sc
           checkoutController.orderStatus.shippingInfo.state+", "+
           checkoutController.orderStatus.shippingInfo.zipCode;
         checkoutController.orderStatus.valid=true;
+        delete pathMap._orderStatus._adobeData.messages;
+        pathMap._orderStatus._adobeData.page.name="Order Status";
+        pathMap._orderStatus._adobeData.orderStatus={
+          orderDt:checkoutController.orderStatus.date,
+          orderId:checkoutController.orderStatus.orderNumber,
+          orderStatus:checkoutController.orderStatus.status,
+          orderTrackingNbr:checkoutController.orderStatus.orderNumber
+        }
       }else{
+        pathMap._orderStatus._adobeData.page.name="Order Status Error";
+        pathMap._orderStatus._adobeData.messages=data.responses.response[0].orderStatusResponse.description.$;
         checkoutController.orderStatus.errorText="The request order number was not found";
+        delete pathMap._orderStatus._adobeData.orderStatus;
       }
+      analysisManager.sendData();
+      setTimeout("delete pathMap._orderStatus._adobeData.messages;delete pathMap._orderStatus._adobeData.orderStatus;pathMap._orderStatus._adobeData.page.name='Order Status Request';",1000);
     });
   };
   this.clearOrderStatus=function(){
@@ -645,6 +748,7 @@ appModule.controller('checkoutController', ['$http','$scope', function($http,$sc
     this.orderStatus.valid=null;
     this.changeStatus.orderStatus.email.check=false;
     this.changeStatus.orderStatus.orderNumber.check=false;
+    analysisManager.sendData();
   };
   this.initData();
   this.initShipping();

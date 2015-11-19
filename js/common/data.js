@@ -73,3 +73,11 @@ var commonData={
     {value:"WY",label:"WY - Wyoming"}
   ]
 };
+var appMsg={
+  bst:{
+    sysError:"There is a temporary issue while accessing the Portal. Please contact Boost Customer Support for further assistance."
+  },
+  spp:{
+    sysError:"There is a temporary issue while accessing the Portal. Please contact Sprint Customer Support for further assistance."
+  }
+}

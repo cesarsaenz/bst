@@ -25,6 +25,8 @@
 <link href="bst/css/static.css" rel="stylesheet" />
 <link href="bst/css/about.css" rel="stylesheet" />
 <!-- END STYLE CREATED BY SOFTTEK -->
+<script src="bst/js/_themes/libs/js/plugins.pre.min.js?c=5224"></script>
+<script src="bst/js/_themes/h5bp/js/script.pre.min.js?c=5224"></script>
 
 </head>
 
@@ -319,7 +321,8 @@
             <input required="required" id="mail_to" name="mail_to" value="BoostMobileNewDealers@sprint.com" type="hidden">
             <input required="required" id="mail_from" name="mail_from" value="" type="hidden">
             <input required="required" id="_fid_64" name="_fid_64" value="Authorized" type="hidden">
-            <input required="required" value="http://127.0.0.1/#!/about_application_thank_you/" name="rdr" type="hidden">
+            <!--input required="required" value="http://127.0.0.1/#!/about_application_thank_you/" name="rdr" type="hidden"-->
+            <input required="required" value="http://www.boostmobile.com/#!/about_application_thank_you/" name="rdr" type="hidden">
             <!-- <input type="hidden" id="mail_user_to" name="mail_user_to" value="messages@boostmobile.com"/> <input type="hidden" id="mail_user_from" name="mail_user_from" value="messages@boostmobile.com"/> <input type="hidden" id="mail_user_subject" name="mail_user_subject" value="Form submission received"/> <input type="hidden" id="mail_user_body" name="mail_user_body" value="Thank you for your form submission, we will be in touch."/> -->
             <hr>
             <div class="save-box">
@@ -660,7 +663,7 @@
                             <label for="_fid_16">Address, City, State, Zip...If multiple addresses, list one per line</label>
                         </td>
                     </tr>
-					<tr class="indent currentdealer multiple">
+                    <tr class="indent currentdealer multiple">
                         <td class="hidden-xs">
                             <label for="_fid_54">Address, City, State, Zip</label>
                             <br><span>If multiple addresses, list one per line</span>
@@ -723,9 +726,9 @@
 
 
 	<!-- BEGIN OF SCRIPTS SECTION -->
-	<script src="../js/lib/jquery.min.js"></script>
-	<script src="../js/lib/sprintprepaid-bootstrap.min.js"></script>
-	<script src="../js/lib/jasny-bootstrap.min.js"></script>
+	<script src="js/lib/jquery.min.js"></script>
+	<script src="js/lib/sprintprepaid-bootstrap.min.js"></script>
+	<script src="js/lib/jasny-bootstrap.min.js"></script>
 	<script>
 		$('#coverageMap').on('shown.bs.modal', function() {
 			$('#coverageModal').focus()
@@ -740,14 +743,21 @@
 			});
 		});
 	</script>
-	
-	
-	
-	    <script type="text/javascript">
+	<script src="bst/js/_cache/_js/script.js?c=5224"></script>
+	<!--script>
+		loadJs(appName+"/bst/js/_themes/h5bp/js/toolkit.min.js?c=5224");
+		loadJs(appName+"/bst/js/_themes/libs/js/s_code.js?c=5224");
+		loadJs(appName+"/bst/js/about/about.js?c=5224");
+		loadJs(appName+"/bst/js/_themes/libs/js/jquery.validate.min.js?c=5224");
+	</script-->
+
+    <script type="text/javascript">
+		console.log("here");
         Modernizr.load({
-            load: ["/_themes/h5bp/js/toolkit.min.js?c=5224", "/_themes/libs/js/s_code.js?c=5224", "/about/about.js?c=5224", "/_themes/libs/js/jquery.validate.min.js?c=5224"],
+            load: ["bst/js/_themes/h5bp/js/toolkit.min.js?c=5224", "bst/js/_themes/libs/js/s_code.js?c=5224", "bst/js/about/about.js?c=5224", "bst/js/_themes/libs/js/jquery.validate.min.js?c=5224"],
             callback: function(c, a, d) {
-                if (c == "/_themes/libs/js/s_code.js?c=5224") {
+				console.log("callback s_code.js");
+                if (c == "bst/js/_themes/libs/js/s_code.js?c=5224") {
                     s.eVar18 = "";
                     s.prop2 = ($(".espanol").length == 1) ? "en" : "sp";
                     s.pageName = "Dealer Application";
@@ -763,10 +773,12 @@
                         $("body").prepend(b)
                     }
                 }
-                if (c == "/about/about.js?c=5224") {
+                if (c == "bst/js/about/about.js?c=5224") {
+				console.log("callback about.js");
                     bmAboutClass.dealerForm.init()
                 }
-                if (c == "/_themes/libs/js/jquery.validate.min.js?c=5224") {
+                if (c == "bst/js/_themes/libs/js/jquery.validate.min.js?c=5224") {
+					console.log("callback jquery.validate.min.js");
                     $("#form_dealer input, #form_dealer textarea, #form_dealer select").not("[type=submit], [data-required]").attr("required", "required");
                     $("#form_dealer").validate({
                         submitHandler: function(e) {
@@ -776,6 +788,7 @@
                 }
             }
         });
+		console.log("there");
     </script>
 
 	<!-- END OF SCRIPTS SECTION -->

@@ -129,15 +129,29 @@ ul.tabs-left a:hover{text-decoration: none; background-color: #6fdbdb !important
     margin: 0;
 }
 	
-@font-face {
-    font-family: BoostNeoBlack;
-    src: url(../fonts/Boost-Neo-Black.otf);
-} 
-	
-@font-face {
-    font-family: BoostNeoBold;
-    src: url(../fonts/Boost-Neo-Bold.otf);
-} 
+@font-face{
+    font-family:BoostNeoBlack;
+    src:url(../fonts/v2/BoostNeo-Black.eot);
+    src:url(../fonts/v2/BoostNeo-Black.eot?#iefix) format("embedded-opentype"),
+        url(../fonts/v2/BoostNeo-Black.woff) format("woff"),
+        url(../fonts/v2/BoostNeo-Black.woff) format("woff"),
+        url(../fonts/v2/BoostNeo-Black.ttf) format("truetype"),
+        url(../fonts/v2/BoostNeo-Black.svg#boost_neoblack) format("svg");
+    font-weight:400;
+    font-style:normal
+}
+
+@font-face{
+    font-family:BoostNeoBold;
+    src:url(../fonts/v2/BoostNeo-Bold.eot);
+    src:url(../fonts/v2/BoostNeo-Bold.eot?#iefix) format("embedded-opentype"),
+        url(../fonts/v2/BoostNeo-Bold.woff) format("woff"),
+        url(../fonts/v2/BoostNeo-Bold.woff) format("woff"),
+        url(../fonts/v2/BoostNeo-Bold.ttf) format("truetype"),
+        url(../fonts/v2/BoostNeo-Bold.svg#boost_neobold) format("svg");
+    font-weight:400;
+    font-style:normal
+}
 
 div.tab-content div#datapacks.tab-pane section:first-of-type {    
     background: url(../img/data-packs-header2.jpg) top left no-repeat;
@@ -146,6 +160,15 @@ div.tab-content div#datapacks.tab-pane section:first-of-type {
     padding: 140px 42% 0 30px;
     background-size:cover;
 }
+
+div.tab-content div#mobile-hotspot.tab-pane section:first-of-type {    
+    background: url(../img/mobile-hotspot-header2.jpg) top left no-repeat;
+    height:272px;
+    width: 100%;
+    padding: 113px 56% 0 30px;
+    background-size:cover;
+}
+
 
 div.tab-content div#mexicoplus.tab-pane section:first-of-type {    
     background: url(../img/mexico-plus-banner.jpg) top left no-repeat;
@@ -185,6 +208,11 @@ div.tab-pane.active section h3{
     color:#f99100;
 }
 
+
+div.container.main.plans section.container div.col-xs-3.col-md-2{
+    border-right: 1px solid #DDD;
+}
+
 div.tab-content div#faqs.tab-pane section:first-of-type h3,
 div.tab-content div#faqs.tab-pane section:first-of-type h1{
     color:#FFF;
@@ -221,10 +249,66 @@ div#databoost.tab-pane.active section h1.terms_and_conditions{
 
 div.tab-content div#datapacks.tab-pane section,
 div.tab-content div#mexicoplus.tab-pane section,
+div.tab-content div#mobile-hotspot.tab-pane section,
 div.tab-content div#faqs.tab-pane section{
     padding:0 25px;
 }
 
+.plans .tab-content #databoost section {
+    padding: 0 25px;
+}
+
+div#mobile-hotspot.tab-pane.active section.gradient-white div.plans-bottom-box{
+    background: url("../img/shadow.png") top left no-repeat;
+    padding: 30px 0;
+}
+
+
+.bordertop{
+    border-top: 1px solid #CCC;
+}
+
+table.borderless,
+table.borderless tbody,
+table.borderless tbody tr,
+table.borderless tbody tr td{
+    border: none;
+}
+
+div.modal-dialog div.modal-content div.modal-header h3.modal-title{
+    color: #f7901e;
+}
+
+/*style="font-size:18px; padding-top:0px; color:#000"*/
+
+div.modal-dialog div.modal-content div.modal-body span.font-boostneo{
+    font-size: 14px;
+}
+
+ul.privacy-policy li{
+    margin:5px 0;
+}
+
+section.gradient-white div.plans-bottom-box div.box.col-md-6.col-xs-12 h3{
+    color:#000;
+}
+
+section.gradient-white div.plans-bottom-box h2{
+    padding:0;
+}
+
+.table-condensed > thead>tr>th, .table-condensed>tbody>tr>th, .table-condensed>tfoot>tr>th, .table-condensed>thead>tr>td, 
+.table-condensed>tbody>tr>td, .table-condensed>tfoot>tr>td{
+    padding: 0px;
+}
+
+
+div.tab-content div#datapacks.tab-pane section.mobiletitle,
+div.tab-content div#mobile-hotspot.tab-pane section.mobiletitle{
+    padding:0!important;
+}
+
+div.tab-content div#mobile-hotspot.tab-pane section h1.banner-datapacks,
 div.tab-content div#datapacks.tab-pane section h1.banner-datapacks,
 div.tab-content div#mexicoplus.tab-pane section h1.banner-mexicoplus{
     background-color: #000;
@@ -584,7 +668,7 @@ ul.tabs-left li.faq-title a:link, ul.tabs-left li.faq-title a:visited{
 }
 
 div.faq-column h2 a:link, div.faq-column h2 a:visited {
-    font-size: 22px!important;
+    font-size: 20px!important;
 }
 
 div.faq-column h2{
@@ -867,8 +951,9 @@ div#iphoneNav div ul li{
 
 /********* end iPhone pages  ***********/
 
-
-
+hr{
+	border-color: #ccc;
+}
 
 /********* BEGIN MONTHLY PLANS pages  ***********/
 
@@ -913,6 +998,28 @@ direction:initial;
 margin: 2px 15px 15px;
 
 }
+
+ div#monthlyplans.tab-pane.active section p.align_content2{
+font-size: 11px;
+font-family: verdana;
+color: #222;
+line-height: 1.231;	
+text-align:justify;
+direction:initial;
+margin: 0px 10px 15px;
+
+}
+
+ div#monthlyplans.tab-pane.active section p.align_contentPrincipalText{
+font-size: 13px;
+font-family: verdana;
+color: #222;
+line-height: 1.231;	
+text-align:justify;
+direction:initial;
+margin: 2px 40px 15px 40px;
+}
+
 
 div#monthlyplans.tab-pane.active section div.plans-middle-monthly
 {
@@ -971,6 +1078,8 @@ div#monthlyplans.tab-pane.active  section.tab-addservices div.plans-bottom-box t
 
 div#monthlyplans.tab-pane.active  section.tab-addservices div.plans-bottom-box table tbody td h3.bn-bk{
 	font-family: BoostNeoBlack,Arial,Helvetica,sans-serif !important;
+	margin-top: 10px;
+	margin-bottom: 0px;
 }
 
 div#monthlyplans.tab-pane.active  section.tab-addservices div.plans-bottom-box table tbody   td.gradient-orange, td.gradient-orange-hover, td.gradient-orange-nohover {
@@ -1021,7 +1130,10 @@ div#dailyplans.tab-pane.active section h3
 {
 	font-size: 18px;
 	margin-top: 0px;
+	margin-bottom: 0px;
 	color: #000000;
+	padding: 10px 0px 0px 4px;
+
  } 
  
  div#dailyplans.tab-pane.active section p.align_banner_text{
@@ -1033,15 +1145,23 @@ direction:initial;
 margin: 0px 35px 0px 0px;
 padding: 1px;
 
-} div#dailyplans.tab-pane.active section p.align_content{
+} 
+
+div#dailyplans.tab-pane.active section p.align_content{
 font-size: 13px;
 font-family: verdana;
 color: #222;
 line-height: 1.231;	
 text-align:justify;
 direction:initial;
-margin: 2px 15px 15px;
+margin: 2px 4px 10px;
 }
+
+div#dailyplans.tab-pane.active section p.align_content2{
+margin: 0px 0px;
+padding: 0px 0px 10px 4px;
+}
+
 
 div#dailyplans.tab-pane.active section div.plans-middle-monthly
 {
@@ -1190,7 +1310,7 @@ div.tab-content div#wifihotspot.tab-pane section div.plans-bottom-box{
 }
 
 
-
+/*
 div.tab-content div#wifihotspot.tab-pane section div.plans-bottom-box  ul.wifibullets {
     float: left;
     padding-left: 40px;
@@ -1200,7 +1320,7 @@ div.tab-content div#wifihotspot.tab-pane section div.plans-bottom-box  ul.wifibu
 	color: #000;
 	font-family: BoostNeoBold,Arial,Helvetica,sans-serif;
 
-}
+}*/
 
 div.tab-content div#wifihotspot.tab-pane section div.plans-bottom-box  h3.sizeWifi {
     font-size: 17px;
@@ -1219,7 +1339,7 @@ div.tab-content div#wifihotspot.tab-pane.active section.tab-addservices  div.wif
 }
 
 div.tab-content div#wifihotspot.tab-pane.active section.tab-addservices  div.wifi-bottom  h2.wifiPading {
-margin-top: 0px;
+    margin-top: 0px;
 }
 
 div.tab-content div#wifihotspot.tab-pane.active section.tab-addservices  div.plans-box   {
@@ -1229,3 +1349,61 @@ div.tab-content div#wifihotspot.tab-pane.active section.tab-addservices  div.pla
 }
 
 /********* END PLANS WIFI-HOTSPOTS Pages of Plans  ***********/
+
+div.tab-content div#databoost.tab-pane.active section h3{
+    padding:0;
+    color:#000;
+    font-size:15px;
+}
+
+#rates section h3{
+    font-size: 21px;
+    padding-left: 35px;
+    padding-right: 20px;
+    background-color: #000;
+    color: #FFF;
+    text-align: center;
+    margin-bottom: 10px;
+    display: inline-block;
+	margin-left: -8px;
+	margin-top: 10px !important;
+}
+
+#rates section:first-of-type {
+    padding: 100px 60% 0px 30px !important;
+}
+
+#rates section:first-of-type {
+    background: transparent url("../img/img-bg-intl.jpg") no-repeat scroll left bottom / cover;
+    padding: 100px 40% 0px 30px;
+    height: 270px;
+    color: #000;
+}
+
+p.legal>a#a-legal-terms{
+	font-size: 11px !important;
+	text-decoration: underline;
+}
+
+p.legal.black{
+	color: #000 !important;
+}
+
+#mobile-hotspot > section:nth-child(1) > p:nth-child(2) {
+    padding-right: 10%;
+}
+
+div.legal{
+	background-color: #000;
+	color: #8D8D8D;
+	width: 100%;
+	font-family: verdana;
+	color: #8D8D8D;
+	line-height: 1.231;
+	font-size: 10px;
+	padding-bottom: 5px;
+}
+
+div.box > p  > a{
+	font-size: 13px;
+}

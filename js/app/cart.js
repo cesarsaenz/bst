@@ -17,7 +17,7 @@ appModule.controller('cartController', ['$http','$scope', function($http,$scope)
         this.data.items.splice(0,1);
       }
     }else{
-      this.data = {items:[],version:$scope.app.config.DATA_VERSION,updateTime:new Date().getTime()};
+      this.data = {items:[],version:$scope.app.config.DATA_VERSION};
     }
     
     if( data && data.version==$scope.app.config.DATA_VERSION) {
@@ -27,15 +27,51 @@ appModule.controller('cartController', ['$http','$scope', function($http,$scope)
     }
     this.save();
   }
-  this.addAccessoryToCart=function(device){
-    console.log("==>addAccessoryToCart: "+device.sku);
+  this.addHostpotToCart=function(device){
+    console.log("==>addHotspotToCart: "+device.sku);
     var item=null;
-
     for(var i=0;i<this.data.items.length;i++){
       var d = this.data.items[i];
       //I don't know why browser auto set the hashkey attribute, and it cause some problem.
       delete d.$$hashKey;
-      
+      if(d.sku==device.sku){
+        item=d;
+        item.quantity++;
+      }
+    }
+    var bOpen=false;
+    if(item==null){
+      item={
+        deviceId:device.id,
+        name:device.name,
+        brand:device.brand,
+        sku:device.sku,
+        color:'',
+        memory:'',
+        inventory:device.inventory,
+        image:device.checkoutImage.uRI,
+        modelPrice:device.price,
+        accessoryInd:false,
+        orderLineId:1,
+        quantity:1,
+        purchaseLimit:device.purchaseLimit,
+        myUrl:pathMap._hotspots._hash+device.id+"/features/"
+      }
+      this.data.items.push(item);
+      bOpen=true;
+    }
+    if(this.save()){
+      $scope.showMessage("Product added to your shopping cart.","info");
+      appUtil.net.setUrlHash(pathMap._checkout._hash);
+    }
+  }
+  this.addAccessoryToCart=function(device){
+    console.log("==>addAccessoryToCart: "+device.sku);
+    var item=null;
+    for(var i=0;i<this.data.items.length;i++){
+      var d = this.data.items[i];
+      //I don't know why browser auto set the hashkey attribute, and it cause some problem.
+      delete d.$$hashKey;
       if(d.sku==device.sku){
         item=d;
         item.quantity++;
@@ -56,12 +92,12 @@ appModule.controller('cartController', ['$http','$scope', function($http,$scope)
         accessoryInd:true,
         orderLineId:1,
         quantity:1,
-        purchaseLimit:device.purchaseLimit
+        purchaseLimit:device.purchaseLimit,
+        myUrl:''
       }
       this.data.items.push(item);
       bOpen=true;
     }
-
     if(this.save()){
       $scope.showMessage("Product added to your shopping cart.","info");
       appUtil.net.setUrlHash(pathMap._checkout._hash);
@@ -70,7 +106,6 @@ appModule.controller('cartController', ['$http','$scope', function($http,$scope)
   this.addToCart=function(device){
     var item=null;
     var variant=device.selectedVariant;
-
     for(var i=0;i<this.data.items.length;i++){
       var d = this.data.items[i];
       //I don't know why browser auto set the hashkey attribute, and it cause some problem.
@@ -96,7 +131,15 @@ appModule.controller('cartController', ['$http','$scope', function($http,$scope)
         accessoryInd:false,
         orderLineId:1,
         quantity:1,
-        purchaseLimit:variant.purchaseLimit
+        purchaseLimit:variant.purchaseLimit,
+        myUrl:pathMap._phoneDetails._hash+device.id+"/features/"
+      }
+      if(device.promotions){
+        for(var i=0;i<device.promotions.length;i++){
+          if(device.promotions[i].checkoutText){
+            item.checkoutText=device.promotions[i].checkoutText;
+          }
+        }
       }
       this.data.items.push(item);
       bOpen=true;
@@ -111,7 +154,7 @@ appModule.controller('cartController', ['$http','$scope', function($http,$scope)
     var v=0;
     for(var i=0;i<this.data.items.length;i++){
       if(this.data.items[i].quantity){
-        v+=this.data.items[i].quantity;
+        v+=Number(this.data.items[i].quantity);
       }
     }
     return v;

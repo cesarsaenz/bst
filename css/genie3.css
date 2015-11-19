@@ -1,0 +1,169 @@
+/* The below options are CSS classes added to #genie-options 
+            show-carousel           Determines whether the carousel is initialized
+            show-phones-X           limit the phones in the display window to only show X number of phones, IE: show-phones-1, show-phones-2, show-phones-3, etc
+              
+            show-all                show all phones
+            show-brand-XXXX         show only this brand of phones, IE: show-brand-apple, show-brand-samsung
+            show-type-XXXX          show only phones of this type, IE: show-type-android, show-type-iphone, show-type-feature, show-type-blackberry
+            show-condition-XXXX     show only phones by condition, IE: show-condition-new, show-condition-cpo
+            
+            hide-brand-XXXX         hide only this brand of phones, IE: hide-brand-apple, hide-brand-samsung
+            hide-type-XXXX          hide only phones of this type, IE: hide-type-android, hide-type-iphone, hide-type-feature, hide-type-blackberry
+            hide-condition-XXXX     hide only phones by condition, IE: hide-condition-new, hide-condition-cpo
+*/
+
+/**************** Phone Genie 3.0  ****************/
+ #genie3{background:#fff url('/_themes/h5bp/images/genie3/genie3-bg-full2.jpg') repeat-x bottom left;color:#000;margin-bottom:2px;font-size:13px;position:relative;}
+    #genie3-controller{float:left;width:176px;padding-left:20px;padding-top:40px;}
+        #genie3-controller p{font-size: 12px;letter-spacing:-0.5px;}
+        #genie3-controller span{font-size: 12px;  font-weight: bold;}
+    #genie3-phones{float:left;width: 694px;height:200px;position:relative;overflow:hidden;margin-left: 35px;margin-right: 35px;}
+        #genie3-ul{list-style:none;margin:0px;padding:0px;overflow:hidden;height:200px;width: 20000em;position: relative;}
+        #genie3-ul-hidden{display:none;}
+        #genie3-ul li{margin:0px;padding:0px;padding-top:25px;float:left;padding-left:5px;width:226px;height:175px;position:relative;cursor:pointer;}
+            #genie3-ul li:hover{background:url('/_themes/h5bp/images/genie3/genie3-bg-rollover.jpg') repeat-x top left;}
+            #genie3-phones sup{font-size:70%;}
+            
+    .genie3-image{float:left;width:85px;margin-right:10px;}
+       
+    .genie3-content{float:left;width:123px;}
+        .genie3-content p{margin-bottom:0px;}
+    .genie3-price-crossout{color: #898989;margin-right: 10px;text-decoration: line-through;}
+    .genie3-cpo{color:#f7901e;font-size: 11px;}
+    .genie3-variations{letter-spacing: -0.5px;}
+    .genie3-discount{color:#f7901e;font-weight:bold;}
+    .phoneRating{position: relative;left: -5px;}
+
+    .jcarousel-clip{overflow:hidden;}
+        .jcarousel-prev, .jcarousel-next{height:25px;width:25px;position:absolute;  top: 90px;background-image:url('/_themes/h5bp/images/genie3/genie3-scrollers.png');background-position:0px 0px;background-repeat:no-repeat}
+        .jcarousel-prev:hover{background-position:0px -25px;} 
+        .jcarousel-next{background-position:0px -50px;}
+        .jcarousel-next:hover{background-position:0px -75px;}
+        .jcarousel-prev{left:205px;z-index:101} 
+        .jcarousel-next{right:10px;background-image:url('/_themes/h5bp/images/genie3/genie3-scrollers.png');z-index:101}
+
+.genie3-modal{width:450px;min-height:200px;background-color:#fff;position:relative;z-index:999;color:#000;border:1px solid #bfbebe;font-size:12px;}
+    .genie3-modal-top{padding:20px;position:relative;}
+    .genie3-modal h2{color:#000;font-size:20px;margin-bottom:10px;line-height:20px;}
+        .genie3-modal-cpo{color:#f7901e;}
+    .genie3-modal ul{list-style:none;padding:0px;}
+    .genie3-modal li{width:auto;height:auto;padding:0px;padding-top:5px;padding-bottom:5px;float:none;background:url('../img/genie3-icons.png') no-repeat 0px 5px;padding-left:30px;}
+        .genie3-modal li.genie3-modal-icon1{background-position:0px 5px;}
+            .genie3-modal li.genie3-modal-android{background-position:0px -248px;}
+            .genie3-modal li.genie3-modal-iphone{background-position:0px -302px;}
+            .genie3-modal li.genie3-modal-feature{background-position:0px 5px;}
+            .genie3-modal li.genie3-modal-windows{background-position:0px -347px;}
+        .genie3-modal li.genie3-modal-icon2{background-position:0px -47px;}
+        .genie3-modal li.genie3-modal-icon3{background-position:0px -96px;}
+        .genie3-modal li.genie3-modal-icon4{background-position:0px -146px;}
+    
+    .genie3-modal p{margin:0px;}
+    .genie3-modal .genie3-promo{border-top:1px solid #bfbebe;}
+    .genie3-modal-image{float:left;width:130px;}
+    .genie3-modal-content{float:left;width:269px;}
+    
+  #genie3 .learnmore, .genie3-modal .learnmore{display:inline-block;color:#fff!important;background-color:#000;padding:10px;text-decoration:none;font-size:17px;letter-spacing:.5px;float:right;}
+  #genie3 .learnmore:hover, .genie3-modal .learnmore:hover{background-color:#6fdbdb;}
+
+#sku-SPHG360ABB .genie3-phone{letter-spacing: -0.8px;}
+#modal-LGLS770ABB{padding-bottom:57px;background: #fff url('/_themes/h5bp/images/genie3/freecase.jpg') no-repeat bottom center;}
+ /*
+ * qTip2 - Pretty powerful tooltips - v2.2.1
+ * http://qtip2.com
+ *
+ * Copyright (c) 2014 
+ * Released under the MIT licenses
+ * http://jquery.org/license
+ *
+ * Date: Sat Sep 6 2014 11:12 GMT+0100+0100
+ * Plugins: tips modal viewport svg imagemap ie6
+ * Styles: core basic css3
+ */
+.qtip{
+	position: absolute;
+	left: -28000px;
+	top: -28000px;
+	display: none;
+
+	font-size: 10.5px;
+	line-height: 12px;
+
+	direction: ltr;
+     
+	box-shadow: none;
+	padding: 0;
+}
+
+	.qtip-content{
+		position: relative;
+		padding: 5px 9px;
+		overflow: hidden;
+
+		text-align: left;
+		word-wrap: break-word;
+	}
+
+	.qtip-titlebar{
+		position: relative;
+		padding: 5px 35px 5px 10px;
+		overflow: hidden;
+
+		border-width: 0 0 1px;
+		font-weight: bold;
+	}
+
+	.qtip-titlebar + .qtip-content{ border-top-width: 0 !important; }
+
+	/* Default close button class */
+	.qtip-close{
+		position: absolute;
+		right: 20px; top: 20px;
+		z-index: 1100; /* Overlap .qtip-tip */
+
+		cursor: pointer;
+		outline: medium none;
+                background-color:#fff;
+		border: 1px solid #ccc;color:#ccc;
+	}
+        .qtip-close:hover{color:#fff;background-color:#6fdbdb;}
+        
+
+		.qtip-titlebar .qtip-close{
+			right: 4px; top: 50%;
+			margin-top: -9px;
+		}
+
+		* html .qtip-titlebar .qtip-close{ top: 16px; } /* IE fix */
+
+		.qtip-titlebar .ui-icon,
+		.qtip-icon .ui-icon{
+			display: block;
+			text-indent: -1000em;
+			direction: ltr;
+		}
+
+		.qtip-icon, .qtip-icon .ui-icon{
+			-moz-border-radius: 3px;
+			-webkit-border-radius: 3px;
+			border-radius: 3px;
+			text-decoration: none;
+		}
+
+			.qtip-icon .ui-icon{
+				width: 18px;
+				height: 14px;
+
+				line-height: 14px;
+				text-align: center;
+				text-indent: 0;
+				font: normal bold 10px/13px Tahoma,sans-serif;
+
+				color: inherit;
+				background: transparent none no-repeat -100em -100em;
+			}
+
+/* Applied to 'focused' tooltips e.g. most recently displayed/interacted with */
+.qtip-focus{}
+
+/* Applied on hover of tooltips i.e. added/removed on mouseenter/mouseleave respectively */
+.qtip-hover{}

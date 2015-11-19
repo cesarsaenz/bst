@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Certified Pre-owned Phones | No Contract Certified Pre-owned Phones | Boost Mobile</title>
+  <title>Certified Pre-owned Phones | No Contract Certified Pre-owned Phones | Boost Mobile</title>
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<meta name="HandheldFriendly" content="True"/>
-		<meta name="page-title" content="Certified Pre-owned Phones">
-		<meta name="keywords" content="Certified Pre-owned Phones">
-		<meta name="description" content="Certified Pre-owned Phones">
-		<link rel="shortcut icon" href="bst/img/favicon.ico"/>
-
-		<link href="bst/fonts/BoostNeoEmbedding.css" rel="stylesheet" />    
-		<link href="bst/css/carousel.css" rel="stylesheet" />
+  <meta name="page-title" content="Certified Pre-owned Phones">
+  <meta name="keywords" content="Certified Pre-owned Phones">
+  <meta name="description" content="Certified Pre-owned Phones">
+    <link rel="shortcut icon" href="bst/img/favicon.ico"/>
+    
+    <link href="bst/fonts/BoostNeoEmbedding.css" rel="stylesheet" />    
+   <link href="bst/css/carousel.css" rel="stylesheet" />
 	</head>
 <body>
 <ol id="page-path" class="breadcrumb hidden-xs">
@@ -44,7 +44,7 @@
    <div id="phone_slider-view_all" style="margin-bottom:20px">
       <a href="#!/shop/phones/">View all</a> 
       <h2 id="genie-title" class="genieBlackFont">Choose from theses phones</h2>
-   </div>
+   </div><BR><BR>
    <div id="genie-options" class="show-phones-5 show-carousel show-type-android">
       <!--?xml version="1.0" encoding="UTF-8"?-->
       <div id="widget-pricing">
@@ -59,7 +59,7 @@
                                 <li class="type-android" style="float: left; list-style: none;display:none">
                                   <a href="#!/{{id}}/features/">
                                     <span class="phone_slider_image">
-                                      <img src="{{img}}" style="height:125px" alt="{{title}}">
+                                      <img src="{{img}}" alt="{{title}}">
                                     </span>
                                     <span class="phone_slider-name">
                                       <span class="phone_brand">{{brand}}</span>
@@ -126,8 +126,8 @@
 			under the Boost Mobile warranty policy.
 		</p> <br><br>
 	</div>
-		
-		
+   
+
 		
 		<div class="bs-example visible-xs visible-sm" data-example-id="collapse-accordion">	
 			<h2 class="text-center">FAQs</h2>
@@ -230,13 +230,15 @@ var androidGenie={
       for(var i=0;i<list.length;i++){
         var html=this.template;
         var d=list[i];
-        if(d.type.toLowerCase().indexOf("android")>=0){
+        //if(d.type.toLowerCase().indexOf("android")>=0){
+        if(d.phoneCondition=="preowned"){
           html=html.replace("{{id}}",d.id);
           html=html.replace("{{img}}",d.selectedVariant.gridImage);
-          html=html.replace("{{brand}}",d.displayBrand);
+          //html=html.replace("{{brand}}",d.displayBrand);
+          html=html.replace("{{brand}}",d.name.substr(0,d.name.indexOf(' ')));
           html=html.replace("{{title}}",appUtil.$scope.phoneController.details.getDisplayTitle(d));
           html=html.replace("{{price}}",d.selectedVariant.price);
-          html=html.replace("{{name}}",d.name);
+          html=html.replace("{{name}}",d.name.substr(d.name.indexOf(' ')));
           var c = appUtil.$scope.phoneController.getDiscountClass(d);
           
           if(!c){

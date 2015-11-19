@@ -15,7 +15,6 @@
 	<link href="css/bootstrap.min.css" rel="stylesheet"/>
 	<link href="css/jasny-bootstrap.min.css" rel="stylesheet"/>
 	<link href="css/app-framework.css" rel="stylesheet"/>
-	<link href="css/wcb.css" rel="stylesheet"/>
 </head>
 <body>
 	<header class="navmenu navmenu-default navmenu-fixed-left offcanvas-xs">
@@ -74,8 +73,8 @@
 					<li class="dropdown">
 						<a class="dropdown-toggle" href="framework_plans.html">Plans <b class="caret"></b></a>
 						<ul class="dropdown-menu sub-menu">
-							<li><a href="framework_plans.html">Monthly Plans</a></li>
-							<li><a href="framework_plans.html">Daily Plans</a></li>
+							<li><a href="framework_monthly_plans.html">Monthly Plans</a></li>
+							<li><a href="framework_daily_plans.html">Daily Plans</a></li>
 							<li><a href="framework_plans.html">Mobile Hotspot</a></li>
 							<li><a href="framework_plans.html">International Calling</a></li>
 						</ul>
@@ -86,7 +85,7 @@
 							<li><a href="framework_whychoose.html">Value Without Compromise</a></li>
 							<li><a href="framework_whychoose.html">Why Choose Prepaid</a></li>
 							<li><a href="framework_whychoose.html">Support Military Families</a></li>
-							<li><a href="framework_social.html">Be Social</a></li>
+							<li><a href="framework_whychoose.html">Be Social</a></li>
 						</ul>
 					</li>
 					<li class="searchHeader visible-sm visible-md visible-lg">
@@ -129,31 +128,17 @@
 			</div>
 		</div>
 	</div>
-
-
-	<div id="whychoose" class="container main plans whychoose">
+	<div class="container main plans whychoose">
 		<ol class="breadcrumb hidden-xs">
 			<li><a href="framework_home.html">Home</a></li>
-			<li><a href="framework_whychoose.html">Why Boost</a></li>
-			<li class="active">Value Without Compromise</li>
+			<li class="active">Why Boost</li>
 		</ol>
-		
-		<h2 class="title" style="text-align:left;float:left;">Why Choose Boost</h2>
-		
-		<ul id="social_strip" style="background-color: #000;" >
-		  <li id="share_label">Share</li>
-		  <li id="social_strip-fb"><a href="http://www.facebook.com/sharer.php?u=" onclick="javascript:window.open(this.href+window.location.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">Facebook</a></li>
-		  <li id="social_strip-tw"><a href="https://twitter.com/share?url=" onclick="javascript:window.open(this.href+window.location.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">Twitter</a></li>
-		  <li id="social_strip-gp"><a href="https://plus.google.com/share?url=" onclick="javascript:window.open(this.href+window.location.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">Google+</a></li>
-		  <li id="social_strip-pt"><a href="http://pinterest.com/pin/create/button/?url=" onclick="javascript:window.open(this.href+window.location.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">Pinterest</a></li>	
-		</ul>
-		
-		<section class="container main-contents">
+		<h2 class="title">Why Choose Boost</h2>
+		<section class="container">
 			<div class="col-xs-3 col-md-2">
-				<!--
 				<ul class="tabs-left">
-					<li><span>Why Choose Boost</span></li>
-					<li class="active"><a href="framework_whychoose.html">Value Without Compromise</a></li>
+					<li><span>Monthly Plans</span></li>
+					<li><a href="framework_plans.html">Data Boost Plans</a></li>
 					<li><span>Daily Plans</span></li>
 					<li><a href="framework_plans.html">$2 Daily Unlimited</a></li>
 					<li><a href="framework_plans.html">$3 Daily Unlimited</a></li>
@@ -163,18 +148,18 @@
 					<li><a href="framework_plans.html">Phone Insurance</a></li>
 					<li><a href="https://boostmobile.wipit.me">Mobile Wallet</a></li>
 					<li><a href="framework_market.html">Apps &amp; More</a></li>
-				</ul>-->
-				<ul class="tabs-left">
+				</ul>
+				<ul class="tabs-left whychooseboost">
 					<li class="active"><a href="#value" data-toggle="tab">Value Without Compromise</a></li>
 					<li><a href="#prepaid" data-toggle="tab">Why Choose Prepaid</a></li>
 					<li><a href="#military" data-toggle="tab">Supports Military Families</a></li>
-					<li><a href="#referral"  data-toggle="tab">Referral Program</a></li>
+					<li><a href="#social"  data-toggle="tab">Be Social</a></li>
 				</ul>
 			</div>
 			<div class="col-xs-9 col-md-10">
 				<div class="tab-content">
 					<div class="tab-pane active" id="value">
-						<section>
+						<section class="hidden-xs">
 							<h2>Value Without Compromise</h2>
 							<p>We heard that you wanted better phones, less commitment and great service at an affordable price. Ask and you shall receive.</p>
 						</section>
@@ -197,8 +182,6 @@
 							<h3>Programs that put money back in your pocket</h3>
 							<p>We reward our customers. Our <a>Referral Program</a> gives you $25 for each friend you refer to Boost Mobile and up to a total of $500 referral rewards each year. Our <a href="https://buyback.boostmobile.com/bst/">Buyback Program</a> offers you an account credit when you recycle an eligible phone.</p>
 							<a class="btn-boost" href="framework_plans.html">Shop Plans</a>
-							<br /><br /><br /><br /><br />
-							<br />	
 						</section>
 					</div>
 					<div class="tab-pane" id="prepaid">
@@ -237,8 +220,8 @@
 							<div>
 								<h3>Can I find a good phone on a prepaid plan?</h3>
 								<p><b>Sure you can.</b> At Boost, we have phones from flip to 4G LTE available on plans with unlimited talk, text and data. Pick from top-tier manufacturers such as Apple, Samsung, Motorola, HTC, Kyocera and LG. Keep more money in your pocket with phone deals found only at Boostmobile.com. And if you’re looking for great service, we’ve got you covered. Boost Mobile® runs on the Nationwide Sprint® Network.</p>
-								<a class="btn-boost" href="framework_phones.html">Shop Phones</a>
-								<a class="btn-boost" href="framework_plans.html">Shop Plans</a>
+								<a class="link" href="framework_phones.html">Shop Phones</a>
+								<a class="link" href="framework_plans.html">Shop Plans</a>
 							</div>
 						</section>
 					</div>
@@ -252,25 +235,25 @@
 							<h3>Keep your phone number while deployed</h3>
 							<p>Dealing with mobile phone payments is the last thing you should be concerned with when preparing to leave. While enrolled in the Boost Mobile Deployed Military Program, no service charges will be incurred and no reactivation fees will be applied when the account is restored. <a>Deployed Military Program FAQs</a></p>
 							<p><b>Yes, you can keep your phone number</b></p>
-							<a class="btn-boost" href="framework_phones.html">Shop Phones</a>
+							<a class="link" href="framework_phones.html">Shop Phones</a>
 						</section>
 						<section>
-							
-							
+							<img src="img/badge_dollarsign.png"></img>
+							<div>
 								<h3>We cover you nationwide</h3>
 								<p>Boost offers true nationwide service on the Nationwide Sprint® Network. That means a dependable network with no roaming charges and fewer dropped calls.</p>
-								<a class="btn-boost">See coverage map</a>
-							
+								<a class="link">See coverage map</a>
+							</div>
 						</section>
 						<section>
-							
-							
+							<img src="img/badge_logo.png"></img>
+							<div>
 								<h3>Discounts when calling abroad</h3>
-								<p>With International Connect, your friends and family can stay in touch with you in almost every place you’re deployed without overpaying</p>
-								<a class="btn-boost">See coverage map</a>
-							
+								<p>Boost offers true nationwide service on the Nationwide Sprint® Network. That means a dependable network with no roaming charges and fewer dropped calls.</p>
+								<a class="link">See coverage map</a>
+							</div>
 						</section>
-						<!--<section class="threeblocks addservices">
+						<section class="threeblocks addservices">
 							<h4>Additional plan services</h4>
 							<div class="col-sm-4">
 								<a>
@@ -293,67 +276,8 @@
 									<span>Learn more</span>
 								</a>
 							</div>
-						</section>-->
+						</section>
 					</div>
-
-					<div class="tab-pane" id="referral">
-						<section>
-							<h2>We've got some good news for you!</h2>
-							<p>It's about time you get rewarded for <br />spreading the word about Boost Mobile.</p>
-						</section>
-						<section>
-							<h4>With International Connect, your friends and family can stay in touch with you in almost every place you’re deployed without overpaying</h4>
-							<h3>How does it work?</h3>
-							<ul>
-								<li>Sign up for the Referral Program.</li>
-								<li>Refer a friend though email, social media or text message.</li>
-								<li>Enter your recipient information.</li>
-								<li>Your friend accepts your offer, activates a phone with a monthly plan, confirms their new phone number and makes one monthly payment.</li>
-								<li>You receive a $25 account credit - and so does your friend!</li>
-							</ul><br />
-							<a class="btn-boost">Refer a Friend</a>
-							<p>For more details regarding our referral program, read our <a href="#">frequently asked questions</a>.</p>
-							
-						</section>
-						<!--
-						<section>
-							<h1>We've got some good news for you!</h1>
-							
-							<p>It's about time you get rewarded for spreading the word about Boost Mobile.</p>
-							
-						</section>
-						<section>
-						<h3>We're pleased to introduce our new Referral Program. We're offering $25 for each friend you refer to Boost Mobile and up to a total of $500 referral rewards each year.</h3> <h2>How does it work?</h2> <ul> <li>Sign up for the Referral Program.</li> <li>Refer a friend though email, social media or text message.</li> <li>Enter your recipient information.</li> <li>Your friend accepts your offer, activates a phone with a monthly plan, confirms their new phone number and makes one monthly payment.</li> <li>You receive a $25 account credit - and so does your friend!</li> </ul> <p><a class="btn" href="http://refer.boostmobile.com/">Refer a Friend</a></p> <p>For more details regarding our referral program, read our <a href="/support/faq/plans-services/referral-program/">frequently asked questions</a>.</p> 
-						</section>
-						-->
-
-
-
-						<!--<section class="threeblocks addservices">
-							<h4>Additional plan services</h4>
-							<div class="col-sm-4">
-								<a>
-									<h4>International Calling</h4>
-									<p>Make unlimited calls around the world with International Connect.</p>
-									<span>Learn more</span>
-								</a>
-							</div>
-							<div class="col-sm-4">
-								<a>
-									<h4>Referral Program</h4>
-									<p>Your friends have benefits. Earn $25 for each one you refer.</p>
-									<span>Learn more</span>
-								</a>
-							</div>
-							<div class="col-sm-4">
-								<a>
-									<h4>Veteran Pack</h4>
-									<p>Make your phone a reflection of the hero you are.</p>
-									<span>Learn more</span>
-								</a>
-							</div>
-						</section>-->
-					</div>					
 					<div class="tab-pane" id="social">
 						<section>
 							<p>Social media APIs to go here</p>
@@ -363,37 +287,9 @@
 			</div>
 		</section>
 	</div>	
-	<br />
-
-	
 	<footer>
 		<div class="container">
-			<div class="hidden-xs hidden-sm col-md-4">
-				<div class="footer-social">
-					<p>Stay Connected</p>
-					<ul><!-- mp_trans_remove_start -->
-						<li id="footer-social-facebook"> 
-							<a href="http://www.facebook.com/boostmobile" target="_blank">Facebook</a>
-						</li>
-						<li id="footer-social-twitter">
-							<a href="https://twitter.com/boostmobile" target="_blank">Twitter</a>
-						</li>
-						<li id="footer-social-youtube">
-							<a href="http://www.youtube.com/user/boostmobile" target="_blank">Youtube</a>
-						</li>
-						<li id="footer-social-gplus">
-							<a href="https://plus.google.com/+boostmobile" target="_blank">g+</a>
-						</li>
-						<li id="footer-social-instagram">
-							<a href="http://instagram.com/boostmobile/#" target="_blank">Instagram</a>
-						</li>
-						<li id="footer-social-tumblr">
-							<a href="http://boostmobileofficial.tumblr.com/" target="_blank">Tumblr</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="hidden-xs hidden-sm col-md-8">
+			<div class="hidden-xs hidden-sm col-md-8 pull-right">
 				<div id="sitelinks">
 					<div class="column">
 						<p>Shop</p>

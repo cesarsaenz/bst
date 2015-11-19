@@ -42,7 +42,9 @@
         if(os.indexOf("url")>=0){
           htmlHeader+="<a id='"+classKey+"' "+initFn+" "+cClass+" style='cursor:pointer' ng-href='{{"+obj+".url}}'>";
           htmlFooter="</a>"+htmlFooter;
-        }else{
+        }else if(os.indexOf("no_url")>=0){
+			// do nothing
+		}else{
           htmlHeader+="<a "+initFn+" "+cClass+">";
           htmlFooter="</a>"+htmlFooter;
         }
@@ -59,9 +61,9 @@
         }
         if(os.indexOf("title")>=0){
           if(attr.class=="promo01"){
-            htmlHeader+="<h1 class='promoHeading'>{{"+obj+".title}}</h1>";
+            htmlHeader+="<h1 class='promoHeading' ng-bind-html='"+obj+".title'></h1>";
           }else{
-            htmlHeader+="<h3 class='promoHeading'>{{"+obj+".title}}</h1>";
+            htmlHeader+="<h3 class='promoHeading' ng-bind-html='"+obj+".title'></h1>";
           }
         }
         if(os.indexOf("description")>=0){
@@ -73,7 +75,33 @@
         if(os.indexOf("text")>=0){
           htmlHeader+="<h3 class='callNow' ng-show='"+obj+"'><span class='promoLink'>{{"+obj+"}}</span></h3>";
         }
-        return htmlHeader+htmlFooter;
+        if(os.indexOf("text_inline")>=0 && os.indexOf("no_url")>=0){
+            htmlHeader+="<span "+initFn+" ng-show='"+obj+"' class='promoLink'>{{"+obj+"}}</span>";
+          }
+  		if (os.indexOf("orderbyphone")>=0){
+  			htmlHeader+="<section class='orderbyphone' "+initFn+" ng-show='"+obj+"'>" + 
+  						"<h3>Order by phone</h3><h4>Need help picking a phone or plan?</h4>"+
+  						"<h4>Call us now</h4><h2>{{"+obj+"}}</h2></section>";
+  		}
+  		if (os.indexOf("phone_grid")>=0){
+			htmlHeader+="<section class='notice phones visible-xs visible-md visible-lg' "+initFn+" ng-show='"+obj+"'>" + 
+				"<h3>Call our live experts to pick your phone &amp; plan  {{"+obj+"}}</h3></section>";
+  		}
+  		if (os.indexOf("cart")>=0){
+  			htmlHeader+="<section "+initFn+" ng-show='"+obj+"'>" + 
+  						"<h3>New Customers</h3>" +
+  						"<p>Have questions? Finish your order on the phone. Call now.</p>" +
+  						"<h2>{{"+obj+"}}</h2></section>";
+  		}
+  		if (os.indexOf("phone_details")>=0){
+  			htmlHeader+="<section  class='notice phones visible-xs visible-md visible-lg' "+ initFn +" ng-show='"+obj+"'>" + 
+  						"<h3>Call now to order this phone {{"+obj+"}} </h3></section>";
+  		}
+  		if (os.indexOf("home")>=0){
+  			htmlHeader+="<h3 "+ initFn +" ng-show='"+obj+"'>New Customers! Call our live experts to pick your perfect phone &amp; plan <span>Call Now! {{"+obj+"}} </span></h3>";
+  		}
+  		
+  		return htmlHeader+htmlFooter;
         
       }
     };
@@ -105,6 +133,9 @@ appModule.controller('bannerController', ['$http','$scope','$sce', function($htt
           var k=url+"_"+i;
           appUtil.ui.createStyleClass("."+k,"{background-image:url("+d.imageUrl+")}");
           appUtil.ui.createStyleClass("@media (min-width:768px) {."+k+"_large_screen","{background-image:url("+d.imageUrl+")}}");
+        }
+        if(d && d.title){
+          d.title=appUtil.ui.trustAsHtml(d.title);
         }
         if(d && d.url && d.url.indexOf("javascript:")==0){
           d.script=d.url.substring("javascript:".length);

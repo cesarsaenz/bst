@@ -3,72 +3,68 @@ var pathMap={
   home:{
     _title:"Home",
     _controller:"app",
-    _metaTitle:"Prepaid Phones & No Contract Phones from Sprint Prepaid",
-    _metaDescription:"Find all your favorite phones without the hassle of a contract. Get savings without sacrificing your network and choose Sprint Prepaid.",
-    _metaKeywords:"prepaid phones, no contract phones, sprint prepaid",
-    _adobeData:{
-      page : {
-        channel : 'Home',
-        subSection : 'Home', 
-        name : 'Home Page'
-      }
-    },
     coveragemap:{
       _title:"Coverage Map",
       _controller:"app",
-      _metaTitle:"Prepaid Phones & No Contract Phones from Sprint Prepaid",
-      _metaDescription:"Find all your favorite phones without the hassle of a contract. Get savings without sacrificing your network and choose Sprint Prepaid.",
-      _metaKeywords:"prepaid phones, no contract phones, sprint prepaid",
       _shortcut:"coverageMap",
-      _adobeData:{
-        page : {
-          channel : 'Coverage Map',
-          subSection : 'Home', 
-          name : 'Coverage Map Page'
+      _finalArrange:function(){
+        if($("#coverageMapFrame").length==0){
+          setTimeout("pathMap._coverageMap._finalArrange()",100);
+        }else if(window.screen.width>800){
+          if(appName=="bst"){
+            if(appUtil.$scope.app.zipCodeHandler.value){
+              $("#coverageMapFrame")[0].src="//coverage.sprint.com/mycoverage.jsp?id=BO543STC&mapzip="+appUtil.$scope.app.zipCodeHandler.value;
+            }else{
+              $("#coverageMapFrame")[0].src="//coverage.sprint.com/mycoverage.jsp?id=BO543STC&language=en";
+            }
+          }else{
+            if(appUtil.$scope.app.zipCodeHandler.value){
+              $("#coverageMapFrame")[0].src="//coverage.sprint.com/mycoverage.jsp?id=SPREPAID&mapzip="+appUtil.$scope.app.zipCodeHandler.value;
+            }else{
+              $("#coverageMapFrame")[0].src="//coverage.sprint.com/mycoverage.jsp?id=SPREPAID";
+            }
+          }
+          $("#coverageMapFrame")[0].height=467;
+        }else{
+          $("#coverageMapFrame")[0].src="coverage/map.html?id=BO543STC&mapzip="+appUtil.$scope.app.zipCodeHandler.value;
+          $("#coverageMapFrame")[0].height=880;
         }
-      },
+        appUtil.ui.refreshContent();
+      }
     },
-    storemap:{
-      _title:"Store Map",
-      _controller:"app",
-      _metaTitle:"Prepaid Phones & No Contract Phones from Sprint Prepaid",
-      _metaDescription:"Find all your favorite phones without the hassle of a contract. Get savings without sacrificing your network and choose Sprint Prepaid.",
-      _metaKeywords:"prepaid phones, no contract phones, sprint prepaid",
-      _shortcut:"storeMap",
-      _adobeData:{
-        page : {
-          channel : 'Store Map',
-          subSection : 'Home', 
-          name : 'Store Map Page'
-        }
+    store:{
+      _title:"Store Locator",
+      _controller:"storeController",
+      _shortcut:"store",
+      _match:function(hash){
+        return hash.indexOf(this._formatedHash)==0;
       },
+      _sendAnalysisData:function(zip,message){
+        if(!zip){
+          this._adobeData.page.name = 'Find A Store Location Entry';
+        }else{
+          this._adobeData.page.name = 'Find A Store Location Results';
+          this._adobeData.location={zip:zip};
+          this._adobeData.messages={message:message};
+        }
+        
+        pathMap._insertCommonAdobeData(this._adobeData);
+        analysisManager.sendData("_store");
+      }
+    },
+    search:{
+      _title:"Search",
+      _controller:"app",
+      _match:function(hash){
+        return hash.indexOf(this._formatedHash)==0;
+      }
     },
     shop:{
       _title:"Shop",
       _controller:"app",
-      _metaTitle:"Sprint Prepaid No Contract Plans & Phones",
-      _metaDescription:"Shop Sprint Prepaid for no contract phone plans, smartphones at great prices and nationwide coverage.",
-      _metaKeywords:"no contract plans, prepaid cell phones, nationwide coversage, sprint prepaid",
-      _adobeData:{
-        page : {
-          channel : 'eStore',
-          subSection : 'Shop', 
-          name : 'Shop Main'
-        }
-      },
       phones:{
-        _title:"Phones",
+        _title:"Shop Phones",
         _controller:"phoneController",
-        _metaTitle:"No Contract Cell Phones & Smartphones from Sprint Prepaid",
-        _metaDescription:"Sprint Prepaid has great cell phone options including iPhones and Android phones. Get that new phone on your list without worrying about a contract.",
-        _metaKeywords:"prepaid cell phones, prepaid smartphones, no contract cell phones, no contract smartphones",
-        _adobeData:{
-          page : {
-            channel : 'eStore',
-            subSection : 'Phones', 
-            name : 'Phones Wall'
-          }
-        },
         _match:function(hash){
           if(hash==this._formatedHash){
             return true;
@@ -84,27 +80,96 @@ var pathMap={
         details:{
           _controller:"phoneController",
           _shortcut:"phoneDetails",
-          _metaTitle:"No Contract Cell Phones & Smartphones from Sprint Prepaid",
-          _metaDescription:"Sprint Prepaid has great cell phone options including iPhones and Android phones. Get that new phone on your list without worrying about a contract.",
-          _adobeData:{
-            page : {
-              channel : 'eStore',
-              subSection : 'Phones', 
-              subSubSection : '<<Manufacturer>>',
-              name : 'Phone Details'
-            },
-            shop : {
-              prodView : '<<SKU of Device>>'
-            }
-          },
           _generateExtendTitle:function(){
             
           },
-          _sendAnalysisData:function(item){
+          _sendAnalysisData:function(item,tab){
+            this._adobeData.page.name = 'Phone Details - '+tab;
             this._adobeData.page.subSubSection=item.brand;
             this._adobeData.shop.prodView=item.selectedVariant.sku;
+            this._adobeData.shop.prodName=item.name;
+            this._adobeData.shop.prodBrand=item.brand;
+            this._adobeData.shop.prodRetailPrice=item.selectedVariant.price;
+            this._adobeData.shop.prodPromoDiscount=item.selectedVariant.discount;
+            this._adobeData.shop.prodCartPrice=item.selectedVariant.price;
+            this._adobeData.shop.prodAvailability=item.selectedVariant.inventory;
+            
             pathMap._insertCommonAdobeData(this._adobeData);
             analysisManager.sendData();
+          },
+          _match:function(hash){
+            return !pathMap._pageNotFound && hash.indexOf(this._formatedHash)==0;
+          },
+          _setMetas:function(para){
+            var d = appUtil.$scope.phoneController.details.data;
+            d=d.name+" "+d.selectedColor +" "+d.selectedMemory;
+            appUtil.ui.setMetaInfo("title",d+" | "+appDisplayName);
+            appUtil.ui.setMetaInfo("description",d);
+          }
+        },
+        compare:{
+          _title:"Compare",
+          _generateAnalysisData:function(items){
+            var vs=""
+            for(var i=0;i<items.length;i++){
+              vs+=","+items[i].name;
+            }
+            if(vs){
+              vs=vs.substring(1);
+            }
+            this._adobeData.shop.comparisons=vs;
+          },
+          _controller:"phoneController",
+          _shortcut:"phoneCompare"
+        }
+      },
+      deals:{
+        _title:"Shop Deals",
+        _controller:"phoneController",
+        _shortcut:"phoneDeals",
+        _generateAnalysisData:function(items){
+          var vs=""
+          for(var i=0;i<items.length;i++){
+            vs+=","+items[i].name;
+          }
+          if(vs){
+            vs=vs.substring(1);
+          }
+          this._adobeData.shop.comparisons=vs;
+        },
+        _match:function(hash){
+          if(hash==this._formatedHash){
+            return true;
+          }
+          return false;
+        }
+      },
+      hotspots:{
+        _title:"Wi-Fi Hotspots",
+        _controller:"phoneController",
+        _shortcut:"hotspots",
+        _generateAnalysisData:function(items){
+          var vs=""
+          for(var i=0;i<items.length;i++){
+            vs+=","+items[i].name;
+          }
+          if(vs){
+            vs=vs.substring(1);
+          }
+          this._adobeData.shop.comparisons=vs;
+        },
+        _match:function(hash){
+          if(hash==this._formatedHash){
+            return true;
+          }
+          return false;
+        },
+        details:{
+          _title:"",
+          _controller:"phoneController",
+          _shortcut:"hotspotDetails",
+          _generateExtendTitle:function(){
+            
           },
           _match:function(hash){
             return !pathMap._pageNotFound && hash.indexOf(this._formatedHash)==0;
@@ -118,105 +183,11 @@ var pathMap={
             appUtil.ui.setMetaInfo("title",this._metaTitle+" - "+para);
             appUtil.ui.setMetaInfo("description",this._metaTitle+ " for "+para);
           }
-        },
-        compare:{
-          _title:"Compare",
-          _metaTitle:"Sprint - Compare",
-          _metaKeywords:"",
-          _adobeData:{
-            page : {
-              channel : 'eStore',
-              subSection : 'Phones', 
-              name : 'Comparison'
-            },
-            shop : {
-              comparisons : '<<phone name 1>>,<<phone name 2>>,<<phone name 3>>,<<phone name 4>>'
-            }
-          },
-          _generateAnalysisData:function(items){
-            var vs=""
-            for(var i=0;i<items.length;i++){
-              vs+=","+items[i].name;
-            }
-            if(vs){
-              vs=vs.substring(1);
-            }
-            this._adobeData.shop.comparisons=vs;
-          },
-          _metaDescription:"Sprint Compare",          
-          _controller:"phoneController",
-          _shortcut:"phoneCompare"
-        },
-        accessories:{
-          _title:"Accessories",
-          _controller:"phoneController",
-          _shortcut:"phoneAccessories",
-          _metaDescription:"Sprint Accessories",          
-          _metaTitle:"Sprint - Accessories",
-          _metaKeywords:"",
-          _adobeData:{
-            page : {
-              channel : 'eStore',
-              subSection : 'Phones', 
-              name : 'Accessories'
-            },
-          },
-          _generateAnalysisData:function(items){
-            var vs=""
-            for(var i=0;i<items.length;i++){
-              vs+=","+items[i].name;
-            }
-            if(vs){
-              vs=vs.substring(1);
-            }
-            this._adobeData.shop.comparisons=vs;
-          },
-          _match:function(hash){
-            return !pathMap._pageNotFound && hash.indexOf(this._formatedHash)==0;
-          }
-        },
-        deals:{
-          _title:"Deals",
-          _controller:"phoneController",
-          _shortcut:"phoneDeals",
-          _metaDescription:"Sprint Deals",          
-          _metaTitle:"Sprint - Deals",
-          _metaKeywords:"",
-          _adobeData:{
-            page : {
-              channel : 'eStore',
-              subSection : 'Phones', 
-              name : 'Deals'
-            },
-          },
-          _generateAnalysisData:function(items){
-            var vs=""
-            for(var i=0;i<items.length;i++){
-              vs+=","+items[i].name;
-            }
-            if(vs){
-              vs=vs.substring(1);
-            }
-            this._adobeData.shop.comparisons=vs;
-          },
-          _match:function(hash){
-            return !pathMap._pageNotFound && hash.indexOf(this._formatedHash)==0;
-          }
         }
       },
       checkout:{
         _title:"Checkout",
         _controller:"checkoutController",
-        _metaTitle:"Sprint - Checkout",
-        _metaDescription:"",
-        _metaKeywords:"Sprint Checkout",
-        _adobeData:{
-          page : {
-            channel : 'eStore',
-            subSection : 'Checkout', 
-            name : 'Shipping and Billing'
-          }
-        },
         _analysisInteractionData:{
           pageEvent : 'transactionStart',
           transactionName : 'checkout'
@@ -249,20 +220,54 @@ var pathMap={
           return this._adobeData;
         }
       },
+      accessories:{
+        _title:"Shop Accessories",
+        _controller:"phoneController",
+        _shortcut:"phoneAccessories",
+        _generateAnalysisData:function(items){
+          var vs=""
+          for(var i=0;i<items.length;i++){
+            vs+=","+items[i].name;
+          }
+          if(vs){
+            vs=vs.substring(1);
+          }
+          this._adobeData.shop.comparisons=vs;
+        },
+        _match:function(hash){
+          if(hash==this._formatedHash){
+            return true;
+          }
+          return false;
+        },
+        accessoriesList:{
+          _controller:"phoneController",
+          _shortCut:"accessoriesList",
+          _generateAnalysisData:function(items){
+            var vs=""
+            for(var i=0;i<items.length;i++){
+              vs+=","+items[i].name;
+            }
+            if(vs){
+              vs=vs.substring(1);
+            }
+            this._adobeData.shop.comparisons=vs;
+          },
+          _generateExtendTitle:function(items){
+            this._title= "Shop Accessories for " +items[0].toUpperCase().replace(/-/g," ");
+          },
+          _match:function(hash){
+            if(hash.indexOf(this._formatedHash)==0){
+              return true;
+            }
+            return false;
+          }
+        },
+      },
       market:{
         _title:"Boost Market",
         _controller:"app",
         _shortcut:"market",
-        _metaDescription:"Boost Market",          
-        _metaTitle:"Boost - Market",
-        _metaKeywords:"",
-        _adobeData:{
-          page : {
-            channel : 'eStore',
-            subSection : 'market', 
-            name : 'Boost Market'
-          }
-        },
         _generateAnalysisData:function(items){
           var vs=""
           for(var i=0;i<items.length;i++){
@@ -278,16 +283,6 @@ var pathMap={
         _title:"Order Status",
         _controller:"checkoutController",
         _shortcut:"orderStatus",
-        _metaDescription:"Sprint Order Status",          
-        _metaTitle:"Sprint - Order Status",
-        _metaKeywords:"",
-        _adobeData:{
-          page : {
-            channel : 'eStore',
-            subSection : 'Checkout', 
-            name : 'Order Status'
-          },
-        },
         _generateAnalysisData:function(items){
           var vs=""
           for(var i=0;i<items.length;i++){
@@ -299,18 +294,25 @@ var pathMap={
           this._adobeData.shop.comparisons=vs;
         }
       }
-
     },
     page:{
       _title:"",
       _controller:"pageController",
       _match:function(hash){
-        return hash.indexOf(this._formatedHash)==0;
+        return appUtil.$scope.pageController && appUtil.$scope.pageController.inStaticPage || hash.indexOf(this._formatedHash)==0;
       },
       _generateExtendTitle:function(ps){
-        this._extendTitle= appUtil.ui.htmlToText(appUtil.data.keyToTitle(ps[ps.length-1]));
+        //this._title= appUtil.ui.htmlToText(appUtil.data.keyToTitle(ps[ps.length-1]));
       },
       _setMetas:function(para){
+        appUtil.ui.setMetaInfo("title",this._metaTitle);
+        appUtil.ui.setMetaInfo("description",this._metaDescription);
+        appUtil.ui.setMetaInfo("keywords",this._metaKeywords);
+      },
+      _sendAnalysisData:function(data){
+        this._adobeData=data;
+        pathMap._insertCommonAdobeData(this._adobeData);
+        analysisManager.sendData();
       }
     },
     nextversion:{
@@ -318,21 +320,24 @@ var pathMap={
     },
     pagenotfound:{
       _title:"Page Not Found",
-      _controller:"app"
+      _controller:"app",
+      _match:function(hash){
+        return pathMap._pageNotFound;
+      }
     }
   },
   _getCurPath:function(){
-    if(!pathMap._formatedLocationHash){
-      return [];
+    if(appUtil.$scope.pageController && appUtil.$scope.pageController.inStaticPage || !pathMap._formatedLocationHash){
+      return [pathMap._home,pathMap._page];
+    }
+    if(this._pageNotFound){
+      return [pathMap._home,pathMap._pagenotfound];
     }
     if(pathMap._formatedLocationHash==this._cacheHash){
       return this._cachePath;
     }
     this._cacheHash=pathMap._formatedLocationHash;
-    this._pageNotFound=this._pageNotFound || this._cacheHash==this._pagenotfound._formatedHash
-    if(this._pageNotFound){
-      this._cacheHash=this._pagenotfound._formatedHash;
-    }
+
     this._cachePath=[];
     var hash=this._cacheHash.split("#")[1].replace("!","").split("/");
     var lastNode=this;
@@ -365,7 +370,7 @@ var pathMap={
   },
   _insertCommonAdobeData:function(d){
     d.page.language = 'EN';
-    d.page.app = 'SprintPrepaid'
+    d.page.app = appName;
     d.login = {status: 'not logged-in'};
     d.account = {BAN : ''};    
     d.subscription = { 
@@ -382,9 +387,23 @@ var pathMap={
         this._formatedLocationHash = this._formatedLocationHash.replace(pathMap._phones._formatedHash,pathMap._phones._formatedHash+"details/");
       }
     }
+    if(this._formatedLocationHash.indexOf(pathMap._hotspots._formatedHash)==0){
+      var v = this._formatedLocationHash.replace(pathMap._hotspots._formatedHash,"").split("/")[0];
+      if(v){
+        this._formatedLocationHash = this._formatedLocationHash.replace(pathMap._hotspots._formatedHash,pathMap._hotspots._formatedHash+"details/");
+      }
+    }
+    if(this._formatedLocationHash.indexOf(pathMap._phoneAccessories._formatedHash)==0){
+      var v = this._formatedLocationHash.replace(pathMap._phoneAccessories._formatedHash,"").split("/")[0];
+      if(v){
+        this._formatedLocationHash = this._formatedLocationHash.replace(pathMap._phoneAccessories._formatedHash,pathMap._accessoriesList._formatedHash);
+      }
+    }
     return this._formatedLocationHash;
   },
   _triggerApp:function(){
+    appUtil.$scope && appUtil.$scope.pageController?appUtil.$scope.pageController.init():"";
+    this._pageNotFound=false;
     try{
       //check url query
       if(location.hash.indexOf("?")>0){
@@ -416,8 +435,13 @@ var pathMap={
     $(document).click();    
   },
   _init:function(){
+    if(!pathResource){
+      setTimeout("pathMap._init()",10);
+      return;
+    }
     this._tmpShortcut={};
     this._hash="#!/";
+    this._loadNodeResource();
     this._build(this,this);
     for(var k in this._tmpShortcut){
       this[k]=this._tmpShortcut[k];
@@ -437,6 +461,25 @@ var pathMap={
       }
     }else{
       appUtil.ui.refreshContent();
+    }
+  },
+  _loadNodeResource:function(node,rNode){
+    if(!node){
+      node=this;
+    }
+    if(!rNode){
+      rNode=pathResource;
+    }
+    for(k in rNode){
+      if(k.indexOf("_")==0){
+        node[k]=rNode[k];
+      }
+    }
+    
+    for(var k in node){
+      if(rNode[k] && k.indexOf("_")!=0){
+        this._loadNodeResource(node[k],rNode[k]);
+      }
     }
   },
   _build:function(map,node){

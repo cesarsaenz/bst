@@ -12,22 +12,34 @@
 	content="black-translucent" />
 <meta name="description" content="" />
 <meta name="author" content="" />
+<meta name="page-title" content="About Us">
 <title>Prepaid Cell Phones &amp; No Contract Cell Phones | Boost
 	Mobile</title>
 <link rel="shortcut icon" href="img/favicon.ico" />
-<link href="../css/bootstrap.min.css" rel="stylesheet" />
+<!--link href="../css/bootstrap.min.css" rel="stylesheet" />
 <link href="../css/jasny-bootstrap.min.css" rel="stylesheet" />
-<link href="../css/app-framework.css" rel="stylesheet" />
+<link href="../css/app-framework.css" rel="stylesheet" / -->
 
 <!-- BEGIN STYLE CREATED BY SOFTTEK -->
-<link href="../css/softtek.css" rel="stylesheet" />
-<link href="../css/static.css" rel="stylesheet" />
-<link href="../css/about.css" rel="stylesheet" />
+<link href="bst/css/softtek.css" rel="stylesheet" />
+<link href="bst/css/static.css" rel="stylesheet" />
+<link href="bst/css/about.css" rel="stylesheet" />
 <!-- END STYLE CREATED BY SOFTTEK -->
 
 </head>
+
+<ol id="page-path" class='breadcrumb hidden-xs'>
+  <li class='ng-scope'>
+    <a class='ng-binding' href='#!/'>Home</a>
+  </li>
+  <li class='ng-scope'>
+    <a class='ng-binding' href='#!/framework_about_us'>About</a>
+  </li>
+  <li class='active ng-binding'>Dealers</li>
+</ol> 
+
 <body>
-	<header class="navmenu navmenu-default navmenu-fixed-left offcanvas-xs">
+	<!--header class="navmenu navmenu-default navmenu-fixed-left offcanvas-xs">
 		<div class="container">
 			<div class="col-sm-3 col-md-4 linkHome hidden-xs">
 				<a href="framework_home.html">Home</a>
@@ -120,7 +132,7 @@
 				</ul>
 			</div>
 		</div>
-	</header>
+	</header-->
 	<div
 		class="navbar navbar-default navbar-fixed-top hidden-sm hidden-md hidden-lg">
 		<button type="button" class="navbar-toggle" data-toggle="offcanvas"
@@ -198,51 +210,67 @@
 
 		<!-- BEGIN OF BREADCRUMB -->
 		<!-- EDIT YOURE BREADCRUMB TO DISPLAY THE CORRECT PATH OF YOUR PAGE -->
-		<ol class="breadcrumb hidden-xs">
+		<!--ol class="breadcrumb hidden-xs">
 			<li><a href="framework_home.html">Home</a></li>
 			<li><a href="">About</a></li>
 			<li><a href="">Legal</a></li>
 			<li class="active">Terms Conditions</li>
-		</ol>
+		</ol-->
 		<!-- BEGIN OF BREADCRUMB -->
 
-		<h2 class="title">About Us</h2>
+		<!--h2 class="title">About Us</h2-->
 
 
 		<!-- BEGIN PRINCIPAL CONTAINER -->
 		<section class="container">
 
 			<!-- BEGIN LEFT MENU -->
+			<!-- BEGIN NEW LEFT MENU -->
 			<!-- HERE USE THE CLASS ACTIVATE FOR YOUR PAGE ASSIGNED -->
-			<div class="col-xs-3 col-md-2">
+			<div class="col-xs-3 col-md-2 hidden-xs">
 				<ul class="tabs-left">
-					<li class="active"><a href="#databoost" data-toggle="tab">About
-							Us</a></li>
-					<li><a href="#two" data-toggle="tab">Careers</a></li>
-					<li><a href="#three" data-toggle="tab">Dealer
-							Opportunities</a></li>
-					<li><a href="#intl" data-toggle="tab">Affiliate Program</a></li>
-					<li><a href="#hotspot" data-toggle="tab">Service Policies</a></li>
-
-					<li><a href="framework_whychoose.html">Visitors Agreement</a></li>
-					<li><a href="framework_whychoose.html">Acceptable Use
-							Policy</a></li>
-					<li><a href="framework_whychoose.html">Copyright
-							Information</a></li>
-					<li><a href="">Terms & Conditions</a></li>
-					<li><a href="framework_whychoose.html">Network Management</a></li>
-					<li><a href="framework_whychoose.html">Privacy Policy</a></li>
-					<li><a href="framework_whychoose.html">Legal Regulatory &
-							Consumer Resources</a></li>
-					<li><a href="framework_whychoose.html">About AdChoices</a></li>
-					<li><a href="framework_whychoose.html">CTIA/Regulatory</a></li>
-
+					<li><a href="#!/framework_about_us/">About Us</a></li>
+					<li><a href="#!/framework_careers/">Careers</a></li>
+					<li class="active"><a href="#!/framework_dealer_oportunities/">Dealer Opportunities</a></li>
+					<li><a href="#!/framework_affiliate_program/">Affiliate Program</a></li>
+					<li><a href="#!/framework_service_policies/">Service policies</a></li>
 					<li><a href="http://newsroom.boostmobile.com/">Newsroom</a></li>
-					<li><a
-						href="http://www.boostmobile.com/about/retail-real-estate/">Retail
-							Real State</a></li>
-				</ul>
+					<li><a href="#!/framework_retail_real_state/">Retail Real Estate</a></li>
+
+					</ul>
 			</div>
+			<div class="mobile-about-menu visible-xs">
+			
+				<div class="col-xs-3"><a href="#!/framework_about_us/" class="">About <br />Us</a></div>
+				<div class="col-xs-3"><a href="#!/framework_careers/" class="">Careers<br />&nbsp;</a></div>
+				<div class="col-xs-3"><a href="#!/framework_dealer_oportunities/" class="active">Dealer <br />Opportunities</a></div>
+				<div class="col-xs-3"><a href="#!/framework_affiliate_program/" class="">Affiliate <br />Program</a></div>
+
+				<div class="col-xs-4">
+					<a id="services-dd" href="#" class="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Service <br />Policies&nbsp;<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a>
+					<ul id="services-box" class="dropdown-menu text-center" aria-labelledby="services-dd">
+						<li><a href="#!/framework_service_policies/">Service Policies</a></li>
+						<li><a href="#!/framework_visitors_policy/">Visitor&#39;s Agreement</a></li>
+						<li><a href="#!/framework_acceptable_use_policy/">Acceptable Use Policy</a></li>
+						<li><a href="#!/framework_warranty_policy/">Warranty Policy</a></li>
+						<li><a href="#!/framework_copyright_information/">Copyright Information</a></li>
+						<li><a href="#!/framework_terms_and_conditions/">Terms & Conditions</a></li>
+						<li><a href="#!/framework_product_terms_conditions/">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-Important Service/Product Specific Terms</a></li>
+						<li><a href="#!/framework_general_terms_conditions/">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-General Terms & Conditions</a></li>
+						<li><a href="#!/framework_network_management/">Network Management</a></li>
+						<li><a href="#!/framework_privacy_policy/">Privacy Policy</a></li>
+						<li><a href="#!/framework_auto_reboost_SM/">Auto Re-Boost</a></li>
+						<li><a href="#!/framework_return_policy/">Return Policy</a></li>
+						<li><a href="#!/framework_legal_regulatory_consumer/">Legal Regulatory & Consumer Resources</a></li>
+						<li><a href="#!/framework_ad-choices/">About AdChoices</a></li>
+						<li><a href="#!/framework_ctia_regulatory/">CTIA/Regulatory</a></li>
+					</ul>
+				</div>
+				<div class="col-xs-4"><a href="http://newsroom.boostmobile.com/" class="">Newsroom<br />&nbsp;</a></div>
+				<div class="col-xs-4"><a href="#!/framework_retail_real_state/" class="">Retail <br />Real Estate</a></div>
+				<!--div class="col-xs-4"><select class=""><option>Services Policies</option><option><a href="www.google.com">test</a></option></select></div-->
+			</div>
+			<!-- END NEW LEFT MENU -->
 			<!-- END LEFT MENU -->
 
 			<!-- BEGIN MAIN CONTENT -->
@@ -311,9 +339,9 @@ li {
 }
 
 .mainbox li {
-	background-image: url('/_images/landing/checkmark-orange.png');
+	background-image: url('bst/img/checkmark-orange.png');
 	background-repeat: no-repeat;
-	margin-left: 0;
+	margin-left: 10px;
 	padding-left: 25px;
 	list-style-type: none
 }
@@ -331,12 +359,12 @@ li {
 	display: none
 }
 
-.sidebox h3 a:link,.sidebox h3 a:visited {
+.sidebox h3 a:link, .sidebox h3 a:visited {
 	-webkit-font-smoothing: initial;
 	text-decoration: none;
 	color: #000;
 	font-size: 15px;
-	background-image: url('/_images/icons/sprite_action_icons.png');
+	background-image: url('bst/img/sprite_action_icons.png');
 	background-repeat: no-repeat;
 	background-position: -53px -247px;
 	margin-left: 0;
@@ -376,7 +404,8 @@ li {
 
 .sidebox {
 	float: right;
-	width: 250px
+	width: 280px;
+	margin-right: 55px
 }
 
 .dealer-box {
@@ -398,7 +427,7 @@ li {
 .download:link,.download:visited {
 	font-size: 19px;
 	color: #000 !important;
-	background: url('/_images/icons/sprite_action_icons.png') -50px 2px
+	background: url('bst/img/sprite_action_icons.png') -50px 2px
 		no-repeat;
 	padding-left: 25px;
 	text-decoration: none
@@ -448,12 +477,35 @@ li {
 	-pie-background: linear-gradient(#f7901e, #d1581c);
 	behavior: url(/_themes/libs/PIE.htc)
 }
+
+.vignetes{
+ list-style-type: disc;
+ text-align:left;
+ position: relative; 
+ left: 50px;
+ font-size: 11px;
+ font-family: verdana;
+ color: #222;
+ line-height: 1.0;
+ direction:initial;
+ margin: 10px 5px 15px;
+ margin-right: 60px;
+}
+
+div#collapseOne p,
+div#collapseTwo p,
+div#collapseThree p,
+div#collapseFour p,
+div#collapseFive p,
+div#collapseSix p{
+	margin-left: 25px;
+}
 </style>
 				<div class="about-top">
 					<div style="display: table-cell; vertical-align: middle;">
-						<h1 class="font-boostneo" style="color: #FFF">Dealer
+						<h1 class="font-boostneo" style="color: #FFF; vertical-align: inherit;">Dealer
 							Opportunities</h1>
-						<p class="banner-label">Become a Boost Mobile Dealer</p>
+						<p class="banner-label" style="vertical-align: inherit;">Become a Boost Mobile Dealer</p>
 					</div>
 				</div>
 				<div class="about-bottom">
@@ -498,91 +550,98 @@ li {
 				<div class="dealer-box">
 					<div class="sidebox">
 						<h3>
-							<a href="#"><span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>What are the qualifications?</a>
+							<a data-toggle="collapse" href="#collapseOne">What are the qualifications?</a>
 						</h3>
-						<div class="slideToggle">
-							<p>
-								<strong>Owner must...</strong>
-							</p>
-							<ul>
-								<li>live within market area stores are located.</li>
-								<li>have two years branded retail management experience.</li>
-								<li>have willingness and desire to open a minimum of five
-									stores within two years.</li>
-								<li>have a comprehensive business plan.</li>
-								<li>have the financial capacity to open multiple stores.</li>
-								<li>have $100,000 in liquid assets.</li>
-								<li>accept Sprint Prepaid Group's Branded Retail
-									Acknowledgement Terms and Conditions.</li>
-							</ul>
+						<div class="panel-body">
+							<div id="collapseOne" class="slideToggle panel-collapse collapse">
+								<p>
+									<strong>Owner must...</strong>
+								</p>
+								<ul>
+									<li class="vignetes">live within market area stores are located.</li>
+									<li class="vignetes">have two years branded retail management experience.</li>
+									<li class="vignetes">have willingness and desire to open a minimum of five
+										stores within two years.</li>
+									<li class="vignetes">have a comprehensive business plan.</li>
+									<li class="vignetes">have the financial capacity to open multiple stores.</li>
+									<li class="vignetes">have $100,000 in liquid assets.</li>
+									<li class="vignetes">accept Sprint Prepaid Group's Branded Retail
+										Acknowledgement Terms and Conditions.</li>
+								</ul>
+							</div>
 						</div>
 						<h3>
-							<a href="#"><span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>What's the investment?</a>
+							<a data-toggle="collapse" href="#collapseTwo">What's the investment?</a>
 						</h3>
-						<div class="slideToggle">
-							<p>Investments and costs vary by market and store location,
-								but here are typical initial investments.</p>
-							<p>
-								<strong>Fixtures:</strong> <span class="orange">$9,000</span><br>
-								<em>Ex. Counters, seating, shipping, installation, exterior
-									signage</em>
-							</p>
-							<p>
-								<strong>Equipment and leasehold:</strong> <span class="orange">$4,000</span><br>
-								<em>Ex. POS systems, computers, paint, flooring, track
-									lighting</em>
-							</p>
-							<p>
-								<strong>Pre-opening operating costs:</strong> <span
-									class="orange">$7,000</span><br> <em> Ex. Staffing,
-									training, lease deposits, grand opening expenses</em>
-							</p>
-							<p>
-								<strong>Working capital:</strong> <span class="orange">$20,000</span>
-							</p>
-							<p>
-								<em>Average break-even after opening is six months.</em>
-							</p>
-							<p>
-								<em>Master Agents typically provide a line of credit for
-									initial inventory investment. If not, initial inventory is
-									approximately $7,000.</em>
-							</p>
+						<div class="panel-body">
+							<div id="collapseTwo" class="slideToggle panel-collapse collapse">
+								<p>Investments and costs vary by market and store location,
+									but here are typical initial investments.</p>
+								<p>
+									<strong>Fixtures:</strong> <span class="orange">$9,000</span><br>
+									<em>Ex. Counters, seating, shipping, installation, exterior
+										signage</em>
+								</p>
+								<p>
+									<strong>Equipment and leasehold:</strong> <span class="orange">$4,000</span><br>
+									<em>Ex. POS systems, computers, paint, flooring, track
+										lighting</em>
+								</p>
+								<p>
+									<strong>Pre-opening operating costs:</strong> <span
+										class="orange">$7,000</span><br> <em> Ex. Staffing,
+										training, lease deposits, grand opening expenses</em>
+								</p>
+								<p>
+									<strong>Working capital:</strong> <span class="orange">$20,000</span>
+								</p>
+								<p>
+									<em>Average break-even after opening is six months.</em>
+								</p>
+								<p>
+									<em>Master Agents typically provide a line of credit for
+										initial inventory investment. If not, initial inventory is
+										approximately $7,000.</em>
+								</p>
+							</div>
 						</div>
 						<h3>
-							<a href="#"><span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>Interested in applying?</a>
+							<a data-toggle="collapse" href="#collapseThree">Interested in applying?</a>
 						</h3>
-						<div class="slideToggle">
-							<p>
-								<a href="/about/application/?form=select">Apply Online</a>
-							</p>
-							<p>
-								<strong>Approved applicants will undergo an interview
-									process with:</strong>
-							</p>
-							<ul>
-								<li>A Master Agent (MA)/business partner of SPG</li>
-							</ul>
+						<div class="panel-body">
+							<div id="collapseThree" class="slideToggle panel-collapse collapse">
+								<p>
+									<a href="/about/application/?form=select">Apply Online</a>
+								</p>
+								<p>
+									<strong>Approved applicants will undergo an interview
+										process with:</strong>
+								</p>
+								<ul>
+									<li class="vignetes">A Master Agent (MA)/business partner of SPG</li>
+								</ul>
+							</div>
 						</div>
+						<br><br>
 					</div>
 					<div class="mainbox">
 						<br />
 						<h3 class="font-boostneo-bold">Why join the Select Retailer
 							Program?</h3>
 						<ul>
-							<li><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>&nbsp;&nbsp;No franchise agreement and no fees. Being a select
+							<li>No franchise agreement and no fees. Being a select
 								retailer gives a multi-store owner the opportunity to make a
 								six-figure income.</li>
-							<li><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>&nbsp;&nbsp;Receive a fast return on investment with your low-cost
+							<li>Receive a fast return on investment with your low-cost
 								initial investment.</li>
-							<li><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>&nbsp;&nbsp;Earn competitive compensation through activating new
+							<li>Earn competitive compensation through activating new
 								customers, in-store and credit/debit card customer payment,
 								accessory sales and residual income from new customers you sign
 								up.</li>
-							<li><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>&nbsp;&nbsp;Sell select newly released devices weeks before other
+							<li>Sell select newly released devices weeks before other
 								dealers. You can also be the first in line to have inventory set
 								aside for your store location.</li>
-							<li><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>&nbsp;&nbsp;Have access to high-quality fixtures and signage, demo
+							<li>Have access to high-quality fixtures and signage, demo
 								devices and brand-approved promotional materials to give your
 								store a best-in-class experience.</li>
 						</ul>
@@ -598,8 +657,8 @@ li {
 							Program. Branded retailers who meet program requirements will
 							receive additional compensation.</p>
 							<span class="dealer-learn-more"><a class="download"
-							href="/_images/landing/Premier_Branded_Retailer_Program.pdf"
-							target="blank"><span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>Learn More</a></span>
+							href="bst/pdf/english/Premier_Branded_Retailer_Program.pdf"
+							target="blank">Learn More</a></span>
 						<br />
 						<br />
 					</div>
@@ -611,67 +670,74 @@ li {
 				<div class="dealer-box">
 					<div class="sidebox">
 						<h3>
-							<a href="#"><span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>What are the qualifications?</a>
+							<a data-toggle="collapse" href="#collapseFour">What are the qualifications?</a>
 						</h3>
-						<div class="slideToggle">
-							<p>
-								<strong>Owner must...</strong>
-							</p>
-							<ul>
-								<li>live within market area store is located.</li>
-								<li>have two years retail management experience.</li>
-								<li>accept Sprint Prepaid Group's Branded Retail
-									Acknowledgement Terms and Conditions.</li>
-							</ul>
+						<div class="panel-body">
+							<div  id="collapseFour" class="slideToggle panel-collapse collapse">
+								<p>
+									<strong>Owner must...</strong>
+								</p>
+								<ul>
+									<li class="vignetes">live within market area store is located.</li>
+									<li class="vignetes">have two years retail management experience.</li>
+									<li class="vignetes">accept Sprint Prepaid Group's Branded Retail
+										Acknowledgement Terms and Conditions.</li>
+								</ul>
+							</div>
 						</div>
 						<h3>
-							<a href="#"><span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>What's the investment?</a>
+							<a data-toggle="collapse" href="#collapseFive">What's the investment?</a>
 						</h3>
-						<div class="slideToggle">
-							<p>Investments and costs vary by market and store location,
-								but here are typical initial investments.</p>
-							<p>
-								<strong>Fixtures:</strong> <span class="orange">$2,000</span><br>
-								<em>Ex. Glass case fixture, cash desk</em>
-							</p>
-							<p>
-								<strong>Equipment and leasehold:</strong><span class="orange">
-									$2,000</span><br> <em>Ex. Banners, signage, lightboxes
-									computer terminals</em>
-							</p>
-							<p>
-								<strong>Pre-opening operating costs:</strong><span
-									class="orange"> $3,000</span><br> <em>Ex. Staff
-									training, marketing, collateral, inventory</em>
-							</p>
+						<div class="panel-body">
+							<div  id="collapseFive" class="slideToggle panel-collapse collapse">
+								<p>Investments and costs vary by market and store location,
+									but here are typical initial investments.</p>
+								<p>
+									<strong>Fixtures:</strong> <span class="orange">$2,000</span><br>
+									<em>Ex. Glass case fixture, cash desk</em>
+								</p>
+								<p>
+									<strong>Equipment and leasehold:</strong><span class="orange">
+										$2,000</span><br> <em>Ex. Banners, signage, lightboxes
+										computer terminals</em>
+								</p>
+								<p>
+									<strong>Pre-opening operating costs:</strong><span
+										class="orange"> $3,000</span><br> <em>Ex. Staff
+										training, marketing, collateral, inventory</em>
+								</p>
+							</div>
 						</div>
 						<h3>
-							<a href="#"><span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>Interested in applying?</a>
+							<a data-toggle="collapse" href="#collapseSix">Interested in applying?</a>
 						</h3>
-						<div class="slideToggle">
-							<p>
-								<a href="/about/application/">Apply Online</a>
-							</p>
-							<p>Approved applicants will be contacted by a Master Agent; a
-								business partner of Sprint, who will provide additional details
-								about our programs, inventory management and operational
-								support.</p>
+						<div id="collapseSix" class="slideToggle panel-collapse collapse">
+							<div class="panel-body">
+								<p>
+									<a href="/about/application/">Apply Online</a>
+								</p>
+								<p>Approved applicants will be contacted by a Master Agent; a
+									business partner of Sprint, who will provide additional details
+									about our programs, inventory management and operational
+									support.</p>
+							</div>
 						</div>
+						<br><br>
 					</div>
 					<div class="mainbox">
 						<br />
 						<h3 class="font-boostneo-bold">Why join the Authorized
 							Retailer Program?</h3>
 						<ul>
-							<li><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>&nbsp;&nbsp;Earn revenue through new handset device sales, accessory
+							<li>Earn revenue through new handset device sales, accessory
 								sales and residual compensation on all new activations done
 								through the Sales Portal.</li>
-							<li><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>&nbsp;&nbsp;Get sales support through promotional contests,
+							<li>Get sales support through promotional contests,
 								marketing opportunities and event participation from the Sprint
 								Prepaid Team.</li>
-							<li><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>&nbsp;&nbsp;Sell a selection of quality handsets from LG, Motorola,
+							<li>Sell a selection of quality handsets from LG, Motorola,
 								Samsung, Kyocera and ZTE.</li>
-							<li><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>&nbsp;&nbsp;Have access to high-quality devices and brand-approved
+							<li>Have access to high-quality devices and brand-approved
 								promotional materials.</li>
 						</ul>
 					</div>
@@ -679,14 +745,18 @@ li {
 				</div>
 				<div class="dealer-box dealer-box2">
 					<div id="quote">
-						<span class="font-boostneo">"Operating a Boost Mobile store
+						<span class="font-boostneo">Operating a Boost Mobile store
 							has been more fulfilling than I initially realized. The success
 							of my first store encouraged me to open multiple locations with
 							guidance and support from the professional representatives.
 							Thanks to their continued dedication to my goals, I'm able to
-							earn a great living with Boost Mobile.""</span> <br>
+							earn a great living with Boost Mobile.</span>
+						<img src="bst/img/quote-right.png"></img>
+						<img style="position:absolute; left:15px; top:6px;" src="bst/img/quote-left.png"></img>
+							<br><br>
 						<span style="color: #676767; font-size: 13px; font-style: italic;">-
 							Mojy Aghighi Owner (Gulf Coast Wireless)</span>
+						<br><br>
 					</div>
 				</div>
 				<div style="clear: both;"></div>
@@ -704,7 +774,7 @@ li {
 	</div>
 
 	<!-- BEGIN OF FOOTER -->
-	<footer>
+	<!--footer>
 		<div class="container">
 			<div class="hidden-xs hidden-sm col-md-8 pull-right">
 				<div id="sitelinks">
@@ -803,14 +873,15 @@ li {
 				</p>
 			</div>
 		</div>
-	</footer>
+	</footer-->
 	<!-- END OF FOOTER -->
 
-	<!-- BEGIN OF SCRIPTS SECTION -->
+	<!-- BEGIN OF SCRIPTS SECTION 
 	<script src="../js/lib/jquery.min.js"></script>
 	<script src="../js/lib/sprintprepaid-bootstrap.min.js"></script>
-	<script src="../js/lib/jasny-bootstrap.min.js"></script>
-	<script>
+	<script src="../js/lib/jasny-bootstrap.min.js"></script> -->
+	<script language="javascript">
+	/*
 		$('#coverageMap').on('shown.bs.modal', function() {
 			$('#coverageModal').focus()
 		})
@@ -823,6 +894,10 @@ li {
 				$(this).toggleClass('open');
 			});
 		});
+		*/
+		document.addEventListener("contextmenu", function(e){
+			e.preventDefault();
+		}, false);		
 	</script>
 	<!-- END OF SCRIPTS SECTION -->
 

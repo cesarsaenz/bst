@@ -1,45 +1,110 @@
 <div ng-if="app.isCurrentContext(pathMap._home._formatedHash)">
   <section class="promo-full">
-    <div class="col-xs-12">
-      <banner-item  url="get_banner_home" index="0" class="promo01" options="bg_image,url,title,description,link_text"></banner-item>
+    <div class="col-xs-12" style="border-bottom: 2px solid black;">
+     <!-- <banner-item  url="get_banner_home" index="0" class="promo01" options="bg_image,url,title,description,link_text"></banner-item> -->
+      <a class=" hidden-xs promo01" href="#monthlyplans">
+          <h1 style="color:#000;font-size:55px;position:absolute;top:40px;left:375px;letter-spacing:0px; line-height:62px;">Only Boost® grows<br>your data plan.</h1>
+          <p style="color:#000;font-size:20px;position:absolute;top:180px;left:390px;letter-spacing:0px;">Starting at</p>
+          <span class="promoHeading" style="background-color:black;">Learn More</span>
+          <p class="legal" style="font: 12px Arial;position:absolute;top:310px;left:390px;text-align:left;color:#000;letter-spacing:-0.25px;">Get up to 3GB of extra high-speed data after 18 on-time payments.</p>
+		  </a>
     </div>
   </section>
+  <!--
+  <section class="banner-static hidden-md hidden-lg visible-xs" style="border-bottom:2px solid black;">
+			<a href=""><img src="bst/img/banner-02.jpg"></a>
+	</section>
+  -->
+  <div class="container" style="background-color:#000;">
+    <div id="myCarousel" class="carousel slide hidden-md hidden-lg visible-xs" data-ride="carousel">
+    <!-- Indicators -->
+     <ol class="carousel-indicators">
+       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+       <li data-target="#myCarousel" data-slide-to="1"></li>
+       <li data-target="#myCarousel" data-slide-to="2"></li>
+       <li data-target="#myCarousel" data-slide-to="3"></li>
+     </ol>
+    <!-- Wrapper for slides -->
+     <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="bst/img/iphonebuy.jpg">
+      </div>
+      <div class="item">
+       <a href="{{pathMap._phones._hash}}">
+        <img src="bst/img/lggstylo-gwp-hp-mobile.jpg">
+        </a>
+      </div>
+      <div class="item">
+        <img src="bst/img/growingdata.jpg">
+      </div>
+         <div class="item">
+         <a href="{{pathMap._hotspots._hash}}">
+        <img src="bst/img/hotspot_mobile.jpg">
+        </a>
+         </div>
+     </div>
+    </div>
+  </div>
   <phone-genie></phone-genie>
-  <section class="notice">
-    <h3>New Customers! Call our live experts to pick your perfect phone &amp; plan <span>Call Now! 1-855-364-9032</span></h3>
-  </section>
+  
   <section class="promo-half">
-    <div class="col-xs-6">
-      <banner-item url="get_banner_home" index="1" class="promo02" options="url,image,title,description,link_text"></banner-item>
-    </div>
-    <div class="col-xs-6">
-      <banner-item url="get_banner_home" index="2" class="promo03" options="url,image,title,description,link_text"></banner-item>
-    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6  promo02">
+				<p><strong>$50 OFF</strong> credit when you switch to Boost Mobile.<br></p>
+        <p>Offer available 10/20/15 - 1/3/16 at boostmobile.com. Limited to new monthly accounts switching from non-Sprint related carriers. Offer terms &amp; other restrictions apply</p>
+        <a class="btn-boost"  href="http://www.boostmobile.com/accountcredit/?icamp=INTC_HP_Panel_Row3Col1_AccountCredit">Learn More</a>
+		</div>
+    <div class="col-xs-12 col-sm-6 col-md-6 promo03 ">
+        <h3>Watch TV from anywhere!</h3>
+				<a class="btn-primary"  href="#!/shop/boost-market#boosttv/">Learn More</a>
+		</div>
   </section>
+  <section class="banner-static hidden-xs" style="border-top:2px solid black;">
+			<a href="#!/shop/phones/lg-g-stylo/features/"><img src="bst/img/banner-01.jpg"></a>
+	</section>
+   
+  <section class="promo-half">
+			<div class="col-xs-12 col-sm-6 col-md-6  promo04" >
+					<h2 class="promoMexico" ><span><strong>Unlimited Calls</strong></span> to Mexico</h2> 
+          <p class="hidden-xs" style="margin-top:-15px;margin-bottom: 0px;"><span style="background:none;color: #FFF;">$5/mo.</span> Mobiles included.<br> Add unlimited talk &amp; text to Mexico.</p>
+          <a class="btn-boost"  href="/#!/international-connect/">Learn More</a>
+          <p class="promoText hidden-xs" style="color:#000;margin:-5px;text-align:center;font-size:11px;position: relative;
+left: -15px;">Available only for select plans.</p>
+			</div>
+      <div class="col-xs-12 col-sm-6 col-md-6  promo04-2" >
+        <h2 style="color:#f99100;">Wi-Fi at home, Wi-Fi on the go.</h2>
+        <p class="hidden-xs" style="margin-top:0px;">Share 10GB of 4G LTE speed for<br>only <strong>$50/mo.</strong></p>
+        <p  class="hidden-xs" style="margin-top:0px;font-size:9.5px;margin-bottom: -15px;text-align: center;">Device required (sold separately).<a class="promoWifi hidden-xs" href="http://www.boostmobile.com/shop/plans/wifi-hotspots/?icamp=INTC_HP_Panel_Row5Col2_WifiHotspots#legal">See Terms</a>.</p>
+        <a class="btn-boost" href="{{pathMap._hotspots._hash}}netgear-fuse-mobile-hotspot/features/"">Learn More</a>
+			</div>
+	</section> 
+    
+    <section class="banner-static hidden-xs">
+			<a href="{{pathMap._phoneDeals._hash}}"><img src="bst/img/banner-05.jpg"></a>
+		</section>
   <section class="fourblocks">
     <div class="col-sm-3">
-      <a class="first">
+      <a class="first" href="{{pathMap._phones._hash}}@PreOwned/">
         <h3>Certified Pre-owned Phones</h3>
         <p>Get a phone that looks like new - at a fraction of the cost. Inspected, tested &amp; equipped with the latest software.</p>
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
       </a>
     </div>
     <div class="col-sm-3">
-      <a>
-        <h3>International Calling Plans</h3>
-        <p>International calling options to fit your budget and lifestyle.</p>
+      <a href="#!/datapacks/">
+        <h3>Data Packs</h3>
+        <p>Need more high-speed data? Add a data pack to your monthly plan.</p>
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
       </a>
     </div>
     <div class="col-sm-3">
       <a>
-        <h3>Mobile Hotspot</h3>
-        <p>Wi-Fi as low as $3/day.</p>
+        <h3>CallWatch</h3>
+        <p>Get alerts in real-time of all suspicious and unwanted incoming calls and text messages for $3/mo.</p>
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
       </a>
     </div>
     <div class="col-sm-3">
-      <a class="last">
+      <a class="last" href="{{pathMap._phones._hash}}">
         <h3>Amazing phones, amazing prices</h3>
         <p>Free Shipping too! All the time. No minimums. No kidding.</p>
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>

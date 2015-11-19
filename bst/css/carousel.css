@@ -1,3 +1,8 @@
+@font-face {
+    font-family: BoostNeoBold;
+    src: url(../fonts/Boost-Neo-Bold.otf);
+}
+
 @media (max-width: 768px){
 	#basic-phones {
 		padding: 20px 10px !important;
@@ -346,16 +351,20 @@ ol, ul {
         #module-phone_slider .jcarousel-next{right:10px;background-image:url('../img/carousel/bg-phone_slider-right.png');z-index:101}
             #phone_slider li{float: left;display:none;width: 169px;height:210px;border-left:1px solid #E3E3E3;border-bottom:1px solid #E3E3E3;margin:0;padding:0;z-index:9;}
                 #module-phone_slider #phone_slider li:first-child{border-left:none}
-                #module-phone_slider #phone_slider li a,#module-phone_shop #shop_phone a{display:block;height:auto;padding-top:130px;width:auto;position:relative;background-position:center 13px;background-repeat:no-repeat;text-decoration: none;}
+                #module-phone_slider #phone_slider li a,#module-phone_shop #shop_phone a{display:block;height:auto;padding-top:125px;width:auto;position:relative;background-position:center 13px;background-repeat:no-repeat;text-decoration: none;}
                 .phone_slider_image{position:absolute;top:10px;margin-left:auto;margin-right:auto;text-align:center;display:block;width:100%;}
                     #module-phone_slider #SCP6780CBC .phone_slider_image img{display:none!important;}
                 #SCP6780CBC .phone_slider_image{background-image:url("../img/carousel/kyocera-innuendo-blue-angle.png");background-repeat: no-repeat;background-position: top center;height: 110px;}
 
-        .phone_slider-name, span.phone_slider-price, .phone_slider-lm, .phone_slider-name, .phone_slider-price, .phone_slider-lm, .phone_slider-price{display:block;width:auto;left:0;text-align:center;font-family:BoostNeoBold}
+        .phone-name, .phone_slider-name, span.phone_slider-price, .phone_slider-lm, .phone_slider-name, .phone_slider-price, .phone_slider-lm, .phone_slider-price{display:block;width:auto;left:0;text-align:center;font-family: BoostNeoBold,Arial,Helvetica,sans-serif;}
+
+span.phone_slider_image img{height:120px;}
+
+
         #module-phone_slider #phone_slider li a span.phone_slider-name,#module-phone_shop #shop_phone a span.phone_slider-name{color:#000;font-size:14px;bottom:45px}
         #module-phone_slider #phone_slider li a span.phone_slider-name span.phone_brand,#module-phone_shop #shop_phone a span.phone_slider-name span.phone_brand{display:block}
         #module-phone_slider #phone_slider li a span.phone_slider-name span.super{font-size:7px;line-height:10px;display:inline-block;vertical-align:top}
-        #module-phone_slider #phone_slider li a .phone_slider-price,#module-phone_shop #shop_phone a .phone_slider-price{color:#F7901E;font-size:12px;margin-top:8px;}
+        #module-phone_slider #phone_slider li a .phone_slider-price,#module-phone_shop #shop_phone a .phone_slider-price{color:#F7901E;font-size:12px;margin-top:4px;}
             .phone_slider_formerprice{color:#898989;margin-right:10px;text-decoration: line-through;display:none;}
             .promo .phone_slider_formerprice{display:inline;}
             .phone_slider_currentprice{font-weight:bold;}

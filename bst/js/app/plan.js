@@ -16,7 +16,7 @@ appModule.controller('planController', ['$http','$scope','$sce', function($http,
     }
   };
   this.loadFaqs=function(){
-    appUtil.net.getLocalData($http,"/spp/js/data/faqs.json").success(function(data){
+    appUtil.net.getLocalData($http,"spp/js/data/faqs.json").success(function(data){
       for(var i=0;i<data.length;i++){
         data[i].content=$sce.trustAsHtml(data[i].content);
       }
