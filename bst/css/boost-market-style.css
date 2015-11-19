@@ -1,3 +1,15 @@
+@font-face{
+    font-family:BoostNeoBold;
+    src:url(../fonts/v2/BoostNeo-Bold.eot);
+    src:url(../fonts/v2/BoostNeo-Bold.eot?#iefix) format("embedded-opentype"),
+        url(../fonts/v2/BoostNeo-Bold.woff) format("woff"),
+        url(../fonts/v2/BoostNeo-Bold.woff) format("woff"),
+        url(../fonts/v2/BoostNeo-Bold.ttf) format("truetype"),
+        url(../fonts/v2/BoostNeo-Bold.svg#boost_neobold) format("svg");
+    font-weight:400;
+    font-style:normal
+}
+
 /********** START OF STYLES OF BOOST MARKET *************/
 @media (max-width: 767px){
 	#money h1,#money h2,#money h3, #money span{
@@ -203,6 +215,9 @@ h4>a{color: #F7901E !important;}
     padding-left: 30px !important;
     position: relative;
     left: -30px;
+    opacity:1!important;
+    font-size: 21px!important;
+    height: 32px;
 }
 h3 > a{
 	font-size: 21 !important;
@@ -225,10 +240,10 @@ h3 > a{
     position: relative;
 }
 .numberedlist li:before {
-    position: absolute;
+   /* position: absolute; */
     margin: -4px 0 0 -35px;
     min-height: 30px;
-    background: url(../img/onetwosprite.png) no-repeat;
+   /* background: url(../img/onetwosprite.png) no-repeat; */
     width: 31px;
     content: "";
     vertical-align: middle;
@@ -241,7 +256,10 @@ h3 > a{
 }
 
 div.market > section.tabs .maintabs #desktop-menu li[role=presentation]{
-	width: 14.285% !important; 
+	/*width: 14.285% !important;*/
+    width: 13.240% !important;
+    margin: 0 10px 0 0;
+    
 }
 
 div#callwatch > section{
@@ -415,4 +433,84 @@ div#social > section h2{
 
 /*.market .tabs #apps section div.col-sm-2-market {border-bottom:none;}*/
 
+.learnmore2 {
+    width: 210px;
+    font-size: 16px;
+    color: #fff!important;
+    text-decoration: none;
+    display: block;
+    padding-top: 7px;
+    padding-bottom: 8px;
+    text-align: center;
+    border-radius: 0 2px 2px 0;
+    -moz-border-radius: 0 2px 2px 0;
+    -webkit-border-radius: 0 2px 2px 0;
+    -webkit-box-shadow: rgba(0,0,0,0.5) 2px 2px 3px;
+    -moz-box-shadow: rgba(0,0,0,0.5) 2px 2px 3px;
+    box-shadow: rgba(0,0,0,0.5) 2px 2px 3px;
+    position: absolute;
+    background: #f7901e;
+    background: -webkit-gradient(linear,0 0,0 bottom,from(#f7901e),to(#d1581c));
+    background: -webkit-linear-gradient(#f7901e,#d1581c);
+    background: -moz-linear-gradient(#f7901e,#d1581c);
+    background: -ms-linear-gradient(#f7901e,#d1581c);
+    background: -o-linear-gradient(#f7901e,#d1581c);
+    background: linear-gradient(#f7901e,#d1581c);
+    -pie-background: linear-gradient(#f7901e,#d1581c);
+    behavior: url(/_themes/libs/PIE.htc);
+}
+
+.learnmore2:hover {
+    background: #6fdbdb;
+    background: -webkit-gradient(linear,0 0,0 bottom,from(#6fdbdb),to(#57b5b0));
+    background: -webkit-linear-gradient(#6fdbdb,#57b5b0);
+    background: -moz-linear-gradient(#6fdbdb,#57b5b0);
+    background: -ms-linear-gradient(#6fdbdb,#57b5b0);
+    background: -o-linear-gradient(#6fdbdb,#57b5b0);
+    background: linear-gradient(#6fdbdb,#57b5b0);
+    -pie-background: linear-gradient(#6fdbdb,#57b5b0);
+    behavior: url(/_themes/libs/PIE.htc);
+	text-decoration: none !important;
+}
+
 /********** END OF STYLES OF BOOST MARKET *************/
+
+div.maintabs ul#desktop-menu{
+    /*background:rgba(0, 0, 0, 0) url("../img/img-bg-market.jpg") no-repeat scroll right bottom / cover;
+    min-height:308px;*/
+}
+
+div.marketheader{
+    background:rgba(0, 0, 0, 0) url("../img/img-bg-market.jpg") no-repeat scroll right bottom / cover;
+     
+}
+
+div.marketheader div.title-marketheader{
+   padding:30px 50% 20px 20px !important;
+   height: 240px;
+}
+
+div.marketheader div.title-marketheader h1{
+    font-family: "Boost_bold",Helvetica,Arial,sans-serif !important;
+    color:#f7901e;
+    font-size: 40px;
+}
+
+
+div.marketheader div.title-marketheader h3{
+    font-family: "Boost_bold",Helvetica,Arial,sans-serif !important;
+    color: #FFF;
+}
+
+
+
+div.maintabs ul#desktop-menu.nav.nav-tabs.hidden-xs.hidden-sm li.tabmarket a{
+    font-family: BoostNeoBold,Arial,Helvetica,sans-serif;
+    font-size: 17px;
+}
+
+
+h2.gray-arrow{
+    background: url(../img/store/gray_arrow.png) left 7px no-repeat;
+    padding: 0 0 0 17px!important;
+}
