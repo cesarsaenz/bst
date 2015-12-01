@@ -745,6 +745,11 @@ div#faq-answers div.faq-answer h2 a{
     font-size: 18px;
 }
 
+.faq-answer.active {
+    background: #F1F1F1 url("../img/tiny_arrow.png") no-repeat scroll -6px 6px;
+	padding-left : 15px !important;
+}
+
 div#faqs.tab-pane.active section div#faq-questions div.faq-question p{
     font-size: 13px;
     padding:0;
