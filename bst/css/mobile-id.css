@@ -12,7 +12,11 @@
     color: #b0b5b9;
     margin-bottom: 20px;
     padding-top: 5px;
+    background-color: #000!important;
 }
+
+
+
 #plan_wrapper li {
     color: #fff !important;
 }
@@ -42,7 +46,7 @@
     width: 204px;
     margin-top: 20px;
     height: 540px;
-    /background: url(../img/sidenav.gif) left top no-repeat;
+    background: url(../img/sidenav.gif) left top no-repeat;
     position: relative;
     z-index: 2;
 }
@@ -115,6 +119,12 @@
     color: #fff!important;
 }
 
+.tabactive{
+    background-position: -220px 0!important;
+    color: #fff!important;
+}
+
+
 .nav_3_col strong {
     display: block;
     font-size: 14px;
@@ -173,7 +183,7 @@
     float: none;
 }
 
-.section-mobile-id blockquote {
+div#plan.clearfix div.inside blockquote.slide, div.pullout blockquote{
     padding: 20px;
     margin-top: 0px;
     margin-bottom: 0px;
@@ -183,16 +193,21 @@
     background-position: left top;
     width: 250px;
     border: 1px solid #2d2e2e;
+    
 }
 
-.section-mobile-id blockquote h2 {
+div#plan.clearfix div.inside blockquote.slide h2, div.pullout blockquote h2 {
     margin: 0px;
     margin-bottom: 10px;
     color: #fd9400;
     font-size: 16px;
 }
 
-.section-mobile-id blockquote li {
+#body.clearfix{
+    background-color:#000!important;
+}
+
+div#plan.clearfix div.inside blockquote.slide li, div.pullout blockquote li {
     background-image: url(../img/mobile_id/bullet.gif);
     background-repeat: no-repeat;
     background-position: left center;
@@ -201,10 +216,11 @@
     list-style-type: none;
 }
 
-.section-mobile-id blockquote a:hover{
+div#plan.clearfix div.inside blockquote.slide a:hover, div.pullout blockquote a:hover{
 	text-decoration: underline !important;
 }
-.section-mobile-id blockquote a:link, .section-mobile-id blockquote a:visited {
+div#plan.clearfix div.inside blockquote.slide a:link, div#plan.clearfix div.inside blockquote.slide a:visited,
+div.pullout blockquote a:visited{
     font-size: 15px;
     color: #fff!important;
 }
@@ -257,7 +273,10 @@ h1 {
     padding-bottom: 10px;
 }
 /***************************************************/
-.pullout {
+
+
+
+div.pullout blockquote {
     float: right;
     position: relative;
     right: 0px;

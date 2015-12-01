@@ -377,9 +377,29 @@
 
 		var analyticsData = {
 		  page:{
-			channel : 'Basic-Phones',
-			subSection : 'Basic-Phones', 
-			name : 'Basic-Phones Page'
+			'page':{
+				'channel':'eStore',
+				'subSection':'Plans',
+				'name':'Daily Unlimited Plan - Basic',
+				'language':'',
+				'app':'bst'
+			}
+			'login':{
+				'status':'',
+			}
+			'account':{
+				'BAN':'',
+				'isOverdue':'',
+				'hasAdvPymt':'',
+			}
+			'subscription':{
+				'currentDeviceID':'',
+				'subscriberID':'',
+				'planID':'',
+				'restartElig':'',
+				'throttleState':'',
+				'usageSummary':'',
+			}
 		  }
 		}
 		pathMap._page._sendAnalysisData(analyticsData);

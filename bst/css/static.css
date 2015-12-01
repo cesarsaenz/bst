@@ -157,7 +157,7 @@ div.tab-content div#datapacks.tab-pane section:first-of-type {
     background: url(../img/data-packs-header2.jpg) top left no-repeat;
     height:260px;
     width: 100%;
-    padding: 140px 42% 0 30px;
+    padding: 140px 50% 0 30px;
     background-size:cover;
 }
 
@@ -704,7 +704,7 @@ div.col-xs-3 ul.tabs-left li.active ul.plans-services li a:hover{
 
 div#faqs.tab-pane.active section div.faqs-header h1{
     color: #f7901e;
-    font-size: 36px;
+    font-size: 25px;
     font-weight: normal;
     letter-spacing: -0.5px;
     margin: 0;
@@ -802,8 +802,8 @@ div.generalSupportSkype{
 
 div#faqs-sub.tab-pane.active section div.faqs-header-sub h1{
     color: #f7901e;
-    /*font-family: BoostNeoBold,Arial,Helvetica,sans-serif;*/
-    font-size: 36px;
+    font-family: BoostNeoBold,Arial,Helvetica,sans-serif;
+    font-size: 25px;
     font-weight: normal;
     letter-spacing: -0.5px;
     margin-left: 25px;
@@ -1280,6 +1280,7 @@ div#dailyplans.tab-pane.active section.tab-addservices div.plans-bottom-box p.al
 
 div#dailyplans.tab-pane.active section.tab-addservices div.plans-bottom-box p.align_content a:link, a:visited{
 	color: #F7901E;
+	text-decoration: underline !important;
 }
 
 div.plans-middle #middle{
@@ -1407,3 +1408,39 @@ div.legal{
 div.box > p  > a{
 	font-size: 13px;
 }
+
+.flag {
+    color: #000;
+    display: inline-block;
+    background-color: #6FDBDB;
+    padding: 5px;
+    font-size: 14px !important;
+}
+
+/** DO NOT remove these styles. They're needed for shop/plans/datapacks page ***************/
+ul.details li::before, ul.details.half li::before {
+    font-family: "Arial" !important;
+    content: "" !important;
+	color: #222;
+	padding: 0 !important;
+}
+
+ul.details{
+	list-style-type: disc !important;
+	padding-left: 56px;
+}
+ul.details li {
+    display: list-item !important;
+	margin-left: 10px;
+}
+.backgroundShadow {
+	background-image: url('../img/shadow.png');
+    background-repeat: no-repeat;
+}
+ul.details > li > a, ul.details + p > a
+{text-decoration: underline !important; color: #F7901E !important;}
+
+ul.details > li > a:hover, ul.details + p > a:hover{
+	color: #67CFCD !important;
+}
+/******** end of shop/pans/datapacks *****************/

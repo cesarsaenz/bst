@@ -89,22 +89,83 @@ section.plans-home a.btn-boost{
 	color: #fff;
 }
 section.promo-wifi-intl div.boldTitle{
-	
-    font-family: "Boost_bold",Helvetica,Arial,sans-serif !important;
+    font-family: BoostNeoBlack,Arial,Helvetica,sans-serif; !important;
 	 font-size: 40px;
     color: #000;
     float: none;
-    line-height: 50px;
-	
+    line-height: 45px;
+	letter-spacing: -0.5px;
 }
 
-section.promo-wifi-intl  div.promo13 div.boldTitle{
-	
-    font-family: "Boost_bold",Helvetica,Arial,sans-serif !important;
-	 font-size: 40px;
+section.promo-wifi-intl div.col-xs-12.col-sm-6.promo12{
+    padding: 25px!important;
+}
+
+.plans-home section.promo-wifi-intl div.promo12 div{
+    padding: 0!important;
+    margin:7px 0 0 0;
+}
+
+.plans-home section.promo-wifi-intl div.promo12 h2,
+.plans-home section.promo-wifi-intl div.promo13 h2{
+    color: #000;
+    font-size: 29px;
+    margin:0!important;
+    padding:0!important;
+    font-weight: 400;
+    width:auto;
+}
+
+.plans-home section.promo-wifi-intl div.promo13 h2{
+    padding: 0 20px!important;
+}
+
+.plans-home section.promo-wifi-intl div.promo13 h3{
+    padding:0 20px;
+    margin:7px 0 0 0;
+    font-size: 18px!important;
+}
+
+.plans-home section.promo-wifi-intl div.promo13 ul.promo13{
+    list-style: outside none disc;
+    padding: 0 20px 0 60px;
+}
+
+.plans-home section.promo-wifi-intl div.promo13 ul.promo13 li{
+    padding: 0!important;
+    margin:10px 0 0 0;
+}
+.plans-home section.promo-wifi-intl div.promo13 p{
+    font-size: 12px;
+    padding: 0 20px!important;
+    margin: 10px 0;
+    font-family: verdana;
+}
+
+.plans-home section.promo-wifi-intl div.promo13 ul.promo13 li span.listaBold{
+    font-family: BoostNeoBlack,Arial,Helvetica,sans-serif!important;
+    color:#222;
+    padding: 0!important;
+    font-size:18px;
+}
+
+
+.plans-home section.promo-wifi-intl div.promo12 h3 {
+    color:#222;
+    font-size: 18px;
+    margin: 10px 0 0 0;
+    padding: 0!important;
+    width:auto;
+}
+
+section.promo-wifi-intl  div.promo13 div.boldTitle{	
+    font-family: BoostNeoBlack,Helvetica,Arial,sans-serif !important;
+    font-size: 40px;
     color: #000;
     float: none;
-    line-height: 50px;
+    line-height: 45px;
+    margin:0;
+    padding:25px!important;
 	
 }
 

@@ -239,15 +239,30 @@ h3 > a{
     line-height: 1.5em;
     position: relative;
 }
-.numberedlist li:before {
-   /* position: absolute; */
-    margin: -4px 0 0 -35px;
-    min-height: 30px;
-   /* background: url(../img/onetwosprite.png) no-repeat; */
-    width: 31px;
+
+#bulletsTV li::before {
+    position: absolute !important; 
+    margin: -4px 0 0 -35px !important;
+    min-height: 30px !important;
+    background: url(../img/onetwosprite.png) no-repeat !important; 
+    width: 31px !important;
     content: "";
     vertical-align: middle;
 }
+#bulletsTV li.two::before {
+    background-position: 0 -32px !important;
+}
+
+.numberedlist li::before {
+    /*position: absolute !important; */
+    /*margin: -4px 0 0 -35px !important; */
+    min-height: 30px !important;
+    /*background: url(../img/onetwosprite.png) no-repeat !important; */
+    width: 31px !important;
+    content: "";
+    vertical-align: middle;
+}
+
 
 #insurance h1 {
     color: #F99100 !important;

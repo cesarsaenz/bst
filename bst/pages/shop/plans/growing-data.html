@@ -269,8 +269,38 @@
 			</p> 
 		</section>
 		
-	</div>	
+	</div>
 	
+	<script>
+var analyticsData = {
+	'page':{
+		'channel':'eStore',
+		'subSection':'Plans',
+		'name':'Growing Data',
+		'language':'',
+		'app':'bst'
+	}
+	'login':{
+		'status':'',
+	}
+	'account':{
+		'BAN':'',
+		'isOverdue':'',
+		'hasAdvPymt':'',
+	}
+	'subscription':{
+		'currentDeviceID':'',
+		'subscriberID':'',
+		'planID':'',
+		'restartElig':'',
+		'throttleState':'',
+		'usageSummary':'',
+	}
+}
+pathMap._page._sendAnalysisData(analyticsData);
+</script>
+
+
    
 </body>
 </html>

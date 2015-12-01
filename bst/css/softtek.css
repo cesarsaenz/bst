@@ -13,6 +13,16 @@
 	.plans ul.submenu-aboutus li a:hover {color:#6fdbdb !important;}
 	.plans ul.submenu-aboutus li.active a {color:#F99100 !important;}
 	.plans ul.submenu-aboutus li.non-active a {color:#333333 !important;}
+
+
+.borderless td, .borderless th {
+    border: none;
+}
+
+.borderless{
+    font-size: 19px;
+}
+
 	
 	
 	

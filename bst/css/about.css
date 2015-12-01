@@ -1,4 +1,6 @@
-#application{background: #000;}
+#application{
+	background-color: #FFF;
+}
 @media (max-width: 310px){
 	.mobile-about-menu > div > a, .mobile-about-menu select {
 		display: table-cell;
@@ -298,3 +300,46 @@ table.devices-table tbody tr{
 table.devices-table tbody tr > td{
 	border: 1px solid #000;
 }
+
+
+section.product-term-confitions{
+    font-family: verdana;
+    font-size: 13px;
+    color: #222;
+    line-height: 1.231;
+}
+
+section.product-term-confitions h2.font-boostneo-gradient{
+    font-family: BoostNeoBold,Arial,Helvetica,sans-serif;
+      font-size: 21px;
+}
+
+div.tab-content div#databoost.tab-pane.active section h4.bn{
+    font-family: 'Boost_med',Arial,Helvetica,sans-serif!important;
+    color: #F7901E!important;
+    font-size: 18px!important;
+    margin-bottom: 5px!important;
+    margin-top: 30px;
+    font-weight: 400;
+    line-height: 1.231;
+    padding: 0;
+
+}
+
+div#databoost.tab-pane.active section p.align_content.nomargin{
+    margin:0 0 15px 0!important;
+}
+
+.button, .button:link, .button:visited {
+    display: inline-block;
+    font-size: 16px;
+    line-height: 32px;
+    text-align: center;
+    color: #FFF;
+    text-decoration: none;
+    width: 115px;
+    border: 0px none;
+    font-family: BoostNeoBold,Arial,Helvetica,sans-serif;
+	padding: 0px 6px 0px 6px !important;
+}
+

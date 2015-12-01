@@ -1056,6 +1056,34 @@
 			<p>See complete service plan details <a href="">here</a>.</p>
 		</section>
 -->
-	</div>	
+	</div>
+	<script>
+		var analyticsData = {
+			'page':{
+				'channel':'eStore',
+				'subSection':'Plans',
+				'name':'Phone Insurance',
+				'language':'',
+				'app':'bst'
+			}
+			'login':{
+				'status':'',
+			}
+			'account':{
+				'BAN':'',
+				'isOverdue':'',
+				'hasAdvPymt':'',
+			}
+			'subscription':{
+				'currentDeviceID':'',
+				'subscriberID':'',
+				'planID':'',
+				'restartElig':'',
+			}
+		}
+		pathMap._page._sendAnalysisData(analyticsData);
+	</script>
+
+
 </body>
 </html>
