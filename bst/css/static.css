@@ -861,12 +861,18 @@ div#faq-answers div.faq-answer-sub h2 a{
 }
 
 div#faqs-sub.tab-pane.active section div#faq-answers div.faq-answer-sub p{
-    font-size: 14px;
+    font-size: 13px;
     padding: 0 0 0 0;
-	margin: 0 0 0;
-    margin-left: 25px;
-	margin-right: 25px;
+	margin: 0 25px 10px 25px;
+    font-family: verdana;
+    color: #222;
 }
+
+div#faqs-sub.tab-pane.active section div#faq-answers div.faq-answer-sub{
+    padding: 0px;
+    margin: 0px 0px 30px;
+}
+
 
 .separator{
     margin-left: 25px;

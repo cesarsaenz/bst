@@ -45,7 +45,7 @@ h2 input {font-size:14px;}
       <div id="content"> <br />
         <p>Use your Boost Mobile&reg; phone to dial internationally while in the U.S. International Long Distance calling capabilities may be enabled on your phone at activation. To activate or deactivate, visit <a target="_parent" href="https://activate.boostmobile.com/boostApp/myAccount.do">My Account</a>.</p>
         <p><strong class="style2">Cost for International calls is the International Rate plus standard airtime rates.</strong> </p>
-        <p><strong class="style2">Some mobile & landline numbers in select countries are excluded. Check <a href="#!/shop/plans/international-connect#ratesbynumber">your number</a> before making each call for the latest information and complete details as included destinations and rates are subject to change at any time.</strong> </p>
+        <p><strong class="style2">Some mobile & landline numbers in select countries are excluded. Check <a id="closeModal" href="javascript:void();" target="_parent">your number</a> before making each call for the latest information and complete details as included destinations and rates are subject to change at any time.</strong> </p>
         <br />
         <a name="top" id="top"></a>
         <h2 class="orange">Search By Country:
@@ -149,6 +149,15 @@ h2 input {font-size:14px;}
                 'usageSummary':'',
             }
         }
+</script>
+
+<script>
+  $(document).ready(function(){
+    $("#closeModal").click(function(){ 
+
+		window.parent.closeModal();
+    });
+  });
 </script>
 
 <script type="text/javascript">_satellite.pageBottom();</script>    	

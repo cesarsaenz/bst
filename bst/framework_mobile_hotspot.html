@@ -10,23 +10,108 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 	<meta name="description" content=""/>
 	<meta name="author" content=""/>
-    <meta name="page-title" content="Shop Plans">
 	<title>Prepaid Cell Phones &amp; No Contract Cell Phones | Boost Mobile</title>
-	<link rel="shortcut icon" href="bst/img/favicon.ico"/>
-	<!-- ozamudio quitar los siguientes 2 cuandos se lleve a DEV1 -->
-	<!-- ozamudio quitar los anteriores  2 cuandos se lleve a DEV1 -->
-	<link href="bst/css/static.css" rel="stylesheet" />
-	<link href="bst/css/softtek.css" rel="stylesheet" />
-	<link href="bst/css/international_connect/rate_calculator.css" rel="stylesheet" />
-	<script type="text/javascript" src="bst/js/faq/jquery.scrollTo.min.js"></script>
-	
-
+	<link rel="shortcut icon" href="img/favicon.ico"/>
+	<link href="css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="css/jasny-bootstrap.min.css" rel="stylesheet"/>
+	<link href="css/app-framework.css" rel="stylesheet"/>
+    <link href="css/static.css" rel="stylesheet" />
 </head>
 <body>
-
-	
-	
-	
+	<header class="navmenu navmenu-default navmenu-fixed-left offcanvas-xs">
+		<div class="container">
+			<div class="col-sm-3 col-md-4 linkHome hidden-xs">
+				<a href="framework_home.html">Home</a>
+			</div>
+			<div class="col-xs-12 col-sm-9 col-md-8 pull-right">
+				<div class="navbar pull-left hidden-xs topnav">
+					<ul class="navbar-wrapper">
+						<li class="navbar-item"><a>Español</a></li>
+						<li class="navbar-item"><a href="#" data-toggle="modal" data-target="#coverageMap">Coverage</a></li>
+						<li class="navbar-item"><a href="">Find a Store</a></li>
+					</ul>
+				</div>
+				<div class="navbar pull-right hidden-xs topnav">
+					<ul class="navbar-wrapper">
+						<li class="navbar-item"><a href="https://myaccountportal.sprint.com/servlet/ecare?inf_action=login&action=accountBill&sl=?INTNAV=:MyAcct:Refill">Reboost</a></li>
+						<li class="navbar-item"><a href="http://support.sprint.com/support/?INTNAV=SPP:Support#!/?INTNAV=Nav:Support">Support</a></li>
+						<li class="navbar-item"><a href="https://mysprint.sprint.com/mysprint/pages/secure/myaccount/landingPage.jsp?INTNAV=:MyAcct:Activate">Activate</a></li>
+						<li class="navbar-item"><a href="https://mysprint.sprint.com/mysprint/pages/sl/global/login.jsp?INTNAV=:MyAcct">My Account</a></li>
+						<li class="navbar-item"><a href="">Sign Out</a></li>
+					</ul>
+				</div>
+				<div class="visible-xs greeting">
+					<button type="button" class="navbar-toggle opened" data-toggle="offcanvas" data-target=".navmenu">
+						<i class="glyphicon glyphicon-remove"></i>
+					</button>
+					<p class="greeting-name"><span>Hello, </span>UserName</p>
+					<a class="signin" href="">Sign Out</a>
+				</div>
+				<ul class="nav navmenu-nav nav-pills hidden-sm hidden-md hidden-lg">
+					<li><a href="">My Account</a></li>
+					<li><a href="">Reboost</a></li>
+					<li><a href="framework_phones.html">Phones</a></li>
+					<li><a href="framework_plans.html">Plans</a></li>
+					<li><a href="framework_deals.html">Deals</a></li>
+					<li><a href="framework_accessories.html">Accessories</a></li>
+					<li><a href="framework_markets.html">Boost Markets</a></li>
+					<li><a href="">Support</a></li>
+					<li><a href="">Activate</a></li>
+					<li><a href="">Español</a></li>
+				</ul>
+				<ul class="nav navmenu-nav nav-pills hidden-xs">
+					<li class="dropdown">
+						<a class="dropdown-toggle" href="framework_shop.html">Shop <b class="caret"></b></a>
+						<ul class="dropdown-menu sub-menu">
+							<li><a href="framework_phones.html">Phones</a></li>
+							<li><a href="framework_mbb.html">Wi-Fi Hotspots</a></li>
+							<li><a href="framework_deals.html">Deals</a></li>
+							<li><a href="framework_accessories.html">Accessories</a></li>
+							<li><a href="framework_market.html">Boost Market</a></li>
+							<li><a href="framework_orderstatus.html">Order Status</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" href="framework_plans.html">Plans <b class="caret"></b></a>
+						<ul class="dropdown-menu sub-menu">
+							<li><a href="framework_monthly_plans.html">Monthly Plans</a></li>
+							<li><a href="framework_daily_plans.html">Daily Plans</a></li>
+							<li><a href="framework_mobile_hotspot.html">Mobile Hotspot</a></li>
+							<li><a href="framework_plans.html">International Calling</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" href="framework_whychoose.html">Why Choose Boost <b class="caret"></b></a>
+						<ul class="dropdown-menu sub-menu">
+							<li><a href="framework_whychoose.html">Value Without Compromise</a></li>
+							<li><a href="framework_whychoose.html">Why Choose Prepaid</a></li>
+							<li><a href="framework_whychoose.html">Support Military Families</a></li>
+							<li><a href="framework_whychoose.html">Be Social</a></li>
+						</ul>
+					</li>
+					<li class="searchHeader visible-sm visible-md visible-lg">
+						<p>Search: <input></input><a><i class="glyphicon glyphicon-search"></i></a></p>
+					</li>
+					<li><a href="framework_purchase-01.html"><i class="glyphicon glyphicon-shopping-cart"><span id="cart-count">1</span></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+    <div class="navbar navbar-default navbar-fixed-top hidden-sm hidden-md hidden-lg">
+		<button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+		<ul class="mobilenav">
+			<li><a href="framework_shop.html">Shop</a></li>
+			<li><a href="framework_plans.html">Plans</a></li>
+			<li><a href="framework_whychoose.html">Why Choose Boost</a></li>
+		</ul>
+		<a class="linkHome" href="framework_home.html">Home</a>
+		<ul class="mobilelinks">
+			<li><a href=""><i class="glyphicon glyphicon-signal"></i></a></li>
+			<li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li>
+			<li><a href=""><i class="glyphicon glyphicon-search"></i></a></li>
+			<li><a href="framework_purchase-01.html"><i class="glyphicon glyphicon-shopping-cart"><span id="cart-count">1</span></i></a></li>
+		</ul>
+    </div>
 	<div class="modal fade" href="" id="coverageMap" tabindex="-1" role="dialog" aria-labelledby="coverageMap" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -45,55 +130,38 @@
 		</div>
 	</div>
 	<div class="container main plans">
+		<ol class="breadcrumb hidden-xs">
+			<li><a href="framework_home.html">Home</a></li>
+			<li><a href="framework_shop.html">Shop</a></li>
+			<li class="active">Shop Plans</li>
+		</ol>
+		<h2 class="title">Shop Plans</h2>
 		<section class="banner-static hidden-xs">
-			<a href="#!/shop/plans/growing-data"><img src="bst/img/banner-02.jpg"></a>
+			<a href=""><img src="img/banner-02.jpg"></a>
 		</section>
 		<section class="container">
-			<div class="col-xs-12 col-sm-2 col-md-2">
-				<ul class="tabs-left hidden-xs">
-					<li><span>Phone Plans</span></li>
-					<li><a href="#!/shop/plans/monthly-phone-plans">Monthly Phone Plans</a></li>
-					<li><a href="#!/shop/plans/daily-unlimited-plans">Daily Phone Plans</a></li>
-					<li><span>Wi-Fi Hotspot Plans</span></li>
-					<li><a href="#!/shop/plans/wifi-hotspots"><b>New! </b> Wi-Fi Hotspot</a></li>
+			<div class="col-xs-3 col-md-2">
+				<ul class="tabs-left">
+					<li><span>Monthly Plans</span></li>
+					<li><a href="#databoost" data-toggle="tab">Data Boost Plans</a></li>
+					<li><span>Daily Plans</span></li>
+					<li><a href="#two" data-toggle="tab">$2 Daily Unlimited</a></li>
+					<li><a href="#three" data-toggle="tab">$3 Daily Unlimited</a></li>
 					<li><span>Additional Services</span></li>
-                    <li class="active"><a href="#!/shop/plans/datapacks" aria-expanded="true">Data Packs</a></li>
-					<li><a href="#!/shop/plans/international-services/">International Services</a></li>
-					<li><a href="#!/shop/plans/mobile-hotspot">Mobile Hotspot</a></li>
-					<li><a href="#!/shop/plans/phone-insurance">Phone Insurance</a></li>
-					
-					<li><a href="#!/shop/boost-market#apps/">Apps &amp; More</a></li>
+                    <li><a href="#datapacks" data-toggle="tab">Data Packs</a></li>
+					<li><a href="#intl" data-toggle="tab">International Services</a></li>
+					<li class="active"><a href="#hotspot" data-toggle="tab">Mobile Hotspot</a></li>
+					<li><a href="#insurance" data-toggle="tab">Phone Insurance</a></li>
+					<li><a href="https://boostmobile.wipit.me">Mobile Wallet</a></li>
+					<li><a href="framework_market.html">Apps &amp; More</a></li>
 				</ul>
-				<!--Responsive Menu-->
-			<div class="mobile-about-menu visible-xs visible-sm">
-                <div class="col-xs-4">
-                    <a id="services-dd" href="#" class="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Phone <br>Plans&nbsp;<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a>
-                    <ul class="options-box dropdown-menu text-center" aria-labelledby="services-dd">
-                        <li><a href="#!/shop/plans/monthly-phone-plans">Monthly Phone Plans</a></li>
-				        <li><a href="#!/shop/plans/daily-unlimited-plans">Daily Phone Plans</a></li>
-                    </ul>
-                </div>
-                <div class="col-xs-4">
-                    <a id="services-dd" href="#" class=""  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Wi-Fi Hotspot <br>Plan&nbsp;<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a>
-                    <ul class="options-box dropdown-menu text-center" aria-labelledby="services-dd">
-                        <li><a href="#!/shop/plans/wifi-hotspots"><b>New! </b> Wi-Fi Hotspot</a></li>
-                    </ul>
-                </div>
-                <div class="col-xs-4">
-                    <a id="services-dd" href="#" class="active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Additional <br>Services&nbsp;<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a>
-                    <ul class="dropdown-menu-right options-box dropdown-menu text-center" aria-labelledby="services-dd">
-                        <li class="active"><a href="#!/shop/plans/datapacks" aria-expanded="true">Data Packs</a></li>
-				        <li><a href="#!/shop/plans/international-services/">International Services</a></li>
-                        <li><a href="#!/shop/plans/mobile-hotspot">Mobile Hotspot</a></li>
-                        <li><a href="#!/shop/plans/phone-insurance">Phone Insurance</a></li>
-                        
-                        <li><a href="#!/shop/boost-market#apps/">Apps &amp; More</a></li>
-                    </ul>
-                </div>
-            </div>				
-				<!--Responsive Menu-->
+				<ul class="whychooseboost">
+					<li><a href="framework_whychoose.html">Value Without Compromise</a></li>
+					<li><a href="framework_whychoose.html">Why Choose Prepaid</a></li>
+					<li><a href="framework_whychoose.html">Supports Military Families</a></li>
+				</ul>
 			</div>
-			<div class="col-xs-12 col-sm-10 col-md-10">
+			<div class="col-xs-9 col-md-10">
 				<div class="tab-content">
 					<div class="tab-pane" id="databoost">
 						<section></section>
@@ -776,208 +844,219 @@
                                 </ul>
                                 <p>
                                     Need to know more? See our
-<a href="#!/support/faq/plans-services/data-pack-add-on/">FAQs</a>
+<a href="/support/faq/plans-services/data-pack-add-on/">FAQs</a>
                             </p>
                         </section>
                     </div>    
-					<div class="tab-pane active" id="rates">
+					<div class="tab-pane" id="intl">
+						<section></section>
+						<section>
+							<h2>International Calling Add-Ons</h2>
+							<h4>Add on one of these international calling options to your monthly plan.</h4>
+							<i>Select plans apply. See plan details for terms.</i>
+						</section>
+						<section class="addons">
+							<div>
+								<h2 class="big">5 /month <span>Todo Mexico Plus</span></h2>
+							</div>
+							<div>
+								<p><b>Calling Mexico or Canada?</b> For an additional $5 a month, you get unlimited talk &amp; text to Canada and Mexico, including mobile phones. Plus, unlimited international text.</p>
+								<p><b>Available only with the $45 or $55 Data Boost Plans.</b></p>
+								<a class="btn btn-default" href="#rates" data-toggle="tab">Learn More</a>
+							</div>
+						</section>
+						<section class="addons">
+							<div>
+								<h2 class="big">10 /month <span>International Connect PLUS</span></h2>
+							</div>
+							<div>
+								<p><b>Go Global!</b> For an additional $10 a month, you get unlimited talk to over 70* countries and discounted call rates to over 200 destinations. Plus, 1,000 minutes to Mexico mobiles or landlines in the Dominican Republic (or combinations thereof) and unlimited international text.</p>
+								<p><b>Available with any monthly plan.</b></p>
+								<a class="btn btn-default" href="#rates" data-toggle="tab">Learn More</a>
+							</div>
+						</section>
+						<section class="addons">
+							<div>
+								<span class="starting">Starting at</span>
+								<h2 class="big">3 /90 days <span>International Connect PLUS</span></h2>
+							</div>
+							<div>
+								<p><b>Calling one country?</b> Purchase a bundle of minutes. This offer, available for select countries, includes unlimited international text messaging.</p>
+								<p><b>Available with any monthly plan.</b></p>
+								<a class="btn btn-default" href="#rates" data-toggle="tab">Learn More</a>
+							</div>
+						</section>
+						<section>
+							<h2>International Text Messaging</h2>
+							<p><b>Just want texting?</b> If you're not using one of the calling add-ons above, Boost has competitive standard international texting rates designed with you in mind:</p>
+							<ul>
+								<li>10 cents a message to send</li>
+								<li>FREE to receive</li>
+							</ul>
+						</section>
+					</div>
+					<div class="tab-pane active" id="hotspot">
+						<section>
+							<h1>Mobile Hotspot</h1>
+							<h4>Wi-Fi as low as $5/mo.</h4>
+							<p>Make sure you are never stuck without an internet connection again. With mobile hotspot, you can turn your phone into a Wi-Fi hotspot and get online with your favorite devices.</p>
+							<p>Pick the plan that's right for you:</p>
+							<div class="half">
+								<b>Monthly Hotspot</b>
+								<p>$5/30 days | 1GB</p>
+								<p>$10/30 days | 2GB</p>
+							</div>
+							<div class="half">
+								<b>Daily Hotspot</b>
+								<p>$3/day | 500MB</p>
+							</div>
+							<p>Available on <a href="http://www.boostmobile.com/shop/plans/mobile-hotspot/#hotspot_modal">select hotspot capable devices</a> when you're on a monthly plan.</p>
+							<h4>Get it now:</h4>
+							<ol>
+								<li>Log in to <a href="https://apps.boostmobile.com/boostApp/accountLogin.do">My Account</a></li>
+								<li>Click Plan &amp; Add Ons</li>
+								<li>Click Change Add-Ons Only</li>
+								<li>Complete the purchase instructions</li>
+							</ol>
+							<p>Once payment is confirmed, turn on hotspot functionality by accessing your phone Settings. See these <a href="http://www.boostmobile.com/shop/plans/mobile-hotspot/#hotspot_tips">useful tips</a> or select your phone below for a device-specific tutorial.</p>
+							<select class="btn btn-default sortby">
+								<option value="#">Select Device</option> <option value="http://devicehelp.boostmobile.com/scenario/iPhone_4s/Boost_Mobile/en/Set_Up_as_a_Wi-Fi_Hotspot">Apple® iPhone® 4s</option> <option value="http://devicehelp.boostmobile.com/scenario/iPhone_5c/Boost_Mobile/en/Set_Up_as_a_Wi-Fi_Hotspot">Apple® iPhone® 5c</option> <option value="http://devicehelp.boostmobile.com/scenario/iPhone_5s/Boost_Mobile/en/Set_Up_as_a_Wi-Fi_Hotspot">Apple® iPhone® 5s</option> <option value="http://devicehelp.boostmobile.com/scenario/iPhone_6/Boost_Mobile/en/Set_Up_as_a_Wi-Fi_Hotspot">Apple® iPhone® 6</option> <option value="http://devicehelp.boostmobile.com/scenario/iPhone_6_Plus/Boost_Mobile/en/Set_Up_as_a_Wi-Fi_Hotspot">Apple® iPhone® 6 Plus</option> <option value="http://devicehelp.boostmobile.com/scenario/MAX/Boost_Mobile/en/Set_Up_as_a_Wi-Fi_Hotspot">Boost® MAX by ZTE</option> <option value="http://devicehelp.boostmobile.com/scenario/Desire_510/Boost_Mobile/en/Set_Up_as_a_Wi-Fi_Hotspot">HTC Desire 510</option> <option value="http://devicehelp.boostmobile.com/scenario/Evo_Design_4G/Boost_Mobile/en/Set_Up_as_a_Wi-Fi_Hotspot">HTC EVO Design™ 4G</option> <option value="http://devicehelp.boostmobile.com/scenario/One_SV/Boost_Mobile/en/Set_Up_as_a_Wi-Fi_Hotspot">HTC One SV</option> <option value="http://devicehelp.boostmobile.com/scenario/Hydro/Boost_Mobile/en/Set_Up_as_a_Wi-Fi_Hotspot">Kyocera Hydro</option> <option value="http://devicehelp.boostmobile.com/scenario/Hydro_EDGE/Boost_Mobile/en/Set_Up_as_a_Wi-Fi_Hotspot">Kyocera Hydro EDGE</option> <option value="http://devicehelp.boostmobile.com/scenario/G2/Boost_Mobile/en/Set_Up_as_a_Wi-Fi_Hotspot">LG G2</option> <option value="http://devicehelp.boostmobile.com/scenario/G_Stylo/Boost_Mobile/en/Set_Up_as_a_Wi-Fi_Hotspot">LG G Stylo</option> <option value="http://devicehelp.boostmobile.com/scenario/Optimus_F3/Boost_Mobile/en/Set_Up_as_a_Wi-Fi_Hotspot">LG Optimus F3™</option> <option value="http://devicehelp.boostmobile.com/scenario/Optimus_F7/Boost_Mobile/en/Set_Up_as_a_Wi-Fi_Hotspot">LG Optimus F7™</option> <option value="http://devicehelp.boostmobile.com/scenario/Mach/Boost_Mobile/en/Set_Up_as_a_Wi-Fi_Hotspot">LG Mach</option> <option value="http://devicehelp.boostmobile.com/scenario/Realm/Boost_Mobile/en/Set_Up_as_a_Wi-Fi_Hotspot">LG Realm</option> <option value="http://devicehelp.boostmobile.com/scenario/Tribute/Boost_Mobile/en/Set_Up_as_a_Wi-Fi_Hotspot">LG Tribute</option> <option value="http://devicehelp.boostmobile.com/scenario/Venice/Boost_Mobile/en/Set_Up_as_a_Wi-Fi_Hotspot">LG Venice™</option> <option value="http://devicehelp.boostmobile.com/scenario/Volt/Boost_Mobile/en/Set_Up_as_a_Wi-Fi_Hotspot">LG Volt</option> <option value="http://devicehelp.boostmobile.com/scenario/Lumia_635/Boost_Mobile/en/Set_Up_as_a_Wi-Fi_Hotspot">Lumia 635</option> <option value="http://devicehelp.boostmobile.com/scenario/Moto_e/Boost_Mobile/en/Set_Up_as_a_Wi-Fi_Hotspot">Moto E</option> <option value="http://devicehelp.boostmobile.com/scenario/Moto_G/Boost_Mobile/en/Set_Up_as_a_Wi-Fi_Hotspot">Moto G</option> <option value="http://devicehelp.boostmobile.com/scenario/Galaxy_Prevail_LTE/Boost_Mobile/en/Set_Up_as_a_Wi-Fi_Hotspot">Samsung Galaxy Prevail™ LTE</option> <option value="http://devicehelp.boostmobile.com/scenario/Galaxy_S_II_4G/Boost_Mobile/en/Set_Up_as_a_Wi-Fi_Hotspot">Samsung Galaxy S® II</option> <option value="http://devicehelp.boostmobile.com/scenario/Galaxy_S_III_Tri-band/Boost_Mobile/en/Set_Up_as_a_Wi-Fi_Hotspot">Samsung Galaxy S® III</option> <option value="http://devicehelp.boostmobile.com/scenario/Galaxy_S_5/Boost_Mobile/en/Set_Up_as_a_Wi-Fi_Hotspot">Samsung Galaxy S® 5</option> <option value="http://devicehelp.boostmobile.com/scenario/Galaxy_S_6/Boost_Mobile/en/Set_Up_as_a_Wi-Fi_Hotspot">Samsung Galaxy S® 6</option> <option value="http://devicehelp.boostmobile.com/scenario/Galaxy_Rush/Boost_Mobile/en/Set_Up_as_a_Wi-Fi_Hotspot">Samsung Galaxy Rush™</option> <option value="http://devicehelp.boostmobile.com/scenario/AQUOS_Crystal/Boost_Mobile/en/Set_Up_as_a_Wi-Fi_Hotspot">Sharp® AQUOS® Crystal</option> <option value="http://devicehelp.boostmobile.com/scenario/Speed/Boost_Mobile/en/Set_Up_as_a_Wi-Fi_Hotspot">ZTE Speed™</option> <option value="http://devicehelp.boostmobile.com/scenario/Warp_Sync/Boost_Mobile/en/Set_Up_as_a_Wi-Fi_Hotspot">ZTE Warp Sync™</option>
+							</select>
+							<p>Have more questions? See our complete Frequently Asked Questions.</p>
+						</section>
+					</div>
+					<div class="tab-pane" id="insurance">
+                        <section>
+                            <h1>Can't live without your phone?</h1>
+                            <p>Get Phone Insurance so you don't have to.</p>
+                        </section>
+						<section>
+							<div class="feature_pitch">
+								<h1 class="font-boostneo-gradient">Phone Insurance</h1>
+								<p>Can't live without your cell phone? Get Phone Insurance so you don't have to. Here are some reasons to choose Phone Insurance:</p>
+								<ul class="details">
+									<li>Without insurance, you may be required to pay full price for a new phone if a replacement is needed.</li>
+									<li>Insuring your phone provides you peace of mind by protecting your investment in the event of loss, theft, accidental damage, and out- of-warranty mechanical or electrical breakdown.</li>
+									<li>Select smartphones get the added protection of Gadget Guardian™ powered by Lookout®. This app allows you to locate, lock or wipe your smartphone if it becomes lost or stolen.</li>
+									<li>It's easy and convenient.</li>
+									<li>You can typically receive a replacement phone as early as the next business day, once your claim is approved.</li>
+								</ul>
+							</div>
+							<img src="img/pi-box.png"></img>
+							<h2>How does it work?</h2>
+							<div class="how">
+								<p>Simply enroll in Phone Insurance when activating your new phone or in <a href="https://apps.boostmobile.com/boostApp/account/ECareLanding.jsp" target="new">My Account</a> within 30 days of purchasing your new Boost Mobile® phone with an accompanying monthly plan.</p>
+								<p>You are eligible for 2 approved claims within a 12-month period beginning on the date of the first replacement. Per claim limit is a maximum of $1,500 inclusive of accessories.</p>
+								<p>Once your claim is approved, you will pay a nonrefundable deductible of $20, $50, $100, or $175 depending on your phone. <a href="http://www.myphoneguardian.com" target="_blank">See list of phones and their applicable deductibles.</a></p>
+								<p><em>If you cancel between monthly billing cycles, you will receive a prorated refund or credit for any unearned premium. </em></p>
+								<p><em>Your phone will be replaced with a reconditioned one of like kind and quality. In the event a reconditioned phone is not available, the replacement will be a new phone of like kind and quality.</em></p>
+								<p class="legal">Phone Insurance is a replacement service provided to customers of Boost Mobile. This coverage is underwritten by the Zurich American Insurance Company. eSecuritel Agency, LLC is the licensed agent and eSecuritel Holdings, LLC administers the program.</p>
+							</div>
+							<ul class="how">
+								<li><a href="https://apps.boostmobile.com/boostApp/accountLogin.do">Enroll Now</a></li>
+								<li><a href="/pdf/english/phoneinsurancebrochure2.pdf" target="_blank">Brochure </a></li>
+								<li><a href="https://www.myphoneguardian.com" target="_blank">Make a Claim</a></li>
+							</ul>
+						</section>
+					</div>
+					<div class="tab-pane" id="rates">
 						<section>
 							<h3>Save on international calls</h3>
 							<p>Enjoy unlimited international calling to countries across the globe for one flat rate. Simply add on one of these intenational calling options to your monthly plan (select plans apply).</p>
 						</section>
 						<section class="ratetable">
-							<!--h4 class="rateslink"><a href="#" data-toggle="modal" data-target="#rates-modal">View Per Minute International Rates</a></h4-->
+							<h4 class="rateslink"><a>View Per Minute International Rates</a></h4>
 							<div class="bg">
 								<div class="col-sm-4">
-									<br><br>
+									<h4>New!</h4>
 									<h3><span>Todo Mexico Plus</span>$5/Month</h3>
-									<a href="https://activate.boostmobile.com/boostApp/account/ECareLanding.jsp" class="btn btn-block">Add to My Account</a>
+									<a class="btn btn-block btn-default">Add to My Account</a>
 								</div>
 								<div class="col-sm-8">
-									<h4 class="rate-header bn-bk">Available with select monthly plans <sup>$</sup>45 and above.</h4>
-									<h4><span class="unlimited bn-bk">UNLIMITED</span> calls to ALL of Mexico - including mobiles!</h4>
-									<h4><span class="unlimited bn-bk">UNLIMITED</span> calls to Canada<sup>1</sup></h4>
-									<h4><span class="unlimited bn-bk">UNLIMITED</span> international text messaging</h4>
+									<h3>Available w/ the $35, $45 &amp; $55 Data Boost and $30 Data Boost Up Plans.</h3>
+									<h4>UNLIMITED calls to ALL of Mexico - including mobiles!</h4>
+									<h4>UNLIMITED calls to Canada†</h4>
+									<h4>UNLIMITED international text messaging</h4>
 								</div>
 							</div>
 						</section>
 						<section class="ratetable">
 							<div class="bg">
 								<div class="col-sm-4">
-									<br /><br /><br />
-									<span class="flag">New!</span><br/>
-									<h3><span>International Connect</span>Plus <br>$10/Month</h3>
-									<a href="https://activate.boostmobile.com/boostApp/account/ECareLanding.jsp" class="btn btn-block">Add to My Account</a>
+									<h3><span>International Connect</span>Plus $10/Month</h3>
+									<a class="btn btn-block btn-default">Add to My Account</a>
 								</div>
 								<div class="col-sm-8">
-									<h4 class="rate-header bn-bk">Available with any monthly plan.</h4>
-									<h4><span class="unlimited bn-bk">UNLIMITED</span> landline calling to over 70 countries including Mexico, Canada and NOW the Dominican Republic. <a href="#country1-modal" data-toggle="modal" rel="facebox" class="arrow-black bn-bk">See list of countries</a></h4>
-									<h4><span class="unlimited bn-bk">NEW! </span> 200 minutes to call mobiles in over 50 countries &nbsp;including Mexico, Canada, Dominican Republic, Peru and more<sup>2</sup>. <a href="#country2-modal" data-toggle="modal" rel="facebox" class="arrow-black bn-bk">See list of countries</a></h4>
-									<h4><span class="unlimited bn-bk">UNLIMITED</span> international text messaging.</h4>
-									<h4>Reduced per minute rates to over 200 international destinations. <a href="#rates-modal" data-toggle="modal" class="arrow-black bn-bk" rel="facebox">See Rates</a></h4>
+									<h3>Available w/ any monthly plan.</h3>
+									<h4>1000 minutes to mobiles in Mexico or landlines in the Dominican Republic (or combination thereof.)</h4>
+									<h4>UNLIMITED calls to landlines in over 70 countries including Mexico and Canada:*</h4>
+									<table>
+										<tbody>
+											<tr> <td>AMERICAN SAMOA</td> <td>CZECH REPUBLIC</td> <td>JAPAN</td> <td>PORTUGAL</td> </tr>
+											<tr> <td>ANDORRA</td> <td>DENMARK</td> <td>KAZAKHSTAN</td> <td>ROMANIA</td> </tr>
+											<tr> <td>ARGENTINA</td> <td>ESTONIA</td> <td>KOREA (SOUTH)</td> <td>RUSSIA</td> </tr>
+											<tr> <td>AUSTRALIA</td> <td>FRANCE</td> <td>LATVIA (RIGA)</td> <td>SINGAPORE</td> </tr>
+											<tr> <td>AUSTRIA</td> <td>FRENCH GUIANA</td> <td>LITHUANIA</td> <td>SLOVENIA</td> </tr>
+											<tr> <td>BAHRAIN</td> <td>GIBRALTAR</td> <td>LUXEMBOURG</td> <td>SOUTH AFRICA</td> </tr>
+											<tr> <td>BANGLADESH</td> <td>GEORGIA (TBILISI)</td> <td>MACAU</td> <td>SPAIN</td> </tr>
+											<tr> <td>BELGIUM</td> <td>GERMANY</td> <td>MALAYSIA</td> <td>SWEDEN</td> </tr>
+											<tr> <td>BERMUDA</td> <td>GREECE</td> <td>MARTINIQUE</td> <td>SWITZERLAND</td> </tr>
+											<tr> <td>BRAZIL</td> <td>GUADELOUPE</td> <td>MEXICO</td> <td>TAIWAN</td> </tr>
+											<tr> <td>BRUNEI</td> <td>HONG KONG</td> <td>MONGOLIA</td> <td>THAILAND</td> </tr>
+											<tr> <td>BULGARIA</td> <td>HUNGARY</td> <td>MOROCCO</td> <td>TURKEY</td> </tr>
+											<tr> <td>CANADA</td> <td>ICELAND</td> <td>NETHERLANDS</td> <td>UNITED KINGDOM</td> </tr>
+											<tr> <td>CHILE</td> <td>INDIA</td> <td>NEW ZEALAND</td> <td>URUGUAY (MONTEVIDEO)</td> </tr>
+											<tr> <td>CHINA</td> <td>INDONESIA</td> <td>NORWAY</td> <td>UZBEKISTAN (TASHKENT)</td> </tr>
+											<tr> <td>COLOMBIA</td> <td>IRAN</td> <td>PANAMA</td> <td>VENEZUELA</td> </tr>
+											<tr> <td>COSTA RICA</td> <td>IRELAND</td> <td>PARAGUAY</td> <td></td> </tr>
+											<tr> <td>CROATIA</td> <td>ISRAEL</td> <td>PERU</td> <td></td> </tr>
+											<tr> <td>CYPRUS</td> <td>ITALY</td> <td>POLAND</td> <td></td> </tr>
+										</tbody>
+									</table>
+									<h4>Plus reduced per minute rates to over 200 international destinations <a>See Rates</a></h4>
+									<h4>Unlimited international text messaging</h4>
 								</div>
 							</div>
-							<div style="clear:both"></div>
-							<!--p class="legal small">† Excludes Northern Territories - 867. See below for <a href="">Terms and Conditions</a>.</p-->
-							<div class="disclaimer"> 
-								<p>1 Excludes Northern Territories - 867. See below for&nbsp;<a class="gotoFooter" href="#terms">Terms and Conditions</a>.<br> 2 Some mobile &amp; landline numbers in select countries are excluded. <a class="gotoFooter" href="#ratesbynumber">Check your number for details</a>.<br> Included destinations and rates subject to change at any time. </p> 
-							</div>
-							<div class="int-rates" style="padding-left:25px;padding-bottom:25px;margin-top:20px;"> 
-								<h2 class="orange">View Per Minute International Rates</h2> 
-								<h3>Use our rate tools to determine if the country is included in our add-on services.</h3> 
-							</div>
-							<div id="view-rates" class="rounded-3">
-								<a href="#rates-modal" data-toggle="modal" rel="facebox" class="arrows-orange">Rates by Country</a>
-							</div>
-							<div style="clear:both"></div>
-							<br>
-							<div id="ratesbynumber" class="rate_calc">
+							<p class="legal small">† Excludes Northern Territories - 867. See below for <a href="">Terms and Conditions</a>.</p>
+							<h3>Find Rates by Phone Number:</h3>
+							<div class="rate_calc">
 								<div class="rate_calculator pull-left">
 									<div class="instructions">
-										<h2 class="arrows-orange">Find Rates by Phone Number:</h2>
+										<h4>Need help deciding which International Add-On is right for you?</h4>
+										<p>Use our rate finder<sup style="font-size:8px;top:-4px;">††</sup> to determine if the country is included in our add-on services. </p>
 									</div>
 								</div>
 								<div class="rate_calc_form pull-left">
-								
-									<form id="rate_calculator_form"> 
-										<div class="phone_number_fields clearfix"> 
-											<br>
-											<p>
-												<label for="phone_number" class="phone_number">
-													<strong>Enter the phone number you'll be calling:</strong>
-												</label> 
-											</p>
-											<div class="indented"> 
-												<div id="phone_prefix"><!-- Wrapped in a div so that it appears styled. --> 
-													<select name="phone_prefix"> 
-														<option value="001">001</option> 
-														<option value="011" selected="selected">011</option> 
-													</select> 
-												</div> 
-												<input type="text" name="phone_number" id="phone_number" value="XXXXXXXXXX"> 
-												<div class="error_message"><br />number not valid</div> 
-											</div> 
-										</div> 
-										<p> 
-											<br> 
-											<a href="#" class="btn_search">Search</a> 
+									<form id="rate_calculator_form">
+										<p class="phone_number_fields">
+											<label for="phone_number" class="phone_number">
+												<b>Enter the phone number you'll be calling:</b>
+											</label>
 										</p>
+										<div class="indented">
+											<select name="phone_prefix">
+												<option value="001">001</option>
+												<option value="011" selected="selected">011</option>
+											</select>
+											<input type="text" name="phone_number" id="phone_number" placeholder="XXXXXXXXXX"/>
+											<p class="error_message">number not valid</p>
+											<a href="#" class="btn btn-primary">Search</a>
+										</div>
 									</form>
-								
 								</div>
 							</div>
-							<p class="legal small" style="color:#000">For some destinations, not all landline and mobile phones are included. Add-ons available with select plans only, see terms below.</p>
-						<div style="clear:both;"></div>
-						<div class="ic-new"> 
-							<div id="search_results" class="rate_calc_search_results_showed table rate_calc_search_results"> 
-								<div class="tr"> 
-									<div class="td shrt wht" id="country">
-										<p>Search Results:<br><span class="country_name">NOT SET</span></p>
-									</div> 
-									<div class="td shrt gradient-orange">
-										<h3 class="bn-bk">Standard Rate</h3>
-									</div> 
-									<div class="td gradient-orange">
-										<h3 class="bn-bk">$5/Month</h3><span class="sm"> for Todo Mexico PLUS</span>
-									</div> 
-									<div class="td gradient-orange">
-										<h3 class="bn-bk">$10/Month</h3><span class="sm"> for International Connect Plus</span>
-									</div> 
-								</div> 
-								<div class="tr"> 
-									<div class="td shrt greydk" id="specific_label">
-										<div>
-											<div class="pre_label">Number Entered:</div>
-											NOT SET
-										</div>
-									</div> 
-									<div class="td shrt">
-										<span id="specific_standard_rate"><p>NOT SET</p></span>
-									</div> 
-									<div class="td">
-										<span id="specific_ic_rate"><p>NOT SET</p></span>
-									</div> 
-									<div class="td">
-										<span id="specific_icp_rate"><p>NOT SET</p></span>
-									</div> 
-								</div> 
-								<div class="tr"> 
-									<div class="td shrt greydk">
-										<span id="other_label"><p>NOT SET</p></span>
-									</div> 
-									<div class="td shrt">
-										<span id="other_standard_rate"><p>NOT SET</p></span>
-									</div> 
-									<div class="td">
-										<span id="other_ic_rate"><p>NOT SET</p></span>
-									</div> 
-									<div class="td">
-										<span id="other_icp_rate"><p>NOT SET</p></span>
-									</div> 
-								</div> 
-								<div class="tr"> 
-									<div class="td shrt wht"></div> 
-									<div class="td shrt wht"></div> 
-									<div class="td center">
-										<a class="btn" href="https://activate.boostmobile.com/boostApp/account/ECareLanding.jsp">Add Offer Now</a>
-									</div> 
-									<div class="td center">
-										<a class="btn" href="https://activate.boostmobile.com/boostApp/account/ECareLanding.jsp">Add Offer Now</a>
-									</div> 
-								</div> 
-							</div> 
-							<div id="search_results_note" class="rate_calc_search_results_showed no_ic_rates table rate_calc_search_results"> 
-								<div class="tr"> 
-								<div class="td shrt wht" id="country">
-									<p>Search Results:<br><span class="country_name">NOT SET</span></p>
-								</div> 
-								<div class="td shrt gradient-orange">
-									<h3 class="bn-bk">Standard Rate</h3>
-								</div> 
-								<div class="td gradient-grey full notice">
-									<h3>Note:</h3> <p>NOT SET</p>
-								</div> 
-							</div> 
-							<div class="tr"> 
-								<div class="td shrt greydk" id="specific_label">
-									<div>
-										<div class="pre_label">Number Entered:</div>
-										NOT SET
-									</div>
-								</div> 
-								<div class="td shrt" id="specific_standard_rate">
-									<p>NOT SET</p>
-								</div> 
-							</div> 
-							<div class="tr"> 
-								<div class="td shrt greydk" id="other_label">
-									<p>NOT SET</p>
-								</div> 
-							<div class="td shrt" id="other_standard_rate">
-								<p>NOT SET</p>
-							</div> 
-						</div> 
-					</div> 
-				</div>
-						
-						
+							<p class="legal small">†† For some destinations, not all landline and mobile phones are included. Add-ons available with select plans only, see terms below.</p>
 						</section>
-						
+						<section>
+							<p class="legal small">MONTHLY PLAN ADD-ON TERMS: Add-Ons available only for select monthly plans. For existing accounts, Recurring Add-Ons take effect when new monthly plan cycle begins &amp; remain on accounts until removed. Accounts must have sufficient funds for combined monthly plan and Recurring Add-On &amp; incidentals, if any, by monthly plan payment date or services will be interrupted. One Month Exp Add-Ons take effect on purchase date &amp; expire one month from purchase date. If purchase date is on 30th and following month ends on 31st, expiration date is at end of date on 30th of next calendar month. If purchase date occurs on Jan 29th - 31st, expiration date is Feb. 28th. For NEW accounts, both Add-Ons take effect immediately.<br><br>$5 Todo Mexico Plus add-on: Includes unlimited international text &amp; talk to landlines and mobiles in Mexico and Canada (excluding Northern Territories/area code 867); available only for $45 &amp; $55 Data Boost Plans.<br><br>$10/Month International Connect Plus Add-On: Recurring Add-On that includes unlimited international text, and calling to all landlines in Mexico (landlines only) and Canada (excludes Northern Territories, area code 867), plus 1,000 calling minutes to mobiles in Mexico or landlines in the Dominican Republic (or combination of) each month. After the 1,000 monthly minute allotment depleted, additional talk minutes to Mexico mobiles charged at regular rate of $0.05/minute and Dominican Republic landlines charged at regular rate of $0.03. Reduced mobile and landlines rates to more than 200 international destinations including Dominican Republic mobiles. See rates. Available with any monthly plan.<br><br>Other Terms for international Add-Ons: Calls made to destinations not included in Add-Ons will be subject to additional charges. AVAILABLE COUNTRIES AND/OR SELECT INTERNATIONAL CITIES ARE SUBJECT TO CHANGE WITHOUT NOTICE.  Video streaming limited to 3G speeds. After applicable data allotment reached, data speeds (including video) reduced to 2G speeds for remainder of plan cycle. State &amp; local sales taxes/fees may apply when adding funds to accounts. Coverage not available everywhere. Offer, network use rules &amp; other restrictions apply. Visit boostmobile.com regularly for changes including, but not limited to, included countries, select international cities &amp; fees.</p>
+						</section>
 					</div>
 				</div>
 			</div>
 		</section>
-
-        <section class="legal">
-							
-							 <a id="terms"></a> <p><strong>MONTHLY PLAN ADD-ON TERMS:</strong>&nbsp;Add-Ons available only for select monthly plans. For existing accounts, Recurring Add-Ons take effect when new monthly plan cycle begins &amp; remain on accounts until removed. Accounts must have sufficient funds for combined monthly plan and Recurring Add-On &amp; incidentals, if any, by monthly plan payment date or services will be interrupted. One Month Exp Add-Ons take effect on purchase date &amp; expire one month from purchase date. If purchase date is on 30th and following month ends on 31st, expiration date is at end of date on 30th of next calendar month. If purchase date occurs on Jan 29th - 31st, expiration date is Feb. 28th. For NEW accounts, both Add-Ons take effect immediately. </p> <p><strong>$5 Todo Mexico Plus add-on:</strong> Includes unlimited international text &amp; talk to landlines and mobiles in Mexico and Canada (excluding Northern Territories/area code 867); available only with the $45 and $60 Unlimited Plans with Growing Data. </p> <p><strong>$10/Month International Connect Plus Add-On:</strong>&nbsp;Available only for monthly plans.&nbsp;After 200 mobile minute allotment depleted, rate of $0.08/ minute for mobiles in the Dominican Republic applies for additional minutes. Calls made to international destinations not included on add-on subject to additional charges. Available countries and/or select int'l cities subject to change without notice. <a href="#rates-modal" data-toggle="modal">See Rates</a>.&nbsp; </p> <p><strong>Other Terms for international Add-Ons:</strong>&nbsp;Calls made to destinations not included in Add-Ons will be subject to additional charges. AVAILABLE COUNTRIES AND/OR SELECT INTERNATIONAL CITIES ARE SUBJECT TO CHANGE WITHOUT NOTICE. After applicable data allotment reached, data speeds reduced to 2G speeds for remainder of plan cycle. State &amp; local sales taxes/fees may apply when adding funds to accounts. Coverage not available everywhere. Offer, network use rules &amp; other restrictions apply. Visit boostmobile.com regularly for changes including, but not limited to, included countries, select international cities &amp; fees. </p> 
-            
-						</section>
-<!--
 		<section class="banner-static hidden-xs">
-			<a href=""><img src="../img/banner-04.jpg"></a>
+			<a href=""><img src="img/banner-04.jpg"></a>
 		</section>
-
 		<section class="legal">
 			<p>Data Boost &amp; Boost Up Plans: Currently, basic phones (non-smartphone) can only activate on the $35 Data Boost and $45 Data Boost plans. However, Boost offers, plans and terms are subject to change at any time. Boost has no annual contracts; service is subject to the Boost Mobile General Terms and Conditions &amp; other terms provided or presented. Prices &amp; offers subject to change without notice &amp; may not be available in all markets/retail locations or for all devices. State &amp; local sales taxes/fees may apply when adding funds to accounts. Plans include unlimited domestic talk, text, data (applicable 3G/4G high-speed monthly data allotment. Video streaming limited to 3G speeds) &amp; 411 Directory Assistance calls (interactive voice services only). International services extra. Data terms: After applicable plan's data allotment reached, data access continues but data speeds (including video) reduced to 2G speeds for remainder of plan cycle &amp; restored when new cycle begins. Other terms: Account must have sufficient funds to cover monthly plan cost &amp; add-ons/incidentals by payment date or service will be suspended. Offers &amp; coverage not available everywhere. Sprint 4G LTE network reaches over 270 million people. Not all services available on 4G and coverage may default to 3G/separate network where 4G unavailable. Offer, network use rules &amp; other restrictions apply.</p>
 			<p>Boost plans with the “EnhancedStream” video option are available with current monthly Boost plans only. Customers must select the EnhancedStream option during activation or online in <a href="">My Account.</a></p>
@@ -986,474 +1065,87 @@
 			<p>$30 Data Boost Up plan valid until 7/31/2015 and available only for Boost 4G LTE phones. Auto Re-Boost requires registration of valid credit/debit card; un-enrollment from Auto Re-Boost will increase Data Boost Up plan cost ($30 to $40/$35 to $40 Data Boost Up plans). Offer, prohibited use rules, &amp; other restrictions apply. ©2015 Boost Worldwide, Inc. All rights reserved. All other marks are the property of their respective owners.</p>
 			<p>See complete service plan details <a href="">here</a>.</p>
 		</section>
--->
 	</div>	
-	
-	<div class="modal fade" id="rates-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		<div class="modal-dialog modal-lg" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
-				</div>
-				<div class="modal-body">
-					<iframe src="bst/pages/irates.html" style="width: 100%; min-height: 400px; border: 0px"></iframe>
-				</div>
-				<!--div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
-				</div-->
-			</div>
-		</div>
-	</div>
-	<div class="modal fade" id="country1-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		<div class="modal-dialog modal-lg" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
-				</div>
-				<div class="modal-body">
-					<div class="countryBody" id="pop_unlimited"> 
-						<h2 class="orange">Landline Countries </h2> 						
-                        <table class="table borderless">
-                            <tbody>
-                            <tr><td>American Samoa</td><td>Dominican Republic</td><td>Kazakhstan</td><td>Russia</td></tr>
-                            <tr><td>Andorra</td><td>Estonia</td><td>Latvia</td><td>San Marino</td></tr>
-                            <tr><td>Argentina</td><td>Finland</td><td>Lithuania</td><td>Singapore</td></tr>
-                            <tr><td>Australia</td><td>France</td><td>Luxemburg</td><td>Slovakia</td></tr>
-                            <tr><td>Austria</td><td>French Guiana</td><td>Macau</td><td>Slovenia</td></tr>
-                            <tr><td>Bahrain</td><td>Georgia (Tbilisi)</td><td>Malaysia</td><td>South Africa</td></tr>
-                            <tr><td>Bangladesh</td><td>Germany</td><td>Malta</td><td>South Korea</td></tr>
-                            <tr><td>Belgium</td><td>Gibraltar</td><td>Martinique</td><td>Spain</td></tr>
-                            <tr><td>Bermuda</td><td>Greece</td><td>Mexico</td><td>Sweden</td></tr>
-                            <tr><td>Brazil</td><td>Guadeloupe</td><td>Mongolia</td><td>Switzerland</td></tr>
-                            <tr><td>Brunei</td><td>Hong Kong</td><td>Morocco</td><td>Taiwan</td></tr>
-                            <tr><td>Bulgaria</td><td>Hungary</td><td>Netherlands</td><td>Thailand</td></tr>
-                            <tr><td>Canada</td><td>Iceland</td><td>New Zealand</td><td>Turkey</td></tr>
-                            <tr><td>Chile</td><td>India</td><td>Norway</td><td>United Kingdom</td></tr>
-                            <tr><td>China</td><td>Indonesia</td><td>Panama</td><td>Uruguay</td></tr>
-                            <tr><td>Colombia</td><td>Iran</td><td>Paraguay</td><td>Uzbekistan</td></tr>
-                            <tr><td>Costa Rica</td><td>Ireland</td><td>Peru</td><td>Venezuela</td></tr>
-                            <tr><td>Cyprus</td><td>Israel</td><td>Poland</td><td></td></tr>
-                            <tr><td>Czech Republic</td><td>Italy</td><td>Portugal</td><td></td></tr>
-                            <tr><td>Denmark</td><td>Japan</td><td>Romania</td><td></td></tr>
-                            </tbody>
-                        </table>                        
-						 <p>Some mobile &amp; landline numbers in select countries are excluded. Check <a href="#!/shop/plans/international-connect#ratesbynumber" onclick="$.facebox.close();">your number</a> before making each call for the latest information and complete details, as rates and included destinations are subject to change at any time. </p> 
+	<footer>
+		<div class="container">
+			<div class="hidden-xs hidden-sm col-md-8 pull-right">
+				<div id="sitelinks">
+					<div class="column">
+						<p>Shop</p>
+						<ul>
+							<li><a target="_parent" href="http://www.boostmobile.com/shop/phones/">Phones</a></li>
+							<li><a target="_parent" href="http://www.boostmobile.com/shop/plans/">Plans</a></li>
+							<li><a target="_parent" href="http://www.boostmobile.com/deals/">Online Deals</a></li>
+							<li><a target="_parent" href="http://www.boostmobile.com/shop/accessories/">Accessories</a></li>
+							<li><a target="_parent" href="https://checkout.boostmobile.com/bpdirect/boost/OrderStatusLookup.do?action=view">Track Order</a></li>
+							<li><a target="_parent" href="http://www.boostmobile.com/stores/">Find a Store</a></li>
+						</ul>
+					</div>
+					<div class="column">
+						<p>Services</p>
+						<ul>
+							<li><a target="_parent" href="http://www.boostmobile.com/shop/plans/international-services/">International Rates</a></li>
+							<li><a target="_parent" href="http://www.boostmobile.com/shop/plans/phone-insurance/">Phone Insurance</a></li>
+							<li><a target="_parent" href="http://www.boostmobile.com/shop/plans/referral-program/">Referral Program</a></li>
+							<li><a target="_parent" href="https://buyback.boostmobile.com/bst/">Buyback Program</a></li>
+						</ul>
+					</div>
+					<div class="column">
+						<p>Support</p>
+						<ul>
+							<li><a target="_parent" href="http://devicehelp.boostmobile.com/">Device Support</a></li>
+							<li><a target="_parent" href="http://www.boostmobile.com/support/faq/">FAQs</a></li>
+							<li><a target="_parent" href="http://www.boostmobile.com/about/legal/return-policy/">Return Policy</a></li>
+							<li><a target="_parent" href="http://www.boostmobile.com/coverage/">Coverage Map</a></li>
+							<li><a target="_parent" href="http://www.boostmobile.com/support/contact-customer-service/">Contact Us</a></li>
+						</ul>
+					</div>
+					<div class="column">
+						<p>Manage &amp; Pay</p>
+						<ul>
+							<li><a target="_parent" href="https://apps.boostmobile.com/boostApp/accountLogin.do">My Account</a></li>
+							<li><a target="_parent" href="https://apps.boostmobile.com/boostApp/handsetIdentifier.do">Activate</a></li>
+							<li><a target="_parent" href="http://www.boostmobile.com/reboost/">Re-Boost/Add Money</a></li>
+						</ul>
+					</div>
+					<div class="column last">
+						<p>About</p>
+						<ul>
+							<li><a target="_parent" href="http://newsroom.boostmobile.com/">Newsroom</a></li> 
+							<li><a target="_parent" href="http://www.boostmobile.com/about/careers/">Careers</a></li>
+							<li><a target="_parent" href="http://www.boostmobile.com/about/dealers/">Dealer Opportunities</a></li>
+							<li><a target="_parent" href="http://www.boostmobile.com/about/affiliate-program/">Affiliate Program</a></li>
+							<li><a target="_parent" href="http://www.boostmobile.com/sitemap/">Sitemap</a></li> 
+						</ul>
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-	<div class="modal fade" id="country2-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		<div class="modal-dialog modal-lg" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
-				</div>
-				<div class="modal-body">
-					<div class="countryBody" id="pop_200"> 
-                        <h2 class="orange">Mobile Countries</h2> 
-                    
-                        <table class="table borderless">
-                        <tbody>
-                            <tr><td>American Samoa*</td><td>Denmark</td><td>Ireland</td><td>Norway</td></tr>
-                            <tr><td>Australia</td><td>Dominican Republic</td><td>Israel</td><td>Peru</td></tr>
-                            <tr><td>Austria</td><td>Estonia</td><td>Italy</td><td>Poland</td></tr>
-                            <tr><td>Bangladesh</td><td>Finland</td><td>Kazakhstan</td><td>Portugal</td></tr>
-                            <tr><td>Belgium</td><td>France</td><td>Latvia</td><td>Romania</td></tr>
-                            <tr><td>Bermuda*</td><td>French Guiana</td><td>Lithuania</td><td>Singapore*</td></tr>
-                            <tr><td>Brazil</td><td>Germany</td><td>Luxemburg</td><td>South Africa</td></tr>
-                            <tr><td>Bulgaria</td><td>Greece</td><td>Macau*</td><td>South Korea*</td></tr>
-                            <tr><td>Canada*</td><td>Guadeloupe</td><td>Malaysia</td><td>Spain</td></tr>
-                            <tr><td>China*</td><td>Hong Kong*</td><td>Malta</td><td>Sweden</td></tr>
-                            <tr><td>Colombia</td><td>Hungary</td><td>Martinique</td><td>Thailand*</td></tr>
-                            <tr><td>Costa Rica</td><td>Iceland</td><td>Mexico</td><td>United Kingdom</td></tr>
-                            <tr><td>Cyprus</td><td>India</td><td>Mongolia*</td><td>Venezuela</td></tr>
-                            <tr><td>Czech Republic</td><td>Indonesia</td><td>Netherlands</td><td></td></tr>
-                        </tbody>
-                    </table>
-                        
-                        <p>*Unlimited calls to mobiles are also included when calling country.<br> Some mobile &amp; landline numbers in select countries are excluded. Check <a href="#!/shop/plans/international-connect#ratesbynumber">your number</a> before making each call for the latest information and complete details, as rates and included destinations are subject to change at any time. </p>
-                    </div>
-				</div>
+			<div class="col-xs-12 col-md-7">
+				<p>©2015 Boost Worldwide, Inc. All rights reserved. <a>Legal</a><a>Privacy</a><a>CTIA/Regulatory</a></p>
+			</div>
+			<div class="hidden-xs hidden-sm col-md-5">
+				<p>Find a store: <input placeholder="Enter Zip Code"></input> <a class="btn btn-sm btn-primary">Submit</a></p>
 			</div>
 		</div>
-	</div>
-
-
-<script>
-
-
-$(document).ready(function() {
-	/*  Setup mouse-overs for buttons  */
-  
-  $('a.gotoFooter').click(function(){
-	  strLink = $(this).attr('href');
-	  $.scrollTo(strLink,{duration:'slow', offsetTop : '50'});
-	  return false;
-});
-	
-	$('.rate_calc_form a.btn_search, .rate_calc_search_results ul.add_offer_buttons a').bind('mouseenter mouseleave', function(){
-		$(this).toggleClass('over');
-	});
-});
-
-
-$(document).ready(function() {
-	/*  Default string handling (hiding and showing) in the phone_number field.  */
-	$('.rate_calc_form input#phone_number').bind('focusin', function() {
-		if ($(this).attr('value') == 'XXXXXXXXXX') {
-			$(this).attr('value', '');
-		}
-		clearErrorState();
-	});
-	$('.rate_calc_form input#phone_number').bind('focusout', function() {
-		if($(this).attr('value') == '') {
-			$(this).attr('value', 'XXXXXXXXXX');
-		}
-	});
-});
-
-
-$(document).ready(function() {
-    
-	/*  Handle searching for rates  */
-	$('.rate_calc_form a.btn_search').click(function(e){
-		// Hide the rate-chart if it's visible.
-		hideRateCharts();
-
-		clearErrorState();
-
-		// Perform the search - grandfathered states are taken into account when data is returned (prevents further
-		// complicating the back-end).
-		$.post('/shop/InternationalConnectServlet', {
-			phone_prefix: $('.rate_calc_form #phone_prefix :selected').attr('value'),
-			phone_number: $('.rate_calc_form input#phone_number').val()
-		}, function(data) {
-
-			var rates = $.parseJSON(data);
-
-			// Replaces what the user entered as a phone number with the returned, (and possibly) cleaned-up version.
-			$('.rate_calc_form #phone_number').attr('value', rates.phone_number);
-
-			// Check if there was an error.
-			if (rates.error) {
-				showError(data.error);
-				return true;
-			}
-
-			// We've noticed that sometimes mobile or landline rates are missing. We're checking for this and
-			// copying over the landline/mobile rates to the set that's missing.
-			rates = supplementMissingRates(rates);
-
-			// Generate ambiguous rateset.
-			rateset = generateRateset(rates);
-
-			// Overwrites rateset values based on grandfather plans.
-			var plan = $('.rate_calc_form .rate_selection input[name="rate_set"]:checked').attr('value');
-			switch(plan) {
-				case '2':
-					rateset.specific_add5 = rates.specific_gf1;
-					if (rates.specific_type == 'Landline') {
-						rateset.other_min_add5 = rates.mobi_min_gf1;
-						rateset.other_max_add5 = rates.mobi_max_gf1;
-					} else {
-						rateset.other_min_add5 = rates.land_min_gf1;
-						rateset.other_max_add5 = rates.land_max_gf1;
-					}
-					break;
-
-				case '3':
-					rateset.specific_add5 = rates.specific_gf2;
-					if (rates.specific_type == 'Landline') {
-						rateset.other_min_add5 = rates.mobi_min_gf2;
-						rateset.other_max_add5 = rates.mobi_max_gf2;
-					} else {
-						rateset.other_min_add5 = rates.land_min_gf2;
-						rateset.other_max_add5 = rates.land_max_gf2;
-					}
-					break;
-			}
-
-			// Clear any 'subtle' classes within the rate charts.
-			$('.rate_calc_search_results li p').removeClass('subtle');
-			$('.rate_calc_search_results li p').removeClass('stacked');
-
-			// Update (both) rate charts.
-			updateRateCharts(rateset);
-
-			// Determine which chart to show.
-			if ((rateset.specific_std == rateset.specific_add5 && rateset.specific_add5 == rateset.specific_add10)
-				&& (rateset.other_min_std == rateset.other_min_add5 && rateset.other_min_add5 == rateset.other_min_add10)) {
-				$('#search_results_note').slideDown(300);
-			} else {
-				//if (rateset.subgpu.substr(1,3) > 200) {
-				//	$('#search_results.single').slideDown(300);
-				//} else {
-					$('#search_results').slideDown(300);
-				//}
-			}
-
-			return true;
+	</footer>
+    <script src="../js/lib/jquery.min.js"></script>
+    <script src="../js/lib/sprintprepaid-bootstrap.min.js"></script>
+    <script src="../js/lib/jasny-bootstrap.min.js"></script>
+	<script>
+		$('#coverageMap').on('shown.bs.modal', function () {
+			$('#coverageModal').focus()
+		})
+		$(function(){
+		$(".dropdown").hover(
+			function() {
+				$('.dropdown-menu', this).stop( true, true ).fadeIn("fast");
+				$(this).toggleClass('open');
+			},
+			function() {
+				$('.dropdown-menu', this).stop( true, true ).fadeOut("fast");
+				$(this).toggleClass('open');
+			});
 		});
-
-		e.preventDefault();
-	});
-});
-
-
-$(document).ready(function() {
-	/*  When a user hits 'enter' or 'return' when a form field has focus, it'll automatically submit the form. We
-	    are trapping the form submission and instead, replacing it with a .click() event on the search button.  */
-	$('form#rate_calculator_form').bind('submit', function(e) {
-		$('.rate_calc_form a.btn_search').click();
-		e.preventDefault();
-	});
-});
-
-
-
-
-
-
-/*  Hides the rate charts (if they're visible)  */
-function hideRateCharts( ) {
-    /*
-    if ($('#search_results').is(':visible')) {
-		$('#search_results').fadeOut(200);
-	}
-	if ($('#search_results_note').is(':visible')) {
-		$('#search_results_note').fadeOut(200);
-	}
-	if ($('#search_results.single').is(':visible')) {
-		$('#search_results.single').fadeOut(200);
-	}*/
-    
-    $('#search_results, #search_results_note, #search_results.single').fadeOut();
-    
-}
-
-
-/*  Remove error states (if necessary)  */
-function clearErrorState( ) {
-	$('.rate_calc_form #phone_number').removeClass('error');
-	$('.rate_calc_form .error_message').hide();
-}
-
-
-/*  Display an error in the rate finder form.  */
-function showError( error ) {
-	$('.rate_calc_form #phone_number').addClass('error');
-	$('.rate_calc_form .error_message').show();
-}
-
-
-/*  Updates the rate charts (both).  */
-function updateRateCharts( rateset ) {
-
-	single_row = (rateset.subgpu.substr(1,3) > 200) ? true : false;
-
-	// Specific rates
-	$('.rate_calc_search_results #country .country_name').html(rateset.country);
-	if (single_row) {
-		$('.rate_calc_search_results #specific_label div').html('Number Entered');
-	} else {
-		$('.rate_calc_search_results #specific_label div').html('<div class="pre_label">Number Entered:</div>' + rateset.specific_type);
-	}
-	$('.rate_calc_search_results #specific_standard_rate p').html(specificRateFormatter($('.rate_calc_search_results #specific_standard_rate p'), rateset.specific_std, rateset.specific_std, true));
-	$('.rate_calc_search_results #specific_ic_rate p').html(specificRateFormatter($('.rate_calc_search_results #specific_ic_rate p'), rateset.specific_std, rateset.specific_add5, false));
-	$('.rate_calc_search_results #specific_icp_rate p').html(specificRateFormatter($('.rate_calc_search_results #specific_icp_rate p'), rateset.specific_std, rateset.specific_add10, false));
-
-	// Other rates
-	$('.rate_calc_search_results #other_label p').html(rateset.other_type);
-	$('.rate_calc_search_results #other_standard_rate p').html(otherRateFormatter($('.rate_calc_search_results #other_standard_rate p'), rateset.other_min_std, rateset.other_min_std, rateset.other_max_std, true));
-	$('.rate_calc_search_results #other_ic_rate p').html(otherRateFormatter($('.rate_calc_search_results #other_ic_rate p'), rateset.other_min_std, rateset.other_min_add5, rateset.other_max_add5, false));
-	$('.rate_calc_search_results #other_icp_rate p').html(otherRateFormatter($('.rate_calc_search_results #other_icp_rate p'), rateset.other_min_std, rateset.other_min_add10, rateset.other_max_add10, false));
-
-	// Note - no discount chart
-	$('#search_results_note .notice p').html('The number you entered calls ' + rateset.country + '. This number is not included in either of our International Connect offers, but our standard rates are still a great option.');
-
-	// Set the 'Best Deal' icon position.
-	var plan = $('.rate_calc_form .rate_selection input[name="rate_set"]:checked').attr('value');
-	if (plan == 1) {
-		if (rateset.specific_add5 <= rateset.specific_add10) {
-			$('.rate_calc_search_results #best_deal').addClass('add5');
-			$('.rate_calc_search_results').removeClass('gf').addClass('add5');
-		} else {
-			$('.rate_calc_search_results #best_deal').removeClass('add5');
-			$('.rate_calc_search_results').removeClass('gf').removeClass('add5');
-		}
-	} else {
-		$('.rate_calc_search_results').removeClass('add5');
-		$('.rate_calc_search_results').addClass('gf');
-	}
-}
-
-
-/*  Nicely formats the rate for display in the rate chart.  */
-function specificRateFormatter( obj, std_rate, rate, is_std ) {
-	std_rate = parseFloat(std_rate);
-	rate = parseFloat(rate);
-
-	// Does the standard rate apply?
-	if (!is_std && std_rate == rate) {
-		$(obj).addClass('subtle');
-		return 'Standard Rate Applies';
-	}
-
-	if (rate >= '1.00') {
-		return '$' + rate.toFixed(2) + ' / minute';
-	}
-	if (rate.toFixed(2) == '0.00') {
-		return 'UNLIMITED';
-	}
-
-	return Math.round(rate * 100) + '&cent; / minute';
-}
-
-
-/*  Nicely formats the rate for display in the rate chart.  */
-function otherRateFormatter( obj, std_rate, min_rate, max_rate, is_std ) {
-	var rate_string = '';
-	std_rate = parseFloat(std_rate);
-	min_rate = parseFloat(min_rate);
-	max_rate = parseFloat(max_rate);
-
-	// Does the standard rate apply?
-	if (!is_std && std_rate == min_rate) {
-		$(obj).addClass('subtle');
-		return 'Standard Rate Applies';
-	}
-
-	if (is_std) {
-		if (min_rate < max_rate && min_rate != '0.00') {
-			rate_string = 'As low as<br/>';
-			$(obj).addClass('stacked');
-		}
-	} else if (min_rate < max_rate && min_rate != '0.00') {
-		rate_string = 'As low as ';
-	}
-
-	if (min_rate >= '1.00') {
-		return rate_string + '$' + min_rate.toFixed(2) + ' / minute';
-	}
-	if (min_rate.toFixed(2) == '0.00') {
-		return rate_string + 'UNLIMITED';
-	}
-	return rate_string + Math.round(min_rate * 100) + '&cent; / minute';
-}
-
-
-/*  Copies over missing rates when available.  */
-function supplementMissingRates( rates ) {
-	if (rates.specific_std == null) {
-		if ((rates.specific_type == 'Mobile' && rates.mobi_min_std != null)
-			|| (rates.specific_type == 'Landline' && rates.land_min_std == null && rates.mobi_min_std != null)) {
-			rates.specific_std		= rates.mobi_min_std;
-			rates.specific_add5		= rates.mobi_min_add5;
-			rates.specific_add10	= rates.mobi_min_add10;
-			rates.specific_gf1		= rates.mobi_min_gf1;
-			rates.specific_gf2		= rates.mobi_min_gf2;
-		} else if ((rates.specific_type == 'Landline' && rates.land_min_std != null)
-			|| (rates.specific_type == 'Mobile' && rates.mobi_min_std == null && rates.land_min_std != null)) {
-			rates.specific_std		= rates.land_min_std;
-			rates.specific_add5		= rates.land_min_add5;
-			rates.specific_add10	= rates.land_min_add10;
-			rates.specific_gf1		= rates.land_min_gf1;
-			rates.specific_gf2		= rates.land_min_gf2;
-		}
-	}
-
-	// Overwrite any missing rates.
-	if (rates.mobi_min_std == null && rates.land_min_std != null) {
-		rates.mobi_min_std		= rates.land_min_std;
-		rates.mobi_max_std		= rates.land_max_std;
-		rates.mobi_min_add5		= rates.land_min_add5;
-		rates.mobi_max_add5		= rates.land_max_add5;
-		rates.mobi_min_add10	= rates.land_min_add10;
-		rates.mobi_max_add10	= rates.land_max_add10;
-		rates.mobi_min_gf1		= rates.land_min_gf1;
-		rates.mobi_max_gf1		= rates.land_max_gf1;
-		rates.mobi_min_gf2		= rates.land_min_gf2;
-		rates.mobi_max_gf2		= rates.land_max_gf2;
-	} else if (rates.land_min_std == null && rates.mobi_min_std != null) {
-		rates.land_min_std		= rates.mobi_min_std;
-		rates.land_max_std		= rates.mobi_max_std;
-		rates.land_min_add5		= rates.mobi_min_add5;
-		rates.land_max_add5		= rates.mobi_max_add5;
-		rates.land_min_add10	= rates.mobi_min_add10;
-		rates.land_max_add10	= rates.mobi_max_add10;
-		rates.land_min_gf1		= rates.mobi_min_gf1;
-		rates.land_max_gf1		= rates.mobi_max_gf1;
-		rates.land_min_gf2		= rates.mobi_min_gf2;
-		rates.land_max_gf2		= rates.mobi_max_gf2;
-	}
-
-	return rates;
-}
-
-
-/*  Creates a rateset that doesn't reference 'mobi' or 'land', but instead 'specific', or 'other'.  */
-function generateRateset( rates ) {
-	var set = {
-		country:			rates.country,
-		specific_type:		rates.specific_type,
-		subgpu:				rates.subgpu,
-		area_name:			rates.area_name,
-		city_service_name:	rates.city_service_name,
-		mobile_network:		rates.mobile_network,
-
-		specific_std:		rates.specific_std,
-		specific_add5:		rates.specific_add5,
-		specific_add10:		rates.specific_add10
-	};
-
-	// Copying over the "other" line-type rates. When the user enters a landline, the 'other' line type is
-	// Mobile. We're copying over the other line-type rates so that they can be ambiguously referenced in
-	// functions.
-	if (rates.specific_type == 'Landline') {
-		set.other_type		= 'Mobile';
-		set.other_min_std	= rates.mobi_min_std;
-		set.other_max_std	= rates.mobi_max_std;
-		set.other_min_add5	= rates.mobi_min_add5;
-		set.other_max_add5	= rates.mobi_max_add5;
-		set.other_min_add10	= rates.mobi_min_add10;
-		set.other_max_add10	= rates.mobi_max_add10;
-	} else {
-		set.other_type		= 'Landline';
-		set.other_min_std	= rates.land_min_std;
-		set.other_max_std	= rates.land_max_std;
-		set.other_min_add5	= rates.land_min_add5;
-		set.other_max_add5	= rates.land_max_add5;
-		set.other_min_add10	= rates.land_min_add10;
-		set.other_max_add10	= rates.land_max_add10;
-	}
-
-	return set;
-}
-</script>
-
-<script>
-    hideRateCharts();
-    clearErrorState();
-</script>
-
-<script>
-    var hash=location.hash.split("#");
-    if(hash.length==3){
-        appUtil.ui.scrollTopToElement("#"+hash[2].replace("/",""));
-    }
-</script>
-
-<script>
-		window.closeModal = function(){
-		$(".modal").modal("hide");
-		//self.location="#!/shop/plans/international-connect#ratesbynumber";
-		};	
-</script>
-
+	</script>
 </body>
 </html>

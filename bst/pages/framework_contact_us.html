@@ -69,7 +69,7 @@
 											<noscript>
 												<div style="padding:10px;background-color:#fff;color:#f00;margin-bottom:20px;">Please enable Javascript to use the Customer Care Form</div>
 											</noscript>
-											<form name="form1" id="form1" method="post" onsubmit="return checkForm(this);" action="/shop/SendMailServlet">
+											<form name="form1" id="form1" method="post" onSubmit="return checkForm(this);" action="/shop/SendMailServlet">
 												<div class="fieldLabel clearfix">
 													<label>Topic<span class="required"></span></label>
 													<select name="topic" id="topic">
@@ -270,6 +270,20 @@
             }
         };
     </script>	<!-- END OF SCRIPTS SECTION -->
+	
+<script>
+var analyticsData = {
+    page : {
+      channel : 'Support',
+      subSection : 'Contact Us', 
+      name : 'Contact Us Form',
+	  language: '',
+	  app: 'bst'
+    }
+  }
+pathMap._page._sendAnalysisData(analyticsData);
+</script>		
+	
 	
 </body>
 </html>
