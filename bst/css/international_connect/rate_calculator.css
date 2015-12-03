@@ -340,6 +340,7 @@ body.ie6 .rate_calculator .rate_calc_form {
 			font: 18px/18px BoostNeoGroteskRegular, Arial, Helvetica, sans-serif;
 			margin: 9px 0 0 16px;
 			font-weight: bold;
+			text-align: left !important;
 		}
 		.rate_calc_search_results.single #specific_label div, .rate_calc_search_results.single #other_label div {
 			font: 14px/14px BoostNeoGroteskRegular, Arial, Helvetica, sans-serif;
@@ -353,6 +354,7 @@ body.ie6 .rate_calculator .rate_calc_form {
 		.rate_calc_search_results #specific_label .pre_label, .rate_calc_search_results.single #specific_label {
 			margin: 0px;
 			font: 14px/14px BoostNeoGroteskRegular, Arial, Helvetica, sans-serif;
+			text-align: left !important;
 		}
 		#search_results_note.rate_calc_search_results #specific_label .pre_label {
 			margin: 0px;
@@ -419,8 +421,12 @@ body.ie6 .rate_calculator .rate_calc_form {
 .tr{display:table-row;}
 .td{display:table-cell;}
 
-.ic-new .td{height:70px;background-color: #e9eaeb;vertical-align: middle;font-size:17px;width:194px;padding-left:0px;border-right:1px solid #fff;border-bottom:1px solid #fff;}
+.ic-new .td{height:70px;background-color: #e9eaeb;vertical-align: middle;font-size:17px;width:194px;padding-left:15px;border-right:1px solid #fff;border-bottom:1px solid #fff;}
+div.gradient-orange{padding-left:15px !important;padding: 20px 0px 20px 15px!important;}
+div.gradient-orange h3{font-size: 18px !important;}
+div.gradient-orange span.sm{display: block !important; text-align: left !important;font-family:BoostNeoBold,Arial,Helvetica,sans-serif !important;}
     .ic-new .td.wht{background-color:#fff;}
+    .ic-new .td .btn {padding: 1px 0px !important;}
     .ic-new .td.center{text-align:center;}
     .ic-new .td.greydk{background-color:#c1c1c1;font-weight:bold;}
     .ic-new .td.full{width:391px;height:210px;position:absolute;}
@@ -434,6 +440,9 @@ body.ie6 .rate_calculator .rate_calc_form {
 .rate_calc_search_results {
 	display: none;
 }
+
+#search_results p{text-align: left !important;}
+#search_results_note p{text-align: left !important;}
 
 .rate_calc_search_results_showed{
 	display: true;

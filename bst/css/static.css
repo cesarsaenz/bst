@@ -1368,6 +1368,7 @@ div.tab-content div#databoost.tab-pane.active section h3{
     font-size:15px;
 }
 
+#rates section h3.bn-bk{text-align: left !important;}
 #rates section h3{
     font-size: 21px;
     padding-left: 35px;
@@ -1375,11 +1376,13 @@ div.tab-content div#databoost.tab-pane.active section h3{
     background-color: #000;
     color: #FFF;
     text-align: center;
-    margin-bottom: 10px;
-    display: inline-block;
-	margin-left: -8px;
-	margin-top: 10px !important;
+    margin-bottom: 0px;
+    display: block;
+	margin-left: 0px;
+	margin-top: 0px !important;
+	font-family: BoostNeoBlack,Arial,Helvetica,sans-serif !important;
 }
+#rates .ratetable h3{font-family: BoostNeoBlack,Arial,Helvetica,sans-serif !important;}
 
 #rates section:first-of-type {
     padding: 100px 60% 0px 30px !important;
@@ -1455,3 +1458,5 @@ ul.details > li > a:hover, ul.details + p > a:hover{
 	color: #67CFCD !important;
 }
 /******** end of shop/pans/datapacks *****************/
+
+.modal td{padding: 0 !important;}
