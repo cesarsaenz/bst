@@ -766,7 +766,6 @@ section.intl-title{
     display: inline-block;
 }
 
-@media (max-width: 767px){section.is-first{background-image: none !important;}}
 
 .mh-bottom {
     background: transparent url(../img/ir-footer.png);
@@ -779,4 +778,30 @@ section.intl-title{
 
 .col {
     margin-bottom: 0px !important;
+}
+
+@media (max-width: 992px){.mh-bottom{padding: 0px 25px !important;}}
+@media (max-width: 767px){
+	section.is-first{background-image: none !important;}
+	#intl p, #intl section>div >h2{
+		padding: 0 15px !important;
+		padding-left: 15px !important;
+		padding-right: 15px !important;
+	}
+	#intl section>div >h2{
+		font-size: 18px !important;
+		text-align: center;
+	}
+	.mh-bottom{
+		padding: 0px !important;
+	}
+	#module-intservices-content1  .container #intl p.responsive-section{padding: 0px !important;}
+	.p_responsive{
+		padding-left: 15px !important; padding-right: 15px !important;text-align: center;
+	}
+}
+@media (min-width: 768px){
+	.p_responsive{
+		padding-left: 25px !important; padding-right: 25px !important;
+	}
 }
