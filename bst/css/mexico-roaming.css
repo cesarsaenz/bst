@@ -1,0 +1,36 @@
+
+#mr-top {
+    padding: 100px 20px 20px;
+    background: url(../img/mexico-roaming-header.png) no-repeat scroll 0px 0px transparent;
+}
+
+#mr-top p {
+    font-size: 11px;
+}
+.h2, h2 {
+    font-size: 24px !important;
+    letter-spacing: -0.5px !important;
+    color: rgb(0, 0, 0) !important;
+	padding-left: 0 !important;
+}
+
+.pmr{
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+.secmrtop{
+	border-left: none !important;
+}
+
+#mr-list {
+    padding: 20px;
+}
+
+#mr-list table {
+    width: 100%;
+}
+#mr-list td {
+    width: 20%;
+	vertical-align: text-top;
+}
