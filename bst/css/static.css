@@ -1369,7 +1369,7 @@ div.tab-content div#databoost.tab-pane.active section h3{
 }
 
 #rates section h3.bn-bk{text-align: left !important;}
-#rates section h3{
+#rates section .ic-new  h3{
     font-size: 21px;
     padding-left: 35px;
     padding-right: 20px;
@@ -1377,11 +1377,24 @@ div.tab-content div#databoost.tab-pane.active section h3{
     color: #FFF;
     text-align: center;
     margin-bottom: 0px;
-    display: block;
-	margin-left: 0px;
+    display: block !important;
+	margin-left: 0px !important;
 	margin-top: 0px !important;
 	font-family: BoostNeoBlack,Arial,Helvetica,sans-serif !important;
 }
+#rates section h3 { 
+    font-size: 21px; 
+    padding-left: 35px; 
+    padding-right: 20px; 
+    background-color: #000; 
+    color: #FFF; 
+    text-align: center; 
+    margin-bottom: 10px; 
+    display: inline-block; 
+    margin-left: -8px; 
+    margin-top: 10px !important; 
+}
+
 #rates .ratetable h3{font-family: BoostNeoBlack,Arial,Helvetica,sans-serif !important;}
 
 #rates section:first-of-type {

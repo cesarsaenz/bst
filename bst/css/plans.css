@@ -8,18 +8,19 @@
         url(../fonts/v2/BoostNeo-Black.ttf) format("truetype"),
         url(../fonts/v2/BoostNeo-Black.svg#boost_neoblack) format("svg");
     font-weight:400;
-    font-style:normal;
+    font-style:normal
 }
 
-@font-face {
-    font-family: "BoostNeoBold";
-    font-style: normal;
-    font-weight: 400;
-    src: url("../fonts/v2/BoostNeo-Bold.eot?#iefix") format("embedded-opentype"), 
-        url("../fonts/v2/BoostNeo-Bold.woff") format("woff"), 
-        url("../fonts/v2/BoostNeo-Bold.woff") format("woff"), 
-        url("../fonts/v2/BoostNeo-Bold.ttf") format("truetype"), 
-        url("../fonts/v2/BoostNeo-Bold.svg#boost_neobold") format("svg");
+@font-face{
+    font-family:BoostNeoBold;
+    src:url(../fonts/v2/BoostNeo-Bold.eot);
+    src:url(../fonts/v2/BoostNeo-Bold.eot?#iefix) format("embedded-opentype"),
+        url(../fonts/v2/BoostNeo-Bold.woff) format("woff"),
+        url(../fonts/v2/BoostNeo-Bold.woff) format("woff"),
+        url(../fonts/v2/BoostNeo-Bold.ttf) format("truetype"),
+        url(../fonts/v2/BoostNeo-Bold.svg#boost_neobold) format("svg");
+    font-weight:400;
+    font-style:normal
 }
 
 @font-face{
@@ -45,7 +46,7 @@ div.tab-content div#intl.tab-pane.active section.first{
 }
 
 div.tab-content div#intl.tab-pane.active section.intl-title{
-    padding:30px 20px 0 20px;
+   /* padding:30px 20px 0 20px;*/
 }
 
 div.tab-content div#intl.tab-pane.active section span.bn-b{
@@ -377,9 +378,9 @@ section.container.plans-home div.col-xs-12.col-sm-12.col-md-12 section .plans-pr
 }
 
 .plans .tab-content #intl section:first-of-type {
-    padding:180px 60% 6px 20px !important;
+    padding:95px 60% 6px 20px !important;
     height: 260px;
-    background: transparent url("../img/img-bg-international.jpg") no-repeat scroll left top / cover;
+    background: transparent url("../img/intservices_header3.jpg") no-repeat scroll left top / cover;
 }
 
 .plans .tab-content #intl section:first-of-type p{
@@ -504,13 +505,142 @@ section.module-intservices-content2{background-image: url('../img/middle4.jpg') 
     width: 98%;
 	margin: 0 auto;
     background-color: #000;
-    padding: 0 0 15px 0;
+    padding: 10px 0 15px 0;
+	padding-top: 1px !important;
 }
-#module-intservices-content1 #module-intservices-content-rates .boxed h2{padding-top: 15px !important;}
+.boxed-grey {
+    height: 60px;
+    width: 98%;
+    margin: 0 auto;
+	margin-top: 5px !important;
+    background-color: #c1c1c1;
+    padding: 1px 0 15px 10px !important;
+}
+.boxed-grey h2, .boxed-grey h2 span{color: #000 !important;}
+
+.module-intservices-first .box {
+    padding: 10px;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+#module-intservices-second .box{
+    padding: 10px;
+    margin-bottom: 5px;
+    position: relative;
+}
+.grey-lt {
+    background-color: #e4e4e4;
+	margin-left: 8px;
+	margin-top: 5px;
+	margin-right: 8px;
+}
+
+.plans-bottom li {
+    font-size: 13px;
+    margin-bottom: 30px;
+}
+.grey-lt ul > li{
+	font-size: 13px;
+    margin-bottom: 30px;
+	padding-left: 25px !important;
+	font-family: verdana;
+}
+
+.checkbox {
+    list-style: none;
+    color: #000;
+    background-image: url(../img/bg-shop-bullet.png);
+    background-position: 0 2px;
+    background-repeat: no-repeat;
+    padding-left: 25px;
+    text-decoration: none;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+.legal-grey{
+	font-size: 11px !important;
+	color: #000 !important;
+	font-family: verdana;
+}
+
+.is-first{
+	border-bottom: 2px solid #ccc;
+}
+
+.col {
+    float: left;
+    width: 33.1%;
+    border-left: 1px solid #fff;
+    margin-bottom: 10px;
+	background-color: #e4e4e4;
+}
+
+.box.grey {
+    color: #000;
+    background-color: #c1c1c1;
+    margin-top: 5px;
+}
+
+.col .col-title h3 {
+    text-align: center;
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+    margin-bottom: 0 !important;
+	font-size: 17px !important;
+	font-family: BoostNeoBold,Arial,Helvetica,sans-serif !important;
+	color: #000 !important;
+}
+
+.col-content {
+    min-height: 490px;
+    position: relative;
+}
+.col-title, .col-content {
+    padding: 15px;
+    border-bottom: 1px solid #fff;
+}
+
+.col-content h3.checkbox{
+	font-size: 17px !important;
+	color: #000 !important;
+	padding-left: 25px !important;
+	padding-right: 25px !important;
+	padding-top: 3px !important;	
+	padding-bottom: 3px !important;
+	margin-bottom: 10px !important;	
+	margin-left: 15px !important;	
+	margin-top: 10px !important;
+}
+
+.col-content a {
+	font-size: 17px !important;
+	text-decoration: underline;
+}
+.col-content a:hover {color: #6FDBDB;}
+.col-content h3 strong {
+    font-family: BoostNeoBlack,Arial,Helvetica,sans-serif;
+}
+
+#module-intservices-second .grey-lt{
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+}
+
+.col-bottom {
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    width: 98%;
+}
+.col-bottom  .legal-grey {
+	padding: 0px 20px !important;
+}
+
 #module-intservices-content-rates .legal{
 	background-color: #fff;
-	padding: 20px 10px;
-	padding-bottom : 15px !important;
+	padding: 0px 10px;
+	padding-bottom : 35px !important;
 	color: #666;
 	font-size: 11px !important;
 }
@@ -539,6 +669,12 @@ section.module-intservices-content2{background-image: url('../img/middle4.jpg') 
     display: inline;
     list-style-type: none;
     padding-right: 100px;
+	padding-left: 0px !important;
+	background: none !important;
+}
+#view-rateslist li a{
+	padding-top: 3px !important;
+	padding-bottom: 3px !important;
 }
 
 .arrows-black:link, .arrows-black:visited {
@@ -578,3 +714,54 @@ section.intl-title{
     font-size: 19px;
 }
 
+@media (max-width: 991px){
+	.col {
+		float: left;
+		width: 100%;
+		border-left: 1px solid #fff;
+		margin-bottom: 10px;
+		background-color: #e4e4e4;
+	}
+	.col-content {
+		min-height: 100px;
+	}
+	.col-bottom {
+		position: relative;
+		bottom: 10px;
+		text-align: center;
+		width: 98%;
+	}
+	.fixed-box{
+		position: static !important;
+		text-align: center;
+		width: 100% !important;
+	}
+	.boxed h2{
+		font-size: 20px !important;
+	}
+	.boxed-grey {
+		height: auto !important;
+		width: 100%;
+		margin-top: 5px !important;
+		background-color: #c1c1c1;
+		padding: 1px 0 15px 0px !important;
+	}
+	.boxed-grey h2{
+		font-size:20px !important;
+		text-align: center;
+	}
+	.plans .tab-content #intl section:first-of-type {
+		padding:95px 0px 6px 20px !important;
+	}
+}
+
+.desktop-banner h1{
+    font-size: 30px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-color: #000;
+    color: #fff !important;
+    text-align: center;
+    margin-bottom: 20px;
+    display: inline-block;
+}
