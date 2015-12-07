@@ -1473,3 +1473,105 @@ ul.details > li > a:hover, ul.details + p > a:hover{
 /******** end of shop/pans/datapacks *****************/
 
 .modal td{padding: 0 !important;}
+
+
+/***sitemap ***/
+
+#locations {
+    padding: 20px;
+    background-color: #fff;
+    clear: both;
+}
+
+#locations h2{
+    font-family: BoostNeoRegular,Arial,Helvetica,sans-serif;
+    -webkit-font-smoothing: initial;
+    -moz-osx-font-smoothing: initial;
+    float: left;
+    overflow: hidden;
+    margin: 0;
+    margin-right: 10px;
+    font-size: 20px;
+    padding-top: 3px;   
+    letter-spacing: -.5px;
+    color: #f7901e;        
+    font-weight: 400;
+    display: block;        
+}
+
+#locations h3 {
+    font-size: 24px;
+    font-family: BoostNeoGroteskRegular,Arial,Helvetica,sans-serif;
+    color: #000;
+    font-weight: normal;
+    letter-spacing: -0.5px;    
+    margin: 0;
+    padding: 0;
+}
+
+
+#locations input#search {
+    border: 1px solid #DDD;
+    padding: 5px 6px;
+    font-size: 13px;
+    position: relative;
+    top: 2px;
+    line-height: normal;
+    margin: 0;
+    vertical-align: baseline;
+    font-family: sans-serif;
+    color: #222;
+    -webkit-appearance: textfield;
+    background-color: white;
+    border: 2px inset;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    -webkit-rtl-ordering: logical;
+    -webkit-user-select: text;
+    cursor: auto;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    -webkit-writing-mode: horizontal-tb;
+}
+
+#locations  ul {
+    display: block;
+    list-style-type: disc;
+    font-family: verdana;
+}
+
+#locations #showall {
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
+    background-image: none;
+}
+#locations li {
+    background-image: url('../img/bullet_white.gif');
+    list-style-type: none;
+    background-repeat: no-repeat;
+    background-position: 0 3px;
+    padding-left: 10px;
+    float: left;
+    width: 32%;
+}
+
+#locations a:link, #locations a:visited {
+    color: #f7901e;
+    text-decoration: underline;
+    cursor: auto;
+    font-size: 11px;
+}
+
+    
+
+/*** end of sitemap **/

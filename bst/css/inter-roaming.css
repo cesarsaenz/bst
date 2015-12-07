@@ -38,7 +38,7 @@
 
 
 div.tab-content div#intl.tab-pane.active section h2{
-    padding:0!important;
+   /* padding:0!important; */
 }
 
 div.tab-content div#intl.tab-pane.active section.first{

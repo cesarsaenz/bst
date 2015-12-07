@@ -14,6 +14,7 @@
 	<title>Prepaid Cell Phones &amp; No Contract Cell Phones | Boost Mobile</title>
 	<link rel="shortcut icon" href="bst/img/favicon.ico"/>
     <link href="bst/css/static.css" rel="stylesheet" />
+	<script type="text/javascript" src="bst/js/faq/jquery.scrollTo.min.js"></script>
 </head>
     
 <ol id="page-path" class='breadcrumb hidden-xs'>
@@ -30,6 +31,7 @@
 </ol> 
     
 <body>
+<div id="top"></div>
 	<div class="modal fade" href="" id="coverageMap" tabindex="-1" role="dialog" aria-labelledby="coverageMap" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -96,6 +98,7 @@
             </div>				
 				<!--Responsive Menu-->
 			</div>
+			
 			<div class="col-xs-12 col-sm-10 col-md-10">
 				<div class="tab-content">
 					<div class="tab-pane active" id="dailyplans">
@@ -148,7 +151,7 @@
 
 						<!--Ron Comeau code change. This is a Legacy issue also-->
 						<!-- <p class="align_content">Daily plans subscription is a reoccurring daily charge, regardless of usage. See plan <a style="a:hover {color: #6FDBDB;}a:link, a:visited {color: #F7901E;}" href="#!/framework_terms_and_conditions">Terms &amp; Conditions</a>.</p> -->
-						<p >Daily plans subscription is a reoccurring daily charge, regardless of usage. See plan Terms and Conditions below.</p>						
+						<p >Daily plans subscription is a reoccurring daily charge, regardless of usage. See plan <a class="gototerms" href="#terms" style="text-decoration: underline;">Terms and Conditions below</a>.</p>						
 							<h2 class="hidden-xs hidden-sm">Programs that put money in your pocket</h2> 
 							<h2 class="visible-xs visible-sm text-center orange">Programs that put money in your pocket</h2> 
 							
@@ -184,6 +187,7 @@
 -->	
 
 		<section class="legal">
+			<a id="terms">&nbsp;</a>
 			<p> 
 				$2/$3 Daily Unlimited: Includes unlimited domestic talk, text, &amp; data. 
 				If your plan includes a data allotment, data speeds may be reduced to 2G speeds 
@@ -198,13 +202,27 @@
 			</p> 
 			<p> 
 				See complete service plan details 
-				<a style="color: #999" href="#!/framework_terms_and_conditions">here</a>. 
+				<a style="color: #999" class="top" href="top">here</a>. 
 				
 				<!-- REMOVED BY RON COMEAU REQUEST <a style="color: #999" href="#!/shop/plans/daily-unlimited-plans">here</a>.  -->
 			</p>
 		</section>
 		
 	</div>	
+    <script type="text/javascript">
+        $(document).ready(function() {
+              $('a.gototerms').click(function(){
+                  strLink = $(this).attr('href');
+                  $.scrollTo(strLink,{duration:'slow', offsetTop : '50'});
+                  return false;
+              });
+
+              $('a.top').click(function(){
+                  $.scrollTo('#top',{duration:'slow', offsetTop : '50'});              
+                  return false;
+              });
+          });
+    </script>
 	
    
 </body>

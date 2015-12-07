@@ -765,3 +765,5 @@ section.intl-title{
     margin-bottom: 20px;
     display: inline-block;
 }
+
+@media (max-width: 767px){section.is-first{background-image: none !important;}}

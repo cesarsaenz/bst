@@ -9,9 +9,33 @@
     font-weight:400;
     font-style:normal
 }
+@font-face{
+    font-family:BoostNeoBlack;
+    src:url(../fonts/v2/BoostNeo-Black.eot);
+    src:url(../fonts/v2/BoostNeo-Black.eot?#iefix) format("embedded-opentype"),
+        url(../fonts/v2/BoostNeo-Black.woff) format("woff"),
+        url(../fonts/v2/BoostNeo-Black.woff) format("woff"),
+        url(../fonts/v2/BoostNeo-Black.ttf) format("truetype"),
+        url(../fonts/v2/BoostNeo-Black.svg#boost_neoblack) format("svg");
+    font-weight:400;
+    font-style:normal
+}
 
+@font-face{
+    font-family:BoostNeoBold;
+    src:url(../fonts/v2/BoostNeo-Bold.eot);
+    src:url(../fonts/v2/BoostNeo-Bold.eot?#iefix) format("embedded-opentype"),
+        url(../fonts/v2/BoostNeo-Bold.woff) format("woff"),
+        url(../fonts/v2/BoostNeo-Bold.woff) format("woff"),
+        url(../fonts/v2/BoostNeo-Bold.ttf) format("truetype"),
+        url(../fonts/v2/BoostNeo-Bold.svg#boost_neobold) format("svg");
+    font-weight:400;
+    font-style:normal
+}
 /********** START OF STYLES OF BOOST MARKET *************/
 @media (max-width: 767px){
+	.table-padding{margin-left: 20px !important;}
+	.bmar-icon{display: none !important;}
 	#money h1,#money h2,#money h3, #money span{
 		padding-left: 10px !important;
 	}
@@ -177,6 +201,7 @@ h4>a{color: #F7901E !important;}
 		padding: 0 !important;
 	}
 }
+.btn-primary{background: #F7901E !important;border: none !important;}
 .boosttv-m .modal-dialog img{display: inline !important;}
 .boosttv-m .modal-dialog .modal-body{text-align: center !important;}
 
@@ -219,13 +244,19 @@ h4>a{color: #F7901E !important;}
     font-size: 21px!important;
     height: 32px;
 }
+@media(max-width: 360px){
+	.arrow {
+		font-size: 17px!important;
+		height: auto !important;
+	}
+}
 h3 > a{
 	font-size: 21 !important;
 }
 .orange {
     color: #f7901e;
 }
-
+table .box.col-xs-12 h2{padding-left: 20px !important}
 .numberedlist {
     margin: 0;
     padding: 0;
@@ -503,6 +534,35 @@ div.marketheader{
 div.marketheader div.title-marketheader{
    padding:30px 50% 20px 20px !important;
    height: 240px;
+}
+
+@media (max-width: 767px){
+	div.marketheader div.title-marketheader{
+	   padding:30px 15px 20px 15px !important;
+	   height: 240px;
+	}
+}
+
+@media (max-width: 991px){
+	.main.container .maintabs .tab-content [class*="col-"]{
+		padding-left: 0px !important;
+		padding-right: 0px !important;
+	}
+}
+
+.ent_learnmore2 {
+    position: absolute !important;
+    right: 20px !important;
+    top: 30px !important;
+    width: auto !important;
+    left: auto !important;
+    padding-left: 25px !important;
+    padding-right: 25px !important;
+    line-height: 40px !important;
+    color: #fff !important;
+    text-decoration: none !important;
+	background: linear-gradient(#626161, #262626) !important;
+	font-family: BoostNeoBlack,Arial,Helvetica,sans-serif !important;
 }
 
 div.marketheader div.title-marketheader h1{

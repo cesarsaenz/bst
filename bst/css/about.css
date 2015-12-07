@@ -343,3 +343,15 @@ div#databoost.tab-pane.active section p.align_content.nomargin{
 	padding: 0px 6px 0px 6px !important;
 }
 
+body{
+    font-family: verdana;
+    color: #222;
+    font-size: 13px;
+}
+
+
+div#databoost.tab-pane.active section ul.about-us{
+    list-style:disc outside;
+    padding: 0 0 0 40px;
+    margin: 10px 0;
+}

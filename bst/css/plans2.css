@@ -26,6 +26,15 @@
 	section.promo-wifi-intl div.promo12{background-image: url(../img/promo-half-12.jpg) !important;background-position: center left !important;}
 	section.promo-wifi-intl div.promo13{background-image: url(../img/promo-half-13.jpg) !important;background-position: center left !important;}
 }
+@media (min-width: 768px) and (max-width:991px){
+	.plans-home section.promo-wifi-intl div.promo13 ul.promo13_ul{
+		list-style: disc !important;
+		padding: 0 20px 0 60px !important;
+	}
+}
+@media (max-width: 767px){
+	.promo13_ul{text-align: center !important;}
+}
 @media (max-width: 992px){
 	.plans-home section.promo-dataPlans,.plans-home section.promo-wifi-intl{margin: 0px !important;width:100% !important;}
 	.plans-home section.promo-dataPlans div#plans-hub-top{width: 100% !important;height: auto !important;}
@@ -126,12 +135,12 @@ section.promo-wifi-intl div.col-xs-12.col-sm-6.promo12{
     font-size: 18px!important;
 }
 
-.plans-home section.promo-wifi-intl div.promo13 ul.promo13{
-    list-style: outside none disc;
+.plans-home section.promo-wifi-intl div.promo13 ul.promo13_ul{
+    list-style: disc !important;
     padding: 0 20px 0 60px;
 }
 
-.plans-home section.promo-wifi-intl div.promo13 ul.promo13 li{
+.plans-home section.promo-wifi-intl div.promo13 ul.promo13_ul li{
     padding: 0!important;
     margin:10px 0 0 0;
 }
@@ -142,7 +151,7 @@ section.promo-wifi-intl div.col-xs-12.col-sm-6.promo12{
     font-family: verdana;
 }
 
-.plans-home section.promo-wifi-intl div.promo13 ul.promo13 li span.listaBold{
+.plans-home section.promo-wifi-intl div.promo13 ul.promo13_ul li span.listaBold{
     font-family: BoostNeoBlack,Arial,Helvetica,sans-serif!important;
     color:#222;
     padding: 0!important;

@@ -102,6 +102,8 @@
     background: -ms-linear-gradient(top, #292929 0%,#000000 100%);
     background: linear-gradient(to bottom, #292929 0%,#000000 100%);
 }
+ul.tabs-left a{font-size: 13px !important;}
+ul.tabs-left a:hover{text-decoration: none; background-color: #6fdbdb !important; color: #fff !important;}
 .plans section div.col-xs-12.col-md-2 ul li:first-of-type span {
     border-top: none;
 }
@@ -127,21 +129,35 @@
     margin: 0;
 }
 	
-@font-face {
-    font-family: BoostNeoBlack;
-    src: url(../fonts/Boost-Neo-Black.otf);
-} 
-	
-@font-face {
-    font-family: BoostNeoBold;
-    src: url(../fonts/Boost-Neo-Bold.otf);
-} 
+@font-face{
+    font-family:BoostNeoBlack;
+    src:url(../fonts/v2/BoostNeo-Black.eot);
+    src:url(../fonts/v2/BoostNeo-Black.eot?#iefix) format("embedded-opentype"),
+        url(../fonts/v2/BoostNeo-Black.woff) format("woff"),
+        url(../fonts/v2/BoostNeo-Black.woff) format("woff"),
+        url(../fonts/v2/BoostNeo-Black.ttf) format("truetype"),
+        url(../fonts/v2/BoostNeo-Black.svg#boost_neoblack) format("svg");
+    font-weight:400;
+    font-style:normal
+}
+
+@font-face{
+    font-family:BoostNeoBold;
+    src:url(../fonts/v2/BoostNeo-Bold.eot);
+    src:url(../fonts/v2/BoostNeo-Bold.eot?#iefix) format("embedded-opentype"),
+        url(../fonts/v2/BoostNeo-Bold.woff) format("woff"),
+        url(../fonts/v2/BoostNeo-Bold.woff) format("woff"),
+        url(../fonts/v2/BoostNeo-Bold.ttf) format("truetype"),
+        url(../fonts/v2/BoostNeo-Bold.svg#boost_neobold) format("svg");
+    font-weight:400;
+    font-style:normal
+}
 
 div.tab-content div#datapacks.tab-pane section:first-of-type {    
     background: url(../img/data-packs-header2.jpg) top left no-repeat;
     height:260px;
     width: 100%;
-    padding: 140px 42% 0 30px;
+    padding: 140px 50% 0 30px;
     background-size:cover;
 }
 
@@ -652,7 +668,7 @@ ul.tabs-left li.faq-title a:link, ul.tabs-left li.faq-title a:visited{
 }
 
 div.faq-column h2 a:link, div.faq-column h2 a:visited {
-    font-size: 22px!important;
+    font-size: 20px!important;
 }
 
 div.faq-column h2{
@@ -688,7 +704,7 @@ div.col-xs-3 ul.tabs-left li.active ul.plans-services li a:hover{
 
 div#faqs.tab-pane.active section div.faqs-header h1{
     color: #f7901e;
-    font-size: 36px;
+    font-size: 25px;
     font-weight: normal;
     letter-spacing: -0.5px;
     margin: 0;
@@ -727,6 +743,11 @@ div#faq-answers div.faq-answer h2{
 div#faq-answers div.faq-answer h2 a{
     color:#f7901e;
     font-size: 18px;
+}
+
+.faq-answer.active {
+    background: #F1F1F1 url("../img/tiny_arrow.png") no-repeat scroll -6px 6px;
+	padding-left : 15px !important;
 }
 
 div#faqs.tab-pane.active section div#faq-questions div.faq-question p{
@@ -786,8 +807,8 @@ div.generalSupportSkype{
 
 div#faqs-sub.tab-pane.active section div.faqs-header-sub h1{
     color: #f7901e;
-    /*font-family: BoostNeoBold,Arial,Helvetica,sans-serif;*/
-    font-size: 36px;
+    font-family: BoostNeoBold,Arial,Helvetica,sans-serif;
+    font-size: 25px;
     font-weight: normal;
     letter-spacing: -0.5px;
     margin-left: 25px;
@@ -840,12 +861,18 @@ div#faq-answers div.faq-answer-sub h2 a{
 }
 
 div#faqs-sub.tab-pane.active section div#faq-answers div.faq-answer-sub p{
-    font-size: 14px;
+    font-size: 13px;
     padding: 0 0 0 0;
-	margin: 0 0 0;
-    margin-left: 25px;
-	margin-right: 25px;
+	margin: 0 25px 10px 25px;
+    font-family: verdana;
+    color: #222;
 }
+
+div#faqs-sub.tab-pane.active section div#faq-answers div.faq-answer-sub{
+    padding: 0px;
+    margin: 0px 0px 30px;
+}
+
 
 .separator{
     margin-left: 25px;
@@ -935,8 +962,9 @@ div#iphoneNav div ul li{
 
 /********* end iPhone pages  ***********/
 
-
-
+hr{
+	border-color: #ccc;
+}
 
 /********* BEGIN MONTHLY PLANS pages  ***********/
 
@@ -981,6 +1009,28 @@ direction:initial;
 margin: 2px 15px 15px;
 
 }
+
+ div#monthlyplans.tab-pane.active section p.align_content2{
+font-size: 11px;
+font-family: verdana;
+color: #222;
+line-height: 1.231;	
+text-align:justify;
+direction:initial;
+margin: 0px 10px 15px;
+
+}
+
+ div#monthlyplans.tab-pane.active section p.align_contentPrincipalText{
+font-size: 13px;
+font-family: verdana;
+color: #222;
+line-height: 1.231;	
+text-align:justify;
+direction:initial;
+margin: 2px 40px 15px 40px;
+}
+
 
 div#monthlyplans.tab-pane.active section div.plans-middle-monthly
 {
@@ -1039,6 +1089,8 @@ div#monthlyplans.tab-pane.active  section.tab-addservices div.plans-bottom-box t
 
 div#monthlyplans.tab-pane.active  section.tab-addservices div.plans-bottom-box table tbody td h3.bn-bk{
 	font-family: BoostNeoBlack,Arial,Helvetica,sans-serif !important;
+	margin-top: 10px;
+	margin-bottom: 0px;
 }
 
 div#monthlyplans.tab-pane.active  section.tab-addservices div.plans-bottom-box table tbody   td.gradient-orange, td.gradient-orange-hover, td.gradient-orange-nohover {
@@ -1089,7 +1141,10 @@ div#dailyplans.tab-pane.active section h3
 {
 	font-size: 18px;
 	margin-top: 0px;
+	margin-bottom: 0px;
 	color: #000000;
+	padding: 10px 0px 0px 4px;
+
  } 
  
  div#dailyplans.tab-pane.active section p.align_banner_text{
@@ -1101,15 +1156,23 @@ direction:initial;
 margin: 0px 35px 0px 0px;
 padding: 1px;
 
-} div#dailyplans.tab-pane.active section p.align_content{
+} 
+
+div#dailyplans.tab-pane.active section p.align_content{
 font-size: 13px;
 font-family: verdana;
 color: #222;
 line-height: 1.231;	
 text-align:justify;
 direction:initial;
-margin: 2px 15px 15px;
+margin: 2px 4px 10px;
 }
+
+div#dailyplans.tab-pane.active section p.align_content2{
+margin: 0px 0px;
+padding: 0px 0px 10px 4px;
+}
+
 
 div#dailyplans.tab-pane.active section div.plans-middle-monthly
 {
@@ -1228,6 +1291,7 @@ div#dailyplans.tab-pane.active section.tab-addservices div.plans-bottom-box p.al
 
 div#dailyplans.tab-pane.active section.tab-addservices div.plans-bottom-box p.align_content a:link, a:visited{
 	color: #F7901E;
+	text-decoration: underline !important;
 }
 
 div.plans-middle #middle{
@@ -1258,7 +1322,7 @@ div.tab-content div#wifihotspot.tab-pane section div.plans-bottom-box{
 }
 
 
-
+/*
 div.tab-content div#wifihotspot.tab-pane section div.plans-bottom-box  ul.wifibullets {
     float: left;
     padding-left: 40px;
@@ -1268,7 +1332,7 @@ div.tab-content div#wifihotspot.tab-pane section div.plans-bottom-box  ul.wifibu
 	color: #000;
 	font-family: BoostNeoBold,Arial,Helvetica,sans-serif;
 
-}
+}*/
 
 div.tab-content div#wifihotspot.tab-pane section div.plans-bottom-box  h3.sizeWifi {
     font-size: 17px;
@@ -1287,7 +1351,7 @@ div.tab-content div#wifihotspot.tab-pane.active section.tab-addservices  div.wif
 }
 
 div.tab-content div#wifihotspot.tab-pane.active section.tab-addservices  div.wifi-bottom  h2.wifiPading {
-margin-top: 0px;
+    margin-top: 0px;
 }
 
 div.tab-content div#wifihotspot.tab-pane.active section.tab-addservices  div.plans-box   {
@@ -1303,3 +1367,211 @@ div.tab-content div#databoost.tab-pane.active section h3{
     color:#000;
     font-size:15px;
 }
+
+#rates section h3.bn-bk{text-align: left !important;}
+#rates section .ic-new  h3{
+    font-size: 21px;
+    padding-left: 35px;
+    padding-right: 20px;
+    background-color: #000;
+    color: #FFF;
+    text-align: center;
+    margin-bottom: 0px;
+    display: block !important;
+	margin-left: 0px !important;
+	margin-top: 0px !important;
+	font-family: BoostNeoBlack,Arial,Helvetica,sans-serif !important;
+}
+#rates section h3 { 
+    font-size: 21px; 
+    padding-left: 35px; 
+    padding-right: 20px; 
+    background-color: #000; 
+    color: #FFF; 
+    text-align: center; 
+    margin-bottom: 10px; 
+    display: inline-block; 
+    margin-left: -8px; 
+    margin-top: 10px !important; 
+}
+
+#rates .ratetable h3{font-family: BoostNeoBlack,Arial,Helvetica,sans-serif !important;}
+
+#rates section:first-of-type {
+    padding: 100px 60% 0px 30px !important;
+}
+
+#rates section:first-of-type {
+    background: transparent url("../img/img-bg-intl.jpg") no-repeat scroll left bottom / cover;
+    padding: 100px 40% 0px 30px;
+    height: 270px;
+    color: #000;
+}
+
+p.legal>a#a-legal-terms{
+	font-size: 11px !important;
+	text-decoration: underline;
+}
+
+p.legal.black{
+	color: #000 !important;
+}
+
+#mobile-hotspot > section:nth-child(1) > p:nth-child(2) {
+    padding-right: 10%;
+}
+
+div.legal{
+	background-color: #000;
+	color: #8D8D8D;
+	width: 100%;
+	font-family: verdana;
+	color: #8D8D8D;
+	line-height: 1.231;
+	font-size: 10px;
+	padding-bottom: 5px;
+}
+
+div.box > p  > a{
+	font-size: 13px;
+}
+
+.flag {
+    color: #000;
+    display: inline-block;
+    background-color: #6FDBDB;
+    padding: 5px;
+    font-size: 14px !important;
+}
+
+/** DO NOT remove these styles. They're needed for shop/plans/datapacks page ***************/
+ul.details li::before, ul.details.half li::before {
+    font-family: "Arial" !important;
+    content: "" !important;
+	color: #222;
+	padding: 0 !important;
+}
+
+ul.details{
+	list-style-type: disc !important;
+	padding-left: 56px;
+}
+ul.details li {
+    display: list-item !important;
+	margin-left: 10px;
+}
+.backgroundShadow {
+	background-image: url('../img/shadow.png');
+    background-repeat: no-repeat;
+}
+ul.details > li > a, ul.details + p > a
+{text-decoration: underline !important; color: #F7901E !important;}
+
+ul.details > li > a:hover, ul.details + p > a:hover{
+	color: #67CFCD !important;
+}
+/******** end of shop/pans/datapacks *****************/
+
+.modal td{padding: 0 !important;}
+
+
+/***sitemap ***/
+
+#locations {
+    padding: 20px;
+    background-color: #fff;
+    clear: both;
+}
+
+#locations h2{
+    font-family: BoostNeoRegular,Arial,Helvetica,sans-serif;
+    -webkit-font-smoothing: initial;
+    -moz-osx-font-smoothing: initial;
+    float: left;
+    overflow: hidden;
+    margin: 0;
+    margin-right: 10px;
+    font-size: 20px;
+    padding-top: 3px;   
+    letter-spacing: -.5px;
+    color: #f7901e;        
+    font-weight: 400;
+    display: block;        
+}
+
+#locations h3 {
+    font-size: 24px;
+    font-family: BoostNeoGroteskRegular,Arial,Helvetica,sans-serif;
+    color: #000;
+    font-weight: normal;
+    letter-spacing: -0.5px;    
+    margin: 0;
+    padding: 0;
+}
+
+
+#locations input#search {
+    border: 1px solid #DDD;
+    padding: 5px 6px;
+    font-size: 13px;
+    position: relative;
+    top: 2px;
+    line-height: normal;
+    margin: 0;
+    vertical-align: baseline;
+    font-family: sans-serif;
+    color: #222;
+    -webkit-appearance: textfield;
+    background-color: white;
+    border: 2px inset;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    -webkit-rtl-ordering: logical;
+    -webkit-user-select: text;
+    cursor: auto;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    -webkit-writing-mode: horizontal-tb;
+}
+
+#locations  ul {
+    display: block;
+    list-style-type: disc;
+    font-family: verdana;
+}
+
+#locations #showall {
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
+    background-image: none;
+}
+#locations li {
+    background-image: url('../img/bullet_white.gif');
+    list-style-type: none;
+    background-repeat: no-repeat;
+    background-position: 0 3px;
+    padding-left: 10px;
+    float: left;
+    width: 32%;
+}
+
+#locations a:link, #locations a:visited {
+    color: #f7901e;
+    text-decoration: underline;
+    cursor: auto;
+    font-size: 11px;
+}
+
+    
+
+/*** end of sitemap **/
